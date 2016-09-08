@@ -11,7 +11,7 @@ nova:comments
 nova:newsletter
 nova:search
 nova:notifications
-nova:getting-started
+#nova:getting-started
 nova:categories
 nova:voting
 nova:forms
