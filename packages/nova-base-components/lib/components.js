@@ -69,6 +69,8 @@ Telescope.registerComponent("CommentsNew",          require('./comments/Comments
 Telescope.registerComponent("CommentsEdit",         require('./comments/CommentsEdit.jsx'));
 Telescope.registerComponent("CommentsLoadMore",     require('./comments/CommentsLoadMore.jsx'));
 
+Telescope.registerComponent("CommentsNodeList",     require('./comments/CommentsNodeList.jsx'));
+
 // categories
 
 Telescope.registerComponent("CategoriesList",       require('./categories/CategoriesList.jsx'));
