@@ -96,6 +96,7 @@ Telescope.registerComponent("UsersAccountMenu",     require('./users/UsersAccoun
 Telescope.registerComponent("UsersAccountForm",     require('./users/UsersAccountForm.jsx'));
 
 Telescope.registerComponent("UserLogin",            require('./users/UserLogin.jsx'));
+Telescope.registerComponent("UsersPopoverMenu",     require('./users/UsersPopoverMenu.jsx'));
 
 // widget for Calendar
 Telescope.registerComponent("WidgetCalendar",       require('./widgetscalendar/WidgetCalendar.jsx'));
