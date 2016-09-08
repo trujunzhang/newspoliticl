@@ -54,8 +54,7 @@ class UsersPopoverMenu extends Component {
                           return (
                             <li
                               className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
-                                <a
-                                  onClick={this.logout()}>{menu.title}</a>
+                                <a onClick={this.logout.bind()}>{menu.title}</a>
                             </li>
                           )
                       } else {
