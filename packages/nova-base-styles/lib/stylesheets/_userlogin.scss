@@ -1,0 +1,53 @@
+
+.login-fullscreen {
+  background: url("https://s3.producthunt.com/static/category-tech/kitty.png") top center/150px 150px no-repeat;
+  padding: 160px 10px 50px;
+  text-align: center
+}
+
+.login-fullscreen.v-category-books {
+  background-image: url("https://s3.producthunt.com/static/category-books/kitty.png")
+}
+
+.login-fullscreen.v-category-games {
+  background-image: url("https://s3.producthunt.com/static/category-games/kitty.png")
+}
+
+.login-fullscreen.v-category-podcasts {
+  background-image: url("https://s3.producthunt.com/static/category-podcasts/kitty.png");
+  background-size: 150px auto;
+  padding-top: 180px
+}
+
+.login-fullscreen--title {
+  font-size: 22px;
+  font-weight: 600
+}
+
+.login-fullscreen--intro, .login-fullscreen--facebook-failed {
+  color: #444;
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 500px
+}
+
+.login-fullscreen--intro {
+  padding-bottom: 20px
+}
+
+.login-fullscreen--login-info {
+  color: #999;
+  padding-top: 10px
+}
+
+.login-fullscreen--users {
+  list-style: none;
+  margin: 0 auto 28px;
+  padding: 0
+}
+
+.login-fullscreen--user {
+  display: inline-block;
+  margin: 0 7px
+}
+

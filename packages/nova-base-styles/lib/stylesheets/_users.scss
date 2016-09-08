@@ -1,0 +1,115 @@
+
+.account_FReak {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+@media(max-width: 768px) {
+  .addPostButton_2U4Gx {
+    display: none
+  }
+}
+
+.menuLink_1h9ZN {
+  line-height: 0;
+  padding: 5px 6px;
+  color: #999
+}
+
+a.menuLink_1h9ZN:hover {
+  color: #da552f
+}
+
+.menuLink_1h9ZN path {
+  fill: #999
+}
+
+@media(min-width: 769px) {
+  .menuLink_1h9ZN:hover path {
+    fill: #da552f
+  }
+}
+
+.activityFeedButton_1xqM_ {
+  position: relative;
+  top: 1px;
+  padding: 5px 4px
+}
+
+.login_258vb, .userMenu_3flqi {
+  display: block;
+  padding: 3px 0 3px 6px
+}
+
+.user-image-as-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block
+}
+
+.user-image {
+  display: inline-block;
+  position: relative
+}
+
+.user-image--image {
+  border-radius: 50%
+}
+
+.user-image--badge {
+  border: 1px solid white;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: white;
+  font-size: 10px;
+  font-weight: 400;
+  height: 15px;
+  left: -4px;
+  line-height: 16px;
+  position: absolute;
+  text-align: center;
+  top: -4px;
+  width: 15px
+}
+
+.user-image--badge.v-maker {
+  background: #00b27f
+}
+
+.user-image--badge.v-hunter {
+  background: black
+}
+
+.user-image.v-big .user-image--badge {
+  font-size: 19px;
+  font-weight: 600;
+  height: 30px;
+  left: 0;
+  line-height: 31px;
+  top: 0;
+  width: 30px
+}
+
+.user-image--comment-bubble {
+  position: absolute;
+  right: -4px;
+  top: -4px
+}
+
+.ama-event-detail--realtime-updates .heading .user-image {
+  margin-right: 10px
+}
+
+.collection-detail--header--heading .collection-detail--header--curator .user-image {
+  margin-right: 10px
+}
+
+.user_avator {
+  height: 32px;
+  width: 32px;
+}
