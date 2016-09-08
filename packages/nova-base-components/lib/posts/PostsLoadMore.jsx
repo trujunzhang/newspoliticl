@@ -12,7 +12,7 @@ const PostsLoadMore = ({loadMore, count, totalCount}) => {
             }}
             threshold={0}
           />
-          <a className="posts-load-more" onClick={loadMore}>Show More…</a>
+          {/*<a className="posts-load-more" onClick={loadMore}>Show More…</a>*/}
       </div>
     )
 };

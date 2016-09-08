@@ -31,11 +31,11 @@ const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loa
                           </div>
                           {hasMore ? (ready ? <Telescope.components.PostsLoadMore loadMore={loadMore} count={count}
                                                                                   totalCount={totalCount}/> :
-                            <Telescope.components.PostsLoading/>) : null}
+                            null) : null}
                       </div>
                   </div>
+                  {hasMore ? (ready ? null : <Telescope.components.PostsLoading/>) : null}
               </div>
-
           </section>
           <div className="sidebar_Y2LGQ">
 
