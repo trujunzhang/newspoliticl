@@ -121,6 +121,7 @@ class PostsItem extends Component {
         return null;
     }
 
+
     render() {
 
         const post = this.props.post;
