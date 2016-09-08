@@ -34,7 +34,7 @@ const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loa
                             null) : null}
                       </div>
                   </div>
-                  {hasMore ? (ready ? null : <Telescope.components.PostsLoading/>) : null}
+                  {hasMore ? <Telescope.components.PostsLoading/> : null}
               </div>
           </section>
           <div className="sidebar_Y2LGQ">
