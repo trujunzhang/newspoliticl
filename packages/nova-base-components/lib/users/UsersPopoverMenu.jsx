@@ -42,16 +42,6 @@ class UsersPopoverMenu extends Component {
 
         const user = this.props.user;
 
-        const subNavigationItems = [
-            {"href": "/tech", "title": "Politics"},
-            {"href": "/games", "title": "Economy"},
-            {"href": "/podcasts", "title": "Foreign Affairs"},
-            {"href": "/books", "title": "Defence"},
-            {"href": "/topics/developer-tools", "title": "Education"},
-            {"href": "/topics/photography-tools", "title": "Healthcare"},
-            {"href": "/topics/wearables", "title": "Sustainability"},
-        ];
-
         const comp = this.props.comp;
         const top = comp.top + comp.height + 26;
         const left = (comp.left + comp.width / 2) - 75;
