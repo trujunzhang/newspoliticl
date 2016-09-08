@@ -106,15 +106,17 @@ class PostsItem extends Component {
     renderTags() {
         const post = this.props.post;
         if (post.tags) {
-            <ul className="posts-tags">
-                {post.tags.map((tag, key) => {
-                    return (
-                      <li onClick={this.onTagClick.bind(this, tag)} type="button"
-                          className="posts-tag"
-                          style={{"margin-right": 4, "margin-bottom": 4}}
-                          rel="tag">{tag}</li>)
-                })}
-            </ul>
+            return (
+              <ul className="posts-tags">
+                  {post.tags.map((tag, key) => {
+                      return (
+                        <li onClick={this.onTagClick.bind(this, tag)} type="button"
+                            className="posts-tag"
+                            style={{"margin-right": 4, "margin-bottom": 4}}
+                            rel="tag">{tag}</li>)
+                  })}
+              </ul>
+            )
         }
         return null;
     }
