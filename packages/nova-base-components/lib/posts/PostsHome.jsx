@@ -21,9 +21,11 @@ class PostsHome extends Component {
     }
 
     fixParams(params) {
-        const type = this.state.postPostParams.type;
+        const postPostParams = this.state.postPostParams;
+        const type = postPostParams.type;
         if (type == "calender") {
-
+            params.before = postPostParams.para;
+            params.after = postPostParams.para;
         }
     }
 
