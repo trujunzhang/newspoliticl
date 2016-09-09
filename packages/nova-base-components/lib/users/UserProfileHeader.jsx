@@ -10,6 +10,9 @@ class UserProfileHeader extends Component {
         const avatarUrl = Users.avatar.getUrl(user);
         const avatar = avatarUrl ? <img height="140" width="140" src={avatarUrl}/> : "";
 
+        const upvotedPosts = user.telescope.upvotedPosts;
+        const collections = 0;
+
         return (
           <div>
               <div className="constraintWidth_ZyYbM constraintWidth_2VQxE">
