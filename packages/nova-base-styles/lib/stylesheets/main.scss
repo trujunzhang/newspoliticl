@@ -51,6 +51,8 @@ a {
   transition: color ease-out 300ms;
 }
 
+button:focus {outline:0;}
+
 @import "breakpoints";
 @import "colors";
 @import "variables";
