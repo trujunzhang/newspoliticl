@@ -6,6 +6,12 @@ import Users from 'meteor/nova:users';
 class UserProfileHeader extends Component {
 
     render() {
+        const avatarUrl = Users.avatar.getUrl(this.props.user);
+
+        const img = <img height="140" width="140" src={avatarUrl}/>;
+
+        const avatar = avatarUrl ? img : "";
+
         return (
           <div>
               <div className="constraintWidth_ZyYbM constraintWidth_2VQxE">
@@ -13,10 +19,8 @@ class UserProfileHeader extends Component {
                         <span className="user-image image_1r8-2 v-big">
                             <div className="container_22rD3 user-image--image user-image-size">
                                 <div className="container__Ql6q lazyLoadContainer_3KgZD">
-                                    <img height="140" src="http://media2.intoday.in/dailyo//story/header/201608/burkiniban_083116033400.jpg" width="140"/>
+                                    {avatar}
                                 </div>
-                                <img className="placeholder_E_0qw placeholderHidden_pb7Bz" height="140"
-                                     src="./Product Hunt_files/original(3)" width="140"/>
                             </div>
                         </span>
                       <div className="info_2UynN">
