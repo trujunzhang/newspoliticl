@@ -9,10 +9,6 @@ class Vote extends Component {
     constructor(props) {
         super(props);
         this.upvote = this.upvote.bind(this);
-
-        this.state = {
-            voted: false
-        };
     }
 
     upvote(e) {
@@ -27,12 +23,10 @@ class Vote extends Component {
             this.context.actions.call('posts.cancelUpvote', post._id, () => {
                 this.context.events.track("post upvote cancelled", {'_id': post._id});
             });
-            this.setState({voted: false});
         } else {
             this.context.actions.call('posts.upvote', post._id, () => {
                 this.context.events.track("post upvoted", {'_id': post._id});
             });
-            this.setState({voted: true});
         }
 
     }
@@ -51,10 +45,10 @@ class Vote extends Component {
           {downvoted: hasDownvoted}
         );
 
-        const buttonClass = this.state.voted ? "button_2I1re active_2heMV smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W" :
+        const buttonClass = hasUpvoted ? "button_2I1re active_2heMV smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W" :
           "button_2I1re smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W";
 
-        const postVoteClass = "postVoteArrow_2xABl" + (this.state.voted ? " upvoted_172lX animate_asuDN" : "");
+        const postVoteClass = "postVoteArrow_2xABl" + (hasUpvoted ? " upvoted_172lX animate_asuDN" : "");
 
         return (
           <button className={buttonClass}
