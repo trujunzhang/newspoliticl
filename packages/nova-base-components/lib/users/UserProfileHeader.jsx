@@ -6,11 +6,9 @@ import Users from 'meteor/nova:users';
 class UserProfileHeader extends Component {
 
     render() {
-        const avatarUrl = Users.avatar.getUrl(this.props.user);
-
-        const img = <img height="140" width="140" src={avatarUrl}/>;
-
-        const avatar = avatarUrl ? img : "";
+        const user = this.props.user;
+        const avatarUrl = Users.avatar.getUrl(user);
+        const avatar = avatarUrl ? <img height="140" width="140" src={avatarUrl}/> : "";
 
         return (
           <div>
@@ -26,8 +24,7 @@ class UserProfileHeader extends Component {
                       <div className="info_2UynN">
                           <div className="primary_38IeC">
                               <h1 className="headline_azIav inverse_1CN6F base_3CbW2">TrujunZhang</h1>
-                              <span className="text_3Wjo0 inverse_1CN6F base_3CbW2"># 641022
-                                </span>
+                              <span className="text_3Wjo0 inverse_1CN6F base_3CbW2"># 641022</span>
                           </div>
                           <h2
                             className="username_3tQri featured_2W7jd inverse_1CN6F base_3CbW2">@trujunzhang</h2>
