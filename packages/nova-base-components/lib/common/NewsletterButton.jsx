@@ -9,9 +9,9 @@ class NewsletterButton extends Component {
     super(props);
     this.subscriptionAction = this.subscriptionAction.bind(this);
   }
-  
+
   subscriptionAction() {
-    const action = Users.getSetting(this.props.user, 'newsletter_subscribeToNewsletter', false) ? 
+    const action = Users.getSetting(this.props.user, 'newsletter_subscribeToNewsletter', false) ?
       'newsletter.removeUser' : 'newsletter.addUser';
 
     this.context.actions.call(action, this.props.user, (error, result) => {
@@ -29,9 +29,8 @@ class NewsletterButton extends Component {
 
     return (
       <Button
-        className="newsletter-button"
+        className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d orangeSolidColor_B-2gO solidVariant_2wWrf"
         onClick={this.subscriptionAction}
-        bsStyle="primary"
       >
         {isSubscribed ? <FormattedMessage id="newsletter.unsubscribe"/> : <FormattedMessage id="newsletter.subscribe"/>}
       </Button>
