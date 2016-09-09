@@ -3,6 +3,7 @@ import {FlashContainer} from "meteor/nova:core";
 import {DocumentContainer} from "meteor/utilities:react-list-container";
 import Posts from "meteor/nova:posts";
 import {withRouter} from 'react-router'
+import moment from 'moment';
 
 class WidgetCalendar extends Component {
 
@@ -50,11 +51,12 @@ class WidgetCalendar extends Component {
         //    before: moment(date).format("YYYY-MM-DD"),
         //    listId: `posts.list.${moment(date).format("YYYY-MM-DD")}`
         //};
+        const dateString = moment(day.date).format("YYYY-MM-DD");
         const router = this.props.router;
-        const path = "?after=2016-08-01&before=2016-08-01";
+        const path = "?after=" + dateString + "&before=" + dateString;
         router.push({pathname: path});
 
-        this.context.messages.appStatus.pushNewParams({type: "calender", para: "2016-08-01"});
+        this.context.messages.appStatus.pushNewParams({type: "calender", para: dateString});
     }
 
     renderHeader() {
