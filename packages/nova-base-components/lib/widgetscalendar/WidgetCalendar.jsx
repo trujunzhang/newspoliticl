@@ -114,7 +114,7 @@ class WidgetCalendar extends Component {
                               {this.renderHeader()}
                           </div>
                           <div className="rc-calendar-calendar-body">
-                              <table className="rc-calendar-table" cellspacing="0" role="grid">
+                              <table className="rc-calendar-table" role="grid">
                                   <thead >
                                   {this.renderDayNames()}
                                   </thead>
