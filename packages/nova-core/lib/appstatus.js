@@ -1,4 +1,8 @@
 class AppStatus {
+    registerPostsHome(postsHome) {
+        this.postsHome = postsHome;
+    }
+
     registerLayout(layout) {
         this.layout = layout;
     }
@@ -24,6 +28,10 @@ class AppStatus {
     }
 
     dismissRightMenu() {
+    }
+
+    pushUrl(path) {
+        this.postsHome.setState({postPostUrl: path})
     }
 }
 

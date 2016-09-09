@@ -2,6 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import {FlashContainer} from "meteor/nova:core";
 import {DocumentContainer} from "meteor/utilities:react-list-container";
 import Posts from "meteor/nova:posts";
+import {withRouter} from 'react-router'
 
 class WidgetCalendar extends Component {
 
@@ -41,8 +42,19 @@ class WidgetCalendar extends Component {
         this.setState({
             month: day.date
         });
-        //this.props.selected = day.date;
-        //this.forceUpdate();
+
+        //const terms = {
+        //    view: "top",
+        //    date: date,
+        //    after: moment(date).format("YYYY-MM-DD"),
+        //    before: moment(date).format("YYYY-MM-DD"),
+        //    listId: `posts.list.${moment(date).format("YYYY-MM-DD")}`
+        //};
+        const router = this.props.router;
+        const path = "?after=2016-08-01&before=2016-08-01";
+        router.push({pathname: path});
+
+        this.context.messages.appStatus.pushUrl(path);
     }
 
     renderHeader() {
@@ -148,4 +160,5 @@ WidgetCalendar.contextTypes = {
 
 WidgetCalendar.displayName = "WidgetCalendar";
 
-module.exports = WidgetCalendar;
+module.exports = withRouter(WidgetCalendar);
+export default withRouter(WidgetCalendar);
