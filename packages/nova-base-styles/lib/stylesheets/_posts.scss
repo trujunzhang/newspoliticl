@@ -464,6 +464,19 @@ a.moreAssociations_28e7H:hover {
   filter: rgb(234, 83, 42);
 }
 
+.upvoted_172lX {
+  background-position: -336px 0
+}
+
+.animate_asuDN {
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation: arrow-burst_2UolX .6s steps(24) 1;
+  animation: arrow-burst_2UolX .6s steps(24) 1
+}
+
 // post's comments
 .subtleVariant_tlhj3 {
   color: #999;
@@ -489,34 +502,6 @@ a.moreAssociations_28e7H:hover {
   padding: 31px 0;
 }
 
-// Load more
-//.posts-load-more, .comments-load-more {
-//  display: block;
-//  text-align: center;
-//  @include border;
-//  @include border-radius;
-//  font-size: $large-font;
-//  padding: 10px 20px;
-//  @include activeHover;
-//  width: 100%;
-//  background: $white;
-//  color: $active-color;
-//}
-//
-//.posts-load-more-loading {
-//  padding: 21px 0;
-//}
-//
-//.posts-load-more {
-//  border: none;
-//  padding: 0;
-//  &:hover {
-//    background: inherit;
-//    color: inherit;
-//    border: inherit;
-//  }
-//}
-
 // no results panel
 
 .posts-no-results {
@@ -536,7 +521,6 @@ a.moreAssociations_28e7H:hover {
 
 // Post's Entrycontent
 .post-title {
-  font-family: "Open Sans";
   line-height: 22px;
   font-weight: 600;
   font-style: normal;
@@ -550,7 +534,6 @@ a.moreAssociations_28e7H:hover {
 }
 
 .post_description {
-  font-family: "Open Sans";
   line-height: 24px;
   font-weight: 400;
   font-style: normal;
@@ -559,7 +542,6 @@ a.moreAssociations_28e7H:hover {
 }
 
 .entrymeta {
-  font-family: "Open Sans";
   font-weight: 400;
   color: #ccc;
   font-size: 12px;
