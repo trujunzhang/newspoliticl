@@ -23,11 +23,9 @@ class UserProfileHeader extends Component {
                         </span>
                       <div className="info_2UynN">
                           <div className="primary_38IeC">
-                              <h1 className="headline_azIav inverse_1CN6F base_3CbW2">TrujunZhang</h1>
-                              <span className="text_3Wjo0 inverse_1CN6F base_3CbW2"># 641022</span>
+                              <h1 className="headline_azIav inverse_1CN6F base_3CbW2">{Users.getDisplayName(user)}</h1>
                           </div>
-                          <h2
-                            className="username_3tQri featured_2W7jd inverse_1CN6F base_3CbW2">@trujunzhang</h2>
+                          <h2 className="username_3tQri featured_2W7jd inverse_1CN6F base_3CbW2">@trujunzhang</h2>
                           <p className="secondary_Yuxa5 text_3Wjo0 inverse_1CN6F base_3CbW2">I'm a freelancer,
                               http://www.scruby.site
                               <a className="twitter_3_mOY" href="https://twitter.com/TrujunZhang" rel="user-twitter"
