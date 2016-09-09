@@ -30,6 +30,10 @@ class AppStatus {
     dismissRightMenu() {
     }
 
+    /**
+     *
+     * @param params
+     */
     pushNewParams(params) {
         this.postsHome.setState({postPostParams: params})
     }
