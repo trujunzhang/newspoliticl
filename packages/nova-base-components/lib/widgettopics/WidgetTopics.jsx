@@ -43,7 +43,7 @@ class WidgetTopics extends Component {
                       <ul className="categories-list">
                           {topics.map((item, key) => {
                               return (
-                                <li className="category-menu-item">
+                                <li key={key} className="category-menu-item">
                                     <a className="posts-category" href={item.href}>{item.title}</a>
                                 </li>
                               )

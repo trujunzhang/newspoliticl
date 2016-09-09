@@ -54,7 +54,7 @@ class HeaderNavigation extends Component {
                               <path
                                 d="M1.05833636,0 L0,1.05654696 L6.95502928,8 L6.64746554e-16,14.943453 L1.05833636,16 L8.54271718,8.52827348 C8.83496729,8.23651377 8.83496729,7.7634825 8.54271718,7.47172652 L1.05833636,0 L1.05833636,0 Z"
                                 fill="#999" transform="matrix(-1 0 0 1 8.762 0)"
-                                fill-rule="evenodd"></path>
+                                ></path>
                           </svg>
                       </span>
                   </a>
@@ -64,7 +64,7 @@ class HeaderNavigation extends Component {
                                xmlns="http://www.w3.org/2000/svg">
                               <path
                                 d="M1.05833636,0 L0,1.05654696 L6.95502928,8 L6.64746554e-16,14.943453 L1.05833636,16 L8.54271718,8.52827348 C8.83496729,8.23651377 8.83496729,7.7634825 8.54271718,7.47172652 L1.05833636,0 L1.05833636,0 Z"
-                                fill="#999" fill-rule="evenodd"></path>
+                                fill="#999" ></path>
                           </svg>
                       </span>
                   </a>

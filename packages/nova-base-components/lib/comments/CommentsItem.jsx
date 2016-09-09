@@ -6,140 +6,140 @@ import Users from 'meteor/nova:users';
 
 class CommentsItem extends Component {
 
-  constructor() {
-    super();
-    ['showReply', 'replyCancelCallback', 'replySuccessCallback', 'showEdit', 'editCancelCallback', 'editSuccessCallback', 'deleteComment'].forEach(methodName => {
-      this[methodName] = this[methodName].bind(this)
-    });
-    this.state = {
-      showReply: false,
-      showEdit: false
-    };
-  }
-
-  showReply(event) {
-    event.preventDefault();
-    this.setState({showReply: true});
-  }
-
-  replyCancelCallback(event) {
-    event.preventDefault();
-    this.setState({showReply: false});
-  }
-
-  replySuccessCallback() {
-    this.setState({showReply: false});
-  }
-
-  showEdit(event) {
-    event.preventDefault();
-    this.setState({showEdit: true});
-  }
-
-  editCancelCallback(event) {
-    event.preventDefault();
-    this.setState({showEdit: false});
-  }
-
-  editSuccessCallback() {
-    this.setState({showEdit: false});
-  }
-
-  deleteComment() {
-
-    const comment = this.props.comment;
-    const deleteConfirmMessage = this.context.intl.formatMessage({id: "comments.delete_confirm"}, {body: Telescope.utils.trimWords(comment.body, 20)});
-    const deleteSuccessMessage = this.context.intl.formatMessage({id: "comments.delete_success"}, {body: Telescope.utils.trimWords(comment.body, 20)});
-
-    if (window.confirm(deleteConfirmMessage)) {
-      this.context.actions.call('comments.deleteById', comment._id, (error, result) => {
-        this.context.messages.flash(deleteSuccessMessage, "success");
-        this.context.events.track("comment deleted", {'_id': comment._id});
-      });
+    constructor() {
+        super();
+        ['showReply', 'replyCancelCallback', 'replySuccessCallback', 'showEdit', 'editCancelCallback', 'editSuccessCallback', 'deleteComment'].forEach(methodName => {
+            this[methodName] = this[methodName].bind(this)
+        });
+        this.state = {
+            showReply: false,
+            showEdit: false
+        };
     }
 
-  }
+    showReply(event) {
+        event.preventDefault();
+        this.setState({showReply: true});
+    }
 
-  renderComment() {
-    const htmlBody = {__html: this.props.comment.htmlBody};
+    replyCancelCallback(event) {
+        event.preventDefault();
+        this.setState({showReply: false});
+    }
 
-    return (
-      <div className="body_221xI tech_Oe_Kz text_3Wjo0 default_tBeAo base_3CbW2">
-        <div dangerouslySetInnerHTML={htmlBody}></div>
-        {/*{!this.props.comment.isDeleted ?*/}
-        {/*<a className="comments-item-reply-link" onClick={this.showReply}><Telescope.components.Icon*/}
-        {/*name="reply"/> <FormattedMessage id="comments.reply"/></a> : null}*/}
-      </div>
-    )
-  }
+    replySuccessCallback() {
+        this.setState({showReply: false});
+    }
 
-  renderReply() {
+    showEdit(event) {
+        event.preventDefault();
+        this.setState({showEdit: true});
+    }
 
-    return (
-      <div className="comments-item-reply">
-        <Telescope.components.CommentsNew
-          postId={this.props.comment.postId}
-          parentComment={this.props.comment}
-          successCallback={this.replySuccessCallback}
-          cancelCallback={this.replyCancelCallback}
-          type="reply"
-        />
-      </div>
-    )
-  }
+    editCancelCallback(event) {
+        event.preventDefault();
+        this.setState({showEdit: false});
+    }
 
-  renderEdit() {
+    editSuccessCallback() {
+        this.setState({showEdit: false});
+    }
 
-    return (
-      <Telescope.components.CommentsEdit
-        comment={this.props.comment}
-        successCallback={this.editSuccessCallback}
-        cancelCallback={this.editCancelCallback}
-      />
-    )
-  }
+    deleteComment() {
 
-  //render() {
-  //  const comment = this.props.comment;
-  //
-  //  return (
-  //    <div className="comments-item" id={comment._id}>
-  //      <div className="comments-item-body">
-  //        <div className="comments-item-meta">
-  //          <Telescope.components.UsersAvatar size="small" user={comment.user}/>
-  //          <Telescope.components.UsersName user={comment.user}/>
-  //          <div className="comments-item-date"><FormattedRelative value={comment.postedAt}/></div>
-  //          <Telescope.components.CanDo action="comments.edit" document={this.props.comment}>
-  //            <div>
-  //              <a className="comment-edit" onClick={this.showEdit}><FormattedMessage id="comments.edit"/></a>
-  //              <a className="comment-delete" onClick={this.deleteComment}><FormattedMessage id="comments.delete"/></a>
-  //            </div>
-  //          </Telescope.components.CanDo>
-  //        </div>
-  //        {this.state.showEdit ? this.renderEdit() : this.renderComment()}
-  //      </div>
-  //      {this.state.showReply ? this.renderReply() : null}
-  //    </div>
-  //  )
-  //}
+        const comment = this.props.comment;
+        const deleteConfirmMessage = this.context.intl.formatMessage({id: "comments.delete_confirm"}, {body: Telescope.utils.trimWords(comment.body, 20)});
+        const deleteSuccessMessage = this.context.intl.formatMessage({id: "comments.delete_success"}, {body: Telescope.utils.trimWords(comment.body, 20)});
 
-  renderBottomPanel() {
-    const comment = this.props.comment;
+        if (window.confirm(deleteConfirmMessage)) {
+            this.context.actions.call('comments.deleteById', comment._id, (error, result) => {
+                this.context.messages.flash(deleteSuccessMessage, "success");
+                this.context.events.track("comment deleted", {'_id': comment._id});
+            });
+        }
 
-    return (
-      <div className="actions_3oz6g">
-        <a rel="comment-upvote" href="#"
-           className="upvote_3Nd3Q action_Hv6P3 secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
+    }
+
+    renderComment() {
+        const htmlBody = {__html: this.props.comment.htmlBody};
+
+        return (
+          <div className="body_221xI tech_Oe_Kz text_3Wjo0 default_tBeAo base_3CbW2">
+              <div dangerouslySetInnerHTML={htmlBody}></div>
+              {/*{!this.props.comment.isDeleted ?*/}
+              {/*<a className="comments-item-reply-link" onClick={this.showReply}><Telescope.components.Icon*/}
+              {/*name="reply"/> <FormattedMessage id="comments.reply"/></a> : null}*/}
+          </div>
+        )
+    }
+
+    renderReply() {
+
+        return (
+          <div className="comments-item-reply">
+              <Telescope.components.CommentsNew
+                postId={this.props.comment.postId}
+                parentComment={this.props.comment}
+                successCallback={this.replySuccessCallback}
+                cancelCallback={this.replyCancelCallback}
+                type="reply"
+              />
+          </div>
+        )
+    }
+
+    renderEdit() {
+
+        return (
+          <Telescope.components.CommentsEdit
+            comment={this.props.comment}
+            successCallback={this.editSuccessCallback}
+            cancelCallback={this.editCancelCallback}
+          />
+        )
+    }
+
+    //render() {
+    //  const comment = this.props.comment;
+    //
+    //  return (
+    //    <div className="comments-item" id={comment._id}>
+    //      <div className="comments-item-body">
+    //        <div className="comments-item-meta">
+    //          <Telescope.components.UsersAvatar size="small" user={comment.user}/>
+    //          <Telescope.components.UsersName user={comment.user}/>
+    //          <div className="comments-item-date"><FormattedRelative value={comment.postedAt}/></div>
+    //          <Telescope.components.CanDo action="comments.edit" document={this.props.comment}>
+    //            <div>
+    //              <a className="comment-edit" onClick={this.showEdit}><FormattedMessage id="comments.edit"/></a>
+    //              <a className="comment-delete" onClick={this.deleteComment}><FormattedMessage id="comments.delete"/></a>
+    //            </div>
+    //          </Telescope.components.CanDo>
+    //        </div>
+    //        {this.state.showEdit ? this.renderEdit() : this.renderComment()}
+    //      </div>
+    //      {this.state.showReply ? this.renderReply() : null}
+    //    </div>
+    //  )
+    //}
+
+    renderBottomPanel() {
+        const comment = this.props.comment;
+
+        return (
+          <div className="actions_3oz6g">
+              <a rel="comment-upvote" href="#"
+                 className="upvote_3Nd3Q action_Hv6P3 secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
                   <span>
                     <svg width="9" height="8" viewBox="0 0 9 8" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9,8 L0,8 L4.5,0 L9,8 Z" fill="#999" fill-rule="evenodd"></path>
+                      <path d="M9,8 L0,8 L4.5,0 L9,8 Z" fill="#999"></path>
                     </svg>
                   </span>
-          <span className="noVotesLabel_1gl1X">upvote</span>
-        </a>
-        <a
-          className="tweet_3a9pw action_Hv6P3 secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2"
-          rel="share-on-twitter" href="#">
+                  <span className="noVotesLabel_1gl1X">upvote</span>
+              </a>
+              <a
+                className="tweet_3a9pw action_Hv6P3 secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2"
+                rel="share-on-twitter" href="#">
                   <span>
                     <span>
                       <svg width="16px" height="13px" viewBox="0 0 16 13" version="1.1"
@@ -152,71 +152,71 @@ class CommentsItem extends Component {
                     </span>
                     <span className="shareLabel_2yYck">tweet</span>
                   </span>
-        </a>
-        <a
-          className="facebook_1qw8K action_Hv6P3 secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2"
-          rel="share-on-facebook" href="#">
+              </a>
+              <a
+                className="facebook_1qw8K action_Hv6P3 secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2"
+                rel="share-on-facebook" href="#">
                   <span>
                     <span>
                       <svg width="8" height="13" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M7.2 2.323H5.923c-1.046 0-1.278.464-1.278 1.16V5.11h2.44l-.35 2.438h-2.09v6.387H2.09V7.548H0V5.11h2.09V3.252C2.09 1.162 3.368 0 5.342 0c.93 0 1.742.116 1.858.116v2.207z"
-                          fill="#FFF" fill-rule="evenodd"></path>
+                          fill="#FFF" ></path>
                       </svg>
                     </span>
                     <span className="shareLabel_2yYck">share</span>
                   </span>
-        </a>
-        <a
-          className="timestamp_28Wws secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
-          <time title="2016-08-28T10:07:27.716-07:00" datetime="2016-08-28T10:07:27.716-07:00">
-            <FormattedRelative value={comment.postedAt}/>
-          </time>
-        </a>
-      </div>
-    )
-  }
-
-  render() {
-    const comment = this.props.comment;
-
-    return (
-      <div >
-        <Telescope.components.UsersAvatar size="small" user={comment.user}/>
-
-        <div className="heading_3axGt">
-          <Telescope.components.UsersName user={comment.user}/>
-        </div>
-        <Telescope.components.CanDo action="comments.edit" document={this.props.comment}>
-          <div style={{"margin-top": -10}}>
-            <a className="comment-edit" onClick={this.showEdit}><FormattedMessage id="comments.edit"/></a>
-            <a className="comment-delete" onClick={this.deleteComment}><FormattedMessage
-              id="comments.delete"/></a>
+              </a>
+              <a
+                className="timestamp_28Wws secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
+                  <time title="2016-08-28T10:07:27.716-07:00" datetime="2016-08-28T10:07:27.716-07:00">
+                      <FormattedRelative value={comment.postedAt}/>
+                  </time>
+              </a>
           </div>
-        </Telescope.components.CanDo>
+        )
+    }
 
-        {/*{this.renderComment()}*/}
-        {this.state.showEdit ? this.renderEdit() : this.renderComment()}
+    render() {
+        const comment = this.props.comment;
 
-        {/*{this.state.showReply ? this.renderReply() : null}*/}
-        {this.renderBottomPanel()}
-      </div>
-    )
-  }
+        return (
+          <div >
+              <Telescope.components.UsersAvatar size="small" user={comment.user}/>
+
+              <div className="heading_3axGt">
+                  <Telescope.components.UsersName user={comment.user}/>
+              </div>
+              <Telescope.components.CanDo action="comments.edit" document={this.props.comment}>
+                  <div style={{"margin-top": -10}}>
+                      <a className="comment-edit" onClick={this.showEdit}><FormattedMessage id="comments.edit"/></a>
+                      <a className="comment-delete" onClick={this.deleteComment}><FormattedMessage
+                        id="comments.delete"/></a>
+                  </div>
+              </Telescope.components.CanDo>
+
+              {/*{this.renderComment()}*/}
+              {this.state.showEdit ? this.renderEdit() : this.renderComment()}
+
+              {/*{this.state.showReply ? this.renderReply() : null}*/}
+              {this.renderBottomPanel()}
+          </div>
+        )
+    }
 
 }
 
 CommentsItem.propTypes = {
-  comment: React.PropTypes.object.isRequired, // the current comment
-  //currentUser: React.PropTypes.object, // the current user
+    comment: React.PropTypes.object.isRequired, // the current comment
+    //currentUser: React.PropTypes.object, // the current user
 };
 
 CommentsItem.contextTypes = {
-  currentUser: React.PropTypes.object,
-  actions: React.PropTypes.object,
-  messages: React.PropTypes.object,
-  events: React.PropTypes.object,
-  intl: intlShape
+    currentUser: React.PropTypes.object,
+    actions: React.PropTypes.object,
+    messages: React.PropTypes.object,
+    events: React.PropTypes.object,
+    intl: intlShape
 };
 
 module.exports = CommentsItem;

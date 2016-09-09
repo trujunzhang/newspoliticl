@@ -44,7 +44,7 @@ class PostsCommentsThread extends Component {
                       <svg width="8" height="5" viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M6.752 1.514C7.472.678 7.158 0 6.057 0H1.052C-.05 0-.332.654.426 1.46L2.38 3.54c.758.806 1.952.786 2.674-.054l1.698-1.972z"
-                          fill="#A8ACB3" fill-rule="evenodd"></path>
+                          fill="#A8ACB3" ></path>
                       </svg>
                   </span>
               </a>
