@@ -12,9 +12,7 @@ class PostsHome extends Component {
     componentWillMount() {
         this.context.messages.appStatus.registerPostsHome(this);
         this.state = this.initialState = {
-            postPostParams: {
-                para:null
-            }
+            postPostParams: {type: "home", para: null}
         };
     }
 
@@ -22,9 +20,17 @@ class PostsHome extends Component {
         return {view: 'top'}
     }
 
+    fixParams(params) {
+        const type = this.state.postPostParams.type;
+        if (type == "calender") {
+
+        }
+    }
+
     render() {
 
         const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
+        this.fixParams(params);
         const {selector, options} = Posts.parameters.get(params);
 
         return (
