@@ -62,7 +62,7 @@ class HeaderContent extends Component {
 
                   <div className="nav-user">
                       {currentUser ? null :
-                        <Telescope.components.UsersAccountMenu/>}
+                        <Telescope.components.UsersAccountMenuBase/>}
                   </div>
 
               </div>
