@@ -12,7 +12,9 @@ class PostsHome extends Component {
     componentWillMount() {
         this.context.messages.appStatus.registerPostsHome(this);
         this.state = this.initialState = {
-            postPostUrl: '/'
+            postPostParams: {
+                para:null
+            }
         };
     }
 

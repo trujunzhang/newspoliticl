@@ -54,7 +54,7 @@ class WidgetCalendar extends Component {
         const path = "?after=2016-08-01&before=2016-08-01";
         router.push({pathname: path});
 
-        this.context.messages.appStatus.pushUrl(path);
+        this.context.messages.appStatus.pushNewParams({type: "calender", para: "2016-08-01"});
     }
 
     renderHeader() {

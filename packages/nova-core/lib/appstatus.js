@@ -30,8 +30,8 @@ class AppStatus {
     dismissRightMenu() {
     }
 
-    pushUrl(path) {
-        this.postsHome.setState({postPostUrl: path})
+    pushNewParams(params) {
+        this.postsHome.setState({postPostParams: params})
     }
 }
 
