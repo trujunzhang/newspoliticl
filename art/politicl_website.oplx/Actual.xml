@@ -62,13 +62,14 @@
   <task id="t1">
     <title>Login via facebook</title>
     <effort>28800</effort>
+    <effort-done>28800</effort-done>
   </task>
   <task id="t2">
     <title>3/9/2016</title>
     <type>group</type>
     <child-task idref="t1"/>
     <child-task idref="t3"/>
-    <child-task idref="t4"/>
+    <child-task idref="t5"/>
   </task>
   <task id="t3">
     <title>Widgets to add google advertisements
@@ -76,8 +77,13 @@
     <effort>28800</effort>
   </task>
   <task id="t4">
-    <title>Task 1</title>
+    <title>Folder</title>
     <effort>28800</effort>
+  </task>
+  <task id="t5">
+    <title>Logged User</title>
+    <type>group</type>
+    <child-task idref="t4"/>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
     <color r="1" g="0.5" b="0.5"/>

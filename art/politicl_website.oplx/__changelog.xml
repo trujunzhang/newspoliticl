@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
   <version>2.1</version>
-  <task-change-set user="djzhang" date="2016-09-03T08:37:14.118Z" timestamp="2016-09-03T08:37:14.118Z">
-    <change idref="t2" to="t-1" to-position="0" resolved="yes">
-      <change idref="t2" attribute="isGroup" type="real" from="0" to="1"/>
-      <change idref="t2" attribute="taskType" type="real" from="0" to="2"/>
-      <change idref="t2" attribute="title" type="string" to="3/9/2016"/>
+  <task-change-set user="djzhang" date="2016-09-09T04:29:46.106Z" timestamp="2016-09-09T04:29:46.106Z">
+    <change idref="t1" attribute="internalEffortDone" type="real" from="0" to="28800" resolved="yes"/>
+    <change idref="t5" to="t2" to-position="2" resolved="yes">
+      <change idref="t5" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t5" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t5" attribute="title" type="string" to="Logged User"/>
     </change>
-    <change idref="t1" attribute="title" type="string" from="Task 1" to="Login via facebook" resolved="yes"/>
-    <change idref="t1" from="t-1" from-position="0" to="t2" to-position="0" resolved="yes"/>
-    <change idref="t3" to="t2" to-position="1" resolved="yes">
-      <change idref="t3" attribute="title" type="string" to="Widgets to add google advertisements
-"/>
-    </change>
-    <change idref="t4" to="t2" to-position="2" resolved="yes">
-      <change idref="t4" attribute="title" type="string" to="Task 1"/>
-    </change>
+    <change idref="t4" attribute="title" type="string" from="Task 1" to="Folder" resolved="yes"/>
+    <change idref="t4" from="t2" from-position="2" to="t5" to-position="0" resolved="yes"/>
   </task-change-set>
-  <metadata-change-set user="djzhang" date="2016-09-03T08:34:12.576Z" timestamp="2016-09-03T08:34:12.576Z">
-    <change idref="m1" attribute="fixedDate" type="date" from="2007-01-01T20:00:00.000Z" to="2016-09-02T16:00:00.000Z" resolved="yes"/>
-  </metadata-change-set>
 </changelog>
