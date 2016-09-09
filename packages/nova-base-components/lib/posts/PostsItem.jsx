@@ -21,8 +21,8 @@ class PostsItem extends Component {
 
     renderCommenters() {
         return this.props.post.commentersArray
-          ? <Telescope.components.PostsCommenters post={this.props.post}/>
-          : "";
+          ? <Telescope.components.PostsCommenters post={this.props.post} event={this.popupDetail.bind(this)}/>
+          : null;
     }
 
     renderActionButtons(post) {
@@ -42,7 +42,7 @@ class PostsItem extends Component {
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path
                                               d="M9,6 L6,6 L6,7 L9,7 L9,10 L10,10 L10,7 L13,7 L13,6 L10,6 L10,3 L9,3 L9,6 Z M0,0 L8,0 L8,1 L0,1 L0,0 Z M0,3 L8,3 L8,4 L0,4 L0,3 Z M0,6 L5,6 L5,7 L0,7 L0,6 Z"
-                                              fill="#FFF" fill-rule="evenodd"></path>
+                                              fill="#FFF"></path>
                                         </svg>
                                     </span>
                                     save
@@ -57,7 +57,7 @@ class PostsItem extends Component {
                                     <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                           d="M5.9816,1.0418 L8.2136,1.0418 L3.8976,5.3578 L4.6426,6.1018 L8.9586,1.7858 L8.9586,4.0188 L9.9996,4.0188 L9.9996,0.5208 C9.9996,0.2228 9.7766,-0.0002 9.4786,-0.0002 L5.9816,-0.0002 L5.9816,1.0418 Z M9,9 L1,9 L1,1 L3.97833252,1 L3.97833252,0 L0.51,0 C0.228,0 0,0.228 0,0.51 L0,9.49 C0,9.772 0.228,10 0.51,10 L9.49,10 C9.772,10 10,9.772 10,9.49 L10,6.02606201 L9,6.02606201 L9,9 Z"
-                                          fill="#FFF" fill-rule="evenodd"></path>
+                                          fill="#FFF"></path>
                                     </svg>
                                 </span>
                           </div>
@@ -120,7 +120,6 @@ class PostsItem extends Component {
         }
         return null;
     }
-
 
     render() {
 
