@@ -12,14 +12,6 @@ class UsersPopoverMenu extends Component {
 
     constructor(props) {
         super(props);
-        this.loggedUserMenu = [
-            {"href": "/tech", "title": "MY PROFILE"},
-            {"href": "/games", "title": "MY COLLECTIONS"},
-            {"href": "/podcasts", "title": "INVITES(0)"},
-            {"href": "/books", "title": "SETTINGS"},
-            {"href": "/topics/developer-tools", "title": "API DASHBOARD"},
-            {"href": "/topics/photography-tools", "title": "LOGOUT"}
-        ];
     }
 
     componentDidMount() {
@@ -46,10 +38,19 @@ class UsersPopoverMenu extends Component {
         const top = comp.top + comp.height + 26;
         const left = (comp.left + comp.width / 2) - 75;
 
+        const loggedUserMenu = [
+            {"href": "/users/" + user.telescope.slug, "title": "MY PROFILE"},
+            {"href": "/games", "title": "MY COLLECTIONS"},
+            {"href": "/podcasts", "title": "INVITES(0)"},
+            {"href": "/books", "title": "SETTINGS"},
+            {"href": "/topics/developer-tools", "title": "API DASHBOARD"},
+            {"href": "/topics/photography-tools", "title": "LOGOUT"}
+        ];
+
         return (
           <div className="popover v-bottom-center" style={{top: top, left: left}}>
               <ul className="content_2mq4P">
-                  {this.loggedUserMenu.map((menu, key) => {
+                  {loggedUserMenu.map((menu, key) => {
                       if (menu.title == "LOGOUT") {
                           return (
                             <li
@@ -63,7 +64,7 @@ class UsersPopoverMenu extends Component {
                           return (
                             <li
                               className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
-                                <a href="https://www.producthunt.com/@trujunzhang">{menu.title}</a>
+                                <a href={menu.href}>{menu.title}</a>
                             </li>
                           )
                       }
