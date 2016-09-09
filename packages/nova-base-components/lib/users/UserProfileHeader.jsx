@@ -44,15 +44,6 @@ class UserProfileHeader extends Component {
                           </p>
                       </div>
                       <div className="social_1SKRS">
-                          <a className="counter_1BMTv text_3Wjo0 inverse_1CN6F base_3CbW2"
-                             href="https://www.producthunt.com/@trujunzhang/following">
-                              <strong>5</strong>
-                              Following
-                          </a>
-                          <a className="counter_1BMTv text_3Wjo0 inverse_1CN6F base_3CbW2"
-                             href="https://www.producthunt.com/@trujunzhang/followers">
-                              <strong>0</strong>
-                              Followers</a>
                           <a
                             className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54"
                             href="https://www.producthunt.com/my/settings/edit">
