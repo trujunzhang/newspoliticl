@@ -53,12 +53,18 @@ class HeaderContent extends Component {
                                xmlns="http://www.w3.org/2000/svg">
                               <path
                                 d="M2 4c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm8 0c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm8 0c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
-                                fill="#BBB" fill-rule="evenodd"></path>
+                                fill="#BBB"></path>
                           </svg>
                       </span>
                   </a>
                   {currentUser ? <Telescope.components.UsersMenu user={currentUser}/> :
                     <Telescope.components.UsersAccountMenu/>}
+
+                  <div className="nav-user">
+                      {currentUser ? <Telescope.components.UsersMenu user={currentUser}/> :
+                        <Telescope.components.UsersAccountMenu/>}
+                  </div>
+
               </div>
           </div>
         )
