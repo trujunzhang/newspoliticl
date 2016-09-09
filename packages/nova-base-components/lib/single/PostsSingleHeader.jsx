@@ -33,7 +33,7 @@ const PostsSingleHeader = (document, currentUser) => {
                                     <span className="post-vote-button--arrow">
                                         <svg width="9" height="8" viewBox="0 0 9 8" xmlns="http://www.w3.org/2000/svg">
                                             <title>Rectangle 64</title>
-                                            <path d="M9 8H0l4.5-8L9 8z" fill="#000" fill-rule="evenodd"></path>
+                                            <path d="M9 8H0l4.5-8L9 8z" fill="#000"></path>
                                         </svg>
                                     </span>
                                   <span className="post-vote-button--count">290</span>
@@ -64,7 +64,7 @@ const PostsSingleHeader = (document, currentUser) => {
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                       d="M7.2 2.323H5.923c-1.046 0-1.278.464-1.278 1.16V5.11h2.44l-.35 2.438h-2.09v6.387H2.09V7.548H0V5.11h2.09V3.252C2.09 1.162 3.368 0 5.342 0c.93 0 1.742.116 1.858.116v2.207z"
-                                                      fill="#FFF" fill-rule="evenodd"></path>
+                                                      fill="#FFF"></path>
                                                 </svg>
                                             </span>
                                       </div>
@@ -78,7 +78,7 @@ const PostsSingleHeader = (document, currentUser) => {
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                       d="M9,6 L6,6 L6,7 L9,7 L9,10 L10,10 L10,7 L13,7 L13,6 L10,6 L10,3 L9,3 L9,6 Z M0,0 L8,0 L8,1 L0,1 L0,0 Z M0,3 L8,3 L8,4 L0,4 L0,3 Z M0,6 L5,6 L5,7 L0,7 L0,6 Z"
-                                                      fill="#FFF" fill-rule="evenodd"></path>
+                                                      fill="#FFF"></path>
                                                 </svg>
                                             </span>
                                       </div>
