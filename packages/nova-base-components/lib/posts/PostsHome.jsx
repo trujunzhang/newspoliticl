@@ -2,6 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
 import {ListContainer, DocumentContainer} from "meteor/utilities:react-list-container";
 import Posts from "meteor/nova:posts";
+import moment from 'moment';
 
 class PostsHome extends Component {
 
@@ -24,8 +25,10 @@ class PostsHome extends Component {
         const postPostParams = this.state.postPostParams;
         const type = postPostParams.type;
         if (type == "calender") {
-            params.before = postPostParams.para;
-            params.after = postPostParams.para;
+            const selectedDay = postPostParams.para;
+            params.before = selectedDay;
+            params.after = selectedDay;
+            params.date = moment(selectedDay).format('YYYY-MM-DD');
         }
     }
 
