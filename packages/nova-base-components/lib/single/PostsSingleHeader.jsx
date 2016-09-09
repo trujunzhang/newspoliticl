@@ -23,7 +23,7 @@ const PostsSingleHeader = (document, currentUser) => {
                                     <span
                                       className="secondaryBoldText_1PBCf secondaryText_PM80d default_tBeAo base_3CbW2">
                                         <span className="inactiveLink_C7GyP baseLink_8cU0P">
-                                            <a target="_blank" href={post.custom_url}>read more</a>
+                                            <a target="_blank" href={post.url}>read more</a>
                                         </span>
                                     </span>
                                 </span>

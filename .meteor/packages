@@ -38,5 +38,5 @@ accounts-facebook
 nova:debug
 
 ############ Your Packages ############
-
 # my-custom-package
+nova:tags

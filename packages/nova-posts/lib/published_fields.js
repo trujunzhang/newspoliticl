@@ -13,7 +13,6 @@ Posts.publishedFields.list = PublicationsUtils.arrayToFields([
   "postedAt",
   "url",
   "title",
-  "tags",
   "slug",
   "excerpt",
   "viewCount",
