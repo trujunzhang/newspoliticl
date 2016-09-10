@@ -3,6 +3,7 @@ import React, {PropTypes, Component} from 'react';
 import {FlashContainer} from "meteor/nova:core";
 import {DocumentContainer} from "meteor/utilities:react-list-container";
 import Posts from "meteor/nova:posts";
+import {withRouter} from 'react-router'
 
 class Layout extends Component {
 
@@ -27,6 +28,7 @@ class Layout extends Component {
 
     dismissCurrentPostPanel() {
         this.context.messages.dismissPostPanel();
+        //this.props.router.goBack();
     }
 
     showCurrentPostPanel(postId) {
@@ -68,7 +70,7 @@ class Layout extends Component {
                             <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                   d="M6 4.586l4.24-4.24c.395-.395 1.026-.392 1.416-.002.393.393.39 1.024 0 1.415L7.413 6l4.24 4.24c.395.395.392 1.026.002 1.416-.393.393-1.024.39-1.415 0L6 7.413l-4.24 4.24c-.395.395-1.026.392-1.416.002-.393-.393-.39-1.024 0-1.415L4.587 6 .347 1.76C-.05 1.364-.048.733.342.343c.393-.393 1.024-.39 1.415 0L6 4.587z"
-                                  ></path>
+                                ></path>
                             </svg>
                         </span>
                   </a>
@@ -78,7 +80,7 @@ class Layout extends Component {
                             <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                   d="M6 4.586l4.24-4.24c.395-.395 1.026-.392 1.416-.002.393.393.39 1.024 0 1.415L7.413 6l4.24 4.24c.395.395.392 1.026.002 1.416-.393.393-1.024.39-1.415 0L6 7.413l-4.24 4.24c-.395.395-1.026.392-1.416.002-.393-.393-.39-1.024 0-1.415L4.587 6 .347 1.76C-.05 1.364-.048.733.342.343c.393-.393 1.024-.39 1.415 0L6 4.587z"
-                                  ></path>
+                                ></path>
                             </svg>
                         </span>
                   </a>
@@ -153,4 +155,5 @@ Layout.contextTypes = {
 
 Layout.displayName = "Layout";
 
-module.exports = Layout;
+module.exports = withRouter(Layout);
+export default withRouter(Layout);
