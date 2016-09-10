@@ -37,9 +37,12 @@ class PostsItem extends Component {
                   <div>
                       {this.renderCategories()}
 
+                      {/*button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d orangeSolidColor_B-2gO solidVariant_2wWrf btn btn-default*/}
                       <ModalTrigger title="Edit Post"
-                                    component={<a className="posts-action-edit"><FormattedMessage
-                                      id="posts.edit"/></a>}>
+                                    component={
+                                        <a
+                                          className="posts-action-edit button_2I1re  secondaryBoldText_1PBCf secondaryText_PM80d orangeSolidColor_B-2gO solidVariant_2wWrf btn btn-default">
+                                            <FormattedMessage id="posts.edit"/></a>}>
                           <Telescope.components.PostsEditForm post={this.props.post}/>
                       </ModalTrigger>
                   </div>
