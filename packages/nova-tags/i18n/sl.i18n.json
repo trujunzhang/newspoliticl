@@ -1,6 +1,6 @@
 {
-  "categories" : "Kategorije",
-  "add_and_remove_categories" : "Dodaj in odstrani kategorije.",
-  "all_categories" : "Vse",
+  "tags" : "Kategorije",
+  "add_and_remove_tags" : "Dodaj in odstrani kategorije.",
+  "all_tags" : "Vse",
   "invalid_category" : "Žal, to ni veljavna kategorija"
 }

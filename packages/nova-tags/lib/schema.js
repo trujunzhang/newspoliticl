@@ -2,8 +2,8 @@ import Telescope from 'meteor/nova:lib';
 import Categories from "./collection.js";
 import Users from 'meteor/nova:users';
 
-const canInsert = user => Users.canDo(user, "categories.new");
-const canEdit = user => Users.canDo(user, "categories.edit.all");
+const canInsert = user => Users.canDo(user, "tags.new");
+const canEdit = user => Users.canDo(user, "tags.edit.all");
 
 // category schema
 Categories.schema = new SimpleSchema({
@@ -52,13 +52,13 @@ Categories.schema = new SimpleSchema({
     publish: true,
     autoform: {
       options: function () {
-        var categories = Categories.find().map(function (category) {
+        var tags = Categories.find().map(function (category) {
           return {
             value: category._id,
             label: category.name
           };
         });
-        return categories;
+        return tags;
       }
     }
   }
@@ -73,17 +73,17 @@ Categories.attachSchema(Categories.schema);
 
 Telescope.settings.collection.addField([
   {
-    fieldName: 'categoriesBehavior',
+    fieldName: 'tagsBehavior',
     fieldSchema: {
       type: String,
       optional: true,
       autoform: {
-        group: 'categories',
-        instructions: 'Let users filter by one or multiple categories at a time.', 
+        group: 'tags',
+        instructions: 'Let users filter by one or multiple tags at a time.',
         options: function () {
           return [
-            {value: "single", label: "categories_behavior_one_at_a_time"},
-            {value: "multiple", label: "categories_behavior_multiple"}
+            {value: "single", label: "tags_behavior_one_at_a_time"},
+            {value: "multiple", label: "tags_behavior_multiple"}
           ];
         }
       }
@@ -95,8 +95,8 @@ Telescope.settings.collection.addField([
       type: Boolean,
       optional: true,
       autoform: {
-        group: 'categories',
-        instructions: 'Hide empty categories in navigation'
+        group: 'tags',
+        instructions: 'Hide empty tags in navigation'
       }
     }
   }

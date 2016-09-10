@@ -1,10 +1,10 @@
 {
-  "categories" : "Kategooriad",
-  "add_and_remove_categories" : "Lisa ja eemalda kategooriaid.",
-  "all_categories" : "Kõik",
+  "tags" : "Kategooriad",
+  "add_and_remove_tags" : "Lisa ja eemalda kategooriaid.",
+  "all_tags" : "Kõik",
   "invalid_category" : "Vabandame, see ei ole kehtiv kategooria",
-  "categoriesBehavior" : "Kategooriate käitumine",
-  "categories_behavior_one_at_a_time" : "Valige üks kategooria korraga",
-  "categories_behavior_multiple" : "Kombineeri kategooriad",
+  "tagsBehavior" : "Kategooriate käitumine",
+  "tags_behavior_one_at_a_time" : "Valige üks kategooria korraga",
+  "tags_behavior_multiple" : "Kombineeri kategooriad",
   "hideEmptyCategories" : "Peida tühjad kategooriad"
 }

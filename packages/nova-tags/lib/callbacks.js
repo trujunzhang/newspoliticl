@@ -16,7 +16,7 @@ Categories.before.update(function (userId, doc, fieldNames, modifier) {
   }
 });
 
-// add callback that adds categories CSS classes
+// add callback that adds tags CSS classes
 function addCategoryClass (postClass, post) {
   var classArray = _.map(Posts.getCategories(post), function (category){return "category-"+category.slug;});
   return postClass + " " + classArray.join(' ');
@@ -25,18 +25,18 @@ Telescope.callbacks.add("postClass", addCategoryClass);
 
 // ------- Categories Check -------- //
 
-// make sure all categories in the post.categories array exist in the db
+// make sure all tags in the post.tags array exist in the db
 var checkCategories = function (post) {
 
-  // if there are no categories, stop here
-  if (!post.categories || post.categories.length === 0) {
+  // if there are no tags, stop here
+  if (!post.tags || post.tags.length === 0) {
     return;
   }
 
-  // check how many of the categories given also exist in the db
-  var categoryCount = Categories.find({_id: {$in: post.categories}}).count();
+  // check how many of the tags given also exist in the db
+  var categoryCount = Categories.find({_id: {$in: post.tags}}).count();
 
-  if (post.categories.length !== categoryCount) {
+  if (post.tags.length !== categoryCount) {
     throw new Meteor.Error('invalid_category', 'invalid_category');
   }
 };
@@ -56,35 +56,35 @@ Telescope.callbacks.add("posts.edit.sync", postEditCheckCategories);
 // TODO: debug this
 
 // function addParentCategoriesOnSubmit (post) {
-//   var categories = post.categories;
+//   var tags = post.tags;
 //   var newCategories = [];
-//   if (categories) {
-//     categories.forEach(function (categoryId) {
+//   if (tags) {
+//     tags.forEach(function (categoryId) {
 //       var category = Categories.findOne(categoryId);
 //       newCategories = newCategories.concat(_.pluck(category.getParents().reverse(), "_id"));
 //       newCategories.push(category._id);
 //     });
 //   }
-//   post.categories = _.unique(newCategories);
+//   post.tags = _.unique(newCategories);
 //   return post;
 // }
 // Telescope.callbacks.add("posts.new.sync", addParentCategoriesOnSubmit);
 
 // function addParentCategoriesOnEdit (modifier, post) {
-//   if (modifier.$unset && modifier.$unset.categories !== undefined) {
+//   if (modifier.$unset && modifier.$unset.tags !== undefined) {
 //     return modifier;
 //   }
 
-//   var categories = modifier.$set.categories;
+//   var tags = modifier.$set.tags;
 //   var newCategories = [];
-//   if (categories) {
-//     categories.forEach(function (categoryId) {
+//   if (tags) {
+//     tags.forEach(function (categoryId) {
 //       var category = Categories.findOne(categoryId);
 //       newCategories = newCategories.concat(_.pluck(category.getParents().reverse(), "_id"));
 //       newCategories.push(category._id);
 //     });
 //   }
-//   modifier.$set.categories = _.unique(newCategories);
+//   modifier.$set.tags = _.unique(newCategories);
 //   return modifier;
 // }
 // Telescope.callbacks.add("posts.edit.sync", addParentCategoriesOnEdit);

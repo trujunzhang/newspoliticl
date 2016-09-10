@@ -1,10 +1,10 @@
 import Telescope from 'meteor/nova:lib';
 import Categories from "../collection.js";
 
-// Load categories from settings, if there are any
+// Load tags from settings, if there are any
 
-if (Meteor.settings && Meteor.settings.categories) {
-  Meteor.settings.categories.forEach(category => {
+if (Meteor.settings && Meteor.settings.tags) {
+  Meteor.settings.tags.forEach(category => {
 
     // get slug (or slugified name)
     const slug = category.slug || Telescope.utils.slugify(category.name);

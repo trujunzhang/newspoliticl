@@ -3,24 +3,24 @@ import Posts from "meteor/nova:posts";
 import Categories from "./collection.js";
 
 Categories.helpers({getCollection: () => Categories});
-Categories.helpers({getCollectionName: () => "categories"});
+Categories.helpers({getCollectionName: () => "tags"});
 
 /**
  * @summary Get all of a category's parents
  * @param {Object} category
  */
 Categories.getParents = function (category) {
-  var categoriesArray = [];
+  var tagsArray = [];
 
   var getParents = function recurse (category) {
     var parent;
     if (parent = Categories.findOne(category.parentId)) {
-      categoriesArray.push(parent);
+      tagsArray.push(parent);
       recurse(parent);
     }
   }(category);
 
-  return categoriesArray;
+  return tagsArray;
 };
 Categories.helpers({getParents: function () {return Categories.getParents(this);}});
 
@@ -29,26 +29,26 @@ Categories.helpers({getParents: function () {return Categories.getParents(this);
  * @param {Object} category
  */
 Categories.getChildren = function (category) {
-  var categoriesArray = [];
+  var tagsArray = [];
 
-  var getChildren = function recurse (categories) {
-    var children = Categories.find({parentId: {$in: _.pluck(categories, "_id")}}).fetch()
+  var getChildren = function recurse (tags) {
+    var children = Categories.find({parentId: {$in: _.pluck(tags, "_id")}}).fetch()
     if (children.length > 0) {
-      categoriesArray = categoriesArray.concat(children);
+      tagsArray = tagsArray.concat(children);
       recurse(children);
     }
   }([category]);
 
-  return categoriesArray;
+  return tagsArray;
 };
 Categories.helpers({getChildren: function () {return Categories.getChildren(this);}});
 
 /**
- * @summary Get all of a post's categories
+ * @summary Get all of a post's tags
  * @param {Object} post
  */
 Posts.getCategories = function (post) {
-  return !!post.categories ? Categories.find({_id: {$in: post.categories}}).fetch() : [];
+  return !!post.tags ? Categories.find({_id: {$in: post.tags}}).fetch() : [];
 };
 Posts.helpers({getCategories: function () {return Posts.getCategories(this);}});
 

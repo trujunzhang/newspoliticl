@@ -4,7 +4,7 @@ import PublicationsUtils from 'meteor/utilities:smart-publications';
 Categories.publishedFields = {};
 
 /**
- * @summary Specify which fields should be published by the categories publication
+ * @summary Specify which fields should be published by the tags publication
  * @array Categories.publishedFields.list
  */
 Categories.publishedFields.list = PublicationsUtils.arrayToFields([

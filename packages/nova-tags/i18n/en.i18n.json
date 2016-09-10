@@ -1,10 +1,10 @@
 {
-  "categories" : "Categories",
-  "add_and_remove_categories" : "Add and remove categories.",
-  "all_categories" : "All",
+  "tags" : "Categories",
+  "add_and_remove_tags" : "Add and remove tags.",
+  "all_tags" : "All",
   "invalid_category" : "Sorry, this is not a valid category",
-  "categoriesBehavior" : "Categories Behavior",
-  "categories_behavior_one_at_a_time" : "Select one category at a time",
-  "categories_behavior_multiple" : "Combine multiple categories",
-  "hideEmptyCategories" : "Hide empty categories"
+  "tagsBehavior" : "Categories Behavior",
+  "tags_behavior_one_at_a_time" : "Select one category at a time",
+  "tags_behavior_multiple" : "Combine multiple tags",
+  "hideEmptyCategories" : "Hide empty tags"
 }

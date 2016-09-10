@@ -10,7 +10,7 @@ const canEdit = Users.canEdit;
 
 Posts.addField(
   {
-    fieldName: 'categories',
+    fieldName: 'tags',
     fieldSchema: {
       type: [String],
       control: "checkboxgroup",
@@ -22,22 +22,22 @@ Posts.addField(
         type: "bootstrap-category",
         order: 50,
         options: function () {
-          var categories = Categories.find().map(function (category) {
+          var tags = Categories.find().map(function (category) {
             return {
               value: category._id,
               label: category.name
             };
           });
-          return categories;
+          return tags;
         }
       },
       publish: true,
       join: {
-        joinAs: "categoriesArray",
+        joinAs: "tagsArray",
         collection: () => Categories
       }
     }
   }
 );
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["categories"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["tags"]);

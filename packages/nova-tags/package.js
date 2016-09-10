@@ -1,5 +1,5 @@
 Package.describe({
-  name: "nova:categories",
+  name: "nova:tags",
   summary: "Telescope tags package",
   version: "0.27.0-nova",
   git: "https://github.com/TelescopeJS/telescope-tags.git"

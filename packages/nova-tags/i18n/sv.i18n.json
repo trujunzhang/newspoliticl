@@ -1,6 +1,6 @@
 {
-  "categories" : "Kategorier",
-  "add_and_remove_categories" : "Lägg till och ta bort kategorier.",
-  "all_categories" : "Allt",
+  "tags" : "Kategorier",
+  "add_and_remove_tags" : "Lägg till och ta bort kategorier.",
+  "all_tags" : "Allt",
   "invalid_category" : "Tyvärr är detta inte en giltig kategori"
 }

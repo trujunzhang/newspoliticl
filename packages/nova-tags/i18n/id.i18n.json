@@ -1,6 +1,6 @@
 {
-  "categories" : "Kategori",
-  "add_and_remove_categories" : "Menambah dan menghapus kategori.",
-  "all_categories" : "Semua",
+  "tags" : "Kategori",
+  "add_and_remove_tags" : "Menambah dan menghapus kategori.",
+  "all_tags" : "Semua",
   "invalid_category" : "Maaf, ini bukan kategori valid"
 }

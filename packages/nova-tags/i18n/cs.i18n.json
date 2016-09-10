@@ -1,6 +1,6 @@
 {
-  "categories" : "Kategorie",
-  "add_and_remove_categories" : "Přidat a odebrat kategorie.",
-  "all_categories" : "Vše",
+  "tags" : "Kategorie",
+  "add_and_remove_tags" : "Přidat a odebrat kategorie.",
+  "all_tags" : "Vše",
   "invalid_category" : "Litujeme, toto není platná kategorie"
 }
