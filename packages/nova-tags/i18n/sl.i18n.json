@@ -2,5 +2,5 @@
   "tags" : "Kategorije",
   "add_and_remove_tags" : "Dodaj in odstrani kategorije.",
   "all_tags" : "Vse",
-  "invalid_category" : "Žal, to ni veljavna kategorija"
+  "invalid_tag" : "Žal, to ni veljavna kategorija"
 }

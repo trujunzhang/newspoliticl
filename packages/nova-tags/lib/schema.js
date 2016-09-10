@@ -5,7 +5,7 @@ import Users from 'meteor/nova:users';
 const canInsert = user => Users.canDo(user, "tags.new");
 const canEdit = user => Users.canDo(user, "tags.edit.all");
 
-// category schema
+// tag schema
 Tags.schema = new SimpleSchema({
   name: {
     type: String,
@@ -52,10 +52,10 @@ Tags.schema = new SimpleSchema({
     publish: true,
     autoform: {
       options: function () {
-        var tags = Tags.find().map(function (category) {
+        var tags = Tags.find().map(function (tag) {
           return {
-            value: category._id,
-            label: category.name
+            value: tag._id,
+            label: tag.name
           };
         });
         return tags;

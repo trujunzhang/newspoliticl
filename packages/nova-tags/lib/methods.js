@@ -3,24 +3,24 @@ import Users from 'meteor/nova:users';
 import Tags from "./collection.js";
 
 Meteor.methods({
-  "tags.deleteById": function (categoryId) {
+  "tags.deleteById": function (tagId) {
     
-    check(categoryId, String);
+    check(tagId, String);
     
     const currentUser = this.userId && Users.findOne(this.userId);
 
     if (Users.canDo(currentUser, "tags.remove.all")) {
 
-      // delete category
-      Tags.remove(categoryId);
+      // delete tag
+      Tags.remove(tagId);
 
-      // find any direct children of this category and make them root tags
-      Tags.find({parentId: categoryId}).forEach(function (category) {
-        Tags.update(category._id, {$unset: {parentId: ""}});
+      // find any direct children of this tag and make them root tags
+      Tags.find({parentId: tagId}).forEach(function (tag) {
+        Tags.update(tag._id, {$unset: {parentId: ""}});
       });
 
-      // find any posts with this category and remove it
-      var postsUpdated = Posts.update({tags: {$in: [categoryId]}}, {$pull: {tags: categoryId}}, {multi: true});
+      // find any posts with this tag and remove it
+      var postsUpdated = Posts.update({tags: {$in: [tagId]}}, {$pull: {tags: tagId}}, {multi: true});
 
       return postsUpdated;
 

@@ -2,5 +2,5 @@
   "tags" : "Categorías",
   "add_and_remove_tags" : "Agregar y eliminar categorías",
   "all_tags" : "Todos",
-  "invalid_category" : "Lo sentimos, esa no es una categoría válida"
+  "invalid_tag" : "Lo sentimos, esa no es una categoría válida"
 }

@@ -6,29 +6,29 @@ Tags.helpers({getCollection: () => Tags});
 Tags.helpers({getCollectionName: () => "tags"});
 
 /**
- * @summary Get all of a category's parents
- * @param {Object} category
+ * @summary Get all of a tag's parents
+ * @param {Object} tag
  */
-Tags.getParents = function (category) {
+Tags.getParents = function (tag) {
   var tagsArray = [];
 
-  var getParents = function recurse (category) {
+  var getParents = function recurse (tag) {
     var parent;
-    if (parent = Tags.findOne(category.parentId)) {
+    if (parent = Tags.findOne(tag.parentId)) {
       tagsArray.push(parent);
       recurse(parent);
     }
-  }(category);
+  }(tag);
 
   return tagsArray;
 };
 Tags.helpers({getParents: function () {return Tags.getParents(this);}});
 
 /**
- * @summary Get all of a category's children
- * @param {Object} category
+ * @summary Get all of a tag's children
+ * @param {Object} tag
  */
-Tags.getChildren = function (category) {
+Tags.getChildren = function (tag) {
   var tagsArray = [];
 
   var getChildren = function recurse (tags) {
@@ -37,7 +37,7 @@ Tags.getChildren = function (category) {
       tagsArray = tagsArray.concat(children);
       recurse(children);
     }
-  }([category]);
+  }([tag]);
 
   return tagsArray;
 };
@@ -53,22 +53,22 @@ Posts.getTags = function (post) {
 Posts.helpers({getTags: function () {return Posts.getTags(this);}});
 
 /**
- * @summary Get a category's URL
- * @param {Object} category
+ * @summary Get a tag's URL
+ * @param {Object} tag
  */
-Tags.getUrl = function (category, isAbsolute) {
+Tags.getUrl = function (tag, isAbsolute) {
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
-  // return prefix + FlowRouter.path("postsCategory", category);
-  return `${prefix}/?cat=${category.slug}`;
+  // return prefix + FlowRouter.path("postsTag", tag);
+  return `${prefix}/?cat=${tag.slug}`;
 };
 Tags.helpers({getUrl: function () {return Tags.getUrl(this);}});
 
 /**
- * @summary Get a category's counter name
- * @param {Object} category
+ * @summary Get a tag's counter name
+ * @param {Object} tag
  */
- Tags.getCounterName = function (category) {
-  return category._id + "-postsCount";
+ Tags.getCounterName = function (tag) {
+  return tag._id + "-postsCount";
  }
  Tags.helpers({getCounterName: function () {return Tags.getCounterName(this);}});

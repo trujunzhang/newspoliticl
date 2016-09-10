@@ -1,13 +1,13 @@
 import Telescope from 'meteor/nova:lib';
 import Tags from "./collection.js";
 
-// Category Parameter
+// Tag Parameter
 // Add a "tags" property to terms which can be used to filter *all* existing Posts views.
-function addCategoryParameter (parameters, terms) {
+function addTagParameter (parameters, terms) {
 
   var cat = terms.cat || terms["cat[]"];
 
-  // filter by category if category slugs are provided
+  // filter by tag if tag slugs are provided
   if (cat) {
 
     var tagsIds = [];
@@ -22,14 +22,14 @@ function addCategoryParameter (parameters, terms) {
     // get all tags passed in terms
     var tags = Tags.find(selector).fetch();
     
-    // for each category, add its ID and the IDs of its children to tagsId array
-    tags.forEach(function (category) {
-      tagsIds.push(category._id);
-      tagsIds = tagsIds.concat(_.pluck(Tags.getChildren(category), "_id"));
+    // for each tag, add its ID and the IDs of its children to tagsId array
+    tags.forEach(function (tag) {
+      tagsIds.push(tag._id);
+      tagsIds = tagsIds.concat(_.pluck(Tags.getChildren(tag), "_id"));
     });
 
     parameters.selector.tags = {$in: tagsIds};
   }
   return parameters;
 }
-Telescope.callbacks.add("postsParameters", addCategoryParameter);
+Telescope.callbacks.add("postsParameters", addTagParameter);

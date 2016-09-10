@@ -2,5 +2,5 @@
   "tags" : "Kategorier",
   "add_and_remove_tags" : "Lägg till och ta bort kategorier.",
   "all_tags" : "Allt",
-  "invalid_category" : "Tyvärr är detta inte en giltig kategori"
+  "invalid_tag" : "Tyvärr är detta inte en giltig kategori"
 }

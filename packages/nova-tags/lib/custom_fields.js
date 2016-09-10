@@ -19,13 +19,13 @@ Posts.addField(
       editableIf: canEdit,
       autoform: {
         noselect: true,
-        type: "bootstrap-category",
+        type: "bootstrap-tag",
         order: 50,
         options: function () {
-          var tags = Tags.find().map(function (category) {
+          var tags = Tags.find().map(function (tag) {
             return {
-              value: category._id,
-              label: category.name
+              value: tag._id,
+              label: tag.name
             };
           });
           return tags;

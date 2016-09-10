@@ -17,11 +17,11 @@ Tags.before.update(function (userId, doc, fieldNames, modifier) {
 });
 
 // add callback that adds tags CSS classes
-function addCategoryClass (postClass, post) {
-  var classArray = _.map(Posts.getTags(post), function (category){return "category-"+category.slug;});
+function addTagClass (postClass, post) {
+  var classArray = _.map(Posts.getTags(post), function (tag){return "tag-"+tag.slug;});
   return postClass + " " + classArray.join(' ');
 }
-Telescope.callbacks.add("postClass", addCategoryClass);
+Telescope.callbacks.add("postClass", addTagClass);
 
 // ------- Tags Check -------- //
 
@@ -34,10 +34,10 @@ var checkTags = function (post) {
   }
 
   // check how many of the tags given also exist in the db
-  var categoryCount = Tags.find({_id: {$in: post.tags}}).count();
+  var tagCount = Tags.find({_id: {$in: post.tags}}).count();
 
-  if (post.tags.length !== categoryCount) {
-    throw new Meteor.Error('invalid_category', 'invalid_category');
+  if (post.tags.length !== tagCount) {
+    throw new Meteor.Error('invalid_tag', 'invalid_tag');
   }
 };
 
@@ -59,10 +59,10 @@ Telescope.callbacks.add("posts.edit.sync", postEditCheckTags);
 //   var tags = post.tags;
 //   var newTags = [];
 //   if (tags) {
-//     tags.forEach(function (categoryId) {
-//       var category = Tags.findOne(categoryId);
-//       newTags = newTags.concat(_.pluck(category.getParents().reverse(), "_id"));
-//       newTags.push(category._id);
+//     tags.forEach(function (tagId) {
+//       var tag = Tags.findOne(tagId);
+//       newTags = newTags.concat(_.pluck(tag.getParents().reverse(), "_id"));
+//       newTags.push(tag._id);
 //     });
 //   }
 //   post.tags = _.unique(newTags);
@@ -78,10 +78,10 @@ Telescope.callbacks.add("posts.edit.sync", postEditCheckTags);
 //   var tags = modifier.$set.tags;
 //   var newTags = [];
 //   if (tags) {
-//     tags.forEach(function (categoryId) {
-//       var category = Tags.findOne(categoryId);
-//       newTags = newTags.concat(_.pluck(category.getParents().reverse(), "_id"));
-//       newTags.push(category._id);
+//     tags.forEach(function (tagId) {
+//       var tag = Tags.findOne(tagId);
+//       newTags = newTags.concat(_.pluck(tag.getParents().reverse(), "_id"));
+//       newTags.push(tag._id);
 //     });
 //   }
 //   modifier.$set.tags = _.unique(newTags);

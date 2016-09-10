@@ -11,11 +11,11 @@ Meteor.publish('tags', function() {
     var tags = Tags.find({}, {fields: Tags.publishedFields.list});
     var publication = this;
 
-    tags.forEach(function (category) {
-      var childrenTags = category.getChildren();
-      var categoryIds = [category._id].concat(_.pluck(childrenTags, "_id"));
-      var cursor = Posts.find({$and: [{tags: {$in: categoryIds}}, {status: Posts.config.STATUS_APPROVED}]});
-      // Counts.publish(publication, category.getCounterName(), cursor, { noReady: true });
+    tags.forEach(function (tag) {
+      var childrenTags = tag.getChildren();
+      var tagIds = [tag._id].concat(_.pluck(childrenTags, "_id"));
+      var cursor = Posts.find({$and: [{tags: {$in: tagIds}}, {status: Posts.config.STATUS_APPROVED}]});
+      // Counts.publish(publication, tag.getCounterName(), cursor, { noReady: true });
     });
 
     return tags;
