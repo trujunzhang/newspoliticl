@@ -35,6 +35,14 @@ const Messages = {
         return path;
     },
 
+    /**
+     * dismiss all post panels
+     */
+    dismissAllPostPanels(){
+        this.postDetailSet.empty();
+        this.appStatus.updateCachePost(null);
+    },
+
     showPopoverMenu(top, left, width, height, type){
         var popoverMenus = new PopoverMenus(top, left, width, height, type);
         this.layout.setState({popoverMenu: popoverMenus});

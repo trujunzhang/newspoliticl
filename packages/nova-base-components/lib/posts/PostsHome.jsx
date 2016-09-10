@@ -30,6 +30,10 @@ class PostsHome extends Component {
             params.after = selectedDay;
             params.date = moment(selectedDay).format('YYYY-MM-DD');
         }
+        const currentTagSlug = this.props.location.query.tag;
+        if (currentTagSlug) {
+            this.context.messages.dismissAllPostPanels();
+        }
     }
 
     render() {

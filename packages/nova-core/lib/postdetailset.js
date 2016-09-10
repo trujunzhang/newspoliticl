@@ -11,6 +11,10 @@ class PostDetailSet {
     return newPost;
   }
 
+  empty(){
+    this.stack = [];
+  }
+
   lastPage() {
     if (this.stack.length == 0) {
       return null;
