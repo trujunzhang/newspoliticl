@@ -23,6 +23,26 @@ class PostsItem extends Component {
         return this.props.post.categoriesArray ? <Telescope.components.PostsCategories post={this.props.post}/> : "";
     }
 
+    renderTags() {
+        const post = this.props.post;
+        if (post.tags) {
+            return (
+              <ul className="posts-tags">
+                  {post.tags.map((tag, key) => {
+                      return (
+                        <li
+                          key={key}
+                          onClick={this.onTagClick.bind(this, tag)}
+                          type="button"
+                          className="posts-tag"
+                          rel="tag">{tag}</li>)
+                  })}
+              </ul>
+            )
+        }
+        return null;
+    }
+
     renderAdminActions() {
         return (
           <div className="post-actions">
@@ -121,26 +141,6 @@ class PostsItem extends Component {
         delay(() => {
             router.push({pathname: path});
         }, 10);
-    }
-
-    renderTags() {
-        const post = this.props.post;
-        if (post.tags) {
-            return (
-              <ul className="posts-tags">
-                  {post.tags.map((tag, key) => {
-                      return (
-                        <li
-                          key={key}
-                          onClick={this.onTagClick.bind(this, tag)}
-                          type="button"
-                          className="posts-tag"
-                          rel="tag">{tag}</li>)
-                  })}
-              </ul>
-            )
-        }
-        return null;
     }
 
     render() {
