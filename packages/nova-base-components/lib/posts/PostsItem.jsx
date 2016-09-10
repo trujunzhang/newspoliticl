@@ -19,16 +19,26 @@ const delay = (function () {
 
 class PostsItem extends Component {
 
+    renderCategories() {
+        return this.props.post.categoriesArray ? <Telescope.components.PostsCategories post={this.props.post}/> : "";
+    }
+
     renderAdminActions() {
         return (
           <div className="post-actions">
               <Telescope.components.CanDo
                 action="posts.edit.all"
                 document={this.props.post}>
-                  <ModalTrigger title="Edit Post"
-                                component={<a className="posts-action-edit"><FormattedMessage id="posts.edit"/></a>}>
-                      <Telescope.components.PostsEditForm post={this.props.post}/>
-                  </ModalTrigger>
+
+                  <div>
+                      {this.renderCategories()}
+
+                      <ModalTrigger title="Edit Post"
+                                    component={<a className="posts-action-edit"><FormattedMessage
+                                      id="posts.edit"/></a>}>
+                          <Telescope.components.PostsEditForm post={this.props.post}/>
+                      </ModalTrigger>
+                  </div>
               </Telescope.components.CanDo>
           </div>
         )
@@ -93,7 +103,6 @@ class PostsItem extends Component {
                           <div className="buttonContainer_wTYxi">{post.author}</div>
                       </a>
                   </div>
-                  {this.renderAdminActions()}
               </div>
           </div>
         )
@@ -151,9 +160,11 @@ class PostsItem extends Component {
                           {post.thumbnailUrl ? <Telescope.components.PostsThumbnail post={post}/> : null}
                       </div>
                   </div>
+
                   <div className="content_3oLx4">
                       <span onClick={this.popupDetail.bind(this)}
                             className="title_2p9fd featured_2W7jd default_tBeAo base_3CbW2 post-title">{post.title}</span>
+                      {this.renderAdminActions()}
                       <p style={{"margin-bottom": 10}} className="post_description"
                          onClick={this.popupDetail.bind(this)}>
                           {((mytextvar).length > maxlimit)
