@@ -14,7 +14,6 @@ class PostsHome extends Component {
         this.context.messages.appStatus.registerPostsHome(this);
         this.state = this.initialState = {
             postPostParams: {type: "home", para: null},
-            isDetailedPage: false
         };
     }
 
@@ -31,16 +30,12 @@ class PostsHome extends Component {
             params.after = selectedDay;
             params.date = moment(selectedDay).format('YYYY-MM-DD');
         }
-        //else if (query.postid) {
-        //    this.context.messages.pushAndPostShow(query.postid);
-        //    this.setState({isDetailedPage: true})
-        //}
     }
 
     render() {
 
         const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
-        //this.fixParams(params, this.props.location.query);
+        this.fixParams(params, this.props.location.query);
         const {selector, options} = Posts.parameters.get(params);
 
         if (this.props.location.query.postid) {
