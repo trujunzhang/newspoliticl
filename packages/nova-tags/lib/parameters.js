@@ -5,18 +5,18 @@ import Tags from "./collection.js";
 // Add a "tags" property to terms which can be used to filter *all* existing Posts views.
 function addTagParameter (parameters, terms) {
 
-  var cat = terms.cat || terms["cat[]"];
+  var tag = terms.tag || terms["tag[]"];
 
   // filter by tag if tag slugs are provided
-  if (cat) {
+  if (tag) {
 
     var tagsIds = [];
     var selector = {};
 
-    if (typeof cat === "string") { // cat is a string
-      selector = {slug: cat};
-    } else if (Array.isArray(cat)) { // cat is an array
-      selector = {slug: {$in: cat}};
+    if (typeof tag === "string") { // tag is a string
+      selector = {slug: tag};
+    } else if (Array.isArray(tag)) { // tag is an array
+      selector = {slug: {$in: tag}};
     }
 
     // get all tags passed in terms

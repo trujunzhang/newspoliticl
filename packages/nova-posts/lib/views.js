@@ -20,8 +20,9 @@ Posts.views.add = function (viewName, viewFunction) {
  */
 Posts.views.baseParameters = {
   selector: {
-    status: Posts.config.STATUS_APPROVED,
-    isFuture: {$ne: true} // match both false and undefined
+    status: Posts.config.STATUS_APPROVED
+      // TODO: djzhang(remove it)
+    //isFuture: {$ne: true} // match both false and undefined
   }
 };
 
@@ -85,8 +86,8 @@ Posts.views.add("rejected", function (terms) {
 Posts.views.add("scheduled", function (terms) {
   return {
     selector: {
-      status: Posts.config.STATUS_APPROVED,
-      isFuture: true
+      status: Posts.config.STATUS_APPROVED
+      //isFuture: true
     },
     options: {sort: {postedAt: -1}}
   };
@@ -99,8 +100,8 @@ Posts.views.add("userPosts", function (terms) {
   return {
     selector: {
       userId: terms.userId,
-      status: Posts.config.STATUS_APPROVED,
-      isFuture: {$ne: true}
+      status: Posts.config.STATUS_APPROVED
+      //isFuture: {$ne: true}
     },
     options: {
       limit: 5, 

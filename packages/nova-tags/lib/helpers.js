@@ -60,7 +60,7 @@ Tags.getUrl = function (tag, isAbsolute) {
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
   // return prefix + FlowRouter.path("postsTag", tag);
-  return `${prefix}/?cat=${tag.slug}`;
+  return `${prefix}/?tag=${tag.slug}`;
 };
 Tags.helpers({getUrl: function () {return Tags.getUrl(this);}});
 
