@@ -28,8 +28,8 @@ class Layout extends Component {
     }
 
     dismissCurrentPostPanel() {
-        this.context.messages.dismissPostPanel();
-        this.props.router.push('/')
+        var lastPath = this.context.messages.dismissPostPanel();
+        this.props.router.push(lastPath)
     }
 
     showCurrentPostPanel(postId) {

@@ -31,6 +31,8 @@ const Messages = {
     dismissPostPanel(){
         var cachePost = this.postDetailSet.lastPage();
         this.appStatus.updateCachePost(cachePost);
+        var path = this.appStatus.rootPath;
+        return path;
     },
 
     showPopoverMenu(top, left, width, height, type){
