@@ -1,1 +1,1 @@
-Telescope scoring package, used internally. 
+Telescope tags package, used internally. 
