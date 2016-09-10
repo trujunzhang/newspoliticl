@@ -14,6 +14,16 @@ class HeaderNavigation extends Component {
         super(props);
     }
 
+    onNavItemClick(cat) {
+        const router = this.props.router;
+        router.push({pathname: '/', query: {cat: cat.slug}});
+    }
+
+    onHomeItemClick() {
+        const router = this.props.router;
+        router.push({pathname: '/'});
+    }
+
     render() {
         const {categories, router} = this.props;
 
@@ -24,16 +34,16 @@ class HeaderNavigation extends Component {
 
         return (
           <nav className="navigation_1H-Yv text_3Wjo0 subtle_1BWOT base_3CbW2">
-              <a className={currentCategorySlug ? normalClass : activeClass} href="/">Home</a>
+              <a className={currentCategorySlug ? normalClass : activeClass} onClick={this.onHomeItemClick.bind(this)}>Home</a>
               <div className="subNavigation_iLJXz">
                   <div className="gradientLeft_33bxf gradient_fDMJD"></div>
                   <div className="gradientRight_Rp6ob gradient_fDMJD"></div>
                   <ol>
-                      {categories && categories.length > 0 ? categories.map((category, index) => {
+                      {categories && categories.length > 0 ? categories.map((cat, index) => {
                             return (
                               <li key={index}>
-                                  <a className={currentCategorySlug === category.slug ? activeClass : normalClass}
-                                     href={"/?cat=" + category.slug}>{category.name}</a>
+                                  <a className={currentCategorySlug === cat.slug ? activeClass : normalClass}
+                                     onClick={this.onNavItemClick.bind(this, cat)}>{cat.name}</a>
                               </li>
                             )
                         }

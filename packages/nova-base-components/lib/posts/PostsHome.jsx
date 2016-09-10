@@ -30,9 +30,7 @@ class PostsHome extends Component {
             params.after = selectedDay;
             params.date = moment(selectedDay).format('YYYY-MM-DD');
         }
-        else if (this.props.location.query.tag) {
-            this.context.messages.dismissAllPostPanels();
-        }
+        this.context.messages.dismissAllPostPanels();
     }
 
     render() {
