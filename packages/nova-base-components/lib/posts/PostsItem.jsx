@@ -25,23 +25,6 @@ class PostsItem extends Component {
 
     renderTags() {
         return this.props.post.tagsArray ? <Telescope.components.PostsTags post={this.props.post}/> : "";
-        //const post = this.props.post;
-        //if (post.tags) {
-        //    return (
-        //      <ul className="posts-tags">
-        //          {post.tags.map((tag, key) => {
-        //              return (
-        //                <li
-        //                  key={key}
-        //                  onClick={this.onTagClick.bind(this, tag)}
-        //                  type="button"
-        //                  className="posts-tag"
-        //                  rel="tag">{tag}</li>)
-        //          })}
-        //      </ul>
-        //    )
-        //}
-        //return null;
     }
 
     renderAdminActions() {

@@ -3,6 +3,10 @@ import Posts from "meteor/nova:posts";
 
 class PostsPage extends Component {
 
+    renderTags() {
+        return this.props.post.tagsArray ? <Telescope.components.PostsTags post={this.props.post}/> : "";
+    }
+
     render() {
 
         const post = this.props.document;
@@ -23,7 +27,7 @@ class PostsPage extends Component {
                           <div className="constraintWidth_ZyYbM body_1a08C">
                               <main className="main_3lfDa">
                                   {/*post's tags*/}
-                                  <Telescope.components.PostTagItem post={post}/>
+                                  {this.renderTags()}
                                   {/*middle left*/}
                                   <Telescope.components.PostDetail post={post} user={currentUser}/>
                                   {/*comments*/}
