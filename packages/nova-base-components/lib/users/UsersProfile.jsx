@@ -5,9 +5,10 @@ import {ListContainer} from "meteor/utilities:react-list-container";
 import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
 import {Link} from 'react-router';
+import {withRouter} from 'react-router'
 
-const UsersProfile = ({user}, {currentUser}) => {
-
+//const UsersProfile = ({user}, {currentUser}) => {
+class UsersProfile extends Component {
     //const twitterName = Users.getTwitterName(user);
 
     //const terms = {
@@ -16,82 +17,90 @@ const UsersProfile = ({user}, {currentUser}) => {
     //};
     //const {selector, options} = Posts.parameters.get(terms);
 
-    return (
-      <div>
-          <Telescope.components.UserProfileHeader user={user}/>
-          <div className="constraintWidth_ZyYbM body_1RqUJ">
-              <nav className="navigation_3_Vku">
-                  <ol>
-                      <li>
-                          <a className="text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET"
-                             href="https://www.producthunt.com/@trujunzhang">
-                              <em>0</em>
-                              <span>Upvotes</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                             href="https://www.producthunt.com/@trujunzhang/topics">
-                              <em>5</em>
-                              <span>Topics</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                             href="https://www.producthunt.com/@trujunzhang/collections">
-                              <em>0</em>
-                              <span>Collections</span>
-                          </a>
-                      </li>
-                      <li className="hideOnLargeScreen_3y6m4">
-                          <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                             href="https://www.producthunt.com/@trujunzhang/following">
-                              <em>5</em>
-                              <span>
+    renderLeftPanel() {
+        return (
+          <nav className="navigation_3_Vku">
+              <ol>
+                  <li>
+                      <a className="text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET"
+                         href="https://www.producthunt.com/@trujunzhang">
+                          <em>0</em>
+                          <span>Upvotes</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
+                         href="https://www.producthunt.com/@trujunzhang/topics">
+                          <em>5</em>
+                          <span>Topics</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
+                         href="https://www.producthunt.com/@trujunzhang/collections">
+                          <em>0</em>
+                          <span>Collections</span>
+                      </a>
+                  </li>
+                  <li className="hideOnLargeScreen_3y6m4">
+                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
+                         href="https://www.producthunt.com/@trujunzhang/following">
+                          <em>5</em>
+                          <span>
                                     Following</span>
-                          </a>
-                      </li>
-                      <li className="hideOnLargeScreen_3y6m4">
-                          <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                             href="https://www.producthunt.com/@trujunzhang/followers">
-                              <em>0</em>
-                              <span>
+                      </a>
+                  </li>
+                  <li className="hideOnLargeScreen_3y6m4">
+                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
+                         href="https://www.producthunt.com/@trujunzhang/followers">
+                          <em>0</em>
+                          <span>
                                     Followers
                                 </span>
-                          </a>
-                      </li>
-                  </ol>
-              </nav>
-              <main className="content_36o4C">
-                  <div>
-                      <div className="fullWidthBox_3Dggh box_c4OJj">
-                          <div className="header_3GFef hideOnSmallScreen_1VjPA">
+                      </a>
+                  </li>
+              </ol>
+          </nav>
+        )
+    }
+
+    renderContent() {
+        return (
+          <main className="content_36o4C">
+              <div>
+                  <div className="fullWidthBox_3Dggh box_c4OJj">
+                      <div className="header_3GFef hideOnSmallScreen_1VjPA">
                                 <span >
                                     <span
                                       className="title_38djq featured_2W7jd default_tBeAo base_3CbW2">0 Upvotes</span>
                                 </span>
-                          </div>
-                          <div className="content_DcBqe">
-                              <div className="placeholder_lYzpv">
-                                  <span className="emoji_1lBv0 emoji_style">😩</span>
-                                  <span className="text_3Wjo0 subtle_1BWOT base_3CbW2">No upvotes yet.</span>
-                              </div>
+                      </div>
+                      <div className="content_DcBqe">
+                          <div className="placeholder_lYzpv">
+                              <span className="emoji_1lBv0 emoji_style">😩</span>
+                              <span className="text_3Wjo0 subtle_1BWOT base_3CbW2">No upvotes yet.</span>
                           </div>
                       </div>
                   </div>
-              </main>
-              <aside className="sidebar_74Fq4">
-                  <div className="paddedBox_2UY-S box_c4OJj sidebarBox_1-7Yk">
-                      <div className="content_DcBqe">
-                          <div className="header_3GFef">
+              </div>
+          </main>
+        )
+    }
+
+    renderRightPanel() {
+        return (
+          <aside className="sidebar_74Fq4">
+              <div className="paddedBox_2UY-S box_c4OJj sidebarBox_1-7Yk">
+                  <div className="content_DcBqe">
+                      <div className="header_3GFef">
                               <span
                                 className="sidebarTitle_25eeI secondaryBoldText_1PBCf secondaryText_PM80d default_tBeAo base_3CbW2">Share your profile</span>
-                          </div>
-                          <div className="sharing_3oKwp">
-                              <a
-                                className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d twitterSolidColor_G22Bs solidVariant_2wWrf sharingButton_1nb3A"
-                                href="https://www.producthunt.com/@trujunzhang#" rel="share-on-twitter">
-                                  <div className="buttonContainer_wTYxi">
+                      </div>
+                      <div className="sharing_3oKwp">
+                          <a
+                            className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d twitterSolidColor_G22Bs solidVariant_2wWrf sharingButton_1nb3A"
+                            href="https://www.producthunt.com/@trujunzhang#" rel="share-on-twitter">
+                              <div className="buttonContainer_wTYxi">
                                         <span>
                                             <svg width="16px" height="13px" viewBox="0 0 16 13" version="1.1"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -100,60 +109,78 @@ const UsersProfile = ({user}, {currentUser}) => {
                                                   id="twitter" fill="#000000"></path>
                                             </svg>
                                         </span>
-                                  </div>
-                              </a>
-                              <a
-                                className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d facebookSolidColor_pdgXp solidVariant_2wWrf sharingButton_1nb3A"
-                                href="https://www.producthunt.com/@trujunzhang#" rel="share-on-facebook">
-                                  <div className="buttonContainer_wTYxi">
+                              </div>
+                          </a>
+                          <a
+                            className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d facebookSolidColor_pdgXp solidVariant_2wWrf sharingButton_1nb3A"
+                            href="https://www.producthunt.com/@trujunzhang#" rel="share-on-facebook">
+                              <div className="buttonContainer_wTYxi">
                                         <span>
                                             <svg width="8" height="13" viewBox="0 0 8 14"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                   d="M7.2 2.323H5.923c-1.046 0-1.278.464-1.278 1.16V5.11h2.44l-.35 2.438h-2.09v6.387H2.09V7.548H0V5.11h2.09V3.252C2.09 1.162 3.368 0 5.342 0c.93 0 1.742.116 1.858.116v2.207z"
-                                                  fill="#FFF" ></path>
+                                                  fill="#FFF"></path>
                                             </svg>
                                         </span>
-                                  </div>
-                              </a>
-                          </div>
+                              </div>
+                          </a>
                       </div>
                   </div>
-                  <div className="paddedBox_2UY-S box_c4OJj sidebarBox_1-7Yk">
-                      <div className="content_DcBqe">
-                          <div className="header_3GFef">
+              </div>
+              <div className="paddedBox_2UY-S box_c4OJj sidebarBox_1-7Yk">
+                  <div className="content_DcBqe">
+                      <div className="header_3GFef">
                               <span
                                 className="sidebarTitle_25eeI secondaryBoldText_1PBCf secondaryText_PM80d default_tBeAo base_3CbW2">Followed Topics</span>
-                          </div>
-                          <ol>
-                              <li className="sidebarItem_175e3">
-                                  <a className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
-                                     href="https://www.producthunt.com/topics/github">GitHub</a>
-                              </li>
-                              <li className="sidebarItem_175e3">
-                                  <a className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
-                                     href="https://www.producthunt.com/topics/developer-tools">Developer Tools</a>
-                              </li>
-                              <li className="sidebarItem_175e3">
-                                  <a className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
-                                     href="https://www.producthunt.com/topics/prototyping">Prototyping</a>
-                              </li>
-                              <li className="sidebarItem_175e3">
-                                  <a className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
-                                     href="https://www.producthunt.com/topics/analytics">Analytics</a>
-                              </li>
-                              <li className="sidebarItem_175e3">
-                                  <a className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
-                                     href="https://www.producthunt.com/topics/open-source">Open Source</a>
-                              </li>
-                          </ol>
                       </div>
+                      <ol>
+                          <li className="sidebarItem_175e3">
+                              <a
+                                className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
+                                href="https://www.producthunt.com/topics/github">GitHub</a>
+                          </li>
+                          <li className="sidebarItem_175e3">
+                              <a
+                                className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
+                                href="https://www.producthunt.com/topics/developer-tools">Developer Tools</a>
+                          </li>
+                          <li className="sidebarItem_175e3">
+                              <a
+                                className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
+                                href="https://www.producthunt.com/topics/prototyping">Prototyping</a>
+                          </li>
+                          <li className="sidebarItem_175e3">
+                              <a
+                                className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
+                                href="https://www.producthunt.com/topics/analytics">Analytics</a>
+                          </li>
+                          <li className="sidebarItem_175e3">
+                              <a
+                                className="sidebarItemLink_2RXkK ellipsis_2lgar text_3Wjo0 subtle_1BWOT base_3CbW2"
+                                href="https://www.producthunt.com/topics/open-source">Open Source</a>
+                          </li>
+                      </ol>
                   </div>
-              </aside>
+              </div>
+          </aside>
+        )
+    }
+
+    render() {
+        const user = this.props.user;
+        return (
+          <div>
+              <Telescope.components.UserProfileHeader user={user}/>
+              <div className="constraintWidth_ZyYbM body_1RqUJ">
+                  {this.renderLeftPanel()}
+                  {this.renderContent()}
+                  {this.renderRightPanel()}
+              </div>
           </div>
-      </div>
-    )
-};
+        )
+    }
+}
 
 UsersProfile.propTypes = {
     user: React.PropTypes.object.isRequired
@@ -165,4 +192,6 @@ UsersProfile.contextTypes = {
 
 UsersProfile.displayName = "UsersProfile";
 
-module.exports = UsersProfile;
+module.exports = withRouter(UsersProfile);
+export default withRouter(UsersProfile);
+
