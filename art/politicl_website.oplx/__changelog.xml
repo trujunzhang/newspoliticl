@@ -11,4 +11,28 @@
     <change idref="t4" attribute="title" type="string" from="Task 1" to="Folder" resolved="yes"/>
     <change idref="t4" from="t2" from-position="2" to="t5" to-position="0" resolved="yes"/>
   </task-change-set>
+  <task-change-set user="djzhang" date="2016-09-10T23:39:34.589Z" timestamp="2016-09-10T23:39:34.589Z">
+    <change idref="t8" to="t-1" to-position="1" resolved="yes">
+      <change idref="t8" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t8" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t8" attribute="title" type="string" to="Logged User"/>
+    </change>
+    <change idref="t6" to="t-1" to-position="2" resolved="yes">
+      <change idref="t6" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t6" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t6" attribute="title" type="string" to="ISSUE"/>
+    </change>
+    <change idref="t5" from="t2" from-position="2" resolved="yes">
+      <change idref="t5" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t5" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t5" attribute="title" type="string" to="Logged User"/>
+    </change>
+    <change idref="t7" to="t8" to-position="0" resolved="yes">
+      <change idref="t7" attribute="title" type="string" to="Folder"/>
+    </change>
+    <change idref="t9" to="t6" to-position="0" resolved="yes">
+      <change idref="t9" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-10T16:00:00.000Z"/>
+      <change idref="t9" attribute="title" type="string" to="no date contains in the url when toggling category from selected calender.(http://localhost:3000/?after=2016-08-01&amp;before=2016-08-01,http://localhost:3000/?cat=politics)"/>
+    </change>
+  </task-change-set>
 </changelog>
