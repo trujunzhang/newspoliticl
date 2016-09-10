@@ -15,23 +15,28 @@ class HeaderNavigation extends Component {
     }
 
     render() {
-        const categories = this.props.categories;
+        const {categories, router} = this.props;
 
-        //const {category, index, router} = this.props;
-        //
-        const currentQuery = router.location.query;
         const currentCategorySlug = router.location.query.cat;
-        const newQuery = _.clone(router.location.query);
+
+        const normalClass = "item_1k3Lx";
+        const activeClass = "item_1k3Lx itemActive_3HLKr item_1k3Lx";
 
         return (
           <nav className="navigation_1H-Yv text_3Wjo0 subtle_1BWOT base_3CbW2">
-              <a className="item_1k3Lx itemActive_3HLKr item_1k3Lx" href="/">Home</a>
+              <a className={currentCategorySlug ? normalClass : activeClass} href="/">Home</a>
               <div className="subNavigation_iLJXz">
                   <div className="gradientLeft_33bxf gradient_fDMJD"></div>
                   <div className="gradientRight_Rp6ob gradient_fDMJD"></div>
                   <ol>
-                      {categories && categories.length > 0 ? categories.map((category, index) =>
-                        <li key={index}><a className="item_1k3Lx" href="/?cat={category.slug}">{category.name}</a></li>
+                      {categories && categories.length > 0 ? categories.map((category, index) => {
+                            return (
+                              <li key={index}>
+                                  <a className={currentCategorySlug === category.slug ? activeClass : normalClass}
+                                     href={"/?cat=" + category.slug}>{category.name}</a>
+                              </li>
+                            )
+                        }
                       ) : null}
                       <li>
                           <a className="all_P8Pm- item_1k3Lx secondaryText_PM80d default_tBeAo base_3CbW2"
