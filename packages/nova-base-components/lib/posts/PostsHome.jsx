@@ -18,7 +18,7 @@ class PostsHome extends Component {
     }
 
     getDefaultView() {
-        return {view: 'top'}
+        return {view: 'best'}
     }
 
     fixParams(params, query) {
