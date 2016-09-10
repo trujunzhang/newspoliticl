@@ -100,7 +100,7 @@ class PostsItem extends Component {
         const router = this.props.router;
         delay(() => {
             router.push({pathname: path});
-        }, 700);
+        }, 100);
     }
 
     renderTags() {
