@@ -35,6 +35,7 @@ const addJob = function () {
 };
 
 Meteor.startup(function () {
-  addJob();
+  // TODO: djzhang(remove it)
+  //addJob();
 });
 
