@@ -12,7 +12,8 @@ class Layout extends Component {
     }
 
     componentWillMount() {
-        this.context.messages.registerCompont(this);
+        const rootPath = this.props.router.getCurrentLocation().pathname;
+        this.context.messages.registerCompont(this, rootPath);
         this.state = this.initialState = {
             isSearching: false,
             isLogin: false,
@@ -28,7 +29,7 @@ class Layout extends Component {
 
     dismissCurrentPostPanel() {
         this.context.messages.dismissPostPanel();
-        //this.props.router.goBack();
+        this.props.router.push('/')
     }
 
     showCurrentPostPanel(postId) {

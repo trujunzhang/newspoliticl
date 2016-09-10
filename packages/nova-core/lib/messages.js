@@ -18,9 +18,9 @@ const Messages = {
 
     layout: Component,
 
-    registerCompont(layout){
+    registerCompont(layout, rootPath){
         this.layout = layout;
-        this.appStatus.registerLayout(layout);
+        this.appStatus.registerLayout(layout, rootPath);
     },
 
     pushAndPostShow(postId){

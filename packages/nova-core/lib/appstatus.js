@@ -3,8 +3,9 @@ class AppStatus {
         this.postsHome = postsHome;
     }
 
-    registerLayout(layout) {
+    registerLayout(layout, rootPath) {
         this.layout = layout;
+        this.rootPath = rootPath;
     }
 
     isSearching(search) {
