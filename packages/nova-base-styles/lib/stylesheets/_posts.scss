@@ -464,7 +464,6 @@ a.moreAssociations_28e7H:hover {
   filter: rgb(234, 83, 42);
 }
 
-
 @-webkit-keyframes arrow-burst_2UolX {
   0% {
     background-position: 0 0
@@ -484,7 +483,6 @@ a.moreAssociations_28e7H:hover {
     background-position: -336px 0
   }
 }
-
 
 .upvoted_172lX {
   background-position: -336px 0
@@ -631,4 +629,9 @@ a.moreAssociations_28e7H:hover {
   color: #fff;
   border-color: #f36c3d;
   text-decoration: none;
+}
+
+// admin edit button
+.post-actions {
+  margin-left: 6px;
 }
