@@ -21,3 +21,6 @@ http://sidebar.io/?after=2016-09-06&before=2016-09-06
 
 
 http://localhost:3000/posts/4e433b41f90fc0daf61126540208499e/singur:-the-judgement-and-the-backstory
+
+
+http://localhost:3000/?cat=politics
