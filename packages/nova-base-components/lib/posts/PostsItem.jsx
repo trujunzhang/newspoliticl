@@ -24,7 +24,7 @@ class PostsItem extends Component {
     }
 
     renderTags() {
-        return this.props.post.tagsArray ? <Telescope.components.PostsCategories post={this.props.post}/> : "";
+        return this.props.post.tagsArray ? <Telescope.components.PostsTags post={this.props.post}/> : "";
         //const post = this.props.post;
         //if (post.tags) {
         //    return (

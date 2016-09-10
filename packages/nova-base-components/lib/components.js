@@ -38,6 +38,7 @@ Telescope.registerComponent("PostsViews",           require('./posts/PostsViews.
 Telescope.registerComponent("PostsList",            require('./posts/PostsList.jsx'));
 Telescope.registerComponent("PostsListHeader",      require('./posts/PostsListHeader.jsx'));
 Telescope.registerComponent("PostsCategories",      require('./posts/PostsCategories.jsx'));
+Telescope.registerComponent("PostsTags",            require('./posts/PostsTags.jsx'));
 Telescope.registerComponent("PostsCommenters",      require('./posts/PostsCommenters.jsx'));
 Telescope.registerComponent("PostsPage",            require('./posts/PostsPage.jsx'));
 Telescope.registerComponent("PostsStats",           require('./posts/PostsStats.jsx'));
