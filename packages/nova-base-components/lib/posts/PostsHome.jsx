@@ -13,7 +13,8 @@ class PostsHome extends Component {
     componentWillMount() {
         this.context.messages.appStatus.registerPostsHome(this);
         this.state = this.initialState = {
-            postPostParams: {type: "home", para: null}
+            postPostParams: {type: "home", para: null},
+            isDetailedPage: false
         };
     }
 
@@ -21,7 +22,7 @@ class PostsHome extends Component {
         return {view: 'top'}
     }
 
-    fixParams(params) {
+    fixParams(params, query) {
         const postPostParams = this.state.postPostParams;
         const type = postPostParams.type;
         if (type == "calender") {
@@ -30,28 +31,49 @@ class PostsHome extends Component {
             params.after = selectedDay;
             params.date = moment(selectedDay).format('YYYY-MM-DD');
         }
+        //else if (query.postid) {
+        //    this.context.messages.pushAndPostShow(query.postid);
+        //    this.setState({isDetailedPage: true})
+        //}
     }
 
     render() {
 
         const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
-        this.fixParams(params);
+        //this.fixParams(params, this.props.location.query);
         const {selector, options} = Posts.parameters.get(params);
 
-        return (
-          <ListContainer
-            collection={Posts}
-            publication="posts.list"
-            selector={selector}
-            options={options}
-            terms={params}
-            joins={Posts.getJoins()}
-            component={Telescope.components.PostsList}
-            cacheSubscription={true}
-            listId={params.listId}
-            limit={Telescope.settings.get("postsPerPage", 10)}
-          />
-        )
+        if (this.props.location.query.postid) {
+            const singleParams = {
+                "slug": this.props.location.query.title,
+                "_id": this.props.location.query.postid
+            };
+            return (
+              <DocumentContainer
+                collection={Posts}
+                publication="posts.single"
+                selector={{_id: singleParams._id}}
+                terms={singleParams}
+                joins={Posts.getJoins()}
+                component={Telescope.components.PostsPage}
+              />
+            )
+        } else {
+            return (
+              <ListContainer
+                collection={Posts}
+                publication="posts.list"
+                selector={selector}
+                options={options}
+                terms={params}
+                joins={Posts.getJoins()}
+                component={Telescope.components.PostsList}
+                cacheSubscription={true}
+                listId={params.listId}
+                limit={Telescope.settings.get("postsPerPage", 10)}
+              />
+            )
+        }
     }
 }
 
