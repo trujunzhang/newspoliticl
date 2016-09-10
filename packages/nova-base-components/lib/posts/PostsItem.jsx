@@ -130,10 +130,12 @@ class PostsItem extends Component {
               <ul className="posts-tags">
                   {post.tags.map((tag, key) => {
                       return (
-                        <li onClick={this.onTagClick.bind(this, tag)} type="button"
-                            className="posts-tag"
-                            style={{"margin-right": 4, "margin-bottom": 4}}
-                            rel="tag">{tag}</li>)
+                        <li
+                          key={key}
+                          onClick={this.onTagClick.bind(this, tag)}
+                          type="button"
+                          className="posts-tag"
+                          rel="tag">{tag}</li>)
                   })}
               </ul>
             )
@@ -181,7 +183,8 @@ class PostsItem extends Component {
     }
 
     onTagClick(tag) {
-        console.log(tag);
+        const router = this.props.router;
+        router.push({pathname: "/", query: {tag: tag}});
     };
 
     onAuthorClick(author) {
