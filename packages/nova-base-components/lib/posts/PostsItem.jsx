@@ -92,11 +92,6 @@ class PostsItem extends Component {
                         onClick={this.onAuthorClick.bind(this, post.author)}>
                           <div className="buttonContainer_wTYxi">{post.author}</div>
                       </a>
-                      {/*<a href="#" className="moreAssociations_28e7H">*/}
-                      {/*<span className="secondaryText_PM80d subtle_1BWOT base_3CbW2">*/}
-                      {/*+2*/}
-                      {/*</span>*/}
-                      {/*</a>*/}
                   </div>
                   {this.renderAdminActions()}
               </div>
