@@ -19,6 +19,21 @@ const delay = (function () {
 
 class PostsItem extends Component {
 
+    renderAdminActions() {
+        return (
+          <div className="post-actions">
+              <Telescope.components.CanDo
+                action="posts.edit.all"
+                document={this.props.post}>
+                  <ModalTrigger title="Edit Post"
+                                component={<a className="posts-action-edit"><FormattedMessage id="posts.edit"/></a>}>
+                      <Telescope.components.PostsEditForm post={this.props.post}/>
+                  </ModalTrigger>
+              </Telescope.components.CanDo>
+          </div>
+        )
+    }
+
     renderCommenters() {
         return this.props.post.commentersArray
           ? <Telescope.components.PostsCommenters post={this.props.post} event={this.popupDetail.bind(this)}/>
@@ -154,6 +169,7 @@ class PostsItem extends Component {
               </a>
 
               {this.renderActionButtons(post)}
+              {this.renderAdminActions()}
           </div>
         )
     }
