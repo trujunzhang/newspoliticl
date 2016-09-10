@@ -1,6 +1,6 @@
 import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
-import Categories from "./collection.js";
+import Tags from "./collection.js";
 
 Meteor.methods({
   "tags.deleteById": function (categoryId) {
@@ -12,11 +12,11 @@ Meteor.methods({
     if (Users.canDo(currentUser, "tags.remove.all")) {
 
       // delete category
-      Categories.remove(categoryId);
+      Tags.remove(categoryId);
 
       // find any direct children of this category and make them root tags
-      Categories.find({parentId: categoryId}).forEach(function (category) {
-        Categories.update(category._id, {$unset: {parentId: ""}});
+      Tags.find({parentId: categoryId}).forEach(function (category) {
+        Tags.update(category._id, {$unset: {parentId: ""}});
       });
 
       // find any posts with this category and remove it
@@ -28,7 +28,7 @@ Meteor.methods({
   }
 });
 
-Categories.smartMethods({
+Tags.smartMethods({
   createName: "tags.new",
   editName: "tags.edit"
 });

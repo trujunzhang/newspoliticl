@@ -1,4 +1,4 @@
-import Categories from './collection.js';
+import Tags from './collection.js';
 
 import './schema.js';
 import './helpers.js';
@@ -10,4 +10,4 @@ import './methods.js';
 import './permissions.js';
 import './published_fields.js';
 
-export default Categories;
+export default Tags;

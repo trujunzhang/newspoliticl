@@ -1,12 +1,12 @@
 import Telescope from 'meteor/nova:lib';
-import Categories from "./collection.js";
+import Tags from "./collection.js";
 import Users from 'meteor/nova:users';
 
 const canInsert = user => Users.canDo(user, "tags.new");
 const canEdit = user => Users.canDo(user, "tags.edit.all");
 
 // category schema
-Categories.schema = new SimpleSchema({
+Tags.schema = new SimpleSchema({
   name: {
     type: String,
     insertableIf: canInsert,
@@ -52,7 +52,7 @@ Categories.schema = new SimpleSchema({
     publish: true,
     autoform: {
       options: function () {
-        var tags = Categories.find().map(function (category) {
+        var tags = Tags.find().map(function (category) {
           return {
             value: category._id,
             label: category.name
@@ -65,10 +65,10 @@ Categories.schema = new SimpleSchema({
 });
 
 // Meteor.startup(function(){
-//   Categories.internationalize();
+//   Tags.internationalize();
 // });
 
-Categories.attachSchema(Categories.schema);
+Tags.attachSchema(Tags.schema);
 
 
 Telescope.settings.collection.addField([
@@ -90,7 +90,7 @@ Telescope.settings.collection.addField([
     }
   },
   {
-    fieldName: 'hideEmptyCategories',
+    fieldName: 'hideEmptyTags',
     fieldSchema: {
       type: Boolean,
       optional: true,

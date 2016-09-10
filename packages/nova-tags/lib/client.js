@@ -1,3 +1,3 @@
-import Categories from './modules.js';
+import Tags from './modules.js';
 
-export default Categories;
+export default Tags;

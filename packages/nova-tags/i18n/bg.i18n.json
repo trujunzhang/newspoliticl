@@ -6,5 +6,5 @@
   "tagsBehavior" : "Позволи на потребителя да филтрира по:",
   "tags_behavior_one_at_a_time" : "само една категория наведнъж",
   "tags_behavior_multiple" : "няколко категории наведнъж",
-  "hideEmptyCategories" : "Скривай празните категории"
+  "hideEmptyTags" : "Скривай празните категории"
 }

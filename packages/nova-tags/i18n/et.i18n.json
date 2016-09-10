@@ -6,5 +6,5 @@
   "tagsBehavior" : "Kategooriate käitumine",
   "tags_behavior_one_at_a_time" : "Valige üks kategooria korraga",
   "tags_behavior_multiple" : "Kombineeri kategooriad",
-  "hideEmptyCategories" : "Peida tühjad kategooriad"
+  "hideEmptyTags" : "Peida tühjad kategooriad"
 }

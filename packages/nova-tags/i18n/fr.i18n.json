@@ -6,5 +6,5 @@
   "tagsBehavior" : "Comportement des catégories",
   "tags_behavior_one_at_a_time" : "Sélectionnez une catégorie à la fois",
   "tags_behavior_multiple" : "Combiner plusieurs catégories",
-  "hideEmptyCategories" : "Cacher les catégories vides"
+  "hideEmptyTags" : "Cacher les catégories vides"
 }

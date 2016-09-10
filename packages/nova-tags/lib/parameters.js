@@ -1,5 +1,5 @@
 import Telescope from 'meteor/nova:lib';
-import Categories from "./collection.js";
+import Tags from "./collection.js";
 
 // Category Parameter
 // Add a "tags" property to terms which can be used to filter *all* existing Posts views.
@@ -20,12 +20,12 @@ function addCategoryParameter (parameters, terms) {
     }
 
     // get all tags passed in terms
-    var tags = Categories.find(selector).fetch();
+    var tags = Tags.find(selector).fetch();
     
     // for each category, add its ID and the IDs of its children to tagsId array
     tags.forEach(function (category) {
       tagsIds.push(category._id);
-      tagsIds = tagsIds.concat(_.pluck(Categories.getChildren(category), "_id"));
+      tagsIds = tagsIds.concat(_.pluck(Tags.getChildren(category), "_id"));
     });
 
     parameters.selector.tags = {$in: tagsIds};
