@@ -8,8 +8,7 @@ const PostDetail = (document, currentUser) => {
     const htmlBody = {__html: post.htmlBody};
 
     return (
-      <section className="container_3tEOd"
-               style={{"border-bottom": "1px solid #f2f2f2", "padding-bottom": 20, "margin-bottom": 20}}>
+      <section className="container_3tEOd post_detail_container">
           {/*post's image*/}
           <div>
               <div className="canvasWrapper_3pQxU">
