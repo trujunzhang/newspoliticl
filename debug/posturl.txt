@@ -24,3 +24,6 @@ http://localhost:3000/posts/4e433b41f90fc0daf61126540208499e/singur:-the-judgeme
 
 
 http://localhost:3000/?cat=politics
+
+
+http://localhost:3000/users/pusher
