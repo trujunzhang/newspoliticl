@@ -24,39 +24,22 @@ class UsersProfile extends Component {
                   <li>
                       <a className="text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET"
                          href="https://www.producthunt.com/@trujunzhang">
-                          <em>0</em>
+                          <em className="user_left_menu_number">0</em>
                           <span>Upvotes</span>
                       </a>
                   </li>
                   <li>
                       <a className="text_3Wjo0 default_tBeAo base_3CbW2"
                          href="https://www.producthunt.com/@trujunzhang/topics">
-                          <em>5</em>
+                          <em className="user_left_menu_number">5</em>
                           <span>Topics</span>
                       </a>
                   </li>
                   <li>
                       <a className="text_3Wjo0 default_tBeAo base_3CbW2"
                          href="https://www.producthunt.com/@trujunzhang/collections">
-                          <em>0</em>
+                          <em className="user_left_menu_number">0</em>
                           <span>Collections</span>
-                      </a>
-                  </li>
-                  <li className="hideOnLargeScreen_3y6m4">
-                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                         href="https://www.producthunt.com/@trujunzhang/following">
-                          <em>5</em>
-                          <span>
-                                    Following</span>
-                      </a>
-                  </li>
-                  <li className="hideOnLargeScreen_3y6m4">
-                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                         href="https://www.producthunt.com/@trujunzhang/followers">
-                          <em>0</em>
-                          <span>
-                                    Followers
-                                </span>
                       </a>
                   </li>
               </ol>
