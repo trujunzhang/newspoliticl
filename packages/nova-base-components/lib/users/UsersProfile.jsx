@@ -18,6 +18,10 @@ class UsersProfile extends Component {
     //const {selector, options} = Posts.parameters.get(terms);
 
     renderLeftPanel() {
+        const user = this.props.currentUser;
+        const upvotedPosts = user.upvotedPosts;
+        const upvotedPostsCount = (upvotedPosts && upvotedPosts.length > 0) ? upvotedPosts.length : 0;
+
         return (
           <nav className="navigation_3_Vku">
               <ol>
@@ -151,7 +155,7 @@ class UsersProfile extends Component {
     }
 
     render() {
-        const user = this.props.user;
+        const user = this.props.currentUser;
         return (
           <div>
               <Telescope.components.UserProfileHeader user={user}/>
