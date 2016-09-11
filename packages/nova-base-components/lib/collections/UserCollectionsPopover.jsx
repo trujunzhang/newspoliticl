@@ -68,7 +68,7 @@ class UserCollectionsPopover extends Component {
     renderAddNewForm() {
         return (
             <form className="collections-popover--form" _lpchecked="1">
-                <input type="text" className="collections-popover--form--field input" placeholder="Collection name"/>
+                <input type="text" className="collections-popover--form--field input collections-input" placeholder="Collection name"/>
                 <button className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit" type="submit">
                     <div className="buttonContainer_wTYxi">Add</div>
                 </button>
