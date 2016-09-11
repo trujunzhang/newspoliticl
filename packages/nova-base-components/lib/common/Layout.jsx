@@ -26,6 +26,7 @@ class Layout extends Component {
 
     componentDidMount() {
         this.setState({didMount: true});
+        this.context.messages.showPopoverMenu(400, 400, 100, 100, "saveButton");
     }
 
     dismissCurrentPostPanel() {
@@ -99,20 +100,14 @@ class Layout extends Component {
         if (popoverMenu) {
             switch (popoverMenu.type) {
                 case "MoreButton":
-                    return (<Telescope.components.HeaderPopoverMenu comp={this.state.popoverMenu}/>)
+                    return (<Telescope.components.HeaderPopoverMenu comp={this.state.popoverMenu}/>);
                 case "LoggedUserMenu":
                     return (<Telescope.components.UsersPopoverMenu comp={this.state.popoverMenu}
-                                                                   user={this.props.currentUser}/>)
+                                                                   user={this.props.currentUser}/>);
                 case "saveButton":
-                    return this.renderUserCollectionPopover()
+                    return (<Telescope.components.UserCollectionsPopover comp={this.state.popoverMenu}/>)
             }
         }
-    }
-
-    renderUserCollectionPopover() {
-        return (
-          <div>wanghao</div>
-        )
     }
 
     render() {
@@ -131,9 +126,6 @@ class Layout extends Component {
 
               {/*Rendering the popover menus*/}
               {this.renderPopoverMenus()}
-
-              {/*Popover the user's collection panel*/}
-              {this.renderUserCollectionPopover()}
 
               <div className={this.state.isSearching ? 'overlayActive_oQWJ3' : 'overlayInactive_1UI7W'}></div>
 

@@ -116,10 +116,10 @@ Telescope.registerComponent("WidgetHeader",         require('./sidebar/WidgetHea
 
 
 // collections
-Telescope.registerComponent("CollectionsAddList",   require('./collections/CollectionsAddList.jsx'));
-Telescope.registerComponent("CollectionsList",      require('./collections/CollectionsList.jsx'));
-Telescope.registerComponent("CollectionsLoading",   require('./collections/CollectionsLoading.jsx'));
-Telescope.registerComponent("CollectionsResult",    require('./collections/CollectionsResult.jsx'));
+Telescope.registerComponent("UserCollectionsPopover",   require('./collections/UserCollectionsPopover.jsx'));
+Telescope.registerComponent("CollectionsList",          require('./collections/CollectionsList.jsx'));
+Telescope.registerComponent("CollectionsLoading",       require('./collections/CollectionsLoading.jsx'));
+Telescope.registerComponent("CollectionsResult",        require('./collections/CollectionsResult.jsx'));
 
 
 
