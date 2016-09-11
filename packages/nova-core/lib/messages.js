@@ -2,6 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import PostDetailSet from "./postdetailset.js";
 import AppStatus from "./appstatus.js";
 import PopoverMenus from "./popovermenus.js"
+import UserCollections from "./usercollections"
 
 const Messages = {
     // Local (client-only) collection
@@ -14,6 +15,7 @@ const Messages = {
     },
 
     appStatus: new AppStatus(),
+    userCollections: new UserCollections(),
     postDetailSet: new PostDetailSet(),
 
     layout: Component,
@@ -21,6 +23,7 @@ const Messages = {
     registerCompont(layout, rootPath){
         this.layout = layout;
         this.appStatus.registerLayout(layout, rootPath);
+        this.userCollections.registerLayout(layout);
     },
 
     pushAndPostShow(postId){

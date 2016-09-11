@@ -20,6 +20,7 @@ class Layout extends Component {
             popoverMenu: null,
             cachePost: null,
             didMount: false,
+            popoverUserCollections: null
         };
     }
 

@@ -66,7 +66,7 @@ class PostsItem extends Component {
                   <div className="additionalActionButtons_BoErh">
                       <a
                         className="button_2I1re smallSize_1da-r secondaryText_PM80d subtleVariant_tlhj3 simpleVariant_1Nl54 button_2n20W"
-                        href="#" rel="save-button" label="save">
+                        rel="save-button" label="save" onClick={this.onSaveButtonClick.bind(this, post)}>
                           <div className="buttonContainer_wTYxi">
                                 <span>
                                     <span>
@@ -176,6 +176,10 @@ class PostsItem extends Component {
 
     onAuthorClick(author) {
         console.log(author);
+    }
+
+    onSaveButtonClick(post) {
+        this.context.messages.userCollections(postId);
     }
 }
 
