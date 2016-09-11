@@ -106,6 +106,10 @@ class Layout extends Component {
         }
     }
 
+    renderUserCollectionPopover() {
+
+    }
+
     render() {
         let classValue = "wrapper" + (this.state.isSearching ? " search-mode" : "") + (this.state.cachePost ? " no-scroll" : "");
 
@@ -122,6 +126,9 @@ class Layout extends Component {
 
               {/*Rendering the popover menus*/}
               {this.renderPopoverMenus()}
+
+              {/*Popover the user's collection panel*/}
+              {this.renderUserCollectionPopover()}
 
               <div className={this.state.isSearching ? 'overlayActive_oQWJ3' : 'overlayInactive_1UI7W'}></div>
 

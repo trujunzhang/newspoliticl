@@ -113,3 +113,14 @@ Telescope.registerComponent("WidgetTopics",         require('./widgettopics/Widg
 
 // sidebar
 Telescope.registerComponent("WidgetHeader",         require('./sidebar/WidgetHeader.jsx'));
+
+
+// collections
+Telescope.registerComponent("CollectionsAddList",   require('./collections/CollectionsAddList.jsx.jsx'));
+Telescope.registerComponent("CollectionsList",      require('./collections/CollectionsList.jsx.jsx'));
+Telescope.registerComponent("CollectionsLoading",   require('./collections/CollectionsLoading.jsx.jsx'));
+Telescope.registerComponent("CollectionsResult",    require('./collections/CollectionsResult.jsx.jsx'));
+
+
+
+
