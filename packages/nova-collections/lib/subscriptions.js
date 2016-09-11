@@ -1,3 +1,3 @@
 import Telescope from 'meteor/nova:lib';
 
-Telescope.subscriptions.preload("categories");
+Telescope.subscriptions.preload("collections");

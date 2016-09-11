@@ -1,26 +1,26 @@
 import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
-import Categories from "./collection.js";
+import Collections from "./collection.js";
 
 Meteor.methods({
-  "categories.deleteById": function (categoryId) {
+  "collections.deleteById": function (collectionId) {
     
-    check(categoryId, String);
+    check(collectionId, String);
     
     const currentUser = this.userId && Users.findOne(this.userId);
 
-    if (Users.canDo(currentUser, "categories.remove.all")) {
+    if (Users.canDo(currentUser, "collections.remove.all")) {
 
-      // delete category
-      Categories.remove(categoryId);
+      // delete collection
+      Collections.remove(collectionId);
 
-      // find any direct children of this category and make them root categories
-      Categories.find({parentId: categoryId}).forEach(function (category) {
-        Categories.update(category._id, {$unset: {parentId: ""}});
+      // find any direct children of this collection and make them root collections
+      Collections.find({parentId: collectionId}).forEach(function (collection) {
+        Collections.update(collection._id, {$unset: {parentId: ""}});
       });
 
-      // find any posts with this category and remove it
-      var postsUpdated = Posts.update({categories: {$in: [categoryId]}}, {$pull: {categories: categoryId}}, {multi: true});
+      // find any posts with this collection and remove it
+      var postsUpdated = Posts.update({collections: {$in: [collectionId]}}, {$pull: {collections: collectionId}}, {multi: true});
 
       return postsUpdated;
 
@@ -28,7 +28,7 @@ Meteor.methods({
   }
 });
 
-Categories.smartMethods({
-  createName: "categories.new",
-  editName: "categories.edit"
+Collections.smartMethods({
+  createName: "collections.new",
+  editName: "collections.edit"
 });

@@ -1,16 +1,16 @@
 import Telescope from 'meteor/nova:lib';
-import Categories from "./collection.js";
+import Collections from "./collection.js";
 
 // Category Parameter
-// Add a "categories" property to terms which can be used to filter *all* existing Posts views. 
+// Add a "collections" property to terms which can be used to filter *all* existing Posts views.
 function addCategoryParameter (parameters, terms) {
 
   var cat = terms.cat || terms["cat[]"];
 
-  // filter by category if category slugs are provided
+  // filter by collection if collection slugs are provided
   if (cat) {
 
-    var categoriesIds = [];
+    var collectionsIds = [];
     var selector = {};
 
     if (typeof cat === "string") { // cat is a string
@@ -19,16 +19,16 @@ function addCategoryParameter (parameters, terms) {
       selector = {slug: {$in: cat}};
     }
 
-    // get all categories passed in terms
-    var categories = Categories.find(selector).fetch();
+    // get all collections passed in terms
+    var collections = Collections.find(selector).fetch();
     
-    // for each category, add its ID and the IDs of its children to categoriesId array
-    categories.forEach(function (category) {
-      categoriesIds.push(category._id);
-      categoriesIds = categoriesIds.concat(_.pluck(Categories.getChildren(category), "_id"));
+    // for each collection, add its ID and the IDs of its children to collectionsId array
+    collections.forEach(function (collection) {
+      collectionsIds.push(collection._id);
+      collectionsIds = collectionsIds.concat(_.pluck(Collections.getChildren(collection), "_id"));
     });
 
-    parameters.selector.categories = {$in: categoriesIds};
+    parameters.selector.collections = {$in: collectionsIds};
   }
   return parameters;
 }

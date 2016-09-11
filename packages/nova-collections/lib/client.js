@@ -1,3 +1,3 @@
-import Categories from './modules.js';
+import Collections from './modules.js';
 
-export default Categories;
+export default Collections;

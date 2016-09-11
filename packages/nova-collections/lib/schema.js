@@ -1,12 +1,12 @@
 import Telescope from 'meteor/nova:lib';
-import Categories from "./collection.js";
+import Collections from "./collection.js";
 import Users from 'meteor/nova:users';
 
-const canInsert = user => Users.canDo(user, "categories.new");
-const canEdit = user => Users.canDo(user, "categories.edit.all");
+const canInsert = user => Users.canDo(user, "collections.new");
+const canEdit = user => Users.canDo(user, "collections.edit.all");
 
-// category schema
-Categories.schema = new SimpleSchema({
+// collection schema
+Collections.schema = new SimpleSchema({
   name: {
     type: String,
     insertableIf: canInsert,
@@ -52,51 +52,51 @@ Categories.schema = new SimpleSchema({
     publish: true,
     autoform: {
       options: function () {
-        var categories = Categories.find().map(function (category) {
+        var collections = Collections.find().map(function (collection) {
           return {
-            value: category._id,
-            label: category.name
+            value: collection._id,
+            label: collection.name
           };
         });
-        return categories;
+        return collections;
       }
     }
   }
 });
 
 // Meteor.startup(function(){
-//   Categories.internationalize();
+//   Collections.internationalize();
 // });
 
-Categories.attachSchema(Categories.schema);
+Collections.attachSchema(Collections.schema);
 
 
 Telescope.settings.collection.addField([
   {
-    fieldName: 'categoriesBehavior',
+    fieldName: 'collectionsBehavior',
     fieldSchema: {
       type: String,
       optional: true,
       autoform: {
-        group: 'categories',
-        instructions: 'Let users filter by one or multiple categories at a time.', 
+        group: 'collections',
+        instructions: 'Let users filter by one or multiple collections at a time.',
         options: function () {
           return [
-            {value: "single", label: "categories_behavior_one_at_a_time"},
-            {value: "multiple", label: "categories_behavior_multiple"}
+            {value: "single", label: "collections_behavior_one_at_a_time"},
+            {value: "multiple", label: "collections_behavior_multiple"}
           ];
         }
       }
     }
   },
   {
-    fieldName: 'hideEmptyCategories',
+    fieldName: 'hideEmptyCollections',
     fieldSchema: {
       type: Boolean,
       optional: true,
       autoform: {
-        group: 'categories',
-        instructions: 'Hide empty categories in navigation'
+        group: 'collections',
+        instructions: 'Hide empty collections in navigation'
       }
     }
   }

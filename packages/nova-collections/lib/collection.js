@@ -1,3 +1,3 @@
-const Categories = new Mongo.Collection("categories");
+const Collections = new Mongo.Collection("collections");
 
-export default Categories;
+export default Collections;

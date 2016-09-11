@@ -1,13 +1,13 @@
-import Categories from './collection.js'
+import Collections from './collection.js'
 import PublicationsUtils from 'meteor/utilities:smart-publications';
 
-Categories.publishedFields = {};
+Collections.publishedFields = {};
 
 /**
- * @summary Specify which fields should be published by the categories publication
- * @array Categories.publishedFields.list
+ * @summary Specify which fields should be published by the collections publication
+ * @array Collections.publishedFields.list
  */
-Categories.publishedFields.list = PublicationsUtils.arrayToFields([
+Collections.publishedFields.list = PublicationsUtils.arrayToFields([
   "name",
   "description",
   "order",

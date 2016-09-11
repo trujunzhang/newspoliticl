@@ -1,7 +1,7 @@
 import PublicationUtils from 'meteor/utilities:smart-publications';
 import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
-import Categories from "./collection.js";
+import Collections from "./collection.js";
 
 // check if user can create a new post
 const canInsert = user => Users.canDo(user, "posts.new");
@@ -10,7 +10,7 @@ const canEdit = Users.canEdit;
 
 Posts.addField(
   {
-    fieldName: 'categories',
+    fieldName: 'collections',
     fieldSchema: {
       type: [String],
       control: "checkboxgroup",
@@ -19,25 +19,25 @@ Posts.addField(
       editableIf: canEdit,
       autoform: {
         noselect: true,
-        type: "bootstrap-category",
+        type: "bootstrap-collection",
         order: 50,
         options: function () {
-          var categories = Categories.find().map(function (category) {
+          var collections = Collections.find().map(function (collection) {
             return {
-              value: category._id,
-              label: category.name
+              value: collection._id,
+              label: collection.name
             };
           });
-          return categories;
+          return collections;
         }
       },
       publish: true,
       join: {
-        joinAs: "categoriesArray",
-        collection: () => Categories
+        joinAs: "collectionsArray",
+        collection: () => Collections
       }
     }
   }
 );
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["categories"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["collections"]);

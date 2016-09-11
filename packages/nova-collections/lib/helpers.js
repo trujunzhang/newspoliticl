@@ -1,74 +1,74 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
-import Categories from "./collection.js";
+import Collections from "./collection.js";
 
-Categories.helpers({getCollection: () => Categories});
-Categories.helpers({getCollectionName: () => "categories"});
+Collections.helpers({getCollection: () => Collections});
+Collections.helpers({getCollectionName: () => "collections"});
 
 /**
- * @summary Get all of a category's parents
- * @param {Object} category
+ * @summary Get all of a collection's parents
+ * @param {Object} collection
  */
-Categories.getParents = function (category) {
-  var categoriesArray = [];
+Collections.getParents = function (collection) {
+  var collectionsArray = [];
 
-  var getParents = function recurse (category) {
+  var getParents = function recurse (collection) {
     var parent;
-    if (parent = Categories.findOne(category.parentId)) {
-      categoriesArray.push(parent);
+    if (parent = Collections.findOne(collection.parentId)) {
+      collectionsArray.push(parent);
       recurse(parent);
     }
-  }(category);
+  }(collection);
 
-  return categoriesArray;
+  return collectionsArray;
 };
-Categories.helpers({getParents: function () {return Categories.getParents(this);}});
+Collections.helpers({getParents: function () {return Collections.getParents(this);}});
 
 /**
- * @summary Get all of a category's children
- * @param {Object} category
+ * @summary Get all of a collection's children
+ * @param {Object} collection
  */
-Categories.getChildren = function (category) {
-  var categoriesArray = [];
+Collections.getChildren = function (collection) {
+  var collectionsArray = [];
 
-  var getChildren = function recurse (categories) {
-    var children = Categories.find({parentId: {$in: _.pluck(categories, "_id")}}).fetch()
+  var getChildren = function recurse (collections) {
+    var children = Collections.find({parentId: {$in: _.pluck(collections, "_id")}}).fetch()
     if (children.length > 0) {
-      categoriesArray = categoriesArray.concat(children);
+      collectionsArray = collectionsArray.concat(children);
       recurse(children);
     }
-  }([category]);
+  }([collection]);
 
-  return categoriesArray;
+  return collectionsArray;
 };
-Categories.helpers({getChildren: function () {return Categories.getChildren(this);}});
+Collections.helpers({getChildren: function () {return Collections.getChildren(this);}});
 
 /**
- * @summary Get all of a post's categories
+ * @summary Get all of a post's collections
  * @param {Object} post
  */
-Posts.getCategories = function (post) {
-  return !!post.categories ? Categories.find({_id: {$in: post.categories}}).fetch() : [];
+Posts.getCollections = function (post) {
+  return !!post.collections ? Collections.find({_id: {$in: post.collections}}).fetch() : [];
 };
-Posts.helpers({getCategories: function () {return Posts.getCategories(this);}});
+Posts.helpers({getCollections: function () {return Posts.getCollections(this);}});
 
 /**
- * @summary Get a category's URL
- * @param {Object} category
+ * @summary Get a collection's URL
+ * @param {Object} collection
  */
-Categories.getUrl = function (category, isAbsolute) {
+Collections.getUrl = function (collection, isAbsolute) {
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
-  // return prefix + FlowRouter.path("postsCategory", category);
-  return `${prefix}/?cat=${category.slug}`;
+  // return prefix + FlowRouter.path("postsCategory", collection);
+  return `${prefix}/?cat=${collection.slug}`;
 };
-Categories.helpers({getUrl: function () {return Categories.getUrl(this);}});
+Collections.helpers({getUrl: function () {return Collections.getUrl(this);}});
 
 /**
- * @summary Get a category's counter name
- * @param {Object} category
+ * @summary Get a collection's counter name
+ * @param {Object} collection
  */
- Categories.getCounterName = function (category) {
-  return category._id + "-postsCount";
+ Collections.getCounterName = function (collection) {
+  return collection._id + "-postsCount";
  }
- Categories.helpers({getCounterName: function () {return Categories.getCounterName(this);}});
+ Collections.helpers({getCounterName: function () {return Collections.getCounterName(this);}});
