@@ -53,38 +53,3 @@ function postEditCheckFolders (post) {
 }
 Telescope.callbacks.add("posts.edit.sync", postEditCheckFolders);
 
-// TODO: debug this
-
-// function addParentFoldersOnSubmit (post) {
-//   var folders = post.folders;
-//   var newFolders = [];
-//   if (folders) {
-//     folders.forEach(function (folderId) {
-//       var folder = Folders.findOne(folderId);
-//       newFolders = newFolders.concat(_.pluck(folder.getParents().reverse(), "_id"));
-//       newFolders.push(folder._id);
-//     });
-//   }
-//   post.folders = _.unique(newFolders);
-//   return post;
-// }
-// Telescope.callbacks.add("posts.new.sync", addParentFoldersOnSubmit);
-
-// function addParentFoldersOnEdit (modifier, post) {
-//   if (modifier.$unset && modifier.$unset.folders !== undefined) {
-//     return modifier;
-//   }
-
-//   var folders = modifier.$set.folders;
-//   var newFolders = [];
-//   if (folders) {
-//     folders.forEach(function (folderId) {
-//       var folder = Folders.findOne(folderId);
-//       newFolders = newFolders.concat(_.pluck(folder.getParents().reverse(), "_id"));
-//       newFolders.push(folder._id);
-//     });
-//   }
-//   modifier.$set.folders = _.unique(newFolders);
-//   return modifier;
-// }
-// Telescope.callbacks.add("posts.edit.sync", addParentFoldersOnEdit);

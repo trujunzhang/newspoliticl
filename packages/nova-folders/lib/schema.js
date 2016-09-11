@@ -43,25 +43,25 @@ Folders.schema = new SimpleSchema({
     insertableIf: canInsert,
     editableIf: canEdit,
     publish: true
-  },
-  parentId: {
-    type: String,
-    optional: true,
-    insertableIf: canInsert,
-    editableIf: canEdit,
-    publish: true,
-    autoform: {
-      options: function () {
-        var folders = Folders.find().map(function (folder) {
-          return {
-            value: folder._id,
-            label: folder.name
-          };
-        });
-        return folders;
-      }
-    }
   }
+  //parentId: {
+  //  type: String,
+  //  optional: true,
+  //  insertableIf: canInsert,
+  //  editableIf: canEdit,
+  //  publish: true,
+  //  autoform: {
+  //    options: function () {
+  //      var folders = Folders.find().map(function (folder) {
+  //        return {
+  //          value: folder._id,
+  //          label: folder.name
+  //        };
+  //      });
+  //      return folders;
+  //    }
+  //  }
+  //}
 });
 
 // Meteor.startup(function(){

@@ -15,9 +15,9 @@ Meteor.methods({
       Folders.remove(folderId);
 
       // find any direct children of this folder and make them root folders
-      Folders.find({parentId: folderId}).forEach(function (folder) {
-        Folders.update(folder._id, {$unset: {parentId: ""}});
-      });
+      //Folders.find({parentId: folderId}).forEach(function (folder) {
+      //  Folders.update(folder._id, {$unset: {parentId: ""}});
+      //});
 
       // find any posts with this folder and remove it
       var postsUpdated = Posts.update({folders: {$in: [folderId]}}, {$pull: {folders: folderId}}, {multi: true});

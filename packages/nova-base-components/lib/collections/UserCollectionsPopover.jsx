@@ -3,7 +3,7 @@ import React, {PropTypes, Component} from 'react';
 import {Button} from 'react-bootstrap';
 import NovaForm from "meteor/nova:forms";
 import moment from 'moment';
-import Collections from "meteor/nova:collections";
+import Folders from "meteor/nova:folders";
 
 class UserCollectionsPopover extends Component {
 
@@ -93,7 +93,7 @@ class UserCollectionsPopover extends Component {
     renderAddNewForm() {
         return (
           <NovaForm
-            collection={Collections}
+            collection={Folders}
             currentUser={this.context.currentUser}
             methodName="collections.new"
             successCallback={this.successCallback}

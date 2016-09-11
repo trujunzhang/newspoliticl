@@ -13,5 +13,5 @@ Folders.publishedFields.list = PublicationsUtils.arrayToFields([
   "order",
   "slug",
   "image",
-  "parentId",
+  //"parentId",
 ]);

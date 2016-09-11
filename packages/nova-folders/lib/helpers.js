@@ -9,39 +9,39 @@ Folders.helpers({getCollectionName: () => "folders"});
  * @summary Get all of a folder's parents
  * @param {Object} folder
  */
-Folders.getParents = function (folder) {
-  var foldersArray = [];
-
-  var getParents = function recurse (folder) {
-    var parent;
-    if (parent = Folders.findOne(folder.parentId)) {
-      foldersArray.push(parent);
-      recurse(parent);
-    }
-  }(folder);
-
-  return foldersArray;
-};
-Folders.helpers({getParents: function () {return Folders.getParents(this);}});
+//Folders.getParents = function (folder) {
+//  var foldersArray = [];
+//
+//  var getParents = function recurse (folder) {
+//    var parent;
+//    if (parent = Folders.findOne(folder.parentId)) {
+//      foldersArray.push(parent);
+//      recurse(parent);
+//    }
+//  }(folder);
+//
+//  return foldersArray;
+//};
+//Folders.helpers({getParents: function () {return Folders.getParents(this);}});
 
 /**
  * @summary Get all of a folder's children
  * @param {Object} folder
  */
-Folders.getChildren = function (folder) {
-  var foldersArray = [];
-
-  var getChildren = function recurse (folders) {
-    var children = Folders.find({parentId: {$in: _.pluck(folders, "_id")}}).fetch()
-    if (children.length > 0) {
-      foldersArray = foldersArray.concat(children);
-      recurse(children);
-    }
-  }([folder]);
-
-  return foldersArray;
-};
-Folders.helpers({getChildren: function () {return Folders.getChildren(this);}});
+//Folders.getChildren = function (folder) {
+//  var foldersArray = [];
+//
+//  var getChildren = function recurse (folders) {
+//    var children = Folders.find({parentId: {$in: _.pluck(folders, "_id")}}).fetch()
+//    if (children.length > 0) {
+//      foldersArray = foldersArray.concat(children);
+//      recurse(children);
+//    }
+//  }([folder]);
+//
+//  return foldersArray;
+//};
+//Folders.helpers({getChildren: function () {return Folders.getChildren(this);}});
 
 /**
  * @summary Get all of a post's folders

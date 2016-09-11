@@ -15,6 +15,7 @@ Package.onUse(function (api) {
     'nova:posts@0.27.0-nova',
     'nova:users@0.27.0-nova',
     'nova:comments@0.27.0-nova',
+    'nova:folders@0.27.0-nova',
 
     // third-party packages
     'fortawesome:fontawesome@4.5.0',

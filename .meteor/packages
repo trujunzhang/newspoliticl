@@ -40,4 +40,4 @@ nova:debug
 ############ Your Packages ############
 # my-custom-package
 nova:tags
-nova:collections
+nova:folders
