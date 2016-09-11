@@ -17,12 +17,15 @@ class UserCollectionsPopover extends Component {
     }
 
     componentDidMount() {
-        const popView = this.refs.userCollectionPanel;
         const message = this.context.messages;
         $(document).bind('click touch', function (event) {
-            if (!$(event.target).parents().addBack().is(popView)) {
-                if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
-                    message.dismissPopoverMenu();
+            if (!$(event.target).parents().addBack().is("#userCollectionPanel")) {
+                if (!$(event.target).parents().addBack().is("#addNewCollectionButton")) {
+                    if (!$(event.target).parents().addBack().is("#newCollectionForm")) {
+                        if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
+                            message.dismissPopoverMenu();
+                        }
+                    }
                 }
             }
         });
@@ -82,7 +85,7 @@ class UserCollectionsPopover extends Component {
 
     renderAddNewForm() {
         return (
-          <form className="collections-popover--form" _lpchecked="1">
+          <form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
               <input type="text" className="collections-popover--form--field input collections-input"
                      placeholder="Collection name" ref="newCollectionInput"/>
               <button onClick={this.onSubmitNewCollectionClick}
@@ -96,7 +99,7 @@ class UserCollectionsPopover extends Component {
 
     rendAddNewButton() {
         return (
-          <a onClick={this.onAddNewClick} className="collections-popover--form-trigger"
+          <a id="addNewCollectionButton" onClick={this.onAddNewClick} className="collections-popover--form-trigger"
              href="https://www.producthunt.com/#">Add New</a>
         )
     }
@@ -129,7 +132,7 @@ class UserCollectionsPopover extends Component {
         var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult ? 42 : 0);
 
         return (
-          <div ref="userCollectionPanel" className="popover v-bottom-center" style={{
+          <div id="userCollectionPanel" className="popover v-bottom-center" style={{
               top: top,
               left: left
           }}>
