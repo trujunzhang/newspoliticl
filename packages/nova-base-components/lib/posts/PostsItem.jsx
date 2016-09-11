@@ -179,9 +179,9 @@ class PostsItem extends Component {
     }
 
     onSaveButtonClick(post) {
-        var button = this.refs.saveButton;
-        var top = button.offsetTop;
-        var left = button.offsetLeft;
+        var offset = $(this.refs.saveButton).offset();
+        var top = offset.top;
+        var left = offset.left;
         var width = 10;
         var height = 10;
         var type = "SaveButton";
