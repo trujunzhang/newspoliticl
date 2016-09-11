@@ -34,11 +34,6 @@ class PostsHome extends Component {
     }
 
     render() {
-
-        const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
-        this.fixParams(params, this.props.location.query);
-        const {selector, options} = Posts.parameters.get(params);
-
         if (this.props.location.query.postid) {
             const singleParams = {
                 "slug": this.props.location.query.title,
@@ -55,19 +50,31 @@ class PostsHome extends Component {
               />
             )
         } else {
+            const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
+            this.fixParams(params, this.props.location.query);
+            const {selector, options} = Posts.parameters.get(params);
+
             return (
-              <ListContainer
-                collection={Posts}
-                publication="posts.list"
-                selector={selector}
-                options={options}
-                terms={params}
-                joins={Posts.getJoins()}
-                component={Telescope.components.PostsList}
-                cacheSubscription={true}
-                listId={params.listId}
-                limit={Telescope.settings.get("postsPerPage", 10)}
-              />
+              <div className="content_1jnXo">
+                  <ListContainer
+                    collection={Posts}
+                    publication="posts.list"
+                    selector={selector}
+                    options={options}
+                    terms={params}
+                    joins={Posts.getJoins()}
+                    component={Telescope.components.PostsList}
+                    cacheSubscription={true}
+                    listId={params.listId}
+                    limit={Telescope.settings.get("postsPerPage", 10)}
+                  />
+                  <div className="sidebar_Y2LGQ">
+
+                      <Telescope.components.WidgetCalendar selected={moment().startOf("day")}/>
+                      <Telescope.components.WidgetTopics />
+
+                  </div>
+              </div>
             )
         }
     }

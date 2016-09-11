@@ -52,6 +52,25 @@ class UsersProfile extends Component {
     }
 
     renderContent() {
+        const params = {view: 'best', listId: "user.profile.upvotedPostsList"};
+        const {selector, options} = Posts.parameters.get(params);
+        return (
+          <ListContainer
+            collection={Posts}
+            publication="posts.list"
+            selector={selector}
+            options={options}
+            terms={params}
+            joins={Posts.getJoins()}
+            component={Telescope.components.PostsList}
+            cacheSubscription={true}
+            listId={params.listId}
+            limit={Telescope.settings.get("postsPerPage", 10)}
+          />
+        )
+    }
+
+    renderContentxxx() {
         return (
           <main className="content_36o4C">
               <div>
