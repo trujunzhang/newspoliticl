@@ -16,6 +16,19 @@ class UserCollectionsPopover extends Component {
         };
     }
 
+    componentDidMount() {
+        const popView = this.refs.userCollectionPanel;
+        const message = this.context.messages;
+        $(document).bind('click touch', function (event) {
+            if (!$(event.target).parents().addBack().is(popView)) {
+                if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
+                    var x = 0;
+                    message.dismissPopoverMenu();
+                }
+            }
+        });
+    }
+
     hide() {
         this.context.messages.dismissPopoverMenu();
     }
