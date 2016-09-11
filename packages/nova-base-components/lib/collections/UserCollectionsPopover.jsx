@@ -86,7 +86,7 @@ class UserCollectionsPopover extends Component {
     renderAddNewForm() {
         return (
           <form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
-              <input type="text" className="collections-popover--form--field input collections-input"
+              <input autoFocus type="text" className="collections-popover--form--field input collections-input"
                      placeholder="Collection name" ref="newCollectionInput"/>
               <button onClick={this.onSubmitNewCollectionClick}
                       className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
