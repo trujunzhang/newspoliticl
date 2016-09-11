@@ -63,10 +63,10 @@ class PostsItem extends Component {
               <div className="actionButtons_2mJsw">
                   <Telescope.components.Vote post={post}
                                              currentUser={this.context.currentUser}/> {this.renderCommenters()}
-                  <div className="additionalActionButtons_BoErh">
+                  <div className="additionalActionButtons_BoErh" ref="saveButton">
                       <a
                         className="button_2I1re smallSize_1da-r secondaryText_PM80d subtleVariant_tlhj3 simpleVariant_1Nl54 button_2n20W"
-                        ref="saveButton" label="save" onClick={this.onSaveButtonClick.bind(this, post)}>
+                        label="save" onClick={this.onSaveButtonClick.bind(this, post)}>
                           <div className="buttonContainer_wTYxi">
                                 <span>
                                     <span>
@@ -180,8 +180,8 @@ class PostsItem extends Component {
 
     onSaveButtonClick(post) {
         var button = this.refs.saveButton;
-        var top = button.top;
-        var left = button.left;
+        var top = button.y;
+        var left = button.x;
         var width = button.width;
         var height = button.height;
         var type = "SaveButton";
