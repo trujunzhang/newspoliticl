@@ -114,7 +114,7 @@ class UserCollectionsPopover extends Component {
     render() {
         const comp = this.props.comp;
         const top = comp.top + comp.height + 14;
-        const left = (comp.left + comp.width / 2) - 75;
+        var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult ? 40 : 0);
 
         return (
           <div className="popover v-bottom-center" style={{
