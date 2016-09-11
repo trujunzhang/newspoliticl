@@ -29,12 +29,12 @@ class PostsItem extends Component {
 
     renderAdminActions() {
         return (
-          <div className="post-actions">
+          <div >
               <Telescope.components.CanDo
                 action="posts.edit.all"
                 document={this.props.post}>
 
-                  <div>
+                  <div className="post-actions">
                       {this.renderCategories()}
 
                       {/*button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d orangeSolidColor_B-2gO solidVariant_2wWrf btn btn-default*/}

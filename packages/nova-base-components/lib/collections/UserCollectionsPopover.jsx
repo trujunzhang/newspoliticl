@@ -74,9 +74,10 @@ class UserCollectionsPopover extends Component {
                       </li>
                   </ul>
                   <div className="popover--footer">
-                      {this.state.addNewItem
-                        ? this.renderAddNewForm()
-                        : this.rendAddNewButton()}
+                      {this.renderAddNewForm()}
+                      {/*{this.state.addNewItem*/}
+                      {/*? this.renderAddNewForm()*/}
+                      {/*: this.rendAddNewButton()}*/}
                   </div>
               </div>
           </div>
@@ -123,7 +124,11 @@ class UserCollectionsPopover extends Component {
 
     onSubmitNewCollectionClick(event) {
         event.preventDefault();
-        this.setState({showResult: true});
+        //this.setState({showResult: true});
+
+        //this.context.actions.call('collections.new', "", () => {
+        //this.context.events.track("post upvoted", {'_id': post._id});
+        //});
     }
 
     render() {
