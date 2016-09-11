@@ -14,13 +14,13 @@ const Header = ({currentUser}) => {
 
               <Telescope.components.HeaderContent currentUser={currentUser}/>
 
-              {/*<ListContainer*/}
-                {/*collection={Categories}*/}
-                {/*resultsPropName="categories"*/}
-                {/*limit={0}*/}
-                {/*component={Telescope.components.HeaderNavigation}*/}
-                {/*loading={<div ></div>}*/}
-              {/*/>*/}
+              <ListContainer
+                collection={Categories}
+                resultsPropName="categories"
+                limit={0}
+                component={Telescope.components.HeaderNavigation}
+                loading={<div ></div>}
+              />
 
           </div>
       </div>
