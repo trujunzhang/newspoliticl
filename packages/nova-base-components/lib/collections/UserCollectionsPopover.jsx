@@ -22,7 +22,6 @@ class UserCollectionsPopover extends Component {
         $(document).bind('click touch', function (event) {
             if (!$(event.target).parents().addBack().is(popView)) {
                 if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
-                    var x = 0;
                     message.dismissPopoverMenu();
                 }
             }
