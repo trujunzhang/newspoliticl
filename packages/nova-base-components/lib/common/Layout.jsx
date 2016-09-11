@@ -104,7 +104,7 @@ class Layout extends Component {
                 case "LoggedUserMenu":
                     return (<Telescope.components.UsersPopoverMenu comp={this.state.popoverMenu}
                                                                    user={this.props.currentUser}/>);
-                case "saveButton":
+                case "SaveButton":
                     return (<Telescope.components.UserCollectionsPopover comp={this.state.popoverMenu}/>)
             }
         }

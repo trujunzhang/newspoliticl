@@ -59,11 +59,11 @@ class PostsItem extends Component {
 
     renderActionButtons(post) {
         return (
-          <div className="meta_2lIV-">
+          <div className="meta_2lIV-" ref="saveButton">
               <div className="actionButtons_2mJsw">
                   <Telescope.components.Vote post={post}
                                              currentUser={this.context.currentUser}/> {this.renderCommenters()}
-                  <div className="additionalActionButtons_BoErh" ref="saveButton">
+                  <div className="additionalActionButtons_BoErh">
                       <a
                         className="button_2I1re smallSize_1da-r secondaryText_PM80d subtleVariant_tlhj3 simpleVariant_1Nl54 button_2n20W"
                         label="save" onClick={this.onSaveButtonClick.bind(this, post)}>
@@ -180,10 +180,10 @@ class PostsItem extends Component {
 
     onSaveButtonClick(post) {
         var button = this.refs.saveButton;
-        var top = button.y;
-        var left = button.x;
-        var width = button.width;
-        var height = button.height;
+        var top = button.offsetTop;
+        var left = button.offsetLeft;
+        var width = 10;
+        var height = 10;
         var type = "SaveButton";
         this.context.messages.showPopoverMenu(top, left, width, height, type);
     }
