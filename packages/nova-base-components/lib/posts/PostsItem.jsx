@@ -66,7 +66,7 @@ class PostsItem extends Component {
                   <div className="additionalActionButtons_BoErh">
                       <a
                         className="button_2I1re smallSize_1da-r secondaryText_PM80d subtleVariant_tlhj3 simpleVariant_1Nl54 button_2n20W"
-                        rel="save-button" label="save" onClick={this.onSaveButtonClick.bind(this, post)}>
+                        rel="saveButton" label="save" onClick={this.onSaveButtonClick.bind(this, post)}>
                           <div className="buttonContainer_wTYxi">
                                 <span>
                                     <span>
@@ -179,7 +179,13 @@ class PostsItem extends Component {
     }
 
     onSaveButtonClick(post) {
-        this.context.messages.userCollections(postId);
+        var button = this.refs.saveButton;
+        var top = button.offsetTop;
+        var left = button.offsetLeft;
+        var width = button.offsetWidth;
+        var height = button.offsetHeight;
+        var type = "SaveButton";
+        this.context.messages.showPopoverMenu(top, left, width, height, type);
     }
 }
 
