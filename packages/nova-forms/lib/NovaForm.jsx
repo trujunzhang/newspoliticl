@@ -58,7 +58,8 @@ class NovaForm extends Component {
         const schema = this.getSchema();
 
         // build fields array by iterating over the list of field names
-        let fields = this.getFieldNames().map(fieldName => {
+        var fieldNames = this.getFieldNames();
+        let fields = fieldNames.map(fieldName => {
 
             // get schema for the current field
             const fieldSchema = schema[fieldName];
