@@ -7,8 +7,12 @@ class UserCollectionsPopover extends Component {
 
     constructor(props) {
         super(props);
+        ['onAddNewClick','onSubmitNewCollectionClick'].forEach(methodName => {
+            this[methodName] = this[methodName].bind(this)
+        });
         this.state = this.initialState = {
-            addNewItem: true
+            addNewItem: false,
+            showResult: false,
         };
     }
 
@@ -28,7 +32,6 @@ class UserCollectionsPopover extends Component {
     }
 
     renderCollectionList() {
-        const addNewItem = this.state.addNewItem;
         return (
             <div>
                 <div className="popover--header">
@@ -56,7 +59,7 @@ class UserCollectionsPopover extends Component {
                         </li>
                     </ul>
                     <div className="popover--footer">
-                        {addNewItem
+                        {this.state.addNewItem
                             ? this.renderAddNewForm()
                             : this.rendAddNewButton()}
                     </div>
@@ -69,7 +72,7 @@ class UserCollectionsPopover extends Component {
         return (
             <form className="collections-popover--form" _lpchecked="1">
                 <input type="text" className="collections-popover--form--field input collections-input" placeholder="Collection name"/>
-                <button className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit" type="submit">
+                <button onClick={this.onSubmitNewCollectionClick} className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit" type="submit">
                     <div className="buttonContainer_wTYxi">Add</div>
                 </button>
             </form>
@@ -78,21 +81,43 @@ class UserCollectionsPopover extends Component {
 
     rendAddNewButton() {
         return (
-            <a className="collections-popover--form-trigger" href="https://www.producthunt.com/#">Add New</a>
+            <a onClick={this.onAddNewClick} className="collections-popover--form-trigger" href="https://www.producthunt.com/#">Add New</a>
         )
+    }
+
+    renderSuccessfully(){
+        return(
+          <div>
+              <div className="popover--header"><h3 className="popover--header--title">Nice work!</h3></div>
+              <div className="popover--message collections-popover--message">“
+                  Gyroscope Sleep Ai” has been added to your collection“
+                  <a href="https://www.producthunt.com/@trujunzhang/collections/my-collection">my collection</a>”
+              </div>
+          </div>
+        )
+    }
+
+    onAddNewClick(event){
+        event.preventDefault();
+        this.setState({addNewItem: true});
+    }
+
+    onSubmitNewCollectionClick(event){
+        event.preventDefault();
+        this.setState({showResult: false});
     }
 
     render() {
         const comp = this.props.comp;
         const top = comp.top + comp.height + 14;
         const left = (comp.left + comp.width / 2) - 75;
-        const addNewItem = this.state.addNewItem;
+
         return (
             <div className="popover v-bottom-center" style={{
                 top: top,
                 left: left
             }}>
-                {this.renderCollectionList()}
+                {this.state.showResult?this.renderSuccessfully():this.renderCollectionList()}
             </div>
         )
     }
