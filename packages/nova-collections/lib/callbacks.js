@@ -53,38 +53,3 @@ function postEditCheckCollections (post) {
 }
 Telescope.callbacks.add("posts.edit.sync", postEditCheckCollections);
 
-// TODO: debug this
-
-// function addParentCollectionsOnSubmit (post) {
-//   var collections = post.collections;
-//   var newCollections = [];
-//   if (collections) {
-//     collections.forEach(function (collectionId) {
-//       var collection = Collections.findOne(collectionId);
-//       newCollections = newCollections.concat(_.pluck(collection.getParents().reverse(), "_id"));
-//       newCollections.push(collection._id);
-//     });
-//   }
-//   post.collections = _.unique(newCollections);
-//   return post;
-// }
-// Telescope.callbacks.add("posts.new.sync", addParentCollectionsOnSubmit);
-
-// function addParentCollectionsOnEdit (modifier, post) {
-//   if (modifier.$unset && modifier.$unset.collections !== undefined) {
-//     return modifier;
-//   }
-
-//   var collections = modifier.$set.collections;
-//   var newCollections = [];
-//   if (collections) {
-//     collections.forEach(function (collectionId) {
-//       var collection = Collections.findOne(collectionId);
-//       newCollections = newCollections.concat(_.pluck(collection.getParents().reverse(), "_id"));
-//       newCollections.push(collection._id);
-//     });
-//   }
-//   modifier.$set.collections = _.unique(newCollections);
-//   return modifier;
-// }
-// Telescope.callbacks.add("posts.edit.sync", addParentCollectionsOnEdit);
