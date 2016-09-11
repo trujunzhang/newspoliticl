@@ -26,7 +26,7 @@ class Layout extends Component {
 
     componentDidMount() {
         this.setState({didMount: true});
-        this.context.messages.showPopoverMenu(400, 400, 100, 100, "saveButton");
+        //this.context.messages.showPopoverMenu(400, 400, 100, 100, "saveButton");
     }
 
     dismissCurrentPostPanel() {
