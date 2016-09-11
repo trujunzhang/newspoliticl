@@ -19,7 +19,7 @@ class UsersProfile extends Component {
 
     renderLeftPanel() {
         const user = this.props.currentUser;
-        const upvotedPosts = user.upvotedPosts;
+        const upvotedPosts = user.telescope.upvotedPosts;
         const upvotedPostsCount = (upvotedPosts && upvotedPosts.length > 0) ? upvotedPosts.length : 0;
 
         return (
