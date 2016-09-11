@@ -114,10 +114,10 @@ class UserCollectionsPopover extends Component {
     render() {
         const comp = this.props.comp;
         const top = comp.top + comp.height + 14;
-        var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult ? 44 : 0);
+        var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult ? 42 : 0);
 
         return (
-          <div className="popover v-bottom-center" style={{
+          <div ref="userCollectionPanel" className="popover v-bottom-center" style={{
               top: top,
               left: left
           }}>
