@@ -52,15 +52,16 @@ class UsersProfile extends Component {
     }
 
     renderContent() {
+        const user = this.props.currentUser;
         const params = {view: 'best', listId: "user.profile.upvotedPostsList"};
         const {selector, options} = Posts.parameters.get(params);
         return (
           <ListContainer
+            selector={{userId: user._id}}
+            terms={{userId: user._id, view: "best"}}
             collection={Posts}
-            publication="posts.list"
-            selector={selector}
+            publication="user.posts.list"
             options={options}
-            terms={params}
             joins={Posts.getJoins()}
             component={Telescope.components.PostsList}
             cacheSubscription={true}

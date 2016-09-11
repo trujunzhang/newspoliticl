@@ -96,6 +96,40 @@ Meteor.publish('posts.list', function (terms) {
 });
 
 /**
+ * @summary Publish a list of posts, along with the users corresponding to these posts
+ * @param {Object} terms
+ */
+Meteor.publish('user.posts.list', function (terms) {
+
+  // this.unblock(); // causes bug where publication returns 0 results
+
+  this.autorun(function () {
+
+    const currentUser = this.userId && Meteor.users.findOne(this.userId);
+
+    terms.currentUserId = this.userId; // add currentUserId to terms
+    const {selector, options} = Posts.parameters.get(terms);
+
+    Counts.publish(this, terms.listId, Posts.find(selector, options), {noReady: true});
+
+    options.fields = Posts.publishedFields.list;
+
+    const posts = Posts.find(selector, options);
+
+    // note: doesn't work yet :(
+    // CursorCounts.set(terms, posts.count(), this.connection.id);
+
+    const users = Tracker.nonreactive(function () {
+      return getPostsListUsers(posts);
+    });
+
+    return Users.canDo(currentUser, "posts.view.approved.all") ? [posts, users] : [];
+
+  });
+
+});
+
+/**
  * @summary Publish a single post, along with all relevant users
  * @param {Object} terms
  */
