@@ -1,90 +1,90 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
-import Categories from "./collection.js";
+import Folders from "./collection.js";
 
 // generate slug on insert
-Categories.before.insert(function (userId, doc) {
+Folders.before.insert(function (userId, doc) {
   // if no slug has been provided, generate one
   var slug = !!doc.slug ? doc.slug : Telescope.utils.slugify(doc.name);
-  doc.slug = Telescope.utils.getUnusedSlug(Categories, slug);
+  doc.slug = Telescope.utils.getUnusedSlug(Folders, slug);
 });
 
 // generate slug on edit, if it has changed
-Categories.before.update(function (userId, doc, fieldNames, modifier) {
+Folders.before.update(function (userId, doc, fieldNames, modifier) {
   if (modifier.$set && modifier.$set.slug && modifier.$set.slug !== doc.slug) {
-    modifier.$set.slug = Telescope.utils.getUnusedSlug(Categories, modifier.$set.slug);
+    modifier.$set.slug = Telescope.utils.getUnusedSlug(Folders, modifier.$set.slug);
   }
 });
 
-// add callback that adds categories CSS classes
-function addCategoryClass (postClass, post) {
-  var classArray = _.map(Posts.getCategories(post), function (category){return "category-"+category.slug;});
+// add callback that adds folders CSS classes
+function addFolderClass (postClass, post) {
+  var classArray = _.map(Posts.getFolders(post), function (folder){return "folder-"+folder.slug;});
   return postClass + " " + classArray.join(' ');
 }
-Telescope.callbacks.add("postClass", addCategoryClass);
+Telescope.callbacks.add("postClass", addFolderClass);
 
-// ------- Categories Check -------- //
+// ------- Folders Check -------- //
 
-// make sure all categories in the post.categories array exist in the db
-var checkCategories = function (post) {
+// make sure all folders in the post.folders array exist in the db
+var checkFolders = function (post) {
 
-  // if there are no categories, stop here
-  if (!post.categories || post.categories.length === 0) {
+  // if there are no folders, stop here
+  if (!post.folders || post.folders.length === 0) {
     return;
   }
 
-  // check how many of the categories given also exist in the db
-  var categoryCount = Categories.find({_id: {$in: post.categories}}).count();
+  // check how many of the folders given also exist in the db
+  var folderCount = Folders.find({_id: {$in: post.folders}}).count();
 
-  if (post.categories.length !== categoryCount) {
-    throw new Meteor.Error('invalid_category', 'invalid_category');
+  if (post.folders.length !== folderCount) {
+    throw new Meteor.Error('invalid_folder', 'invalid_folder');
   }
 };
 
-function postsNewCheckCategories (post) {
-  checkCategories(post);
+function postsNewCheckFolders (post) {
+  checkFolders(post);
   return post;
 }
-Telescope.callbacks.add("posts.new.sync", postsNewCheckCategories);
+Telescope.callbacks.add("posts.new.sync", postsNewCheckFolders);
 
-function postEditCheckCategories (post) {
-  checkCategories(post);
+function postEditCheckFolders (post) {
+  checkFolders(post);
   return post;
 }
-Telescope.callbacks.add("posts.edit.sync", postEditCheckCategories);
+Telescope.callbacks.add("posts.edit.sync", postEditCheckFolders);
 
 // TODO: debug this
 
-// function addParentCategoriesOnSubmit (post) {
-//   var categories = post.categories;
-//   var newCategories = [];
-//   if (categories) {
-//     categories.forEach(function (categoryId) {
-//       var category = Categories.findOne(categoryId);
-//       newCategories = newCategories.concat(_.pluck(category.getParents().reverse(), "_id"));
-//       newCategories.push(category._id);
+// function addParentFoldersOnSubmit (post) {
+//   var folders = post.folders;
+//   var newFolders = [];
+//   if (folders) {
+//     folders.forEach(function (folderId) {
+//       var folder = Folders.findOne(folderId);
+//       newFolders = newFolders.concat(_.pluck(folder.getParents().reverse(), "_id"));
+//       newFolders.push(folder._id);
 //     });
 //   }
-//   post.categories = _.unique(newCategories);
+//   post.folders = _.unique(newFolders);
 //   return post;
 // }
-// Telescope.callbacks.add("posts.new.sync", addParentCategoriesOnSubmit);
+// Telescope.callbacks.add("posts.new.sync", addParentFoldersOnSubmit);
 
-// function addParentCategoriesOnEdit (modifier, post) {
-//   if (modifier.$unset && modifier.$unset.categories !== undefined) {
+// function addParentFoldersOnEdit (modifier, post) {
+//   if (modifier.$unset && modifier.$unset.folders !== undefined) {
 //     return modifier;
 //   }
 
-//   var categories = modifier.$set.categories;
-//   var newCategories = [];
-//   if (categories) {
-//     categories.forEach(function (categoryId) {
-//       var category = Categories.findOne(categoryId);
-//       newCategories = newCategories.concat(_.pluck(category.getParents().reverse(), "_id"));
-//       newCategories.push(category._id);
+//   var folders = modifier.$set.folders;
+//   var newFolders = [];
+//   if (folders) {
+//     folders.forEach(function (folderId) {
+//       var folder = Folders.findOne(folderId);
+//       newFolders = newFolders.concat(_.pluck(folder.getParents().reverse(), "_id"));
+//       newFolders.push(folder._id);
 //     });
 //   }
-//   modifier.$set.categories = _.unique(newCategories);
+//   modifier.$set.folders = _.unique(newFolders);
 //   return modifier;
 // }
-// Telescope.callbacks.add("posts.edit.sync", addParentCategoriesOnEdit);
+// Telescope.callbacks.add("posts.edit.sync", addParentFoldersOnEdit);

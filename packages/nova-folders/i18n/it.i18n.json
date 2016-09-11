@@ -1,6 +1,6 @@
 {
-  "categories" : "Categorie",
-  "add_and_remove_categories" : "Aggiungi e rimuovi categorie.",
-  "all_categories" : "Tutti",
-  "invalid_category" : "Ci spiace, questa non è una categoria valida"
+  "folders" : "Categorie",
+  "add_and_remove_folders" : "Aggiungi e rimuovi categorie.",
+  "all_folders" : "Tutti",
+  "invalid_folder" : "Ci spiace, questa non è una categoria valida"
 }

@@ -1,74 +1,74 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
-import Categories from "./collection.js";
+import Folders from "./collection.js";
 
-Categories.helpers({getCollection: () => Categories});
-Categories.helpers({getCollectionName: () => "categories"});
+Folders.helpers({getCollection: () => Folders});
+Folders.helpers({getCollectionName: () => "folders"});
 
 /**
- * @summary Get all of a category's parents
- * @param {Object} category
+ * @summary Get all of a folder's parents
+ * @param {Object} folder
  */
-Categories.getParents = function (category) {
-  var categoriesArray = [];
+Folders.getParents = function (folder) {
+  var foldersArray = [];
 
-  var getParents = function recurse (category) {
+  var getParents = function recurse (folder) {
     var parent;
-    if (parent = Categories.findOne(category.parentId)) {
-      categoriesArray.push(parent);
+    if (parent = Folders.findOne(folder.parentId)) {
+      foldersArray.push(parent);
       recurse(parent);
     }
-  }(category);
+  }(folder);
 
-  return categoriesArray;
+  return foldersArray;
 };
-Categories.helpers({getParents: function () {return Categories.getParents(this);}});
+Folders.helpers({getParents: function () {return Folders.getParents(this);}});
 
 /**
- * @summary Get all of a category's children
- * @param {Object} category
+ * @summary Get all of a folder's children
+ * @param {Object} folder
  */
-Categories.getChildren = function (category) {
-  var categoriesArray = [];
+Folders.getChildren = function (folder) {
+  var foldersArray = [];
 
-  var getChildren = function recurse (categories) {
-    var children = Categories.find({parentId: {$in: _.pluck(categories, "_id")}}).fetch()
+  var getChildren = function recurse (folders) {
+    var children = Folders.find({parentId: {$in: _.pluck(folders, "_id")}}).fetch()
     if (children.length > 0) {
-      categoriesArray = categoriesArray.concat(children);
+      foldersArray = foldersArray.concat(children);
       recurse(children);
     }
-  }([category]);
+  }([folder]);
 
-  return categoriesArray;
+  return foldersArray;
 };
-Categories.helpers({getChildren: function () {return Categories.getChildren(this);}});
+Folders.helpers({getChildren: function () {return Folders.getChildren(this);}});
 
 /**
- * @summary Get all of a post's categories
+ * @summary Get all of a post's folders
  * @param {Object} post
  */
-Posts.getCategories = function (post) {
-  return !!post.categories ? Categories.find({_id: {$in: post.categories}}).fetch() : [];
+Posts.getFolders = function (post) {
+  return !!post.folders ? Folders.find({_id: {$in: post.folders}}).fetch() : [];
 };
-Posts.helpers({getCategories: function () {return Posts.getCategories(this);}});
+Posts.helpers({getFolders: function () {return Posts.getFolders(this);}});
 
 /**
- * @summary Get a category's URL
- * @param {Object} category
+ * @summary Get a folder's URL
+ * @param {Object} folder
  */
-Categories.getUrl = function (category, isAbsolute) {
+Folders.getUrl = function (folder, isAbsolute) {
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
-  // return prefix + FlowRouter.path("postsCategory", category);
-  return `${prefix}/?cat=${category.slug}`;
+  // return prefix + FlowRouter.path("postsFolder", folder);
+  return `${prefix}/?cat=${folder.slug}`;
 };
-Categories.helpers({getUrl: function () {return Categories.getUrl(this);}});
+Folders.helpers({getUrl: function () {return Folders.getUrl(this);}});
 
 /**
- * @summary Get a category's counter name
- * @param {Object} category
+ * @summary Get a folder's counter name
+ * @param {Object} folder
  */
- Categories.getCounterName = function (category) {
-  return category._id + "-postsCount";
+ Folders.getCounterName = function (folder) {
+  return folder._id + "-postsCount";
  }
- Categories.helpers({getCounterName: function () {return Categories.getCounterName(this);}});
+ Folders.helpers({getCounterName: function () {return Folders.getCounterName(this);}});

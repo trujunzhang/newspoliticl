@@ -1,25 +1,25 @@
 import Telescope from 'meteor/nova:lib';
-import Categories from "../collection.js";
+import Folders from "../collection.js";
 
-// Load categories from settings, if there are any
+// Load folders from settings, if there are any
 
-if (Meteor.settings && Meteor.settings.categories) {
-  Meteor.settings.categories.forEach(category => {
+if (Meteor.settings && Meteor.settings.folders) {
+  Meteor.settings.folders.forEach(folder => {
 
     // get slug (or slugified name)
-    const slug = category.slug || Telescope.utils.slugify(category.name);
+    const slug = folder.slug || Telescope.utils.slugify(folder.name);
 
-    // look for existing category with same slug
-    let existingCategory = Categories.findOne({slug: slug});
+    // look for existing folder with same slug
+    let existingFolder = Folders.findOne({slug: slug});
 
-    if (existingCategory) {
-      // if category exists, update it with settings data except slug
-      delete category.slug;
-      Categories.update(existingCategory._id, {$set: category});
+    if (existingFolder) {
+      // if folder exists, update it with settings data except slug
+      delete folder.slug;
+      Folders.update(existingFolder._id, {$set: folder});
     } else {
       // if not, create it
-      Categories.insert(category);
-      console.log(`// Creating category “${category.name}”`);
+      Folders.insert(folder);
+      console.log(`// Creating folder “${folder.name}”`);
     }
   });
 }

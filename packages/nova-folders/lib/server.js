@@ -1,6 +1,6 @@
-import Categories from './modules.js';
+import Folders from './modules.js';
 
 import './server/publications.js';
-import './server/load_categories.js';
+import './server/load_folders.js';
 
-export default Categories;
+export default Folders;

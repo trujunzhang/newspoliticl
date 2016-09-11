@@ -1,12 +1,12 @@
 import Telescope from 'meteor/nova:lib';
-import Categories from "./collection.js";
+import Folders from "./collection.js";
 import Users from 'meteor/nova:users';
 
-const canInsert = user => Users.canDo(user, "categories.new");
-const canEdit = user => Users.canDo(user, "categories.edit.all");
+const canInsert = user => Users.canDo(user, "folders.new");
+const canEdit = user => Users.canDo(user, "folders.edit.all");
 
-// category schema
-Categories.schema = new SimpleSchema({
+// folder schema
+Folders.schema = new SimpleSchema({
   name: {
     type: String,
     insertableIf: canInsert,
@@ -52,51 +52,51 @@ Categories.schema = new SimpleSchema({
     publish: true,
     autoform: {
       options: function () {
-        var categories = Categories.find().map(function (category) {
+        var folders = Folders.find().map(function (folder) {
           return {
-            value: category._id,
-            label: category.name
+            value: folder._id,
+            label: folder.name
           };
         });
-        return categories;
+        return folders;
       }
     }
   }
 });
 
 // Meteor.startup(function(){
-//   Categories.internationalize();
+//   Folders.internationalize();
 // });
 
-Categories.attachSchema(Categories.schema);
+Folders.attachSchema(Folders.schema);
 
 
 Telescope.settings.collection.addField([
   {
-    fieldName: 'categoriesBehavior',
+    fieldName: 'foldersBehavior',
     fieldSchema: {
       type: String,
       optional: true,
       autoform: {
-        group: 'categories',
-        instructions: 'Let users filter by one or multiple categories at a time.', 
+        group: 'folders',
+        instructions: 'Let users filter by one or multiple folders at a time.',
         options: function () {
           return [
-            {value: "single", label: "categories_behavior_one_at_a_time"},
-            {value: "multiple", label: "categories_behavior_multiple"}
+            {value: "single", label: "folders_behavior_one_at_a_time"},
+            {value: "multiple", label: "folders_behavior_multiple"}
           ];
         }
       }
     }
   },
   {
-    fieldName: 'hideEmptyCategories',
+    fieldName: 'hideEmptyFolders',
     fieldSchema: {
       type: Boolean,
       optional: true,
       autoform: {
-        group: 'categories',
-        instructions: 'Hide empty categories in navigation'
+        group: 'folders',
+        instructions: 'Hide empty folders in navigation'
       }
     }
   }
