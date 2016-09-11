@@ -10,10 +10,10 @@ class UserCollectionsPopover extends Component {
         ['onAddNewClick', 'onSubmitNewCollectionClick', 'hide'].forEach(methodName => {
             this[methodName] = this[methodName].bind(this)
         });
-        this.state = this.initialState = {
-            addNewItem: false,
-            showResult: false,
-        };
+    }
+
+    componentWillMount() {
+        this.context.messages.registerUserCollectionsPopover(this);
     }
 
     componentDidMount() {

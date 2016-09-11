@@ -10,7 +10,7 @@ import Posts from "meteor/nova:posts";
 
 class HeaderContent extends Component {
 
-    showPopoverMenu() {
+    popoverHeaderMenu() {
         var button = this.refs.moreButton;
         var top = button.offsetTop;
         var left = button.offsetLeft;
@@ -45,7 +45,7 @@ class HeaderContent extends Component {
                   <Telescope.components.HeaderSearchForm />
               </div>
               <div className="headerRight_2DQLQ centerItems_222KX">
-                  <a onClick={this.showPopoverMenu.bind(this)} className="metaMenu_3AKjk menuLink_1h9ZN"
+                  <a onClick={this.popoverHeaderMenu.bind(this)} className="metaMenu_3AKjk menuLink_1h9ZN"
                      data-test="more" ref="moreButton">
                       <span>
                           <svg width="20" height="4"

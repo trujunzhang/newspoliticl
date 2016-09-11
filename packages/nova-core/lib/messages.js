@@ -26,6 +26,10 @@ const Messages = {
         this.userCollections.registerLayout(layout);
     },
 
+    registerUserCollectionsPopover(comp){
+        this.userCollections.registerCompForUserCollectionsPopover(comp);
+    },
+
     pushAndPostShow(postId){
         var cachePost = this.postDetailSet.push(postId);
         this.appStatus.updateCachePost(cachePost);
