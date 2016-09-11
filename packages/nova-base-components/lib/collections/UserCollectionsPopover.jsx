@@ -21,17 +21,8 @@ class UserCollectionsPopover extends Component {
     }
 
     renderLoading() {
-        const comp = this.props.comp;
-        const top = comp.top + comp.height + 14;
-        const left = (comp.left + comp.width / 2) - 75;
-
         return (
-          <div className="popover v-bottom-center" style={{
-              top: top,
-              left: left
-          }}>
-              <div className="popover--loader"></div>
-          </div>
+          <div className="popover--loader"></div>
         )
     }
 

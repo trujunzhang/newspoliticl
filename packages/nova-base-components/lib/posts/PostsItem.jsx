@@ -182,8 +182,8 @@ class PostsItem extends Component {
         var offset = $(this.refs.saveButton).offset();
         var top = offset.top;
         var left = offset.left;
-        var width = 10;
-        var height = 10;
+        var width = 60;
+        var height = 20;
         var type = "SaveButton";
         this.context.messages.showPopoverMenu(top, left, width, height, type);
     }
