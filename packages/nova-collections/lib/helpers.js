@@ -59,7 +59,7 @@ Posts.helpers({getCollections: function () {return Posts.getCollections(this);}}
 Collections.getUrl = function (collection, isAbsolute) {
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
-  // return prefix + FlowRouter.path("postsCategory", collection);
+  // return prefix + FlowRouter.path("postsCollection", collection);
   return `${prefix}/?cat=${collection.slug}`;
 };
 Collections.helpers({getUrl: function () {return Collections.getUrl(this);}});

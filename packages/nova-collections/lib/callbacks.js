@@ -17,11 +17,11 @@ Collections.before.update(function (userId, doc, fieldNames, modifier) {
 });
 
 // add callback that adds collections CSS classes
-function addCategoryClass (postClass, post) {
+function addCollectionClass (postClass, post) {
   var classArray = _.map(Posts.getCollections(post), function (collection){return "collection-"+collection.slug;});
   return postClass + " " + classArray.join(' ');
 }
-Telescope.callbacks.add("postClass", addCategoryClass);
+Telescope.callbacks.add("postClass", addCollectionClass);
 
 // ------- Collections Check -------- //
 

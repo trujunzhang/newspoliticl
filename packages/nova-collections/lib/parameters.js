@@ -1,9 +1,9 @@
 import Telescope from 'meteor/nova:lib';
 import Collections from "./collection.js";
 
-// Category Parameter
+// Collection Parameter
 // Add a "collections" property to terms which can be used to filter *all* existing Posts views.
-function addCategoryParameter (parameters, terms) {
+function addCollectionParameter (parameters, terms) {
 
   var cat = terms.cat || terms["cat[]"];
 
@@ -32,4 +32,4 @@ function addCategoryParameter (parameters, terms) {
   }
   return parameters;
 }
-Telescope.callbacks.add("postsParameters", addCategoryParameter);
+Telescope.callbacks.add("postsParameters", addCollectionParameter);

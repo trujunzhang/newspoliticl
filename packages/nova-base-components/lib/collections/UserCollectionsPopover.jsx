@@ -1,7 +1,9 @@
 import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
 import {Button} from 'react-bootstrap';
+import NovaForm from "meteor/nova:forms";
 import moment from 'moment';
+import Collections from "meteor/nova:collections";
 
 class UserCollectionsPopover extends Component {
 
@@ -84,17 +86,28 @@ class UserCollectionsPopover extends Component {
         )
     }
 
+    successCallback(collection) {
+        var x = 0;
+    }
+
     renderAddNewForm() {
         return (
-          <form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
-              <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-                     placeholder="Collection name" ref="newCollectionInput"/>
-              <button onClick={this.onSubmitNewCollectionClick}
-                      className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
-                      type="submit">
-                  <div className="buttonContainer_wTYxi">Add</div>
-              </button>
-          </form>
+          <NovaForm
+            collection={Collections}
+            currentUser={this.context.currentUser}
+            methodName="collections.new"
+            successCallback={this.successCallback}
+            layout="elementOnly"
+          />
+          //<form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
+          //    <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+          //           placeholder="Collection name" ref="newCollectionInput"/>
+          //    <button onClick={this.onSubmitNewCollectionClick}
+          //            className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
+          //            type="submit">
+          //        <div className="buttonContainer_wTYxi">Add</div>
+          //    </button>
+          //</form>
         )
     }
 
