@@ -72,7 +72,7 @@ class UserCollectionsPopover extends Component {
         return (
           <form className="collections-popover--form" _lpchecked="1">
               <input type="text" className="collections-popover--form--field input collections-input"
-                     placeholder="Collection name"/>
+                     placeholder="Collection name" ref="newCollectionInput"/>
               <button onClick={this.onSubmitNewCollectionClick}
                       className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
                       type="submit">
@@ -114,7 +114,7 @@ class UserCollectionsPopover extends Component {
     render() {
         const comp = this.props.comp;
         const top = comp.top + comp.height + 14;
-        var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult ? 40 : 0);
+        var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult ? 44 : 0);
 
         return (
           <div className="popover v-bottom-center" style={{
