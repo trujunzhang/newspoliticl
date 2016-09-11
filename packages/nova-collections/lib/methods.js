@@ -15,9 +15,9 @@ Meteor.methods({
       Collections.remove(collectionId);
 
       // find any direct children of this collection and make them root collections
-      Collections.find({parentId: collectionId}).forEach(function (collection) {
-        Collections.update(collection._id, {$unset: {parentId: ""}});
-      });
+      //Collections.find({parentId: collectionId}).forEach(function (collection) {
+      //  Collections.update(collection._id, {$unset: {parentId: ""}});
+      //});
 
       // find any posts with this collection and remove it
       var postsUpdated = Posts.update({collections: {$in: [collectionId]}}, {$pull: {collections: collectionId}}, {multi: true});

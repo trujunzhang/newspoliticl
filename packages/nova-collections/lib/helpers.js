@@ -5,43 +5,43 @@ import Collections from "./collection.js";
 Collections.helpers({getCollection: () => Collections});
 Collections.helpers({getCollectionName: () => "collections"});
 
-/**
- * @summary Get all of a collection's parents
- * @param {Object} collection
- */
-Collections.getParents = function (collection) {
-  var collectionsArray = [];
-
-  var getParents = function recurse (collection) {
-    var parent;
-    if (parent = Collections.findOne(collection.parentId)) {
-      collectionsArray.push(parent);
-      recurse(parent);
-    }
-  }(collection);
-
-  return collectionsArray;
-};
-Collections.helpers({getParents: function () {return Collections.getParents(this);}});
+///**
+// * @summary Get all of a collection's parents
+// * @param {Object} collection
+// */
+//Collections.getParents = function (collection) {
+//  var collectionsArray = [];
+//
+//  var getParents = function recurse (collection) {
+//    var parent;
+//    if (parent = Collections.findOne(collection.parentId)) {
+//      collectionsArray.push(parent);
+//      recurse(parent);
+//    }
+//  }(collection);
+//
+//  return collectionsArray;
+//};
+//Collections.helpers({getParents: function () {return Collections.getParents(this);}});
 
 /**
  * @summary Get all of a collection's children
  * @param {Object} collection
  */
-Collections.getChildren = function (collection) {
-  var collectionsArray = [];
-
-  var getChildren = function recurse (collections) {
-    var children = Collections.find({parentId: {$in: _.pluck(collections, "_id")}}).fetch()
-    if (children.length > 0) {
-      collectionsArray = collectionsArray.concat(children);
-      recurse(children);
-    }
-  }([collection]);
-
-  return collectionsArray;
-};
-Collections.helpers({getChildren: function () {return Collections.getChildren(this);}});
+//Collections.getChildren = function (collection) {
+//  var collectionsArray = [];
+//
+//  var getChildren = function recurse (collections) {
+//    var children = Collections.find({parentId: {$in: _.pluck(collections, "_id")}}).fetch()
+//    if (children.length > 0) {
+//      collectionsArray = collectionsArray.concat(children);
+//      recurse(children);
+//    }
+//  }([collection]);
+//
+//  return collectionsArray;
+//};
+//Collections.helpers({getChildren: function () {return Collections.getChildren(this);}});
 
 /**
  * @summary Get all of a post's collections
