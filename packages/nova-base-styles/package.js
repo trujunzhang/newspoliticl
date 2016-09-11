@@ -22,4 +22,8 @@ Package.onUse(function (api) {
     'lib/stylesheets/main.scss'
   ], ['client']);
 
+  api.addAssets([
+    'content/images/loader@2x-eedc15ac0cc66f017bf00a8befd9c708.png'
+  ], ['client']);
+
 });
