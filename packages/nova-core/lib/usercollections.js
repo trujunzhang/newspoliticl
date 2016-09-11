@@ -12,6 +12,7 @@ class UserCollections {
         this.userCollectionsPopover.state = this.initialState = {
             addNewItem: false,
             showResult: false,
+            value: 'wanghao-folder'
         };
     }
 

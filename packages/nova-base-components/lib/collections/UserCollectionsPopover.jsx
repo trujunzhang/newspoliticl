@@ -92,22 +92,23 @@ class UserCollectionsPopover extends Component {
 
     renderAddNewForm() {
         return (
-          <NovaForm
-            collection={Folders}
-            currentUser={this.context.currentUser}
-            methodName="collections.new"
-            successCallback={this.successCallback}
-            layout="elementOnly"
-          />
-          //<form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
-          //    <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-          //           placeholder="Collection name" ref="newCollectionInput"/>
-          //    <button onClick={this.onSubmitNewCollectionClick}
-          //            className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
-          //            type="submit">
-          //        <div className="buttonContainer_wTYxi">Add</div>
-          //    </button>
-          //</form>
+          //<NovaForm
+          //  collection={Folders}
+          //  currentUser={this.context.currentUser}
+          //  methodName="collections.new"
+          //  successCallback={this.successCallback}
+          //  layout="elementOnly"
+          ///>
+          <form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
+              <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                     value={this.state.value}
+                     placeholder="Collection name" ref="newCollectionInput"/>
+              <button onClick={this.onSubmitNewCollectionClick}
+                      className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
+                      type="submit">
+                  <div className="buttonContainer_wTYxi">Add</div>
+              </button>
+          </form>
         )
     }
 
@@ -139,9 +140,10 @@ class UserCollectionsPopover extends Component {
         event.preventDefault();
         //this.setState({showResult: true});
 
-        //this.context.actions.call('collections.new', "", () => {
-        //this.context.events.track("post upvoted", {'_id': post._id});
-        //});
+        this.context.actions.call('folders.new', this.state.value, () => {
+            var x = 0;
+            //this.context.events.track("post upvoted", {'_id': post._id});
+        });
     }
 
     render() {
@@ -161,6 +163,8 @@ class UserCollectionsPopover extends Component {
 }
 
 UserCollectionsPopover.contextTypes = {
+    actions: React.PropTypes.object,
+    events: React.PropTypes.object,
     messages: React.PropTypes.object
 };
 
