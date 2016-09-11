@@ -104,7 +104,7 @@ class UserCollectionsPopover extends Component {
 
     onSubmitNewCollectionClick(event){
         event.preventDefault();
-        this.setState({showResult: false});
+        this.setState({showResult: true});
     }
 
     render() {
