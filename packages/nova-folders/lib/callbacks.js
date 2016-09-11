@@ -17,39 +17,39 @@ Folders.before.update(function (userId, doc, fieldNames, modifier) {
 });
 
 // add callback that adds folders CSS classes
-function addFolderClass (postClass, post) {
-  var classArray = _.map(Posts.getFolders(post), function (folder){return "folder-"+folder.slug;});
-  return postClass + " " + classArray.join(' ');
-}
-Telescope.callbacks.add("postClass", addFolderClass);
+//function addFolderClass (postClass, post) {
+//  var classArray = _.map(Posts.getFolders(post), function (folder){return "folder-"+folder.slug;});
+//  return postClass + " " + classArray.join(' ');
+//}
+//Telescope.callbacks.add("postClass", addFolderClass);
 
 // ------- Folders Check -------- //
 
 // make sure all folders in the post.folders array exist in the db
-var checkFolders = function (post) {
+//var checkFolders = function (post) {
+//
+//  // if there are no folders, stop here
+//  if (!post.folders || post.folders.length === 0) {
+//    return;
+//  }
+//
+//  // check how many of the folders given also exist in the db
+//  var folderCount = Folders.find({_id: {$in: post.folders}}).count();
+//
+//  if (post.folders.length !== folderCount) {
+//    throw new Meteor.Error('invalid_folder', 'invalid_folder');
+//  }
+//};
 
-  // if there are no folders, stop here
-  if (!post.folders || post.folders.length === 0) {
-    return;
-  }
-
-  // check how many of the folders given also exist in the db
-  var folderCount = Folders.find({_id: {$in: post.folders}}).count();
-
-  if (post.folders.length !== folderCount) {
-    throw new Meteor.Error('invalid_folder', 'invalid_folder');
-  }
-};
-
-function postsNewCheckFolders (post) {
-  checkFolders(post);
-  return post;
-}
-Telescope.callbacks.add("posts.new.sync", postsNewCheckFolders);
-
-function postEditCheckFolders (post) {
-  checkFolders(post);
-  return post;
-}
-Telescope.callbacks.add("posts.edit.sync", postEditCheckFolders);
+//function postsNewCheckFolders (post) {
+//  checkFolders(post);
+//  return post;
+//}
+//Telescope.callbacks.add("posts.new.sync", postsNewCheckFolders);
+//
+//function postEditCheckFolders (post) {
+//  checkFolders(post);
+//  return post;
+//}
+//Telescope.callbacks.add("posts.edit.sync", postEditCheckFolders);
 

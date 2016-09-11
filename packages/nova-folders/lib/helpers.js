@@ -47,10 +47,10 @@ Folders.helpers({getCollectionName: () => "folders"});
  * @summary Get all of a post's folders
  * @param {Object} post
  */
-Posts.getFolders = function (post) {
-  return !!post.folders ? Folders.find({_id: {$in: post.folders}}).fetch() : [];
-};
-Posts.helpers({getFolders: function () {return Posts.getFolders(this);}});
+//Posts.getFolders = function (post) {
+//  return !!post.folders ? Folders.find({_id: {$in: post.folders}}).fetch() : [];
+//};
+//Posts.helpers({getFolders: function () {return Posts.getFolders(this);}});
 
 /**
  * @summary Get a folder's URL
