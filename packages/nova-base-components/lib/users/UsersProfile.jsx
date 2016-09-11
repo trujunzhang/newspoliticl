@@ -28,7 +28,7 @@ class UsersProfile extends Component {
                   <li>
                       <a className="text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET"
                          href="https://www.producthunt.com/@trujunzhang">
-                          <em className="user_left_menu_number">0</em>
+                          <em className="user_left_menu_number">{upvotedPostsCount}</em>
                           <span>Upvotes</span>
                       </a>
                   </li>
