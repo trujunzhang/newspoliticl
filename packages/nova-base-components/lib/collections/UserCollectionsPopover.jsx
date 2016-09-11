@@ -37,7 +37,7 @@ class UserCollectionsPopover extends Component {
 
     renderCollectionList() {
         return (
-          <div onBlur={this.hide()}>
+          <div >
               <div className="popover--header">
                   <h3 className="popover--header--title">Add to Collection</h3>
                   <a className="popover--header--icon" href="https://www.producthunt.com/#">

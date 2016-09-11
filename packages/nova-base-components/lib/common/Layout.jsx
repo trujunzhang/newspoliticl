@@ -135,7 +135,7 @@ class Layout extends Component {
               {/*Popup the login UI*/}
               {this.state.isLogin ? <Telescope.components.UserLogin /> : null}
 
-              <div >
+              <div id="container">
                   <div className="constraintWidth_ZyYbM container_3aBgK">
                       <FlashContainer component={Telescope.components.FlashMessages}/>
                   </div>
