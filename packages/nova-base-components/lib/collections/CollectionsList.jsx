@@ -2,6 +2,9 @@ import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
 import {Button} from 'react-bootstrap';
 import moment from 'moment';
+import Folders from "meteor/nova:folders";
+
+import {ListContainer, DocumentContainer} from "meteor/utilities:react-list-container";
 
 class CollectionsList extends Component {
 
@@ -11,8 +14,18 @@ class CollectionsList extends Component {
 
     render() {
         return (
-          <div className="posts-daily">
-          </div>
+          <ListContainer
+            collection={Folders}
+            publication="folders.list"
+            selector={{userId: this.props.userId}}
+            options={{}}
+            terms={{userId: this.props.userId}}
+            joins={Posts.getJoins()}
+            component={Telescope.components.CollectionsResult}
+            cacheSubscription={true}
+            listId={"user.folder.list"}
+            limit={Telescope.settings.get("postsPerPage", 10)}
+          />
         )
     }
 }

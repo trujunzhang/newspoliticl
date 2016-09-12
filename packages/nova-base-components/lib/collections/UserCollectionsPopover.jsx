@@ -88,6 +88,21 @@ class UserCollectionsPopover extends Component {
                   </a>
               </li>
           </ul>
+
+
+          //      <ul className="collections-popover--collections popover--scrollable-list">
+          //      {folders.map((folder, index) => {
+          //            return (
+          //              <li>
+          //                  <a className="collections-popover--collection popover--scrollable-list--element"
+          //                     href="https://www.producthunt.com/#">{folder.name}
+          //                      <span className="collections-popover--collection--icon v-collect"></span>
+          //                  </a>
+          //              </li>
+          //            )
+          //        }
+          //      )}
+          //</ul>
         )
     }
 
@@ -95,24 +110,15 @@ class UserCollectionsPopover extends Component {
         const user = this.context.currentUser;
         const userName = Users.getDisplayName(user);
         const folders = Users.getCollectedFolder(user);
+
+        const userId = user._id;
+
         return (
           <div >
               {this.renderCollectionsHeader()}
               <div>
 
-                  <ul className="collections-popover--collections popover--scrollable-list">
-                      {folders.map((folder, index) => {
-                            return (
-                              <li>
-                                  <a className="collections-popover--collection popover--scrollable-list--element"
-                                     href="https://www.producthunt.com/#">{folder.name}
-                                      <span className="collections-popover--collection--icon v-collect"></span>
-                                  </a>
-                              </li>
-                            )
-                        }
-                      )}
-                  </ul>
+                  <Telescope.components.CollectionsList userId={userId}/>
 
                   <div className="popover--footer">
                       {this.renderAddNewForm()}
