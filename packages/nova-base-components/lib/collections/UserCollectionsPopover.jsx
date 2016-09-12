@@ -71,25 +71,31 @@ class UserCollectionsPopover extends Component {
         )
     }
 
+    renderCollectionListBody(folders) {
+        return (
+          <ul className="collections-popover--collections popover--scrollable-list">
+              <li>
+                  <a className="collections-popover--collection popover--scrollable-list--element"
+                     href="https://www.producthunt.com/#">my favorite<span
+                    className="collections-popover--collection--icon v-collect"></span>
+                  </a>
+              </li>
+              <li>
+                  <a className="collections-popover--collection popover--scrollable-list--element"
+                     href="https://www.producthunt.com/#">Save for later
+                      <span className="collections-popover--collection--icon v-collect"></span>
+                  </a>
+              </li>
+          </ul>
+        )
+    }
+
     renderCollectionList() {
         return (
           <div >
               {this.renderCollectionListHeader()}
               <div>
-                  <ul className="collections-popover--collections popover--scrollable-list">
-                      <li>
-                          <a className="collections-popover--collection popover--scrollable-list--element"
-                             href="https://www.producthunt.com/#">my favorite<span
-                            className="collections-popover--collection--icon v-collect"></span>
-                          </a>
-                      </li>
-                      <li>
-                          <a className="collections-popover--collection popover--scrollable-list--element"
-                             href="https://www.producthunt.com/#">Save for later
-                              <span className="collections-popover--collection--icon v-collect"></span>
-                          </a>
-                      </li>
-                  </ul>
+                  {this.renderCollectionListBody("")}
                   <div className="popover--footer">
                       {this.renderAddNewForm()}
                       {/*{this.state.addNewItem*/}
