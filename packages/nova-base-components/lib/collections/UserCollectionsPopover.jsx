@@ -125,12 +125,14 @@ class UserCollectionsPopover extends Component {
     }
 
     renderSuccessfully() {
+        const title = this.context.messages.userCollections.savedPost.title;
+        const collection = this.state.value;
         return (
           <div>
               <div className="popover--header"><h3 className="popover--header--title">Nice work!</h3></div>
               <div
-                className="popover--message collections-popover--message">{"“" + this.context.messages.userCollections.savedPost.title + "” has been added to your collection“"}
-                  <a>{this.state.value}</a>”
+                className="popover--message collections-popover--message">{"“" + title + "” has been added to your collection“"}
+                  <a>{collection}</a>”
               </div>
           </div>
         )
