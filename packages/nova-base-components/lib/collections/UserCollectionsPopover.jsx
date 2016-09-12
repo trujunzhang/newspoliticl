@@ -69,9 +69,6 @@ class UserCollectionsPopover extends Component {
                   </a>
               </li>
           </ul>
-
-
-
         )
     }
 
