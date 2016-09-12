@@ -65,6 +65,7 @@ class PostsItem extends Component {
                                              currentUser={this.context.currentUser}/> {this.renderCommenters()}
                   <div className="additionalActionButtons_BoErh">
                       <a
+                        id="save_to_folders_button"
                         className="button_2I1re smallSize_1da-r secondaryText_PM80d subtleVariant_tlhj3 simpleVariant_1Nl54 button_2n20W"
                         label="save" onClick={this.onSaveButtonClick.bind(this, post)}>
                           <div className="buttonContainer_wTYxi">

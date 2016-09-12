@@ -30,19 +30,43 @@ class Layout extends Component {
 
         const messages = this.context.messages;
         $(document).bind('click touch', function (event) {
-            if (!$(event.target).parents().addBack().is("#userCollectionPanel")) {
-                if (!$(event.target).parents().addBack().is("#addNewCollectionButton")) {
-                    if (!$(event.target).parents().addBack().is("#newCollectionForm")) {
-                        if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
-                            if (!$(event.target).parents().addBack().is("#header_right_metamenu")) {
-                                if (!$(event.target).parents().addBack().is("#user-menu")) {
-                                    messages.dismissPopoverMenu();
-                                }
-                            }
-                        }
-                    }
-                }
+            var back = $(event.target).parents().addBack();
+            const excludeSelectors = [
+                "#save_to_folders_button",
+                "#userCollectionPanel",
+                "#addNewCollectionButton",
+                "#newCollectionForm",
+                ".additionalActionButtons_BoErh",
+                "#header_right_metamenu",
+                "#user-menu"
+            ];
+            var isClicked = true;
+            excludeSelectors.forEach(
+              function addNumber(selector) {
+                  if ($(event.target).parents().addBack().is(selector)) {
+                      isClicked = false;
+                  }
+              }
+            );
+            if (isClicked) {
+                messages.dismissPopoverMenu();
             }
+
+            //if (!$(event.target).parents().addBack().is("#save_to_folders_button")) {
+            //    if (!$(event.target).parents().addBack().is("#userCollectionPanel")) {
+            //        if (!$(event.target).parents().addBack().is("#addNewCollectionButton")) {
+            //            if (!$(event.target).parents().addBack().is("#newCollectionForm")) {
+            //                if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
+            //                    if (!$(event.target).parents().addBack().is("#header_right_metamenu")) {
+            //                        if (!$(event.target).parents().addBack().is("#user-menu")) {
+            //                            messages.dismissPopoverMenu();
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
         });
     }
 
