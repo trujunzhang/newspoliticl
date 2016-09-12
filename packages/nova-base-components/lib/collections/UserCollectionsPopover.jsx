@@ -10,7 +10,7 @@ class UserCollectionsPopover extends Component {
 
     constructor(props) {
         super(props);
-        ['onAddNewClick', 'onSubmitNewCollectionClick', 'onChange'].forEach(methodName => {
+        ['onAddNewClick', 'onSubmitNewCollectionClick', 'onChange', 'onLoginButtonClick'].forEach(methodName => {
             this[methodName] = this[methodName].bind(this)
         });
     }
@@ -118,6 +118,7 @@ class UserCollectionsPopover extends Component {
               <div className="popover--message">
                   <p>To bookmark and curate collections of news articles, please sign in.</p>
                   <button
+                    onClick={this.onLoginButtonClick}
                     className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54">
                       <div className="buttonContainer_wTYxi">Login to Continue</div>
                   </button>
@@ -163,6 +164,12 @@ class UserCollectionsPopover extends Component {
               </div>
           </div>
         )
+    }
+
+    onLoginButtonClick(event) {
+        event.preventDefault();
+        this.context.messages.dismissPopoverMenu();
+        this.context.messages.appStatus.showLoginUI();
     }
 
     onAddNewClick(event) {
