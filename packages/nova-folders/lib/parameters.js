@@ -36,7 +36,7 @@ Folders.parameters.get = function (terms) {
 
   // if sort options are not provided, default to "createdAt" sort
   if (_.isEmpty(parameters.options.sort)) {
-    parameters.options.sort = {sticky: -1, createdAt: -1};
+    parameters.options.sort = {createdAt: -1};
   }
 
   // extend sort to sort folders by _id to break ties

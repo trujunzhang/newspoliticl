@@ -27,7 +27,7 @@ Meteor.publish('folders.list', function (terms) {
         // note: doesn't work yet :(
         // CursorCounts.set(terms, folders.count(), this.connection.id);
 
-        return Users.canDo(currentUser, "folders.view.approved.all") ? [folders] : [];
+        return Users.canDo(currentUser, "folders.view.approved.all") ? folders : [];
     });
 
 });
