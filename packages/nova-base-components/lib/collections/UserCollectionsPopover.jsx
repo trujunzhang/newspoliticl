@@ -93,6 +93,7 @@ class UserCollectionsPopover extends Component {
 
     renderCollectionsPanel() {
         const user = this.context.currentUser;
+        const userName = Users.getDisplayName(user);
         const folders = Users.getCollectedFolder(user);
         return (
           <div >
@@ -100,11 +101,11 @@ class UserCollectionsPopover extends Component {
               <div>
 
                   <ul className="collections-popover--collections popover--scrollable-list">
-                      {folders.map((cat, index) => {
+                      {folders.map((folder, index) => {
                             return (
                               <li>
                                   <a className="collections-popover--collection popover--scrollable-list--element"
-                                     href="https://www.producthunt.com/#">Save for later
+                                     href="https://www.producthunt.com/#">{folder.name}
                                       <span className="collections-popover--collection--icon v-collect"></span>
                                   </a>
                               </li>
