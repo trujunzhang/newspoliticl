@@ -193,23 +193,22 @@ class UserCollectionsPopover extends Component {
     }
 
     render() {
+        const user = this.context.currentUser;
+        const noLoging = (user == null);
+
         const comp = this.props.comp;
         const top = comp.top + comp.height + 14;
-        var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult
-            ? 42
-            : 0);
-
-        const user = this.context.currentUser;
+        var left = (comp.left + comp.width / 2) - 75 + (this.state.showResult ? 42 : 0) + (noLoging ? 42 : 0);
 
         return (
           <div id="userCollectionPanel" className="popover v-bottom-center" style={{
               top: top,
               left: left
           }}>
-              {this.renderLoginUI()}
-              {/*{this.state.showResult*/}
-              {/*? this.renderSuccessfully()*/}
-              {/*: this.renderCollectionsPanel()}*/}
+              {
+                  noLoging ? this.renderLoginUI() :
+                    (this.state.showResult ? this.renderSuccessfully() : this.renderCollectionsPanel())
+              }
           </div>
         )
     }
