@@ -96,20 +96,6 @@ class UserCollectionsPopover extends Component {
           <div >
               {this.renderCollectionListHeader()}
               <div>
-                  <ListContainer
-                    collection={Folders}
-                    publication="Folders.list"
-                    selector={{}}
-                    options={options}
-                    terms={{}}
-                    joins={Folders.getJoins()}
-                    component={(folders)=> {
-                        this.renderCollectionListBody("")
-                    }}
-                    cacheSubscription={true}
-                    listId={"user.collections.popover.list"}
-                    limit={0}
-                  />
 
 
                   <div className="popover--footer">
