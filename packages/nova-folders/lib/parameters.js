@@ -1,35 +1,50 @@
 import Telescope from 'meteor/nova:lib';
 import Folders from "./collection.js";
 
-// Folder Parameter
-// Add a "folders" property to terms which can be used to filter *all* existing Posts views.
-function addFolderParameter (parameters, terms) {
 
-  var cat = terms.cat || terms["cat[]"];
+/**
+ * @summary Parameter callbacks let you add parameters to subscriptions
+ * @namespace Folders.parameters
+ */
+Folders.parameters = {};
 
-  // filter by folder if folder slugs are provided
-  if (cat) {
 
-    var foldersIds = [];
-    var selector = {};
+/**
+ * @summary Takes a set of terms, and translates them into a `parameter` object containing the appropriate find
+ * and options arguments for the subscriptions's Folders.find()
+ * @memberof Parameters
+ * @param {Object} terms
+ */
+Folders.parameters.get = function (terms) {
 
-    if (typeof cat === "string") { // cat is a string
-      selector = {slug: cat};
-    } else if (Array.isArray(cat)) { // cat is an array
-      selector = {slug: {$in: cat}};
-    }
+  // add this to ensure all folder publications pass audit-arguments-check
+  check(terms, Match.Any);
 
-    // get all folders passed in terms
-    var folders = Folders.find(selector).fetch();
-    
-    // for each folder, add its ID and the IDs of its children to foldersId array
-    folders.forEach(function (folder) {
-      foldersIds.push(folder._id);
-      foldersIds = foldersIds.concat(_.pluck(Folders.getChildren(folder), "_id"));
-    });
+  // console.log(terms)
 
-    parameters.selector.folders = {$in: foldersIds};
+  // note: using jquery's extend() with "deep" parameter set to true instead of shallow _.extend()
+  // see: http://api.jquery.com/jQuery.extend/
+
+  // initialize parameters with empty object
+  let parameters = {
+    selector: {},
+    options: {}
+  };
+
+  // iterate over foldersParameters callbacks
+  parameters = Telescope.callbacks.run("foldersParameters", parameters, _.clone(terms));
+
+  // if sort options are not provided, default to "createdAt" sort
+  if (_.isEmpty(parameters.options.sort)) {
+    parameters.options.sort = {sticky: -1, createdAt: -1};
   }
+
+  // extend sort to sort folders by _id to break ties
+  // NOTE: always do this last to avoid _id sort overriding another sort
+  parameters = Telescope.utils.deepExtend(true, parameters, {options: {sort: {_id: -1}}});
+
+  // console.log(parameters);
+
   return parameters;
-}
-Telescope.callbacks.add("postsParameters", addFolderParameter);
+};
+
