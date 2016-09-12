@@ -60,6 +60,25 @@ Users.getDisplayName = function (user) {
 Users.helpers({getDisplayName: function () {return Users.getDisplayName(this);}});
 Users.getDisplayNameById = function (userId) {return Users.getDisplayName(Meteor.users.findOne(userId));};
 
+
+
+
+/**
+ * @summary Get a user's collected folders (not unique, can empty)
+ * @param {Object} user
+ */
+Users.getCollectedFolder = function (user) {
+  if (typeof user === "undefined") {
+    return "";
+  } else {
+    return (user.telescope && user.telescope.folders) ? user.telescope.folders : [];
+  }
+};
+Users.helpers({getCollectedFolder: function () {return Users.getCollectedFolder(this);}});
+Users.getCollectedFolderById = function (userId) {return Users.getCollectedFolder(Meteor.users.findOne(userId));};
+
+
+
 /**
  * @summary Get a user's profile URL
  * @param {Object} user (note: we only actually need either the _id or slug properties)

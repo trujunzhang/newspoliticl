@@ -7,8 +7,9 @@ Meteor.publish('folders', function () {
     const currentUser = this.userId && Users.findOne(this.userId);
 
     if (Users.canDo(currentUser, "folders.view.approved.all")) {
+        var userId = currentUser._id;
 
-        var folders = Folders.find({}, {fields: Folders.publishedFields.list});
+        var folders = Folders.find({userId: userId}, {fields: Folders.publishedFields.list});
         var publication = this;
 
         //folders.forEach(function (folder) {

@@ -92,11 +92,26 @@ class UserCollectionsPopover extends Component {
     }
 
     renderCollectionList() {
+        const user = this.context.currentUser;
+        const folders = Users.getCollectedFolder(user);
         return (
           <div >
               {this.renderCollectionListHeader()}
               <div>
 
+                  <ul className="collections-popover--collections popover--scrollable-list">
+                      {folders.map((cat, index) => {
+                            return (
+                              <li>
+                                  <a className="collections-popover--collection popover--scrollable-list--element"
+                                     href="https://www.producthunt.com/#">Save for later
+                                      <span className="collections-popover--collection--icon v-collect"></span>
+                                  </a>
+                              </li>
+                            )
+                        }
+                      )}
+                  </ul>
 
                   <div className="popover--footer">
                       {this.renderAddNewForm()}
