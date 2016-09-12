@@ -23,6 +23,8 @@ Folders.methods.new = function (folder) {
 
     folder._id = Folders.insert(folder);
 
+    folder.posts = [folder.lastPost];
+
     // note: query for folder to get fresh document with collection-hooks effects applied
     Telescope.callbacks.runAsync("folders.new.async", Folders.findOne(folder._id));
 
@@ -41,7 +43,7 @@ Meteor.methods({
      * @isMethod true
      * @param {Object} folder - the folder being inserted
      */
-    'folders.new': function(folder){
+    'folders.new': function (folder) {
 
         Folders.simpleSchema().namedContext("folders.new").validate(folder);
 
