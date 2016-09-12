@@ -25,7 +25,11 @@ class UserCollectionsPopover extends Component {
                 if (!$(event.target).parents().addBack().is("#addNewCollectionButton")) {
                     if (!$(event.target).parents().addBack().is("#newCollectionForm")) {
                         if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
-                            message.dismissPopoverMenu();
+                            if (!$(event.target).parents().addBack().is("#header_right_metamenu")) {
+                                if (!$(event.target).parents().addBack().is("#user-menu")) {
+                                    message.dismissPopoverMenu();
+                                }
+                            }
                         }
                     }
                 }
@@ -140,7 +144,9 @@ class UserCollectionsPopover extends Component {
         event.preventDefault();
         //this.setState({showResult: true});
 
-        this.context.actions.call('folders.new', {name: this.state.value}, () => {
+        const folder = {name: this.state.value};
+        const user = this.context.currentUser;
+        this.context.actions.call('folders.new', {folder, user}, () => {
             var x = 0;
             //this.context.events.track("post upvoted", {'_id': post._id});
         });
@@ -165,6 +171,7 @@ class UserCollectionsPopover extends Component {
 UserCollectionsPopover.contextTypes = {
     actions: React.PropTypes.object,
     events: React.PropTypes.object,
+    currentUser: React.PropTypes.object,
     messages: React.PropTypes.object
 };
 

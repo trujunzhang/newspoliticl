@@ -45,7 +45,7 @@ class HeaderContent extends Component {
                   <Telescope.components.HeaderSearchForm />
               </div>
               <div className="headerRight_2DQLQ centerItems_222KX">
-                  <a onClick={this.popoverHeaderMenu.bind(this)} className="metaMenu_3AKjk menuLink_1h9ZN"
+                  <a onClick={this.popoverHeaderMenu.bind(this)} id="header_right_metamenu" className="metaMenu_3AKjk menuLink_1h9ZN"
                      data-test="more" ref="moreButton">
                       <span>
                           <svg width="20" height="4"

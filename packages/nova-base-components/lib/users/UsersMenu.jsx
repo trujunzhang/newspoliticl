@@ -47,7 +47,7 @@ class UsersMenu extends Component {
               </span>
             </span>
         </a>
-        <a className="userMenu_3flqi" data-test="user-menu" onClick={this.popoverUserMenus.bind(this)}>
+        <a className="userMenu_3flqi" id="user-menu" onClick={this.popoverUserMenus.bind(this)}>
             <span className="user-image">
               <div className="container_22rD3 user-image--image user_avator">
                 <div className="container__Ql6q lazyLoadContainer_3KgZD">
