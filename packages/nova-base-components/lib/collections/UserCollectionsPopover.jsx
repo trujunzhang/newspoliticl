@@ -148,10 +148,9 @@ class UserCollectionsPopover extends Component {
 
         const postId = this.context.messages.userCollections.postId;
         const folder = {name: this.state.value, lastPost: postId};
-        //this.context.actions.call('folders.new', folder, () => {
-        //    self.setState({showResult: true});
-        //});
-        var x = 0;
+        this.context.actions.call('folders.new', folder, () => {
+            self.setState({showResult: true});
+        });
     }
 
     render() {
