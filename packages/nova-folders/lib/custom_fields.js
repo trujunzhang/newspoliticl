@@ -8,7 +8,7 @@ Users.addField([
      Count of the user's Folders
      */
     {
-        fieldName: "folderCount",
+        fieldName: "telescope.folderCount",
         fieldSchema: {
             type: Number,
             optional: true,
@@ -20,7 +20,7 @@ Users.addField([
      An array containing the `_id`s of folders
      */
     {
-        fieldName: "folders",
+        fieldName: "telescope..folders",
         fieldSchema: {
             type: [String],
             optional: true,
