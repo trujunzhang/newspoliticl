@@ -26,7 +26,7 @@ function FoldersNewOperations(folder) {
     // increment folder count
     Meteor.users.update({_id: userId}, {
         $inc: {'telescope.folderCount': 1},
-        $addToSet: {folders: folderId}
+        $addToSet: {'telescope.folders': folderId}
     });
 
     return folder;
