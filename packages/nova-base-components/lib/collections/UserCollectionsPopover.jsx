@@ -127,6 +127,7 @@ class UserCollectionsPopover extends Component {
     renderSuccessfully() {
         const title = this.context.messages.userCollections.savedPost.title;
         const collection = this.state.value;
+
         return (
           <div>
               <div className="popover--header"><h3 className="popover--header--title">Nice work!</h3></div>
