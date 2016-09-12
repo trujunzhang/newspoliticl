@@ -90,6 +90,14 @@ Folders.schema = new SimpleSchema({
         optional: true,
         publish: false
     },
+    /**
+     Groups
+     */
+    posts: {
+        type: [String],
+        optional: true,
+        publish: true,
+    },
 });
 
 // Meteor.startup(function(){

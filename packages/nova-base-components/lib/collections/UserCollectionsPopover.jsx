@@ -144,8 +144,8 @@ class UserCollectionsPopover extends Component {
         event.preventDefault();
         //this.setState({showResult: true});
 
-        const folder = {name: this.state.value};
-        const user = this.context.currentUser;
+        const post = this.context.messages.userCollections.post;
+        const folder = {name: this.state.value, addedPost: post._id};
         this.context.actions.call('folders.new', folder, () => {
             var x = 0;
             //this.context.events.track("post upvoted", {'_id': post._id});

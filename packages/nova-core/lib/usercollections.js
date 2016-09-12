@@ -5,15 +5,16 @@ class UserCollections {
 
     registerCompForUserCollectionsPopover(comp) {
         this.userCollectionsPopover = comp;
-        this.resetState();
+        this.resetState(null);
     }
 
-    resetState() {
+    resetState(post) {
         this.userCollectionsPopover.state = this.initialState = {
             addNewItem: false,
             showResult: false,
             value: 'wanghao-folder'
         };
+        this.post = post;
     }
 
 }
