@@ -65,7 +65,7 @@ function FoldersNewRequiredPropertiesCheck (folder, user) {
 
     var userId = folder.userId; // at this stage, a userId is expected
 
-    // Don't allow empty comments
+    // Don't allow empty folders
     if (!folder.name)
         throw new Meteor.Error(704, 'your_name_is_empty');
 
@@ -78,7 +78,7 @@ function FoldersNewRequiredPropertiesCheck (folder, user) {
 
     return folder;
 }
-Telescope.callbacks.add("comments.new.sync", FoldersNewRequiredPropertiesCheck);
+Telescope.callbacks.add("folders.new.sync", FoldersNewRequiredPropertiesCheck);
 
 
 function FoldersNewOperations(folder) {
