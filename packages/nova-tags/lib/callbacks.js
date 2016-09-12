@@ -52,39 +52,3 @@ function postEditCheckTags (post) {
   return post;
 }
 Telescope.callbacks.add("posts.edit.sync", postEditCheckTags);
-
-// TODO: debug this
-
-// function addParentTagsOnSubmit (post) {
-//   var tags = post.tags;
-//   var newTags = [];
-//   if (tags) {
-//     tags.forEach(function (tagId) {
-//       var tag = Tags.findOne(tagId);
-//       newTags = newTags.concat(_.pluck(tag.getParents().reverse(), "_id"));
-//       newTags.push(tag._id);
-//     });
-//   }
-//   post.tags = _.unique(newTags);
-//   return post;
-// }
-// Telescope.callbacks.add("posts.new.sync", addParentTagsOnSubmit);
-
-// function addParentTagsOnEdit (modifier, post) {
-//   if (modifier.$unset && modifier.$unset.tags !== undefined) {
-//     return modifier;
-//   }
-
-//   var tags = modifier.$set.tags;
-//   var newTags = [];
-//   if (tags) {
-//     tags.forEach(function (tagId) {
-//       var tag = Tags.findOne(tagId);
-//       newTags = newTags.concat(_.pluck(tag.getParents().reverse(), "_id"));
-//       newTags.push(tag._id);
-//     });
-//   }
-//   modifier.$set.tags = _.unique(newTags);
-//   return modifier;
-// }
-// Telescope.callbacks.add("posts.edit.sync", addParentTagsOnEdit);
