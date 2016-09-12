@@ -17,7 +17,7 @@ class CollectionsList extends Component {
           <ListContainer
             collection={Folders}
             publication="folders.list"
-            selector={{userId: this.props.userId}}
+            selector={{}}
             options={{}}
             terms={{userId: this.props.userId}}
             joins={Posts.getJoins()}

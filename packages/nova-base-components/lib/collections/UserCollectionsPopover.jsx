@@ -90,19 +90,7 @@ class UserCollectionsPopover extends Component {
           </ul>
 
 
-          //      <ul className="collections-popover--collections popover--scrollable-list">
-          //      {folders.map((folder, index) => {
-          //            return (
-          //              <li>
-          //                  <a className="collections-popover--collection popover--scrollable-list--element"
-          //                     href="https://www.producthunt.com/#">{folder.name}
-          //                      <span className="collections-popover--collection--icon v-collect"></span>
-          //                  </a>
-          //              </li>
-          //            )
-          //        }
-          //      )}
-          //</ul>
+
         )
     }
 
