@@ -20,7 +20,7 @@ Users.addField([
      An array containing the `_id`s of folders
      */
     {
-        fieldName: "telescope..folders",
+        fieldName: "telescope.folders",
         fieldSchema: {
             type: [String],
             optional: true,
