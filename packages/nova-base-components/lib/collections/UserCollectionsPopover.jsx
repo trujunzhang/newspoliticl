@@ -96,13 +96,6 @@ class UserCollectionsPopover extends Component {
 
     renderAddNewForm() {
         return (
-          //<NovaForm
-          //  collection={Folders}
-          //  currentUser={this.context.currentUser}
-          //  methodName="collections.new"
-          //  successCallback={this.successCallback}
-          //  layout="elementOnly"
-          ///>
           <form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
               <input autoFocus type="text" className="collections-popover--form--field input collections-input"
                      value={this.state.value}
@@ -127,9 +120,9 @@ class UserCollectionsPopover extends Component {
         return (
           <div>
               <div className="popover--header"><h3 className="popover--header--title">Nice work!</h3></div>
-              <div className="popover--message collections-popover--message">“
-                  Gyroscope Sleep Ai” has been added to your collection“
-                  <a href="https://www.producthunt.com/@trujunzhang/collections/my-collection">my collection</a>”
+              <div
+                className="popover--message collections-popover--message">{"“" + this.state.value + "” has been added to your collection“"}
+                  <a>my collection</a>”
               </div>
           </div>
         )
