@@ -56,7 +56,9 @@ const Messages = {
     },
 
     dismissPopoverMenu(){
-        this.layout.setState({popoverMenu: null});
+        if (this.layout.state.popoverMenu) {
+            this.layout.setState({popoverMenu: null});
+        }
     },
 
     markAsSeen(messageId) {
