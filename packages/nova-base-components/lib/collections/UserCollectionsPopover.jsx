@@ -10,7 +10,7 @@ class UserCollectionsPopover extends Component {
 
     constructor(props) {
         super(props);
-        ['onAddNewClick', 'onSubmitNewCollectionClick', 'hide', 'onChange'].forEach(methodName => {
+        ['onAddNewClick', 'onSubmitNewCollectionClick', 'onChange'].forEach(methodName => {
             this[methodName] = this[methodName].bind(this)
         });
     }
@@ -20,26 +20,7 @@ class UserCollectionsPopover extends Component {
     }
 
     componentDidMount() {
-        const message = this.context.messages;
-        $(document).bind('click touch', function (event) {
-            if (!$(event.target).parents().addBack().is("#userCollectionPanel")) {
-                if (!$(event.target).parents().addBack().is("#addNewCollectionButton")) {
-                    if (!$(event.target).parents().addBack().is("#newCollectionForm")) {
-                        if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
-                            if (!$(event.target).parents().addBack().is("#header_right_metamenu")) {
-                                if (!$(event.target).parents().addBack().is("#user-menu")) {
-                                    message.dismissPopoverMenu();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
 
-    hide() {
-        this.context.messages.dismissPopoverMenu();
     }
 
     onChange(e) {

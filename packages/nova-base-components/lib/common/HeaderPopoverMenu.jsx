@@ -22,18 +22,6 @@ class HeaderPopoverMenu extends Component {
         ];
     }
 
-    componentDidMount() {
-        document.addEventListener('click', this.hide.bind(this), true)
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('click', this.hide.bind(this), true)
-    }
-
-    hide() {
-        this.context.messages.dismissPopoverMenu();
-    }
-
     onMenuItemClick(item) {
 
     }

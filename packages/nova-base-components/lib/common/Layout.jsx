@@ -27,6 +27,23 @@ class Layout extends Component {
     componentDidMount() {
         this.setState({didMount: true});
         //this.context.messages.showPopoverMenu(400, 400, 100, 100, "saveButton");
+
+        const messages = this.context.messages;
+        $(document).bind('click touch', function (event) {
+            if (!$(event.target).parents().addBack().is("#userCollectionPanel")) {
+                if (!$(event.target).parents().addBack().is("#addNewCollectionButton")) {
+                    if (!$(event.target).parents().addBack().is("#newCollectionForm")) {
+                        if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
+                            if (!$(event.target).parents().addBack().is("#header_right_metamenu")) {
+                                if (!$(event.target).parents().addBack().is("#user-menu")) {
+                                    messages.dismissPopoverMenu();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
     dismissCurrentPostPanel() {

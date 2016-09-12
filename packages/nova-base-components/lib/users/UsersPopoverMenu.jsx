@@ -12,30 +12,6 @@ class UsersPopoverMenu extends Component {
 
     constructor(props) {
         super(props);
-        this.loggedUserMenu = [
-            {"href": "/users/" + user.telescope.slug, "title": "MY PROFILE"},
-            {"href": "/games", "title": "MY COLLECTIONS"},
-            {"href": "/podcasts", "title": "INVITES(0)"},
-            {"href": "/books", "title": "SETTINGS"},
-            {"href": "/topics/developer-tools", "title": "API DASHBOARD"},
-            {"href": "/topics/photography-tools", "title": "LOGOUT"}
-        ];
-    }
-
-    componentDidMount() {
-        document.addEventListener('click', this.hide.bind(this), true)
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('click', this.hide.bind(this), true)
-    }
-
-    hide() {
-        this.context.messages.dismissPopoverMenu();
-    }
-
-    onUserMenuClick() {
-        Meteor.logout(Accounts.ui._options.onSignedOutHook())
     }
 
     render() {
@@ -46,17 +22,35 @@ class UsersPopoverMenu extends Component {
         const top = comp.top + comp.height + 26;
         const left = (comp.left + comp.width / 2) - 75;
 
+        const loggedUserMenu = [
+            {"href": "/users/" + user.telescope.slug, "title": "MY PROFILE"},
+            {"href": "/games", "title": "MY COLLECTIONS"},
+            {"href": "/podcasts", "title": "INVITES(0)"},
+            {"href": "/books", "title": "SETTINGS"},
+            {"href": "/topics/developer-tools", "title": "API DASHBOARD"},
+            {"href": "/topics/photography-tools", "title": "LOGOUT"}
+        ];
+
         return (
           <div className="popover v-bottom-center" style={{top: top, left: left}}>
               <ul className="content_2mq4P">
-                  {this.loggedUserMenu.map((menu, key) => {
-                      return (
-                        <li
-                          key={key}
-                          className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
-                            <a onClick={this.onUserMenuClick.bind(this)}>{menu.title}</a>
-                        </li>
-                      )
+                  {loggedUserMenu.map((menu, key) => {
+                      if (menu.title == "LOGOUT") {
+                          return (
+                            <li
+                              className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
+                                <a
+                                  onClick={() => Meteor.logout(Accounts.ui._options.onSignedOutHook())}>{menu.title}</a>
+                            </li>
+                          )
+                      } else {
+                          return (
+                            <li
+                              className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
+                                <a href={menu.href}>{menu.title}</a>
+                            </li>
+                          )
+                      }
                   })}
               </ul>
           </div>
