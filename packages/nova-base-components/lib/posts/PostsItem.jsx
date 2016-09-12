@@ -186,7 +186,7 @@ class PostsItem extends Component {
         var height = 20;
         var type = "SaveButton";
         this.context.messages.showPopoverMenu(top, left, width, height, type);
-        this.context.messages.userCollections.resetState(post._id);
+        this.context.messages.userCollections.resetState(post);
     }
 }
 

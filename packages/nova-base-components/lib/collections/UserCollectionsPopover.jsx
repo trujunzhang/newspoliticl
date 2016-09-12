@@ -129,8 +129,8 @@ class UserCollectionsPopover extends Component {
           <div>
               <div className="popover--header"><h3 className="popover--header--title">Nice work!</h3></div>
               <div
-                className="popover--message collections-popover--message">{"“" + this.state.value + "” has been added to your collection“"}
-                  <a>my collection</a>”
+                className="popover--message collections-popover--message">{"“" + this.context.messages.userCollections.savedPost.title + "” has been added to your collection“"}
+                  <a>{this.state.value}</a>”
               </div>
           </div>
         )
@@ -146,7 +146,7 @@ class UserCollectionsPopover extends Component {
 
         const self = this;
 
-        const postId = this.context.messages.userCollections.postId;
+        const postId = this.context.messages.userCollections.savedPost._id;
         const folder = {name: this.state.value, lastPost: postId};
         this.context.actions.call('folders.new', folder, () => {
             self.setState({showResult: true});

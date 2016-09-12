@@ -13,8 +13,8 @@ class UserCollections {
         };
     }
 
-    resetState(postId) {
-        this.postId = postId;
+    resetState(post) {
+        this.savedPost = post;
         if (this.userCollectionsPopover) {
             this.userCollectionsPopover.setState({
                 addNewItem: false,
