@@ -9,7 +9,7 @@ class UserCollectionsPopover extends Component {
 
     constructor(props) {
         super(props);
-        ['onAddNewClick', 'onSubmitNewCollectionClick', 'hide'].forEach(methodName => {
+        ['onAddNewClick', 'onSubmitNewCollectionClick', 'hide', 'onChange'].forEach(methodName => {
             this[methodName] = this[methodName].bind(this)
         });
     }
@@ -39,6 +39,11 @@ class UserCollectionsPopover extends Component {
 
     hide() {
         this.context.messages.dismissPopoverMenu();
+    }
+
+    onChange(e) {
+        const input = e.target.value;
+        this.setState({value: input});
     }
 
     renderLoading() {
@@ -97,9 +102,12 @@ class UserCollectionsPopover extends Component {
     renderAddNewForm() {
         return (
           <form id="newCollectionForm" className="collections-popover--form" _lpchecked="1">
-              <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+              <input autoFocus type="text"
+                     className="collections-popover--form--field input collections-input"
                      value={this.state.value}
-                     placeholder="Collection name" ref="newCollectionInput"/>
+                     onChange={this.onChange}
+                     placeholder="Collection name"
+                     ref="newCollectionInput"/>
               <button onClick={this.onSubmitNewCollectionClick}
                       className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
                       type="submit">
@@ -138,11 +146,12 @@ class UserCollectionsPopover extends Component {
 
         const self = this;
 
-        const post = this.context.messages.userCollections.post;
-        const folder = {name: this.state.value, addedPost: post._id};
-        this.context.actions.call('folders.new', folder, () => {
-            self.setState({showResult: true});
-        });
+        const postId = this.context.messages.userCollections.postId;
+        const folder = {name: this.state.value, lastPost: postId};
+        //this.context.actions.call('folders.new', folder, () => {
+        //    self.setState({showResult: true});
+        //});
+        var x = 0;
     }
 
     render() {

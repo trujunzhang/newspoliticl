@@ -90,6 +90,11 @@ Folders.schema = new SimpleSchema({
         optional: true,
         publish: false
     },
+    lastPost: {
+        type: String,
+        optional: true,
+        publish: false
+    },
     /**
      Groups
      */

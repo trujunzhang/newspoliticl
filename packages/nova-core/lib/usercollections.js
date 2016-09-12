@@ -1,20 +1,27 @@
 class UserCollections {
     registerLayout(layout) {
         this.layout = layout;
+        this.postId = "";
     }
 
     registerCompForUserCollectionsPopover(comp) {
         this.userCollectionsPopover = comp;
-        this.resetState(null);
-    }
-
-    resetState(post) {
         this.userCollectionsPopover.state = this.initialState = {
             addNewItem: false,
             showResult: false,
-            value: 'wanghao-folder'
+            value: ''
         };
-        this.post = post;
+    }
+
+    resetState(postId) {
+        this.postId = postId;
+        if (this.userCollectionsPopover) {
+            this.userCollectionsPopover.setState({
+                addNewItem: false,
+                showResult: false,
+                value: ''
+            });
+        }
     }
 
 }
