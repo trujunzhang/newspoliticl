@@ -53,7 +53,7 @@ class UserCollectionsPopover extends Component {
         )
     }
 
-    renderCollectionListHeader() {
+    renderCollectionsHeader() {
         return (
           <div className="popover--header">
               <h3 className="popover--header--title">Add to Collection</h3>
@@ -91,12 +91,12 @@ class UserCollectionsPopover extends Component {
         )
     }
 
-    renderCollectionList() {
+    renderCollectionsPanel() {
         const user = this.context.currentUser;
         const folders = Users.getCollectedFolder(user);
         return (
           <div >
-              {this.renderCollectionListHeader()}
+              {this.renderCollectionsHeader()}
               <div>
 
                   <ul className="collections-popover--collections popover--scrollable-list">
@@ -195,7 +195,7 @@ class UserCollectionsPopover extends Component {
               top: top,
               left: left
           }}>
-              {this.state.showResult ? this.renderSuccessfully() : this.renderCollectionList()}
+              {this.state.showResult ? this.renderSuccessfully() : this.renderCollectionsPanel()}
           </div>
         )
     }
