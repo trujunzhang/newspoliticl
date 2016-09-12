@@ -3,7 +3,7 @@ import Users from 'meteor/nova:users';
 import Folders from "../collection.js";
 
 /**
- * @summary Publish a list of posts, along with the users corresponding to these posts
+ * @summary Publish a list of folders, along with the users corresponding to these folders
  * @param {Object} terms
  */
 Meteor.publish('folders.list', function (terms) {
@@ -15,7 +15,7 @@ Meteor.publish('folders.list', function (terms) {
         const currentUser = this.userId && Meteor.users.findOne(this.userId);
 
         terms.currentUserId = this.userId; // add currentUserId to terms
-        const {selector, options} = Posts.parameters.get(terms);
+        const {selector, options} = Folders.parameters.get(terms);
 
         Counts.publish(this, terms.listId, Folders.find(selector, options), {noReady: true});
 
