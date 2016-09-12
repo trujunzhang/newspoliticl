@@ -142,13 +142,13 @@ class UserCollectionsPopover extends Component {
 
     onSubmitNewCollectionClick(event) {
         event.preventDefault();
-        //this.setState({showResult: true});
+
+        const self = this;
 
         const post = this.context.messages.userCollections.post;
         const folder = {name: this.state.value, addedPost: post._id};
         this.context.actions.call('folders.new', folder, () => {
-            var x = 0;
-            //this.context.events.track("post upvoted", {'_id': post._id});
+            self.setState({showResult: true});
         });
     }
 
