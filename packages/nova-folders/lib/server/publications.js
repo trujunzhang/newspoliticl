@@ -11,12 +11,12 @@ Meteor.publish('folders', function() {
     var folders = Folders.find({}, {fields: Folders.publishedFields.list});
     var publication = this;
 
-    folders.forEach(function (folder) {
-      var childrenFolders = folder.getChildren();
-      var folderIds = [folder._id].concat(_.pluck(childrenFolders, "_id"));
-      var cursor = Posts.find({$and: [{folders: {$in: folderIds}}, {status: Posts.config.STATUS_APPROVED}]});
-      // Counts.publish(publication, folder.getCounterName(), cursor, { noReady: true });
-    });
+    //folders.forEach(function (folder) {
+    //  var childrenFolders = folder.getChildren();
+    //  var folderIds = [folder._id].concat(_.pluck(childrenFolders, "_id"));
+    //  var cursor = Posts.find({$and: [{folders: {$in: folderIds}}, {status: Posts.config.STATUS_APPROVED}]});
+    //  // Counts.publish(publication, folder.getCounterName(), cursor, { noReady: true });
+    //});
 
     return folders;
   }
