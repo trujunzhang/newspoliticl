@@ -193,8 +193,7 @@ class UserCollectionsPopover extends Component {
     }
 
     render() {
-        const user = this.context.currentUser;
-        const noLoging = (user == null);
+        const noLoging = (this.context.currentUser == null);
 
         const comp = this.props.comp;
         const top = comp.top + comp.height + 14;
