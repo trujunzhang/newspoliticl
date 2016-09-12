@@ -146,7 +146,7 @@ class UserCollectionsPopover extends Component {
 
         const folder = {name: this.state.value};
         const user = this.context.currentUser;
-        this.context.actions.call('folders.new', {folder, user}, () => {
+        this.context.actions.call('folders.new', folder, () => {
             var x = 0;
             //this.context.events.track("post upvoted", {'_id': post._id});
         });
