@@ -52,12 +52,11 @@ class UserCollectionsPopover extends Component {
         )
     }
 
-    renderCollectionList() {
+    renderCollectionListHeader() {
         return (
-          <div >
-              <div className="popover--header">
-                  <h3 className="popover--header--title">Add to Collection</h3>
-                  <a className="popover--header--icon" href="https://www.producthunt.com/#">
+          <div className="popover--header">
+              <h3 className="popover--header--title">Add to Collection</h3>
+              <a className="popover--header--icon" href="https://www.producthunt.com/#">
                         <span>
                             <svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1">
                                 <g id="Page-1" stroke="none" stroke-width="1" fill="none">
@@ -67,8 +66,15 @@ class UserCollectionsPopover extends Component {
                                 </g>
                             </svg>
                         </span>
-                  </a>
-              </div>
+              </a>
+          </div>
+        )
+    }
+
+    renderCollectionList() {
+        return (
+          <div >
+              {this.renderCollectionListHeader()}
               <div>
                   <ul className="collections-popover--collections popover--scrollable-list">
                       <li>
