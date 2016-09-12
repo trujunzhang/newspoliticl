@@ -3,41 +3,36 @@ import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
 import Folders from "./collection.js";
 
-// check if user can create a new post
-const canInsert = user => Users.canDo(user, "users.new");
-// check if user can edit a post
-const canEdit = Users.canEdit;
-
-Users.addField(
-  {
-    fieldName: 'folders',
-    fieldSchema: {
-      type: [String],
-      control: "checkboxgroup",
-      optional: true,
-      insertableIf: canInsert,
-      editableIf: canEdit,
-      autoform: {
-        noselect: true,
-        type: "bootstrap-folder",
-        order: 50,
-        options: function () {
-          var folders = Folders.find().map(function (folder) {
-            return {
-              value: folder._id,
-              label: folder.name
-            };
-          });
-          return folders;
+Users.addField([
+    /**
+     Count of the user's Folders
+     */
+    {
+        fieldName: "folderCount",
+        fieldSchema: {
+            type: Number,
+            optional: true,
+            publish: true,
+            defaultValue: 0
         }
-      },
-      publish: true,
-      join: {
-        joinAs: "foldersArray",
-        collection: () => Folders
-      }
+    },
+    /**
+     An array containing the `_id`s of folders
+     */
+    {
+        fieldName: "folders",
+        fieldSchema: {
+            type: [String],
+            optional: true,
+            publish: true,
+            join: {
+                joinAs: "foldersArray",
+                collection: () => Users,
+                limit: 4
+            }
+        }
     }
-  }
-);
+]);
 
-PublicationUtils.addToFields(Users.publishedFields.list, ["folders"]);
+PublicationUtils.addToFields(Users.publishedFields.list, ["folderCount", "folders"]);
+
