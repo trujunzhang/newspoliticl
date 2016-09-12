@@ -4,6 +4,7 @@ import {Button} from 'react-bootstrap';
 import NovaForm from "meteor/nova:forms";
 import moment from 'moment';
 import Folders from "meteor/nova:folders";
+import {ListContainer, DocumentContainer} from "meteor/utilities:react-list-container";
 
 class UserCollectionsPopover extends Component {
 
@@ -95,7 +96,22 @@ class UserCollectionsPopover extends Component {
           <div >
               {this.renderCollectionListHeader()}
               <div>
-                  {this.renderCollectionListBody("")}
+                  <ListContainer
+                    collection={Folders}
+                    publication="Folders.list"
+                    selector={{}}
+                    options={options}
+                    terms={{}}
+                    joins={Folders.getJoins()}
+                    component={(folders)=> {
+                        this.renderCollectionListBody("")
+                    }}
+                    cacheSubscription={true}
+                    listId={"user.collections.popover.list"}
+                    limit={0}
+                  />
+
+
                   <div className="popover--footer">
                       {this.renderAddNewForm()}
                       {/*{this.state.addNewItem*/}
