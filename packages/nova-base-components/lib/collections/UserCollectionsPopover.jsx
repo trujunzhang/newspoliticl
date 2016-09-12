@@ -92,6 +92,8 @@ class UserCollectionsPopover extends Component {
     }
 
     renderCollectionList() {
+        const user = this.context.currentUser;
+
         return (
           <div >
               {this.renderCollectionListHeader()}
@@ -100,8 +102,8 @@ class UserCollectionsPopover extends Component {
                     collection={Folders}
                     publication="Folders.list"
                     selector={{}}
-                    options={options}
-                    terms={{}}
+                    options={{}}
+                    terms={{listId: user._id}}
                     joins={Folders.getJoins()}
                     component={(folders)=> {
                         this.renderCollectionListBody("")

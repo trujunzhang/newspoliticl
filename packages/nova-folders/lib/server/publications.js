@@ -2,23 +2,32 @@ import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
 import Folders from "../collection.js";
 
-Meteor.publish('folders', function() {
-  
-  const currentUser = this.userId && Users.findOne(this.userId);
+/**
+ * @summary Publish a list of posts, along with the users corresponding to these posts
+ * @param {Object} terms
+ */
+Meteor.publish('folders.list', function (terms) {
 
-  if(Users.canDo(currentUser, "posts.view.approved.all")){
-    
-    var folders = Folders.find({}, {fields: Folders.publishedFields.list});
-    var publication = this;
+    // this.unblock(); // causes bug where publication returns 0 results
 
-    //folders.forEach(function (folder) {
-    //  var childrenFolders = folder.getChildren();
-    //  var folderIds = [folder._id].concat(_.pluck(childrenFolders, "_id"));
-    //  var cursor = Posts.find({$and: [{folders: {$in: folderIds}}, {status: Posts.config.STATUS_APPROVED}]});
-    //  // Counts.publish(publication, folder.getCounterName(), cursor, { noReady: true });
-    //});
+    this.autorun(function () {
 
-    return folders;
-  }
-  return [];
+        const currentUser = this.userId && Meteor.users.findOne(this.userId);
+
+        terms.currentUserId = this.userId; // add currentUserId to terms
+        const {selector, options} = Posts.parameters.get(terms);
+
+        Counts.publish(this, terms.listId, Folders.find(selector, options), {noReady: true});
+
+        options.fields = Folders.publishedFields.list;
+
+        const folders = Folders.find(selector, options);
+
+        // note: doesn't work yet :(
+        // CursorCounts.set(terms, folders.count(), this.connection.id);
+
+        return Users.canDo(currentUser, "folders.view.approved.all") ? [folders] : [];
+    });
+
 });
+
