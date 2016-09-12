@@ -23,8 +23,6 @@ Folders.methods.new = function (folder) {
 
     folder._id = Folders.insert(folder);
 
-    folder.posts = [folder.lastPost];
-
     // note: query for folder to get fresh document with collection-hooks effects applied
     Telescope.callbacks.runAsync("folders.new.async", Folders.findOne(folder._id));
 
@@ -53,6 +51,9 @@ Meteor.methods({
             folder.userIP = this.connection.clientAddress;
             folder.userAgent = this.connection.httpHeaders["user-agent"];
         }
+
+        folder.posts = [];
+        folder.posts.push(folder.lastPost);
 
         return Folders.methods.new(folder);
     },
