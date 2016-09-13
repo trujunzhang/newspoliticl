@@ -100,6 +100,7 @@ Telescope.registerComponent("UsersFolder",                         require('./us
 Telescope.registerComponent("UsersFolderProfile",                  require('./users/UsersFolderProfile.jsx'));
 Telescope.registerComponent("UserFolderProfileHeader",             require('./users/UserFolderProfileHeader.jsx'));
 Telescope.registerComponent("UserFolderProfileBackButtonSection",  require('./users/UserFolderProfileBackButtonSection.jsx'));
+Telescope.registerComponent("UserFolderProfileHeaderUserAvatar",   require('./users/UserFolderProfileHeaderUserAvatar.jsx'));
 
 
 // just for test

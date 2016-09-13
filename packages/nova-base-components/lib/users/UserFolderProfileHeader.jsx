@@ -7,19 +7,14 @@ class UserFolderProfileHeader extends Component {
 
     render() {
         const user = this.props.user;
-        const avatarUrl = Users.avatar.getUrl(user);
-        const avatar = avatarUrl
-            ? <img height="140" width="140" src={avatarUrl}/>
-            : "";
-
-        const upvotedPosts = user.telescope.upvotedPosts;
-        const collections = 0;
+        const folder = this.props.folder;
+        const userName = Users.getDisplayName(user);
 
         return (
             <header className="backgroundImage_1hK9M collection-detail--header">
                 <div className="collection-detail--header--heading">
                     <h1>
-                        <span>imessage articles collections folder djzhang wanghao trujunzhang ios
+                        <span>{folder.name}
                             <span className="editable-text--button">
                                 <svg width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
                                     <g fill="#B5B5B5" fill-rule="evenodd">
@@ -31,7 +26,7 @@ class UserFolderProfileHeader extends Component {
                         </span>
                     </h1>
                     <h2>
-                        <span>Describe the collection briefly
+                        <span>{folder.description?folder.description:"Describe the collection briefly"}
                             <span className="editable-text--button">
                                 <svg width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
                                     <g fill="#B5B5B5" fill-rule="evenodd">
@@ -44,14 +39,9 @@ class UserFolderProfileHeader extends Component {
                     </h2>
                     <div className="collection-detail--header--curator">
                         <a href="https://www.producthunt.com/@trujunzhang">
-                            <span className="user-image">
-                                <div className="container_22rD3 user-image--image" >
-                                    <div className="container__Ql6q lazyLoadContainer_3KgZD"><img height="30" src="./Product Hunt_files/original(2)" srcset="https://ph-avatars.imgix.net/641022/original?auto=format&amp;codec=mozjpeg&amp;cs=strip&amp;w=30&amp;h=30&amp;fit=crop&amp;dpr=2 2x, https://ph-avatars.imgix.net/641022/original?auto=format&amp;codec=mozjpeg&amp;cs=strip&amp;w=30&amp;h=30&amp;fit=crop&amp;dpr=3 3x" width="30"/>
-                                    </div>
-                                    <img className="placeholder_E_0qw placeholderHidden_pb7Bz" height="30" src="./Product Hunt_files/original(1)" width="30"/>
-                                </div>
-                            </span>
-                            by TrujunZhang
+                            {/*Logged user avatar*/}
+                            <Telescope.components.UserFolderProfileHeaderUserAvatar user={user}/>
+                            by {userName}
                         </a>
                     </div>
                     <a className="collection-detail--header--delete-button">
