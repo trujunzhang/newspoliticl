@@ -117,12 +117,8 @@ class PostsItem extends Component {
 
     popupDetail() {
         const post = this.props.post;
-        // /posts/${post._id}/${post.slug}
         const path = "/?postid=" + post._id + "&title=" + post.slug;
-        const messages = this.context.messages;
-        const postId = post._id;
-
-        messages.pushAndPostShow(postId);
+        this.context.messages.pushAndPostShow(post._id);
 
         const router = this.props.router;
         delay(() => {
