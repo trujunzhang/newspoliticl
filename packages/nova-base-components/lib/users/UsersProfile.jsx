@@ -18,22 +18,19 @@ class UsersProfile extends Component {
         const foldersCount = (folders && folders.length > 0) ? folders.length : 0;
 
         const loggedUserMenu = [
-            {type: "profile", title: "Upvotes", value: upvotedPostsCount},
-            {type: "collections", title: "Collections", value: foldersCount},
+            {type: "profile", title: "Upvotes", value: upvotedPostsCount,path: "/users/" + user.telescope.slug,},
+            {type: "collections", title: "Collections", value: foldersCount,path: "/users/" + user.telescope.slug + "/collections"},
         ];
-
         const currentPathName = this.props.router.location.pathname;
 
         return (
           <nav className="navigation_3_Vku">
               <ol>
                   {loggedUserMenu.map((menu, key) => {
-
-                      var activedClassName = "text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET";
-                      var normalClassName = "text_3Wjo0 default_tBeAo base_3CbW2";
+                      const className = "text_3Wjo0 default_tBeAo base_3CbW2" + (currentPathName == menu.path ? " active_1bUET" : "");
                       return (
                         <li>
-                            <a className="text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET">
+                            <a className={className}>
                                 <em className="user_left_menu_number">{menu.value}</em>
                                 <span>{menu.title}</span>
                             </a>
