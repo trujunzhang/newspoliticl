@@ -1,5 +1,6 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
+import Users from "meteor/nova:users";
 import Folders from "./collection.js";
 
 Folders.helpers({getCollection: () => Folders});
