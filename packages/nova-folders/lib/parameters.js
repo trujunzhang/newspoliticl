@@ -46,3 +46,36 @@ Folders.parameters.get = function (terms) {
     return parameters;
 };
 
+
+// Tag Parameter
+// Add a "tags" property to terms which can be used to filter *all* existing Posts views.
+function addFolderParameter (parameters, terms) {
+
+    var folderID = terms.folderId || terms["folderID[]"];
+
+    // filter by folderID if folderID slugs are provided
+    if (folderID) {
+
+        var tagsIds = [];
+        var selector = {};
+
+        if (typeof folderID === "string") { // folderID is a string
+            selector = {slug: folderID};
+        } else if (Array.isArray(folderID)) { // folderID is an array
+            selector = {slug: {$in: folderID}};
+        }
+
+        // get all tags passed in terms
+        var tags = Tags.find(selector).fetch();
+
+        // for each folderID, add its ID and the IDs of its children to tagsId array
+        tags.forEach(function (tag) {
+            tagsIds.push(tag._id);
+            tagsIds = tagsIds.concat(_.pluck(Tags.getChildren(tag), "_id"));
+        });
+
+        parameters.selector.tags = {$in: tagsIds};
+    }
+    return parameters;
+}
+Telescope.callbacks.add("postsParameters", addFolderParameter);

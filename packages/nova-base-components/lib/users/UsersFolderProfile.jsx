@@ -25,7 +25,7 @@ class UsersFolderProfile extends Component {
     render() {
         const currentUser = this.props.currentUser;
         const folder = this.props.document;
-        const posts = folder.postsArray;
+        //const posts = folder.postsArray;
 
         return (
           <div className="collection-detail">
@@ -35,15 +35,30 @@ class UsersFolderProfile extends Component {
                   <div className="constraintWidth_ZyYbM">
                       {/*back button section*/}
                       <Telescope.components.UserFolderProfileBackButtonSection user={currentUser}/>
-                      <ul className="postsList_2tOc7">
-                          {posts.map(post =>
-                            <li>
-                                <Telescope.components.PostsItem post={post}
-                                                                currentUser={currentUser}
-                                                                key={post._id}/>
-                            </li>
-                          )}
-                      </ul>
+                      <ListContainer
+                        collection={Posts}
+                        publication="posts.list"
+                        selector={{}}
+                        options={{}}
+                        terms={{folderId: folder._id}}
+                        joins={Posts.getJoins()}
+                        component={()=> {
+                            return (
+                              <ul className="postsList_2tOc7">
+                                  {results.map(post =>
+                                    <li>
+                                        <Telescope.components.PostsItem post={post}
+                                                                        currentUser={currentUser}
+                                                                        key={post._id}/>
+                                    </li>
+                                  )}
+                              </ul>
+                            )
+                        }}
+                        cacheSubscription={false}
+                        listId={"user.folder.posts.list"}
+                        limit={0}
+                      />
                   </div>
               </div>
           </div>
