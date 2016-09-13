@@ -7,11 +7,26 @@ import {Modal, Dropdown, MenuItem} from 'react-bootstrap';
 import {ContextPasser} from "meteor/nova:core";
 import {LinkContainer} from 'react-router-bootstrap';
 import Users from 'meteor/nova:users';
+import {withRouter} from 'react-router'
 
 class UsersPopoverMenu extends Component {
 
     constructor(props) {
         super(props);
+    }
+
+    onMenuItemClick(menu) {
+        const user = this.props.user;
+        const router = this.props.router;
+
+        switch (menu.type) {
+            case "logout":
+                Meteor.logout(Accounts.ui._options.onSignedOutHook());
+                break;
+            case "profile":
+                router.push({pathname: "/users/" + user.telescope.slug});
+                break;
+        }
     }
 
     render() {
@@ -23,34 +38,24 @@ class UsersPopoverMenu extends Component {
         const left = (comp.left + comp.width / 2) - 75;
 
         const loggedUserMenu = [
-            {"href": "/users/" + user.telescope.slug, "title": "MY PROFILE"},
-            {"href": "/games", "title": "MY COLLECTIONS"},
-            {"href": "/podcasts", "title": "INVITES(0)"},
-            {"href": "/books", "title": "SETTINGS"},
-            {"href": "/topics/developer-tools", "title": "API DASHBOARD"},
-            {"href": "/topics/photography-tools", "title": "LOGOUT"}
+            {"type": "profile" + user.telescope.slug, "title": "MY PROFILE"},
+            {"type": "collections", "title": "MY COLLECTIONS"},
+            {"type": "invites", "title": "INVITES(0)"},
+            {"type": "settings", "title": "SETTINGS"},
+            {"type": "logout", "title": "LOGOUT"}
         ];
 
         return (
           <div className="popover v-bottom-center" style={{top: top, left: left}}>
               <ul className="content_2mq4P">
                   {loggedUserMenu.map((menu, key) => {
-                      if (menu.title == "LOGOUT") {
-                          return (
-                            <li
-                              className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
-                                <a
-                                  onClick={() => Meteor.logout(Accounts.ui._options.onSignedOutHook())}>{menu.title}</a>
-                            </li>
-                          )
-                      } else {
-                          return (
-                            <li
-                              className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
-                                <a href={menu.href}>{menu.title}</a>
-                            </li>
-                          )
-                      }
+                      return (
+                        <li
+                          className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
+                            <a
+                              onClick={this.onMenuItemClick.bind(this, menu)}>{menu.title}</a>
+                        </li>
+                      )
                   })}
               </ul>
           </div>
@@ -67,5 +72,5 @@ UsersPopoverMenu.contextTypes = {
     messages: React.PropTypes.object
 };
 
-module.exports = UsersPopoverMenu;
-export default UsersPopoverMenu;
+module.exports = withRouter(UsersPopoverMenu);
+export default withRouter(UsersPopoverMenu);
