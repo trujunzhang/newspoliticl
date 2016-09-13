@@ -46,35 +46,23 @@ Folders.parameters.get = function (terms) {
     return parameters;
 };
 
-
 // Tag Parameter
 // Add a "tags" property to terms which can be used to filter *all* existing Posts views.
-function addFolderParameter (parameters, terms) {
+function addFolderParameter(parameters, terms) {
 
-    var folderID = terms.folderId || terms["folderID[]"];
+    var folderID = terms.folderId;
 
     // filter by folderID if folderID slugs are provided
     if (folderID) {
+        const options = {fields: Folders.publishedFields.single};
+        const folders = Folders.find({_id: folderID}, options);
+        const folder = folders.fetch()[0];
 
-        var tagsIds = [];
-        var selector = {};
+        if (folder) {
+            const postIds = folder.posts;
 
-        if (typeof folderID === "string") { // folderID is a string
-            selector = {slug: folderID};
-        } else if (Array.isArray(folderID)) { // folderID is an array
-            selector = {slug: {$in: folderID}};
+            parameters.selector._id = {$in: postIds};
         }
-
-        // get all tags passed in terms
-        var tags = Tags.find(selector).fetch();
-
-        // for each folderID, add its ID and the IDs of its children to tagsId array
-        tags.forEach(function (tag) {
-            tagsIds.push(tag._id);
-            tagsIds = tagsIds.concat(_.pluck(Tags.getChildren(tag), "_id"));
-        });
-
-        parameters.selector.tags = {$in: tagsIds};
     }
     return parameters;
 }
