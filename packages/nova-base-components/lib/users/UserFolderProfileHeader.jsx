@@ -17,13 +17,6 @@ class UserFolderProfileHeader extends Component {
 
         return (
             <header className="backgroundImage_1hK9M collection-detail--header">
-                <div className="collection-detail--header--background-uploader">
-                    <span className="collection-detail--header--background-uploader--upload">
-                        <svg width="27" height="21" viewBox="0 0 27 21" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.495 2.687c-.53 0-.932-.25-1.184-.926-.224-.61-.47-1.185-1.286-1.185h-4.2c-.65 0-1.06.526-1.27 1.188-.194.617-.64.927-1.167.927h-.65C1.223 2.686 0 3.93 0 5.46v12.257c0 1.532 1.224 2.774 2.735 2.774h21.53c1.51 0 2.735-1.24 2.735-2.77V5.46c0-1.53-1.224-2.773-2.735-2.773h-11.77zm.697 15.46c-3.567 0-6.456-2.883-6.456-6.443 0-3.56 2.89-6.444 6.456-6.444 3.566 0 6.457 2.885 6.457 6.444 0 3.56-2.894 6.444-6.46 6.444zm9.844-10.544c-.65 0-1.174-.525-1.174-1.17 0-.65.525-1.173 1.174-1.173.65 0 1.174.524 1.174 1.172 0 .646-.525 1.17-1.174 1.17zm-5.735 4.1c0 2.265-1.84 4.1-4.106 4.1s-4.11-1.835-4.11-4.1c0-2.265 1.842-4.1 4.11-4.1 2.27 0 4.11 1.835 4.11 4.1" fill="#FFF" fill-rule="evenodd"></path>
-                        </svg>
-                    </span>
-                    <input type="file" accept="image/gif, image/jpeg, image/png" name="collection_background_image"/></div>
                 <div className="collection-detail--header--heading">
                     <h1>
                         <span>imessage articles collections folder djzhang wanghao trujunzhang ios
