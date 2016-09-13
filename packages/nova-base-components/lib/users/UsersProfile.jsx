@@ -28,6 +28,18 @@ class UsersProfile extends Component {
         ];
     }
 
+    getMenuType() {
+        const currentPathName = this.props.router.location.pathname;
+        var type = this.loggedUserMenu[0].type;
+        this.loggedUserMenu.forEach(function (menu) {
+            if (currentPathName == menu.path) {
+                type = menu.type;
+            }
+        });
+
+        return type;
+    }
+
     onMenuItemClick(menu) {
         const user = this.props.currentUser;
         const router = this.props.router;
