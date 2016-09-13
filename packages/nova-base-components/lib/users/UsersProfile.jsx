@@ -10,6 +10,20 @@ import {withRouter} from 'react-router'
 //const UsersProfile = ({user}, {currentUser}) => {
 class UsersProfile extends Component {
 
+    onMenuItemClick(menu) {
+        const user = this.props.currentUser;
+        const router = this.props.router;
+
+        switch (menu.type) {
+            case "profile":
+                router.push({pathname: menu.path});
+                break;
+            case "collections":
+                router.push({pathname: menu.path});
+                break;
+        }
+    }
+
     renderLeftPanel() {
         const user = this.props.currentUser;
         const upvotedPosts = user.telescope.upvotedPosts;
@@ -18,8 +32,13 @@ class UsersProfile extends Component {
         const foldersCount = (folders && folders.length > 0) ? folders.length : 0;
 
         const loggedUserMenu = [
-            {type: "profile", title: "Upvotes", value: upvotedPostsCount,path: "/users/" + user.telescope.slug,},
-            {type: "collections", title: "Collections", value: foldersCount,path: "/users/" + user.telescope.slug + "/collections"},
+            {type: "profile", title: "Upvotes", value: upvotedPostsCount, path: "/users/" + user.telescope.slug,},
+            {
+                type: "collections",
+                title: "Collections",
+                value: foldersCount,
+                path: "/users/" + user.telescope.slug + "/collections"
+            },
         ];
         const currentPathName = this.props.router.location.pathname;
 
@@ -30,7 +49,7 @@ class UsersProfile extends Component {
                       const className = "text_3Wjo0 default_tBeAo base_3CbW2" + (currentPathName == menu.path ? " active_1bUET" : "");
                       return (
                         <li>
-                            <a className={className}>
+                            <a className={className} onClick={this.onMenuItemClick.bind(this, menu)}>
                                 <em className="user_left_menu_number">{menu.value}</em>
                                 <span>{menu.title}</span>
                             </a>
