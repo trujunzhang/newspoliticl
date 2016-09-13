@@ -1,4 +1,3 @@
-import Posts from "meteor/nova:folders";
 import Users from 'meteor/nova:users';
 import Folders from "./collection.js";
 

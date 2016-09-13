@@ -1,5 +1,4 @@
 import PublicationUtils from 'meteor/utilities:smart-publications';
-import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
 import Folders from "./collection.js";
 
@@ -34,22 +33,3 @@ Users.addField([
 ]);
 
 PublicationUtils.addToFields(Users.publishedFields.list, ["telescope.folderCount", "telescope.folders"]);
-
-//Folders.addField(
-//  {
-//      fieldName: 'posts',
-//      fieldSchema: {
-//          type: [String],
-//          optional: true,
-//          publish: true,
-//          join: {
-//              joinAs: "postsArray",
-//              collection: () => Posts
-//          }
-//      }
-//  }
-//);
-//
-//PublicationUtils.addToFields(Folders.publishedFields.list, ["posts"]);
-
-
