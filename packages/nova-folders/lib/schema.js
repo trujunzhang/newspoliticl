@@ -102,10 +102,6 @@ Folders.schema = new SimpleSchema({
         type: [String],
         optional: true,
         publish: true,
-        join: {
-            joinAs: "postsArray",
-            collection: () => Posts
-        }
     },
 });
 

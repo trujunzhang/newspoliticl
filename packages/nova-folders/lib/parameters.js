@@ -3,13 +3,13 @@ import Folders from "./collection.js";
 
 /**
  * @summary Parameter callbacks let you add parameters to subscriptions
- * @namespace Posts.parameters
+ * @namespace Folders.parameters
  */
 Folders.parameters = {};
 
 /**
  * @summary Takes a set of terms, and translates them into a `parameter` object containing the appropriate find
- * and options arguments for the subscriptions's Posts.find()
+ * and options arguments for the subscriptions's Folders.find()
  * @memberof Parameters
  * @param {Object} terms
  */

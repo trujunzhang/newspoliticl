@@ -59,7 +59,6 @@ Users.helpers({getFolders: function () {return Users.getFolders(this);}});
 Folders.getUrl = function (folder, isAbsolute) {
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
-  // return prefix + FlowRouter.path("postsFolder", folder);
   return `${prefix}/?cat=${folder.slug}`;
 };
 Folders.helpers({getUrl: function () {return Folders.getUrl(this);}});
@@ -69,7 +68,7 @@ Folders.helpers({getUrl: function () {return Folders.getUrl(this);}});
  * @param {Object} folder
  */
  Folders.getCounterName = function (folder) {
-  return folder._id + "-postsCount";
+  return folder._id + "-foldersCount";
  }
  Folders.helpers({getCounterName: function () {return Folders.getCounterName(this);}});
 
