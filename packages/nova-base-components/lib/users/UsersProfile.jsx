@@ -99,6 +99,9 @@ class UsersProfile extends Component {
 
     renderCollectedFolder() {
         const user = this.props.currentUser;
+        const params = {view: 'best', listId: "user.profile.collectedFolderList"};
+        const {selector, options} = Posts.parameters.get(params);
+
         return (
           <ListContainer
             selector={{}}
