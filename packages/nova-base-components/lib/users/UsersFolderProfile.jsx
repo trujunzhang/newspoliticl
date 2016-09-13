@@ -23,15 +23,29 @@ class UsersFolderProfile extends Component {
     }
 
     render() {
-        const user = this.props.currentUser;
+        const currentUser = this.props.currentUser;
         const folder = this.props.document;
         const posts = folder.postsArray;
+
         return (
-          <div>
+          <div className="collection-detail">
+              <!--header section-->
               <Telescope.components.UserFolderProfileHeader user={user}/>
-              <div className="constraintWidth_ZyYbM body_1RqUJ">
-                  {this.renderTopPanel()}
-                  {this.renderContent()}
+              <div className="collection-detail--subnav"></div>
+              <div className="container">
+                  <!--back button section-->
+                  <Telescope.components.UserFolderProfileBackButtonSection user={user}/>
+                  <div>
+                      <ul className="postsList_2tOc7">
+                          {posts.map(post =>
+                            <li>
+                                <Telescope.components.PostsItem post={post}
+                                                                currentUser={currentUser}
+                                                                key={post._id}/>
+                            </li>
+                          )}
+                      </ul>
+                  </div>
               </div>
           </div>
         )
