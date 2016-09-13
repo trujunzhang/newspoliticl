@@ -116,7 +116,13 @@ class UsersProfile extends Component {
     }
 
     renderContent() {
-        return this.renderUpvotedPostList()
+        switch (this.getMenuType()) {
+            case "profile":
+                return this.renderUpvotedPostList();
+            case "collections":
+                return this.renderCollectedFolder();
+        }
+
     }
 
     renderRightPanel() {
