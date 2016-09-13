@@ -179,3 +179,23 @@ ${Posts.getLink(post, true, false)}
 };
 Posts.helpers({ getEmailShareUrl() { return Posts.getEmailShareUrl(this); } });
 
+
+/**
+ * @summary Get all of a post's children
+ * @param {Object} post
+ */
+Posts.getChildren = function (post) {
+  var postsArray = [];
+
+  var getChildren = function recurse (post) {
+    var children = Categories.find({_id: {$in: _.pluck(post, "_id")}}).fetch()
+    if (children.length > 0) {
+      postsArray = postsArray.concat(children);
+      recurse(children);
+    }
+  }([post]);
+
+  return postsArray;
+};
+Posts.helpers({getChildren: function () {return Posts.getChildren(this);}});
+
