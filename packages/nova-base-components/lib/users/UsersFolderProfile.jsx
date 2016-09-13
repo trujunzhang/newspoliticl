@@ -33,9 +33,9 @@ class UsersFolderProfile extends Component {
               <Telescope.components.UserFolderProfileHeader user={currentUser} folder={folder}/>
               <div className="collection-detail--subnav"></div>
               <div className="container">
-                  {/*back button section*/}
-                  <Telescope.components.UserFolderProfileBackButtonSection user={currentUser}/>
-                  <div>
+                  <div className="constraintWidth_ZyYbM container_3aBgK">
+                      {/*back button section*/}
+                      <Telescope.components.UserFolderProfileBackButtonSection user={currentUser}/>
                       <ul className="postsList_2tOc7">
                           {posts.map(post =>
                             <li>

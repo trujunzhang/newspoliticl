@@ -182,9 +182,9 @@ class Layout extends Component {
                   </div>
 
                   <Telescope.components.Newsletter />
-                  {/*<div className="constraintWidth_ZyYbM container_3aBgK">*/}
+                  <div className="constraintWidth_ZyYbM container_3aBgK">
 
-                  {/*</div>*/}
+                  </div>
 
                   {this.props.children}
 
