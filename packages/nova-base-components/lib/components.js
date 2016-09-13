@@ -121,6 +121,9 @@ Telescope.registerComponent("CollectionsList",          require('./collections/C
 Telescope.registerComponent("CollectionsLoading",       require('./collections/CollectionsLoading.jsx'));
 Telescope.registerComponent("CollectionsResult",        require('./collections/CollectionsResult.jsx'));
 
+Telescope.registerComponent("FoldersList",              require('./collections/FoldersList.jsx'));
+Telescope.registerComponent("FoldersItem",              require('./collections/FoldersItem.jsx'));
+
 
 
 

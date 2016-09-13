@@ -20,7 +20,7 @@ class CollectionsList extends Component {
             selector={{}}
             options={{}}
             terms={{userId: this.props.userId}}
-            joins={Posts.getJoins()}
+            joins={Folders.getJoins()}
             component={Telescope.components.CollectionsResult}
             cacheSubscription={true}
             listId={"user.folder.list"}

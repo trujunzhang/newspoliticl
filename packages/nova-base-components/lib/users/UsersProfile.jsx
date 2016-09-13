@@ -104,15 +104,15 @@ class UsersProfile extends Component {
 
         return (
           <ListContainer
+            collection={Folders}
+            publication="folders.list"
             selector={{}}
-            terms={{upvoterId: user._id, view: "best"}}
-            collection={Posts}
-            publication="user.posts.list"
-            options={options}
-            joins={Posts.getJoins()}
-            component={Telescope.components.PostsList}
+            options={{}}
+            terms={{userId: this.props.userId}}
+            joins={Folders.getJoins()}
+            component={Telescope.components.FoldersList}
             cacheSubscription={true}
-            listId={params.listId}
+            listId={"user.profile.folder.list"}
             limit={Telescope.settings.get("postsPerPage", 10)}
           />
         )
