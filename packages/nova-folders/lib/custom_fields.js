@@ -27,8 +27,7 @@ Users.addField([
             publish: true,
             join: {
                 joinAs: "foldersArray",
-                collection: () => Users,
-                limit: 4
+                collection: () => Folders
             }
         }
     }
