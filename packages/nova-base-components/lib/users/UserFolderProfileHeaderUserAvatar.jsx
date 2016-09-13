@@ -9,12 +9,12 @@ class UserFolderProfileHeaderUserAvatar extends Component {
         const user = this.props.user;
         const avatarUrl = Users.avatar.getUrl(user);
         const avatar = avatarUrl
-          ? <img height="30" src={avatarUrl} width="30"/>
+          ? <img height="30" src={avatarUrl} width="30" className="placeholder_E_0qw placeholderHidden_pb7Bz"/>
           : "";
 
         return (
           <span className="user-image">
-                <div className="container_22rD3 user-image--image">
+                <div className="container_22rD3 user-image--image user_folder_avatar">
                     <div className="container__Ql6q lazyLoadContainer_3KgZD">
                         {avatar}
                     </div>
