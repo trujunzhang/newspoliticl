@@ -52,7 +52,7 @@ class UserFolderProfileHeader extends Component {
                     <div className="collection-detail--header--curator">
                         <a href="https://www.producthunt.com/@trujunzhang">
                             <span className="user-image">
-                                <div className="container_22rD3 user-image--image" style="height: 30px; width: 30px;">
+                                <div className="container_22rD3 user-image--image" >
                                     <div className="container__Ql6q lazyLoadContainer_3KgZD"><img height="30" src="./Product Hunt_files/original(2)" srcset="https://ph-avatars.imgix.net/641022/original?auto=format&amp;codec=mozjpeg&amp;cs=strip&amp;w=30&amp;h=30&amp;fit=crop&amp;dpr=2 2x, https://ph-avatars.imgix.net/641022/original?auto=format&amp;codec=mozjpeg&amp;cs=strip&amp;w=30&amp;h=30&amp;fit=crop&amp;dpr=3 3x" width="30"/>
                                     </div>
                                     <img className="placeholder_E_0qw placeholderHidden_pb7Bz" height="30" src="./Product Hunt_files/original(1)" width="30"/>

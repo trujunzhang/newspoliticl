@@ -30,11 +30,11 @@ class UsersFolderProfile extends Component {
         return (
           <div className="collection-detail">
               {/*header section*/}
-              <Telescope.components.UserFolderProfileHeader user={user}/>
+              <Telescope.components.UserFolderProfileHeader user={currentUser}/>
               <div className="collection-detail--subnav"></div>
               <div className="container">
                   {/*back button section*/}
-                  <Telescope.components.UserFolderProfileBackButtonSection user={user}/>
+                  <Telescope.components.UserFolderProfileBackButtonSection user={currentUser}/>
                   <div>
                       <ul className="postsList_2tOc7">
                           {posts.map(post =>
