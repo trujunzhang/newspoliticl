@@ -12,7 +12,6 @@ Package.onUse(function (api) {
   api.use([
     'nova:core@0.27.0-nova',
     'nova:users@0.27.0-nova',
-    'nova:folders@0.27.0-nova',
     'utilities:react-list-container@0.1.10'
   ]);
 

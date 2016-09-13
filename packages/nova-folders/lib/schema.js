@@ -1,6 +1,7 @@
 import Telescope from 'meteor/nova:lib';
 import Folders from "./collection.js";
 import Users from 'meteor/nova:users';
+import Posts from 'meteor/nova:posts';
 
 const canInsert = user => Users.canDo(user, "folders.new");
 const canEdit = user => Users.canDo(user, "folders.edit.all");
@@ -102,6 +103,10 @@ Folders.schema = new SimpleSchema({
         type: [String],
         optional: true,
         publish: true,
+        join: {
+            joinAs: "postsArray",
+            collection: () => Posts
+        }
     },
 });
 

@@ -73,3 +73,4 @@ Folders.helpers({getUrl: function () {return Folders.getUrl(this);}});
   return folder._id + "-postsCount";
  }
  Folders.helpers({getCounterName: function () {return Folders.getCounterName(this);}});
+

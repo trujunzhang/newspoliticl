@@ -96,7 +96,15 @@ Meteor.publish('folders.single', function (terms) {
     const folder = folders.fetch()[0];
 
     if (folder) {
-        return Users.canView(currentUser, folder) ? [folders] : [];
+        // query collected posts in this folder according to postId recording in the folder's posts.
+        folder.posts.forEach(function (postId) {
+            var childrenFolders = folder.getChildren();
+            var folderIds = [folder._id].concat(_.pluck(childrenFolders, "_id"));
+            var cursor = Posts.find({$and: [{folders: {$in: folderIds}}, {status: Posts.config.STATUS_APPROVED}]});
+            Counts.publish(publication, folder.getCounterName(), cursor, {noReady: true});
+        });
+
+        return [folders];
     } else {
         console.log(`// folders.single: no collection found for _id “${terms._id}”`);
         return [];

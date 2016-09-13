@@ -24,6 +24,8 @@ class UsersFolderProfile extends Component {
 
     render() {
         const user = this.props.currentUser;
+        const folder = this.props.document;
+        const posts = folder.postsArray;
         return (
           <div>
               <Telescope.components.UserFolderProfileHeader user={user}/>
