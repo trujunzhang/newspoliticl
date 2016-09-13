@@ -96,13 +96,15 @@ Meteor.publish('folders.single', function (terms) {
     const folder = folders.fetch()[0];
 
     if (folder) {
-        // query collected posts in this folder according to postId recording in the folder's posts.
+        // Query collected posts in this folder by postId recording in the folder's posts.
+        var postsArray = [];
         folder.posts.forEach(function (postId) {
-            var childrenFolders = folder.getChildren();
-            var folderIds = [folder._id].concat(_.pluck(childrenFolders, "_id"));
-            var cursor = Posts.find({$and: [{folders: {$in: folderIds}}, {status: Posts.config.STATUS_APPROVED}]});
-            Counts.publish(publication, folder.getCounterName(), cursor, {noReady: true});
+            var post = Posts.find({_id: postId}).fetch();
+            if (post) {
+                postsArray.push(post);
+            }
         });
+        folder.postsArray = postsArray;
 
         return [folders];
     } else {
