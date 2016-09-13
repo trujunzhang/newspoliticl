@@ -130,7 +130,6 @@ Telescope.registerComponent("CollectionsResult",        require('./collections/C
 
 Telescope.registerComponent("FoldersList",              require('./collections/FoldersList.jsx'));
 Telescope.registerComponent("FoldersItem",              require('./collections/FoldersItem.jsx'));
-
-
+Telescope.registerComponent("FolderPostsList",          require('./collections/FolderPostsList.jsx'));
 
 
