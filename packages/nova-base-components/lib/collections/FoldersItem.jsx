@@ -10,17 +10,22 @@ import {withRouter} from 'react-router'
 
 class FoldersItem extends Component {
 
+    onFolderItemClick() {
+        const folder = this.props.folder;
+
+    }
+
     render() {
         const folder = this.props.folder;
 
         return (
           <div className="backgroundImage_1hK9M card_2nuIG card_3kZOV">
               <a className="link_1QbEt"
-                 href="https://www.producthunt.com/@trujunzhang/collections/imessage-articles-collections-folder-djzhang-wanghao-trujunzhang-ios"><span
-                className="name_3GvIR featured_2W7jd inverse_1CN6F base_3CbW2">imessage articles collections folder djzhang wanghao trujunzhang ios</span><span
+                 onClick={this.onFolderItemClick.bind(this)}>
+                  <span className="name_3GvIR featured_2W7jd inverse_1CN6F base_3CbW2">{folder.name}</span><span
                 className="title__hjS3 text_3Wjo0 inverse_1CN6F base_3CbW2"></span></a>
               <button className="button_2I1re smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 follow_3OEqn">
-                  <div className="buttonContainer_wTYxi">Follow</div>
+                  <div className="buttonContainer_wTYxi">{folder.posts.length + " posts"}</div>
               </button>
           </div>
         )

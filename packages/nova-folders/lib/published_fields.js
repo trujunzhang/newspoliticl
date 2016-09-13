@@ -8,10 +8,10 @@ Folders.publishedFields = {};
  * @array Folders.publishedFields.list
  */
 Folders.publishedFields.list = PublicationsUtils.arrayToFields([
-  "name",
-  "description",
-  "order",
-  "slug",
-  "image",
-  //"parentId",
+    "name",
+    "description",
+    "order",
+    "slug",
+    "image",
+    "posts"
 ]);
