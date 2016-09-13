@@ -96,6 +96,11 @@ Telescope.registerComponent("UsersMenu",            require('./users/UsersMenu.j
 Telescope.registerComponent("UsersAccountMenu",     require('./users/UsersAccountMenu.jsx'));
 Telescope.registerComponent("UsersAccountForm",     require('./users/UsersAccountForm.jsx'));
 
+Telescope.registerComponent("UsersFolder",               require('./users/UsersFolder.jsx'));
+Telescope.registerComponent("UsersFolderProfile",        require('./users/UsersFolderProfile.jsx'));
+Telescope.registerComponent("UserFolderProfileHeader",   require('./users/UserFolderProfileHeader.jsx'));
+
+
 // just for test
 Telescope.registerComponent("UsersAccountMenuBase", require('./users/UsersAccountMenuBase.jsx'));
 
