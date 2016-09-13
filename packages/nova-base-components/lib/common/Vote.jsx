@@ -51,8 +51,7 @@ class Vote extends Component {
         const postVoteClass = "postVoteArrow_2xABl" + (hasUpvoted ? " upvoted_172lX animate_asuDN" : "");
 
         return (
-          <button className={buttonClass}
-                  rel="vote-button" onClick={this.upvote}>
+          <button className={buttonClass} rel="vote-button" onClick={this.upvote}>
               <div className="buttonContainer_wTYxi">
                   <div className={postVoteClass}></div>
                   {post.baseScore || 0}
@@ -60,13 +59,12 @@ class Vote extends Component {
           </button>
         )
     }
-
 }
 
 Vote.propTypes = {
     post: React.PropTypes.object.isRequired, // the current post
     // currentUser: React.PropTypes.object, // the current user
-}
+};
 
 Vote.contextTypes = {
     currentUser: React.PropTypes.object,
