@@ -6,8 +6,8 @@ import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
 import {Link} from 'react-router';
 import {withRouter} from 'react-router'
+import Folders from "meteor/nova:folders";
 
-//const UsersProfile = ({user}, {currentUser}) => {
 class UsersProfile extends Component {
 
     componentWillMount() {
