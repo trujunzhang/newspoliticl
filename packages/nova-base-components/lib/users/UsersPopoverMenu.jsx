@@ -26,6 +26,9 @@ class UsersPopoverMenu extends Component {
             case "profile":
                 router.push({pathname: "/users/" + user.telescope.slug});
                 break;
+            case "collections":
+                router.push({pathname: "/users/" + user.telescope.slug + "/collections"});
+                break;
         }
     }
 

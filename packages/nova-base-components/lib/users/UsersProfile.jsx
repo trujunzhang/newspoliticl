@@ -20,7 +20,9 @@ class UsersProfile extends Component {
     renderLeftPanel() {
         const user = this.props.currentUser;
         const upvotedPosts = user.telescope.upvotedPosts;
+        const folders = user.telescope.folders;
         const upvotedPostsCount = (upvotedPosts && upvotedPosts.length > 0) ? upvotedPosts.length : 0;
+        const foldersCount = (folders && folders.length > 0) ? folders.length : 0;
 
         return (
           <nav className="navigation_3_Vku">
@@ -42,7 +44,7 @@ class UsersProfile extends Component {
                   <li>
                       <a className="text_3Wjo0 default_tBeAo base_3CbW2"
                          href="https://www.producthunt.com/@trujunzhang/collections">
-                          <em className="user_left_menu_number">0</em>
+                          <em className="user_left_menu_number">{foldersCount}</em>
                           <span>Collections</span>
                       </a>
                   </li>
