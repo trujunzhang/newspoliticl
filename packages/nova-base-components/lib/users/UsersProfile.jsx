@@ -10,6 +10,24 @@ import {withRouter} from 'react-router'
 //const UsersProfile = ({user}, {currentUser}) => {
 class UsersProfile extends Component {
 
+    componentWillMount() {
+        const user = this.props.currentUser;
+        const upvotedPosts = user.telescope.upvotedPosts;
+        const folders = user.telescope.folders;
+        const upvotedPostsCount = (upvotedPosts && upvotedPosts.length > 0) ? upvotedPosts.length : 0;
+        const foldersCount = (folders && folders.length > 0) ? folders.length : 0;
+
+        this.loggedUserMenu = [
+            {type: "profile", title: "Upvotes", value: upvotedPostsCount, path: "/users/" + user.telescope.slug,},
+            {
+                type: "collections",
+                title: "Collections",
+                value: foldersCount,
+                path: "/users/" + user.telescope.slug + "/collections"
+            },
+        ];
+    }
+
     onMenuItemClick(menu) {
         const user = this.props.currentUser;
         const router = this.props.router;
@@ -25,27 +43,12 @@ class UsersProfile extends Component {
     }
 
     renderLeftPanel() {
-        const user = this.props.currentUser;
-        const upvotedPosts = user.telescope.upvotedPosts;
-        const folders = user.telescope.folders;
-        const upvotedPostsCount = (upvotedPosts && upvotedPosts.length > 0) ? upvotedPosts.length : 0;
-        const foldersCount = (folders && folders.length > 0) ? folders.length : 0;
-
-        const loggedUserMenu = [
-            {type: "profile", title: "Upvotes", value: upvotedPostsCount, path: "/users/" + user.telescope.slug,},
-            {
-                type: "collections",
-                title: "Collections",
-                value: foldersCount,
-                path: "/users/" + user.telescope.slug + "/collections"
-            },
-        ];
         const currentPathName = this.props.router.location.pathname;
 
         return (
           <nav className="navigation_3_Vku">
               <ol>
-                  {loggedUserMenu.map((menu, key) => {
+                  {this.loggedUserMenu.map((menu, key) => {
                       const className = "text_3Wjo0 default_tBeAo base_3CbW2" + (currentPathName == menu.path ? " active_1bUET" : "");
                       return (
                         <li>
@@ -61,11 +64,10 @@ class UsersProfile extends Component {
         )
     }
 
-    renderContent() {
+    renderUpvotedPostList() {
         const user = this.props.currentUser;
         const params = {view: 'best', listId: "user.profile.upvotedPostsList"};
         const {selector, options} = Posts.parameters.get(params);
-
 
         return (
           <ListContainer
@@ -83,27 +85,26 @@ class UsersProfile extends Component {
         )
     }
 
-    renderContentxxx() {
+    renderCollectedFolder() {
+        const user = this.props.currentUser;
         return (
-          <main className="content_36o4C">
-              <div>
-                  <div className="fullWidthBox_3Dggh box_c4OJj">
-                      <div className="header_3GFef hideOnSmallScreen_1VjPA">
-                                <span >
-                                    <span
-                                      className="title_38djq featured_2W7jd default_tBeAo base_3CbW2">0 Upvotes</span>
-                                </span>
-                      </div>
-                      <div className="content_DcBqe">
-                          <div className="placeholder_lYzpv">
-                              <span className="emoji_1lBv0 emoji_style">😩</span>
-                              <span className="text_3Wjo0 subtle_1BWOT base_3CbW2">No upvotes yet.</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </main>
+          <ListContainer
+            selector={{}}
+            terms={{upvoterId: user._id, view: "best"}}
+            collection={Posts}
+            publication="user.posts.list"
+            options={options}
+            joins={Posts.getJoins()}
+            component={Telescope.components.PostsList}
+            cacheSubscription={true}
+            listId={params.listId}
+            limit={Telescope.settings.get("postsPerPage", 10)}
+          />
         )
+    }
+
+    renderContent() {
+        return this.renderUpvotedPostList()
     }
 
     renderRightPanel() {
