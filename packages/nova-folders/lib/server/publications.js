@@ -12,13 +12,6 @@ Meteor.publish('folders', function () {
         var folders = Folders.find({userId: userId}, {fields: Folders.publishedFields.list});
         var publication = this;
 
-        //folders.forEach(function (folder) {
-        //  var childrenFolders = folder.getChildren();
-        //  var folderIds = [folder._id].concat(_.pluck(childrenFolders, "_id"));
-        //  var cursor = Posts.find({$and: [{folders: {$in: folderIds}}, {status: Posts.config.STATUS_APPROVED}]});
-        //  // Counts.publish(publication, folder.getCounterName(), cursor, { noReady: true });
-        //});
-
         return folders;
     }
     return [];
@@ -43,56 +36,18 @@ Meteor.publish('folders.list', function (terms) {
 
         options.fields = Folders.publishedFields.list;
 
-        const posts = Folders.find(selector, options);
+        const folders = Folders.find(selector, options);
 
         // note: doesn't work yet :(
-        // CursorCounts.set(terms, posts.count(), this.connection.id);
+        // CursorCounts.set(terms, folders.count(), this.connection.id);
 
-        return Users.canDo(currentUser, "folders.view.approved.all") ? [posts] : [];
+        return Users.canDo(currentUser, "folders.view.approved.all") ? [folders] : [];
     });
 
 });
 
 /**
- * @summary Publish a list of folders, along with the users corresponding to these folders
- * @param {Object} terms
- */
-//Meteor.publish('folders.single', function (terms) {
-//
-//    // this.unblock(); // causes bug where publication returns 0 results
-//
-//    this.autorun(function () {
-//
-//        const currentUser = this.userId && Meteor.users.findOne(this.userId);
-//
-//        terms.currentUserId = this.userId; // add currentUserId to terms
-//        const {selector, options} = Folders.parameters.get(terms);
-//
-//        Counts.publish(this, terms.userId, Posts.find(selector, options), {noReady: true});
-//
-//        options.fields = Folders.publishedFields.list;
-//
-//        const posts = Folders.find(selector, options);
-//
-//        // note: doesn't work yet :(
-//        // CursorCounts.set(terms, posts.count(), this.connection.id);
-//
-//        return Users.canDo(currentUser, "folders.view.approved.all") ? [posts] : [];
-//    });
-//
-//});
-
-/**
- * @summary Get all users relevant to a list of posts
- * (authors of the listed posts, and first four commenters of each post)
- * @param {Object} posts
- */
-const getPostsList = postIds => {
-    return Posts.find({_id: {$in: postIds}}, {fields: Posts.publishedFields.list});
-};
-
-/**
- * @summary Publish a single post, along with all relevant users
+ * @summary Publish a single folder, along with all relevant users
  * @param {Object} terms
  */
 Meteor.publish('folders.single', function (terms) {
