@@ -42,3 +42,25 @@ Meteor.publish('folders.list', function (terms) {
     });
 
 });
+
+/**
+ * @summary Publish a single post, along with all relevant users
+ * @param {Object} terms
+ */
+Meteor.publish('folders.single', function (terms) {
+
+    check(terms, Match.OneOf({_id: String}));
+
+    const currentUser = this.userId && Meteor.users.findOne(this.userId);
+    const options = {fields: Folders.publishedFields.single};
+    const folders = Folders.find({_id: terms._id}, options);
+    const folder = folders.fetch()[0];
+
+    if (folder) {
+        return [folders];
+    } else {
+        console.log(`// folders.single: no collection found for _id “${terms._id}”`);
+        return [];
+    }
+
+});
