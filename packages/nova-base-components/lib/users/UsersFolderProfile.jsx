@@ -29,11 +29,11 @@ class UsersFolderProfile extends Component {
 
         return (
           <div className="collection-detail">
-              <!--header section-->
+              {/*header section*/}
               <Telescope.components.UserFolderProfileHeader user={user}/>
               <div className="collection-detail--subnav"></div>
               <div className="container">
-                  <!--back button section-->
+                  {/*back button section*/}
                   <Telescope.components.UserFolderProfileBackButtonSection user={user}/>
                   <div>
                       <ul className="postsList_2tOc7">
