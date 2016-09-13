@@ -30,15 +30,12 @@ class UsersPopoverMenu extends Component {
     }
 
     render() {
-
-        const user = this.props.user;
-
         const comp = this.props.comp;
         const top = comp.top + comp.height + 26;
         const left = (comp.left + comp.width / 2) - 75;
 
         const loggedUserMenu = [
-            {"type": "profile" + user.telescope.slug, "title": "MY PROFILE"},
+            {"type": "profile", "title": "MY PROFILE"},
             {"type": "collections", "title": "MY COLLECTIONS"},
             {"type": "invites", "title": "INVITES(0)"},
             {"type": "settings", "title": "SETTINGS"},
