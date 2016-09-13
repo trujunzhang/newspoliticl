@@ -66,7 +66,7 @@ class UsersProfile extends Component {
         const params = {view: 'best', listId: "user.profile.upvotedPostsList"};
         const {selector, options} = Posts.parameters.get(params);
 
-        //const containedQuery = {upvoters: {$elemMatch: {$eq: ObjectId(user._id)}}};
+
         return (
           <ListContainer
             selector={{}}
