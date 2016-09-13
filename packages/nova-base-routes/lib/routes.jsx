@@ -21,7 +21,7 @@ Meteor.startup(() => {
     {name:"posts.single",          path:"posts/:_id(/:slug)",                    component:Telescope.components.PostsSingle},
     {name:"users.single",          path:"users/:slug",                           component:Telescope.components.UsersSingle},
     {name:"users.collections",     path:"users/:slug/collections",               component:Telescope.components.UsersSingle},
-    {name:"users.folders",         path:"users/:slug/collections/:_id/:name",    component:Telescope.components.UsersFolder},
+    {name:"users.folders",         path:"users/:slug/collections/:cid/:name",    component:Telescope.components.UsersFolder},
     {name:"users.account",         path:"account",                               component:Telescope.components.UsersAccount},
     {name:"users.edit",            path:"users/:slug/edit",                      component:Telescope.components.UsersAccount}
   ]);

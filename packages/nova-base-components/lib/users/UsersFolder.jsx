@@ -9,11 +9,10 @@ const UsersFolder = (props, context) => {
       <DocumentContainer
         collection={Folders}
         publication="folders.single"
-        selector={{'telescope.slug': props.params.slug}}
-        terms={{'telescope.slug': props.params.slug}}
+        selector={{'_id': props.params.cid}}
+        terms={{'_id': props.params.cid}}
         component={Telescope.components.UsersFolderProfile}
-        documentPropName="user"
-        joins={Users.getJoins()}
+        joins={Folders.getJoins()}
       />
     )
 };

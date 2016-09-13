@@ -53,32 +53,53 @@ Meteor.publish('folders.list', function (terms) {
 
 });
 
-
 /**
  * @summary Publish a list of folders, along with the users corresponding to these folders
  * @param {Object} terms
  */
+//Meteor.publish('folders.single', function (terms) {
+//
+//    // this.unblock(); // causes bug where publication returns 0 results
+//
+//    this.autorun(function () {
+//
+//        const currentUser = this.userId && Meteor.users.findOne(this.userId);
+//
+//        terms.currentUserId = this.userId; // add currentUserId to terms
+//        const {selector, options} = Folders.parameters.get(terms);
+//
+//        Counts.publish(this, terms.userId, Posts.find(selector, options), {noReady: true});
+//
+//        options.fields = Folders.publishedFields.list;
+//
+//        const posts = Folders.find(selector, options);
+//
+//        // note: doesn't work yet :(
+//        // CursorCounts.set(terms, posts.count(), this.connection.id);
+//
+//        return Users.canDo(currentUser, "folders.view.approved.all") ? [posts] : [];
+//    });
+//
+//});
+
+/**
+ * @summary Publish a single post, along with all relevant users
+ * @param {Object} terms
+ */
 Meteor.publish('folders.single', function (terms) {
 
-    // this.unblock(); // causes bug where publication returns 0 results
+    check(terms, Match.OneOf({_id: String}));
 
-    this.autorun(function () {
+    const currentUser = this.userId && Meteor.users.findOne(this.userId);
+    const options = {fields: Posts.publishedFields.single};
+    const folders = Folders.find(terms._id, options);
+    const folder = folders.fetch()[0];
 
-        const currentUser = this.userId && Meteor.users.findOne(this.userId);
-
-        terms.currentUserId = this.userId; // add currentUserId to terms
-        const {selector, options} = Folders.parameters.get(terms);
-
-        Counts.publish(this, terms.userId, Posts.find(selector, options), {noReady: true});
-
-        options.fields = Folders.publishedFields.list;
-
-        const posts = Folders.find(selector, options);
-
-        // note: doesn't work yet :(
-        // CursorCounts.set(terms, posts.count(), this.connection.id);
-
-        return Users.canDo(currentUser, "folders.view.approved.all") ? [posts] : [];
-    });
+    if (folder) {
+        return Users.canView(currentUser, folder) ? [folders] : [];
+    } else {
+        console.log(`// folders.single: no collection found for _id “${terms._id}”`);
+        return [];
+    }
 
 });
