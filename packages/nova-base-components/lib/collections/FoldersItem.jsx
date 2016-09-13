@@ -13,8 +13,8 @@ class FoldersItem extends Component {
     onFolderItemClick() {
         const folder = this.props.folder;
         const currentPathName = this.props.router.location.pathname;
-        const path = currentPathName + "/" + folder.slug;
-
+        //const path = currentPathName + "/" + folder.slug;
+        const path = currentPathName + "/" + folder._id + "/" + folder.name;
         this.props.router.push({pathname: path});
     }
 

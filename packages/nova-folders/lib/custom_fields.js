@@ -26,12 +26,12 @@ Users.addField([
             optional: true,
             publish: true,
             join: {
-                joinAs: "telescope.foldersArray",
+                joinAs: "foldersArray",
                 collection: () => Folders
             }
         }
     }
 ]);
 
-PublicationUtils.addToFields(Users.publishedFields.list, ["folderCount", "folders"]);
+PublicationUtils.addToFields(Users.publishedFields.list, ["telescope.folderCount", "telescope.folders"]);
 
