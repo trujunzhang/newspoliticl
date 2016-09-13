@@ -8,7 +8,6 @@ class Vote extends Component {
 
     constructor(props) {
         super(props);
-        this.upvote = this.upvote.bind(this);
     }
 
     upvote(e) {
@@ -51,7 +50,7 @@ class Vote extends Component {
         const postVoteClass = "postVoteArrow_2xABl" + (hasUpvoted ? " upvoted_172lX animate_asuDN" : "");
 
         return (
-          <button className={buttonClass} rel="vote-button" onClick={this.upvote}>
+          <button className={buttonClass} rel="vote-button" onClick={this.upvote.bind(this)}>
               <div className="buttonContainer_wTYxi">
                   <div className={postVoteClass}></div>
                   {post.baseScore || 0}
