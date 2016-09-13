@@ -9,7 +9,7 @@ class UserFolderProfileHeaderUserAvatar extends Component {
         const user = this.props.user;
         const avatarUrl = Users.avatar.getUrl(user);
         const avatar = avatarUrl
-          ? <img className="placeholder_E_0qw placeholderHidden_pb7Bz" height="30" src={avatarUrl} width="30"/>
+          ? <img height="30" src={avatarUrl} width="30"/>
           : "";
 
         return (
