@@ -83,6 +83,15 @@ Meteor.publish('folders.list', function (terms) {
 //});
 
 /**
+ * @summary Get all users relevant to a list of posts
+ * (authors of the listed posts, and first four commenters of each post)
+ * @param {Object} posts
+ */
+const getPostsList = postIds => {
+    return Posts.find({_id: {$in: postIds}}, {fields: Posts.publishedFields.list});
+};
+
+/**
  * @summary Publish a single post, along with all relevant users
  * @param {Object} terms
  */
@@ -91,22 +100,22 @@ Meteor.publish('folders.single', function (terms) {
     check(terms, Match.OneOf({_id: String}));
 
     const currentUser = this.userId && Meteor.users.findOne(this.userId);
-    const options = {fields: Posts.publishedFields.single};
+    const options = {fields: Folders.publishedFields.single};
     const folders = Folders.find(terms._id, options);
     const folder = folders.fetch()[0];
 
     if (folder) {
-        // Query collected posts in this folder by postId recording in the folder's posts.
-        var postsArray = [];
-        folder.posts.forEach(function (postId) {
-            var post = Posts.find({_id: postId}).fetch();
-            if (post) {
-                postsArray.push(post);
-            }
-        });
-        folder.postsArray = postsArray;
+        const postIds = folder.posts;
+        //const posts = Tracker.nonreactive(function () {
+        //    return getPostsList(postIds);
+        //});
 
-        return [folders];
+        //const posts = getPostsList(postIds);
+        console.log(postIds);
+
+        const posts = Posts.find({_id: {$in: postIds}}, {fields: Posts.publishedFields.list});
+
+        return [folders, posts];
     } else {
         console.log(`// folders.single: no collection found for _id “${terms._id}”`);
         return [];
