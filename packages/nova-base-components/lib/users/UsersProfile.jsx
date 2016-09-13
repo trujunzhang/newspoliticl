@@ -9,13 +9,6 @@ import {withRouter} from 'react-router'
 
 //const UsersProfile = ({user}, {currentUser}) => {
 class UsersProfile extends Component {
-    //const twitterName = Users.getTwitterName(user);
-
-    //const terms = {
-    //    view: "userPosts",
-    //    userId: user._id
-    //};
-    //const {selector, options} = Posts.parameters.get(terms);
 
     renderLeftPanel() {
         const user = this.props.currentUser;
@@ -24,30 +17,29 @@ class UsersProfile extends Component {
         const upvotedPostsCount = (upvotedPosts && upvotedPosts.length > 0) ? upvotedPosts.length : 0;
         const foldersCount = (folders && folders.length > 0) ? folders.length : 0;
 
+        const loggedUserMenu = [
+            {type: "profile", title: "Upvotes", value: upvotedPostsCount},
+            {type: "collections", title: "Collections", value: foldersCount},
+        ];
+
+        const currentPathName = this.props.router.location.pathname;
+
         return (
           <nav className="navigation_3_Vku">
               <ol>
-                  <li>
-                      <a className="text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET"
-                         href="https://www.producthunt.com/@trujunzhang">
-                          <em className="user_left_menu_number">{upvotedPostsCount}</em>
-                          <span>Upvotes</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                         href="https://www.producthunt.com/@trujunzhang/topics">
-                          <em className="user_left_menu_number">5</em>
-                          <span>Topics</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a className="text_3Wjo0 default_tBeAo base_3CbW2"
-                         href="https://www.producthunt.com/@trujunzhang/collections">
-                          <em className="user_left_menu_number">{foldersCount}</em>
-                          <span>Collections</span>
-                      </a>
-                  </li>
+                  {loggedUserMenu.map((menu, key) => {
+
+                      var activedClassName = "text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET";
+                      var normalClassName = "text_3Wjo0 default_tBeAo base_3CbW2";
+                      return (
+                        <li>
+                            <a className="text_3Wjo0 default_tBeAo base_3CbW2 active_1bUET">
+                                <em className="user_left_menu_number">{menu.value}</em>
+                                <span>{menu.title}</span>
+                            </a>
+                        </li>
+                      )
+                  })}
               </ol>
           </nav>
         )

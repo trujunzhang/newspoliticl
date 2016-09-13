@@ -15,6 +15,10 @@ class UsersPopoverMenu extends Component {
         super(props);
     }
 
+    componentDidMount() {
+
+    }
+
     onMenuItemClick(menu) {
         const user = this.props.user;
         const router = this.props.router;
@@ -24,10 +28,10 @@ class UsersPopoverMenu extends Component {
                 Meteor.logout(Accounts.ui._options.onSignedOutHook());
                 break;
             case "profile":
-                router.push({pathname: "/users/" + user.telescope.slug});
+                router.push({pathname: menu.path});
                 break;
             case "collections":
-                router.push({pathname: "/users/" + user.telescope.slug + "/collections"});
+                router.push({pathname: menu.path});
                 break;
         }
     }
@@ -37,14 +41,13 @@ class UsersPopoverMenu extends Component {
         const top = comp.top + comp.height + 26;
         const left = (comp.left + comp.width / 2) - 75;
 
+        const user = this.props.user;
         const loggedUserMenu = [
-            {"type": "profile", "title": "MY PROFILE"},
-            {"type": "collections", "title": "MY COLLECTIONS"},
-            {"type": "invites", "title": "INVITES(0)"},
-            {"type": "settings", "title": "SETTINGS"},
-            {"type": "logout", "title": "LOGOUT"}
+            {type: "profile", path: "/users/" + user.telescope.slug, title: "MY PROFILE"},
+            {type: "collections", path: "/users/" + user.telescope.slug + "/collections", title: "MY COLLECTIONS"},
+            {type: "settings", title: "SETTINGS"},
+            {type: "logout", title: "LOGOUT"}
         ];
-
         return (
           <div className="popover v-bottom-center" style={{top: top, left: left}}>
               <ul className="content_2mq4P">
