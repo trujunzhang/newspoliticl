@@ -27,6 +27,11 @@ class PostsItem extends Component {
         return this.props.post.tagsArray ? <Telescope.components.PostsTags post={this.props.post}/> : "";
     }
 
+    renderCommenters() {
+        return this.props.post.commentersArray ?
+          <Telescope.components.PostsCommenters post={this.props.post} event={this.popupDetail.bind(this)}/> : "";
+    }
+
     renderAdminActions() {
         return (
           <div >
@@ -51,18 +56,12 @@ class PostsItem extends Component {
         )
     }
 
-    renderCommenters() {
-        return this.props.post.commentersArray
-          ? <Telescope.components.PostsCommenters post={this.props.post} event={this.popupDetail.bind(this)}/>
-          : null;
-    }
-
     renderActionButtons(post) {
         return (
           <div className="meta_2lIV-" ref="saveButton">
               <div className="actionButtons_2mJsw">
-                  <Telescope.components.Vote post={post}
-                                             currentUser={this.context.currentUser}/> {this.renderCommenters()}
+                  <Telescope.components.Vote post={post} currentUser={this.context.currentUser}/>
+                  {this.renderCommenters()}
                   <div className="additionalActionButtons_BoErh">
                       <a
                         id="save_to_folders_button"
