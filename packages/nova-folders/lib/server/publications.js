@@ -101,7 +101,7 @@ Meteor.publish('folders.single', function (terms) {
 
     const currentUser = this.userId && Meteor.users.findOne(this.userId);
     const options = {fields: Folders.publishedFields.single};
-    const folders = Folders.find(terms._id, options);
+    const folders = Folders.find({_id: terms._id}, options);
     const folder = folders.fetch()[0];
 
     if (folder) {
