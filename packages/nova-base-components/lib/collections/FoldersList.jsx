@@ -11,31 +11,19 @@ const FoldersList = ({results, currentUser, hasMore, ready, count, totalCount, l
     // console.log(count);
 
     return (
-      <section className="results_37tfm">
-          {/*render left panel*/}
-          <div>
-              <div className="fullWidthBox_3Dggh box_c4OJj">
-                  <div className="content_DcBqe">
-                      {/*<Telescope.components.FoldersListTitle/>*/}
-                      <div className="posts_275PF">
-                          <ul className="postsList_2tOc7">
-                              {results.map(post =>
-                                <li>
-                                    <Telescope.components.FoldersItem post={post}
-                                                                      currentUser={currentUser}
-                                                                      key={post._id}/>
-                                </li>
-                              )}
-                          </ul>
-                      </div>
-                      {hasMore ? (ready ? <Telescope.components.PostsLoadMore loadMore={loadMore} count={count}
-                                                                              totalCount={totalCount}/> :
-                        null) : null}
-                  </div>
-              </div>
-              {hasMore ? <Telescope.components.PostsLoading/> : null}
-          </div>
-      </section>
+      <ul className="collections-popover--collections popover--scrollable-list">
+          {results.map((folder, index) => {
+                return (
+                  <li>
+                      <a className="collections-popover--collection popover--scrollable-list--element"
+                         href="https://www.producthunt.com/#">{folder.name}
+                          <span className="collections-popover--collection--icon v-collect"></span>
+                      </a>
+                  </li>
+                )
+            }
+          )}
+      </ul>
     )
 
 };
