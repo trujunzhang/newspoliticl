@@ -26,7 +26,7 @@ Users.addField([
             optional: true,
             publish: true,
             join: {
-                joinAs: "foldersArray",
+                joinAs: "telescope.foldersArray",
                 collection: () => Folders
             }
         }
