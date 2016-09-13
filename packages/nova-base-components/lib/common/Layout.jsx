@@ -151,8 +151,20 @@ class Layout extends Component {
         }
     }
 
+    checkUserCollectionUrl(pathname) {
+        if (pathname) {
+            const split = pathname.split('/');
+            if (split.length == 6 && split[1] == "users" && split[3] == "collections") {
+                return true;
+            }
+        }
+        return false;
+    }
+
     render() {
         let classValue = "wrapper" + (this.state.isSearching ? " search-mode" : "") + (this.state.cachePost ? " no-scroll" : "");
+
+        const isFolderUrl = this.checkUserCollectionUrl(this.props.location.pathname);
 
         return (
           <div className={classValue} id="wrapper">
@@ -182,11 +194,15 @@ class Layout extends Component {
                   </div>
 
                   <Telescope.components.Newsletter />
-                  <div className="constraintWidth_ZyYbM container_3aBgK">
 
-                  </div>
 
-                  {this.props.children}
+                  {isFolderUrl ?
+                    this.props.children :
+                    <div className="constraintWidth_ZyYbM container_3aBgK">
+                        {this.props.children}
+                    </div>
+                  }
+
 
               </div>
 

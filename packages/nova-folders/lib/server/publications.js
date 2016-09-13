@@ -110,9 +110,6 @@ Meteor.publish('folders.single', function (terms) {
         //    return getPostsList(postIds);
         //});
 
-        //const posts = getPostsList(postIds);
-        console.log(postIds);
-
         const posts = Posts.find({_id: {$in: postIds}}, {fields: Posts.publishedFields.list});
 
         return [folders, posts];
