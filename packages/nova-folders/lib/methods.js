@@ -28,6 +28,27 @@ Folders.methods.new = function (folder) {
     return folder;
 };
 
+/**
+ * @summary Edit a folder in the database
+ * @param {string} folderId – the ID of the folder being edited
+ * @param {Object} modifier – the modifier object
+ * @param {Object} folder - the current folder object
+ */
+Folders.methods.edit = function (folderId, modifier, folder) {
+
+    if (typeof folder === "undefined") {
+        folder = Folders.findOne(folderId);
+    }
+
+    modifier = Telescope.callbacks.run("folders.edit.sync", modifier, folder);
+
+    Folders.update(folderId, modifier);
+
+    Telescope.callbacks.runAsync("folders.edit.async", Folders.findOne(folderId), folder);
+
+    return Folders.findOne(folderId);
+};
+
 var folderViews = [];
 
 Meteor.methods({
@@ -89,7 +110,7 @@ Meteor.methods({
      * @isMethod true
      * @param {String} folderId - the id of the post
      */
-    'folders.remove': function(folderId) {
+    'folders.remove': function (folderId) {
 
         check(folderId, String);
 
@@ -110,30 +131,26 @@ Meteor.methods({
 
     /**
      * @summary Meteor method for deleting a post
-     * @memberof Posts
+     * @memberof Folders
      * @isMethod true
-     * @param {String} folderId - the id of the post
+     * @param {String} editedFolder - the id of the post
      */
-    'folders.editFolderName': function(folderId) {
+    'folders.editFolderName': function (editedFolder) {
 
+        modifier = {name: editedFolder.newName};
+
+        const folderId = editedFolder._id;
+
+        Folders.simpleSchema().namedContext("posts.edit").validate(modifier, {modifier: true});
         check(folderId, String);
 
-        // remove folder comments
-        // if(!this.isSimulation) {
-        //   Comments.remove({folder: folderId});
-        // }
-        // NOTE: actually, keep comments after all
+        const folder = Folders.findOne(folderId);
 
-        var folder = Folders.findOne({_id: folderId});
+        modifier = Telescope.callbacks.run("folders.edit.method", modifier, folder, Meteor.user());
 
-        // delete folder
-        Folders.remove(folderId);
-
-        Telescope.callbacks.runAsync("folders.remove.async", folder);
+        return Folders.methods.edit(folderId, modifier, folder);
 
     },
-
-
 
 });
 
