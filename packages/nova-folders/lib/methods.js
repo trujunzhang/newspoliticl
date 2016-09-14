@@ -66,7 +66,7 @@ Meteor.methods({
      */
     'folders.insertPost': function (folder) {
 
-        var item = Folders.findOne(folder.folderId);
+        var item = Folders.findOne(folder._id);
 
         folder = Telescope.callbacks.run("folders.insertPost.method", folder, Meteor.user());
 
