@@ -41,3 +41,4 @@ nova:debug
 # my-custom-package
 nova:tags
 nova:folders
+nova:postmeta
