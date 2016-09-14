@@ -9,8 +9,15 @@ class CollectionsResult extends Component {
         super(props);
     }
 
-    onCollectedItemClick(folder){
+    onCollectedItemClick(event, folder) {
+        event.preventDefault();
 
+        const self = this;
+
+        const postId = this.context.messages.userCollections.savedPost._id;
+        this.context.actions.call('folders.insert', folder, (newFolder) => {
+            //self.setState({showResult: true});
+        });
     }
 
     render() {
@@ -22,8 +29,8 @@ class CollectionsResult extends Component {
                     return (
                       <li>
                           <a className="collections-popover--collection popover--scrollable-list--element"
-                             onClick={this.onCollectedItemClick.bind(this,folder)}
-                             >{folder.name}
+                             onClick={this.onCollectedItemClick.bind(this, folder)}>
+                              {folder.name}
                               <span className="collections-popover--collection--icon v-collect"></span>
                           </a>
                       </li>
@@ -34,6 +41,13 @@ class CollectionsResult extends Component {
         )
     }
 }
+
+CollectionsResult.contextTypes = {
+    actions: React.PropTypes.object,
+    events: React.PropTypes.object,
+    currentUser: React.PropTypes.object,
+    messages: React.PropTypes.object
+};
 
 module.exports = CollectionsResult;
 export default CollectionsResult;
