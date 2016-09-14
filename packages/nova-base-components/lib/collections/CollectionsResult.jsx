@@ -9,6 +9,10 @@ class CollectionsResult extends Component {
         super(props);
     }
 
+    onCollectedItemClick(folder){
+
+    }
+
     render() {
         const results = this.props.results;
 
@@ -18,7 +22,8 @@ class CollectionsResult extends Component {
                     return (
                       <li>
                           <a className="collections-popover--collection popover--scrollable-list--element"
-                             href="https://www.producthunt.com/#">{folder.name}
+                             onClick={this.onCollectedItemClick.bind(this,folder)}
+                             >{folder.name}
                               <span className="collections-popover--collection--icon v-collect"></span>
                           </a>
                       </li>

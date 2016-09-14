@@ -5,6 +5,7 @@ import NovaForm from "meteor/nova:forms";
 import moment from 'moment';
 import Folders from "meteor/nova:folders";
 import {ListContainer, DocumentContainer} from "meteor/utilities:react-list-container";
+import {withRouter} from 'react-router'
 
 class UserCollectionsPopover extends Component {
 
@@ -80,12 +81,7 @@ class UserCollectionsPopover extends Component {
                     <Telescope.components.CollectionsList userId={userId}/>
 
                     <div className="popover--footer">
-                        {this.renderAddNewForm()}
-                        {/*{this.state.addNewItem*/
-                    }
-                    {/*? this.renderAddNewForm()*/
-                    }
-                    {/*: this.rendAddNewButton()}*/}
+                        {this.state.addNewItem? this.renderAddNewForm():this.rendAddNewButton()}
                     </div>
                 </div>
             </div>
@@ -144,11 +140,19 @@ class UserCollectionsPopover extends Component {
                     <h3 className="popover--header--title">Nice work!</h3>
                 </div>
                 <div className="popover--message collections-popover--message">{"“" + title + "” has been added to your collection“"}
-                    <a>{collection}</a>”
+                    <a onClick={this.onFolderItemClick.bind(this)}>{collection}</a>”
                 </div>
             </div>
         )
     }
+
+    onFolderItemClick() {
+        //const folder = this.props.folder;
+        //const currentPathName = this.props.router.location.pathname;
+        //const path = currentPathName + "/" + folder._id + "/" + folder.name;
+        //this.props.router.push({pathname: path});
+    }
+
 
     onLoginButtonClick(event) {
         event.preventDefault();
@@ -171,7 +175,7 @@ class UserCollectionsPopover extends Component {
             name: this.state.value,
             lastPost: postId
         };
-        this.context.actions.call('folders.new', folder, () => {
+        this.context.actions.call('folders.new', folder, (newFolder) => {
             self.setState({showResult: true});
         });
     }
@@ -210,5 +214,5 @@ UserCollectionsPopover.contextTypes = {
     messages: React.PropTypes.object
 };
 
-module.exports = UserCollectionsPopover;
-export default UserCollectionsPopover;
+module.exports = withRouter(UserCollectionsPopover);
+export default withRouter(UserCollectionsPopover);
