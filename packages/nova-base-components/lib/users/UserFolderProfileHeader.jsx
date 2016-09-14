@@ -27,8 +27,9 @@ class UserFolderProfileHeader extends Component {
         });
     }
 
-    onChangedFolderName(value) {
-        this.setState({folderNameValue: value})
+    onChangedFolderName(e) {
+        const input = e.target.value;
+        this.setState({folderNameValue: input})
     }
 
     onKeyDownForFolderNameInput(e) {
@@ -46,8 +47,9 @@ class UserFolderProfileHeader extends Component {
         }
     }
 
-    onChangedFolderDescriptionName(value) {
-        this.setState({folderDescriptionValue: value})
+    onChangedFolderDescriptionName(e) {
+        const input = e.target.value;
+        this.setState({folderDescriptionValue: input})
     }
 
     onKeyDownForFolderDescriptionInput(e) {
