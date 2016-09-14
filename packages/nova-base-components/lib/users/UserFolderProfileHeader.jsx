@@ -3,6 +3,13 @@ import React, {PropTypes, Component} from 'react';
 import {DocumentContainer} from "meteor/utilities:react-list-container";
 import Users from 'meteor/nova:users';
 
+const keyCodes = {
+    ENTER: 13,
+    ESCAPE: 27,
+    UP: 38,
+    DOWN: 40
+};
+
 class UserFolderProfileHeader extends Component {
 
     constructor(props) {
