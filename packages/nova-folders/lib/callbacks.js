@@ -94,3 +94,17 @@ function FoldersNewOperations(folder) {
     return folder;
 }
 Telescope.callbacks.add("folders.new.async", FoldersNewOperations);
+
+function FoldersRemoveOperations(folder) {
+
+    var userId = folder.userId;
+    var folderId = folder._id;
+
+    // increment folder count
+    Meteor.users.update({_id: userId}, {
+        $inc: {'telescope.folderCount': -1}
+    });
+
+    return folder;
+}
+Telescope.callbacks.add("folders.remove.async", FoldersRemoveOperations);

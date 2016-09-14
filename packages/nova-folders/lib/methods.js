@@ -104,7 +104,7 @@ Meteor.methods({
         // delete folder
         Folders.remove(folderId);
 
-        Telescope.callbacks.runAsync("posts.remove.async", folder);
+        Telescope.callbacks.runAsync("folders.remove.async", folder);
 
     },
 
