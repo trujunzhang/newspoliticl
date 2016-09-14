@@ -51,8 +51,7 @@ Meteor.methods({
             folder.userAgent = this.connection.httpHeaders["user-agent"];
         }
 
-        folder.posts = [];
-        folder.posts.push(folder.lastPost);
+        folder.posts = [folder.lastPost];
 
         return Folders.methods.new(folder);
     },
