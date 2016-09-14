@@ -8,6 +8,7 @@ class UserCollections {
         this.userCollectionsPopover = comp;
         this.userCollectionsPopover.state = this.initialState = {
             addNewItem: false,
+            newFolder: null,
             showResult: false,
             value: ''
         };
@@ -18,6 +19,7 @@ class UserCollections {
         if (this.userCollectionsPopover) {
             this.userCollectionsPopover.setState({
                 addNewItem: false,
+                newFolder: null,
                 showResult: false,
                 value: ''
             });

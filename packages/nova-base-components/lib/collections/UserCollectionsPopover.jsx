@@ -146,7 +146,7 @@ class UserCollectionsPopover extends Component {
 
     renderSuccessfully() {
         const title = this.context.messages.userCollections.savedPost.title;
-        const collection = this.state.value;
+        const newFolder = this.state.newFolder;
 
         return (
           <div>
@@ -155,17 +155,17 @@ class UserCollectionsPopover extends Component {
               </div>
               <div
                 className="popover--message collections-popover--message">{"“" + title + "” has been added to your collection“"}
-                  <a onClick={this.onFolderItemClick.bind(this)}>{collection}</a>”
+                  <a onClick={this.onFolderItemClick.bind(this)}>{newFolder.name}</a>”
               </div>
           </div>
         )
     }
 
     onFolderItemClick() {
-        //const folder = this.props.folder;
-        //const currentPathName = this.props.router.location.pathname;
-        //const path = currentPathName + "/" + folder._id + "/" + folder.name;
-        //this.props.router.push({pathname: path});
+        const newFolder = this.state.newFolder;
+        const currentPathName = this.props.router.location.pathname;
+        const path = currentPathName + "/" + newFolder._id + "/" + newFolder.name;
+        this.props.router.push({pathname: path});
     }
 
     onLoginButtonClick(event) {
@@ -190,7 +190,9 @@ class UserCollectionsPopover extends Component {
             lastPost: postId
         };
         this.context.actions.call('folders.new', folder, (error, result) => {
-            self.setState({showResult: true});
+            if (!error) {
+                self.setState({showResult: true, newFolder: result});
+            }
         });
     }
 
