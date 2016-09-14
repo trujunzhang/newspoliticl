@@ -11,6 +11,8 @@ class UserFolderProfileHeader extends Component {
         this.state = this.initialState = {
             isEditingFolderName: false,
             isEditingFolderDescription: false,
+            folderNameValue: '',
+            folderDescriptionValue: '',
         };
     }
 
@@ -25,17 +27,28 @@ class UserFolderProfileHeader extends Component {
         });
     }
 
+    onChangedFolderName(value) {
+        this.setState({folderNameValue: value})
+    }
+
+    onChangedFolderDescriptionName(value) {
+        this.setState({folderDescriptionValue: value})
+    }
+
     renderFolderName() {
+        const folder = this.props.folder;
+
         if (this.state.isEditingFolderName) {
             return (
-              <input type="text" maxlength="80" name="name" value="my favorite"/>
+              <input type="text" maxlength="80" name="name" value={this.state.folderNameValue}
+                     onChange={this.onChangedFolderName.bind(this)}/>
             )
         }
 
         return (
           <span>{folder.name}
               <span className="editable-text--button" onClick={()=> {
-                  this.setState({isEditingFolderName: true})
+                  this.setState({isEditingFolderName: true, folderNameValue: folder.name})
               }}>
                                 <svg width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
                                     <g fill="#B5B5B5" fill-rule="evenodd">
@@ -51,9 +64,13 @@ class UserFolderProfileHeader extends Component {
     }
 
     renderFolderDescription() {
+        const folder = this.props.folder;
+        const editedDescription = folder.description ? folder.description : "";
+
         if (this.state.isEditingFolderDescription) {
             return (
-              <input type="text" maxlength="255" name="title"/>
+              <input type="text" maxlength="255" name="title" value={this.state.folderDescriptionValue}
+                     onChange={this.onChangedFolderDescriptionName.bind(this)}/>
             )
         }
 
@@ -61,7 +78,7 @@ class UserFolderProfileHeader extends Component {
           <span>{folder.description ? folder.description : "Describe the collection briefly"}
               <span className="editable-text--button"
                     onClick={()=> {
-                        this.setState({isEditingFolderDescription: true})
+                        this.setState({isEditingFolderDescription: true, folderDescriptionValue: editedDescription})
                     }}>
                                 <svg width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
                                     <g fill="#B5B5B5" fill-rule="evenodd">
