@@ -7,7 +7,8 @@ Users.groups.anonymous.can(anonymousActions);
 
 const defaultActions = [
     "folders.view.approved.all",
-    "folders.view.all"
+    "folders.view.all",
+    "folders.insertPost"
 ];
 Users.groups.default.can(defaultActions);
 

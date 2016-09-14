@@ -9,13 +9,11 @@ class CollectionsResult extends Component {
         super(props);
     }
 
-    onCollectedItemClick(event, folder) {
-        event.preventDefault();
-
+    onCollectedItemClick(folder) {
         const self = this;
 
-        const postId = this.context.messages.userCollections.savedPost._id;
-        this.context.actions.call('folders.insert', folder, (newFolder) => {
+        folder.lastPost = this.context.messages.userCollections.savedPost._id;
+        this.context.actions.call('folders.insertPost', folder, (error, result) => {
             //self.setState({showResult: true});
         });
     }

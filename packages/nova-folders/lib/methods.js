@@ -56,6 +56,33 @@ Meteor.methods({
         return Folders.methods.new(folder);
     },
 
+    /**
+     * @summary Meteor method for submitting a folder from the client
+     * NOTE: the current user and the folder author user might sometimes be two different users!
+     * Required properties: title
+     * @memberof Folders
+     * @isMethod true
+     * @param {Object} folder - the folder being inserted
+     */
+    'folders.insertPost': function (folder) {
+
+        var item = Folders.findOne(folder.folderId);
+
+        folder = Telescope.callbacks.run("folders.insertPost.method", folder, Meteor.user());
+
+        update = {
+            $addToSet: {posts: folder.lastPost},
+        };
+
+        var result = Folders.update({_id: item._id}, update);
+
+        if (result > 0) {
+            // --------------------- Server-Side Async Callbacks --------------------- //
+
+            return true;
+        }
+    },
+
     //"folders.deleteById": function (folderId) {
     //
     //    check(folderId, String);
