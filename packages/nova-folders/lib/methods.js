@@ -108,30 +108,33 @@ Meteor.methods({
 
     },
 
+    /**
+     * @summary Meteor method for deleting a post
+     * @memberof Posts
+     * @isMethod true
+     * @param {String} folderId - the id of the post
+     */
+    'folders.editFolderName': function(folderId) {
 
-    //"folders.deleteById": function (folderId) {
-    //
-    //    check(folderId, String);
-    //
-    //    const currentUser = this.userId && Users.findOne(this.userId);
-    //
-    //    if (Users.canDo(currentUser, "folders.remove.all")) {
-    //
-    //        // delete folder
-    //        Folders.remove(folderId);
-    //
-    //        // find any direct children of this folder and make them root folders
-    //        //Folders.find({parentId: folderId}).forEach(function (folder) {
-    //        //  Folders.update(folder._id, {$unset: {parentId: ""}});
-    //        //});
-    //
-    //        // find any folders with this folder and remove it
-    //        var foldersUpdated = Folders.update({folders: {$in: [folderId]}}, {$pull: {folders: folderId}}, {multi: true});
-    //
-    //        return foldersUpdated;
-    //
-    //    }
-    //}
+        check(folderId, String);
+
+        // remove folder comments
+        // if(!this.isSimulation) {
+        //   Comments.remove({folder: folderId});
+        // }
+        // NOTE: actually, keep comments after all
+
+        var folder = Folders.findOne({_id: folderId});
+
+        // delete folder
+        Folders.remove(folderId);
+
+        Telescope.callbacks.runAsync("folders.remove.async", folder);
+
+    },
+
+
+
 });
 
 //Folders.smartMethods({
