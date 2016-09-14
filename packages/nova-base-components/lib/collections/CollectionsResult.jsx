@@ -10,8 +10,6 @@ class CollectionsResult extends Component {
     }
 
     onCollectedItemClick(folder) {
-        const self = this;
-
         const userCollections = this.context.messages.userCollections;
         folder.lastPost = userCollections.savedPost._id;
         this.context.actions.call('folders.insertPost', folder, (error, result) => {
