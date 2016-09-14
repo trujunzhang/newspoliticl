@@ -102,7 +102,8 @@ function FoldersRemoveOperations(folder) {
 
     // increment folder count
     Meteor.users.update({_id: userId}, {
-        $inc: {'telescope.folderCount': -1}
+        $inc: {'telescope.folderCount': -1},
+        $pull: {'telescope.folders': folderId}
     });
 
     return folder;
