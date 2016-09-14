@@ -1,3 +1,3 @@
 import Telescope from 'meteor/nova:lib';
 
-Telescope.subscriptions.preload("tags");
+Telescope.subscriptions.preload("postmetas");

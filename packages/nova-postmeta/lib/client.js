@@ -1,3 +1,3 @@
-import Tags from './modules.js';
+import PostMetas from './modules.js';
 
-export default Tags;
+export default PostMetas;

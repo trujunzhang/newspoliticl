@@ -1,6 +1,6 @@
 {
-  "tags" : "Kategori",
-  "add_and_remove_tags" : "Menambah dan menghapus kategori.",
-  "all_tags" : "Semua",
-  "invalid_tag" : "Maaf, ini bukan kategori valid"
+  "postmetas" : "Kategori",
+  "add_and_remove_postmetas" : "Menambah dan menghapus kategori.",
+  "all_postmetas" : "Semua",
+  "invalid_postmeta" : "Maaf, ini bukan kategori valid"
 }

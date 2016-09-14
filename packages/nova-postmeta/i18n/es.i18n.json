@@ -1,6 +1,6 @@
 {
-  "tags" : "Categorías",
-  "add_and_remove_tags" : "Agregar y eliminar categorías",
-  "all_tags" : "Todos",
-  "invalid_tag" : "Lo sentimos, esa no es una categoría válida"
+  "postmetas" : "Categorías",
+  "add_and_remove_postmetas" : "Agregar y eliminar categorías",
+  "all_postmetas" : "Todos",
+  "invalid_postmeta" : "Lo sentimos, esa no es una categoría válida"
 }

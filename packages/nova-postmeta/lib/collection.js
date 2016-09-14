@@ -1,3 +1,3 @@
-const Tags = new Mongo.Collection("tags");
+const PostMetas = new Mongo.Collection("postmetas");
 
-export default Tags;
+export default PostMetas;

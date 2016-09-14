@@ -1,10 +1,10 @@
 {
-  "tags" : "Tags",
-  "add_and_remove_tags" : "Add and remove tags.",
-  "all_tags" : "All",
-  "invalid_tag" : "Sorry, this is not a valid tag",
-  "tagsBehavior" : "Tags Behavior",
-  "tags_behavior_one_at_a_time" : "Select one tag at a time",
-  "tags_behavior_multiple" : "Combine multiple tags",
-  "hideEmptyTags" : "Hide empty tags"
+  "postmetas" : "PostMetas",
+  "add_and_remove_postmetas" : "Add and remove postmetas.",
+  "all_postmetas" : "All",
+  "invalid_postmeta" : "Sorry, this is not a valid postmeta",
+  "postmetasBehavior" : "PostMetas Behavior",
+  "postmetas_behavior_one_at_a_time" : "Select one postmeta at a time",
+  "postmetas_behavior_multiple" : "Combine multiple postmetas",
+  "hideEmptyPostMetas" : "Hide empty postmetas"
 }

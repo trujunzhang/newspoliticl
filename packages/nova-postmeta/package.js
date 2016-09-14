@@ -1,8 +1,8 @@
 Package.describe({
-  name: "nova:tags",
-  summary: "Telescope tags package",
+  name: "nova:postmetas",
+  summary: "Telescope postmetas package",
   version: "0.27.0-nova",
-  git: "https://github.com/TelescopeJS/telescope-tags.git"
+  git: "https://github.com/TelescopeJS/telescope-postmetas.git"
 });
 
 Package.onUse(function (api) {

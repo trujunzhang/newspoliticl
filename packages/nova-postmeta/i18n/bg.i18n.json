@@ -1,10 +1,10 @@
 {
-  "tags" : "Категории",
-  "add_and_remove_tags" : "Добавяне и изтриване на категории.",
-  "all_tags" : "Всички",
-  "invalid_tag" : "Невалидна категория",
-  "tagsBehavior" : "Позволи на потребителя да филтрира по:",
-  "tags_behavior_one_at_a_time" : "само една категория наведнъж",
-  "tags_behavior_multiple" : "няколко категории наведнъж",
-  "hideEmptyTags" : "Скривай празните категории"
+  "postmetas" : "Категории",
+  "add_and_remove_postmetas" : "Добавяне и изтриване на категории.",
+  "all_postmetas" : "Всички",
+  "invalid_postmeta" : "Невалидна категория",
+  "postmetasBehavior" : "Позволи на потребителя да филтрира по:",
+  "postmetas_behavior_one_at_a_time" : "само една категория наведнъж",
+  "postmetas_behavior_multiple" : "няколко категории наведнъж",
+  "hideEmptyPostMetas" : "Скривай празните категории"
 }

@@ -1,54 +1,54 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
-import Tags from "./collection.js";
+import PostMetas from "./collection.js";
 
 // generate slug on insert
-Tags.before.insert(function (userId, doc) {
+PostMetas.before.insert(function (userId, doc) {
   // if no slug has been provided, generate one
   var slug = !!doc.slug ? doc.slug : Telescope.utils.slugify(doc.name);
-  doc.slug = Telescope.utils.getUnusedSlug(Tags, slug);
+  doc.slug = Telescope.utils.getUnusedSlug(PostMetas, slug);
 });
 
 // generate slug on edit, if it has changed
-Tags.before.update(function (userId, doc, fieldNames, modifier) {
+PostMetas.before.update(function (userId, doc, fieldNames, modifier) {
   if (modifier.$set && modifier.$set.slug && modifier.$set.slug !== doc.slug) {
-    modifier.$set.slug = Telescope.utils.getUnusedSlug(Tags, modifier.$set.slug);
+    modifier.$set.slug = Telescope.utils.getUnusedSlug(PostMetas, modifier.$set.slug);
   }
 });
 
-// add callback that adds tags CSS classes
-function addTagClass (postClass, post) {
-  var classArray = _.map(Posts.getTags(post), function (tag){return "tag-"+tag.slug;});
+// add callback that adds postmetas CSS classes
+function addPostMetaClass (postClass, post) {
+  var classArray = _.map(Posts.getPostMetas(post), function (postmeta){return "postmeta-"+postmeta.slug;});
   return postClass + " " + classArray.join(' ');
 }
-Telescope.callbacks.add("postClass", addTagClass);
+Telescope.callbacks.add("postClass", addPostMetaClass);
 
-// ------- Tags Check -------- //
+// ------- PostMetas Check -------- //
 
-// make sure all tags in the post.tags array exist in the db
-var checkTags = function (post) {
+// make sure all postmetas in the post.postmetas array exist in the db
+var checkPostMetas = function (post) {
 
-  // if there are no tags, stop here
-  if (!post.tags || post.tags.length === 0) {
+  // if there are no postmetas, stop here
+  if (!post.postmetas || post.postmetas.length === 0) {
     return;
   }
 
-  // check how many of the tags given also exist in the db
-  var tagCount = Tags.find({_id: {$in: post.tags}}).count();
+  // check how many of the postmetas given also exist in the db
+  var postmetaCount = PostMetas.find({_id: {$in: post.postmetas}}).count();
 
-  if (post.tags.length !== tagCount) {
-    throw new Meteor.Error('invalid_tag', 'invalid_tag');
+  if (post.postmetas.length !== postmetaCount) {
+    throw new Meteor.Error('invalid_postmeta', 'invalid_postmeta');
   }
 };
 
-function postsNewCheckTags (post) {
-  checkTags(post);
+function postsNewCheckPostMetas (post) {
+  checkPostMetas(post);
   return post;
 }
-Telescope.callbacks.add("posts.new.sync", postsNewCheckTags);
+Telescope.callbacks.add("posts.new.sync", postsNewCheckPostMetas);
 
-function postEditCheckTags (post) {
-  checkTags(post);
+function postEditCheckPostMetas (post) {
+  checkPostMetas(post);
   return post;
 }
-Telescope.callbacks.add("posts.edit.sync", postEditCheckTags);
+Telescope.callbacks.add("posts.edit.sync", postEditCheckPostMetas);

@@ -1,13 +1,13 @@
-import Tags from './collection.js'
+import PostMetas from './collection.js'
 import PublicationsUtils from 'meteor/utilities:smart-publications';
 
-Tags.publishedFields = {};
+PostMetas.publishedFields = {};
 
 /**
- * @summary Specify which fields should be published by the tags publication
- * @array Tags.publishedFields.list
+ * @summary Specify which fields should be published by the postmetas publication
+ * @array PostMetas.publishedFields.list
  */
-Tags.publishedFields.list = PublicationsUtils.arrayToFields([
+PostMetas.publishedFields.list = PublicationsUtils.arrayToFields([
   "name",
   "description",
   "order",

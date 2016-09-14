@@ -1,12 +1,12 @@
 import Telescope from 'meteor/nova:lib';
-import Tags from "./collection.js";
+import PostMetas from "./collection.js";
 import Users from 'meteor/nova:users';
 
-const canInsert = user => Users.canDo(user, "tags.new");
-const canEdit = user => Users.canDo(user, "tags.edit.all");
+const canInsert = user => Users.canDo(user, "postmetas.new");
+const canEdit = user => Users.canDo(user, "postmetas.edit.all");
 
-// tag schema
-Tags.schema = new SimpleSchema({
+// postmeta schema
+PostMetas.schema = new SimpleSchema({
   name: {
     type: String,
     insertableIf: canInsert,
@@ -52,51 +52,51 @@ Tags.schema = new SimpleSchema({
     publish: true,
     autoform: {
       options: function () {
-        var tags = Tags.find().map(function (tag) {
+        var postmetas = PostMetas.find().map(function (postmeta) {
           return {
-            value: tag._id,
-            label: tag.name
+            value: postmeta._id,
+            label: postmeta.name
           };
         });
-        return tags;
+        return postmetas;
       }
     }
   }
 });
 
 // Meteor.startup(function(){
-//   Tags.internationalize();
+//   PostMetas.internationalize();
 // });
 
-Tags.attachSchema(Tags.schema);
+PostMetas.attachSchema(PostMetas.schema);
 
 
 Telescope.settings.collection.addField([
   {
-    fieldName: 'tagsBehavior',
+    fieldName: 'postmetasBehavior',
     fieldSchema: {
       type: String,
       optional: true,
       autoform: {
-        group: 'tags',
-        instructions: 'Let users filter by one or multiple tags at a time.',
+        group: 'postmetas',
+        instructions: 'Let users filter by one or multiple postmetas at a time.',
         options: function () {
           return [
-            {value: "single", label: "tags_behavior_one_at_a_time"},
-            {value: "multiple", label: "tags_behavior_multiple"}
+            {value: "single", label: "postmetas_behavior_one_at_a_time"},
+            {value: "multiple", label: "postmetas_behavior_multiple"}
           ];
         }
       }
     }
   },
   {
-    fieldName: 'hideEmptyTags',
+    fieldName: 'hideEmptyPostMetas',
     fieldSchema: {
       type: Boolean,
       optional: true,
       autoform: {
-        group: 'tags',
-        instructions: 'Hide empty tags in navigation'
+        group: 'postmetas',
+        instructions: 'Hide empty postmetas in navigation'
       }
     }
   }

@@ -1,7 +1,7 @@
 import PublicationUtils from 'meteor/utilities:smart-publications';
 import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
-import Tags from "./collection.js";
+import PostMetas from "./collection.js";
 
 // check if user can create a new post
 const canInsert = user => Users.canDo(user, "posts.new");
@@ -10,7 +10,7 @@ const canEdit = Users.canEdit;
 
 Posts.addField(
   {
-    fieldName: 'tags',
+    fieldName: 'postmetas',
     fieldSchema: {
       type: [String],
       control: "checkboxgroup",
@@ -19,25 +19,25 @@ Posts.addField(
       editableIf: canEdit,
       autoform: {
         noselect: true,
-        type: "bootstrap-tag",
+        type: "bootstrap-postmeta",
         order: 50,
         options: function () {
-          var tags = Tags.find().map(function (tag) {
+          var postmetas = PostMetas.find().map(function (postmeta) {
             return {
-              value: tag._id,
-              label: tag.name
+              value: postmeta._id,
+              label: postmeta.name
             };
           });
-          return tags;
+          return postmetas;
         }
       },
       publish: true,
       join: {
-        joinAs: "tagsArray",
-        collection: () => Tags
+        joinAs: "postmetasArray",
+        collection: () => PostMetas
       }
     }
   }
 );
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["tags"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["postmetas"]);

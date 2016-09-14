@@ -1,1 +1,1 @@
-Telescope tags package, used internally. 
+Telescope postmetas package, used internally. 

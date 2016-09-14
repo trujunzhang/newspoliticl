@@ -1,26 +1,26 @@
 import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
-import Tags from "./collection.js";
+import PostMetas from "./collection.js";
 
 Meteor.methods({
-  "tags.deleteById": function (tagId) {
+  "postmetas.deleteById": function (postmetaId) {
     
-    check(tagId, String);
+    check(postmetaId, String);
     
     const currentUser = this.userId && Users.findOne(this.userId);
 
-    if (Users.canDo(currentUser, "tags.remove.all")) {
+    if (Users.canDo(currentUser, "postmetas.remove.all")) {
 
-      // delete tag
-      Tags.remove(tagId);
+      // delete postmeta
+      PostMetas.remove(postmetaId);
 
-      // find any direct children of this tag and make them root tags
-      Tags.find({parentId: tagId}).forEach(function (tag) {
-        Tags.update(tag._id, {$unset: {parentId: ""}});
+      // find any direct children of this postmeta and make them root postmetas
+      PostMetas.find({parentId: postmetaId}).forEach(function (postmeta) {
+        PostMetas.update(postmeta._id, {$unset: {parentId: ""}});
       });
 
-      // find any posts with this tag and remove it
-      var postsUpdated = Posts.update({tags: {$in: [tagId]}}, {$pull: {tags: tagId}}, {multi: true});
+      // find any posts with this postmeta and remove it
+      var postsUpdated = Posts.update({postmetas: {$in: [postmetaId]}}, {$pull: {postmetas: postmetaId}}, {multi: true});
 
       return postsUpdated;
 
@@ -28,7 +28,7 @@ Meteor.methods({
   }
 });
 
-Tags.smartMethods({
-  createName: "tags.new",
-  editName: "tags.edit"
+PostMetas.smartMethods({
+  createName: "postmetas.new",
+  editName: "postmetas.edit"
 });

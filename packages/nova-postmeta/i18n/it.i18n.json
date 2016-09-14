@@ -1,6 +1,6 @@
 {
-  "tags" : "Categorie",
-  "add_and_remove_tags" : "Aggiungi e rimuovi categorie.",
-  "all_tags" : "Tutti",
-  "invalid_tag" : "Ci spiace, questa non è una categoria valida"
+  "postmetas" : "Categorie",
+  "add_and_remove_postmetas" : "Aggiungi e rimuovi categorie.",
+  "all_postmetas" : "Tutti",
+  "invalid_postmeta" : "Ci spiace, questa non è una categoria valida"
 }

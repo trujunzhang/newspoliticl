@@ -1,74 +1,74 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
-import Tags from "./collection.js";
+import PostMetas from "./collection.js";
 
-Tags.helpers({getCollection: () => Tags});
-Tags.helpers({getCollectionName: () => "tags"});
+PostMetas.helpers({getCollection: () => PostMetas});
+PostMetas.helpers({getCollectionName: () => "postmetas"});
 
 /**
- * @summary Get all of a tag's parents
- * @param {Object} tag
+ * @summary Get all of a postmeta's parents
+ * @param {Object} postmeta
  */
-Tags.getParents = function (tag) {
-  var tagsArray = [];
+PostMetas.getParents = function (postmeta) {
+  var postmetasArray = [];
 
-  var getParents = function recurse (tag) {
+  var getParents = function recurse (postmeta) {
     var parent;
-    if (parent = Tags.findOne(tag.parentId)) {
-      tagsArray.push(parent);
+    if (parent = PostMetas.findOne(postmeta.parentId)) {
+      postmetasArray.push(parent);
       recurse(parent);
     }
-  }(tag);
+  }(postmeta);
 
-  return tagsArray;
+  return postmetasArray;
 };
-Tags.helpers({getParents: function () {return Tags.getParents(this);}});
+PostMetas.helpers({getParents: function () {return PostMetas.getParents(this);}});
 
 /**
- * @summary Get all of a tag's children
- * @param {Object} tag
+ * @summary Get all of a postmeta's children
+ * @param {Object} postmeta
  */
-Tags.getChildren = function (tag) {
-  var tagsArray = [];
+PostMetas.getChildren = function (postmeta) {
+  var postmetasArray = [];
 
-  var getChildren = function recurse (tags) {
-    var children = Tags.find({parentId: {$in: _.pluck(tags, "_id")}}).fetch()
+  var getChildren = function recurse (postmetas) {
+    var children = PostMetas.find({parentId: {$in: _.pluck(postmetas, "_id")}}).fetch()
     if (children.length > 0) {
-      tagsArray = tagsArray.concat(children);
+      postmetasArray = postmetasArray.concat(children);
       recurse(children);
     }
-  }([tag]);
+  }([postmeta]);
 
-  return tagsArray;
+  return postmetasArray;
 };
-Tags.helpers({getChildren: function () {return Tags.getChildren(this);}});
+PostMetas.helpers({getChildren: function () {return PostMetas.getChildren(this);}});
 
 /**
- * @summary Get all of a post's tags
+ * @summary Get all of a post's postmetas
  * @param {Object} post
  */
-Posts.getTags = function (post) {
-  return !!post.tags ? Tags.find({_id: {$in: post.tags}}).fetch() : [];
+Posts.getPostMetas = function (post) {
+  return !!post.postmetas ? PostMetas.find({_id: {$in: post.postmetas}}).fetch() : [];
 };
-Posts.helpers({getTags: function () {return Posts.getTags(this);}});
+Posts.helpers({getPostMetas: function () {return Posts.getPostMetas(this);}});
 
 /**
- * @summary Get a tag's URL
- * @param {Object} tag
+ * @summary Get a postmeta's URL
+ * @param {Object} postmeta
  */
-Tags.getUrl = function (tag, isAbsolute) {
+PostMetas.getUrl = function (postmeta, isAbsolute) {
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
-  // return prefix + FlowRouter.path("postsTag", tag);
-  return `${prefix}/?tag=${tag.slug}`;
+  // return prefix + FlowRouter.path("postsPostMeta", postmeta);
+  return `${prefix}/?postmeta=${postmeta.slug}`;
 };
-Tags.helpers({getUrl: function () {return Tags.getUrl(this);}});
+PostMetas.helpers({getUrl: function () {return PostMetas.getUrl(this);}});
 
 /**
- * @summary Get a tag's counter name
- * @param {Object} tag
+ * @summary Get a postmeta's counter name
+ * @param {Object} postmeta
  */
- Tags.getCounterName = function (tag) {
-  return tag._id + "-postsCount";
+ PostMetas.getCounterName = function (postmeta) {
+  return postmeta._id + "-postsCount";
  }
- Tags.helpers({getCounterName: function () {return Tags.getCounterName(this);}});
+ PostMetas.helpers({getCounterName: function () {return PostMetas.getCounterName(this);}});

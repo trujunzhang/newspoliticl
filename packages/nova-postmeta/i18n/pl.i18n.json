@@ -1,4 +1,4 @@
 {
-  "tags" : "Kategorie",
-  "add_and_remove_tags" : "Dodaj/Usuń kategorie."
+  "postmetas" : "Kategorie",
+  "add_and_remove_postmetas" : "Dodaj/Usuń kategorie."
 }

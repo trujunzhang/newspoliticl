@@ -1,35 +1,35 @@
 import Telescope from 'meteor/nova:lib';
-import Tags from "./collection.js";
+import PostMetas from "./collection.js";
 
-// Tag Parameter
-// Add a "tags" property to terms which can be used to filter *all* existing Posts views.
-function addTagParameter (parameters, terms) {
+// PostMeta Parameter
+// Add a "postmetas" property to terms which can be used to filter *all* existing Posts views.
+function addPostMetaParameter (parameters, terms) {
 
-  var tag = terms.tag || terms["tag[]"];
+  var postmeta = terms.postmeta || terms["postmeta[]"];
 
-  // filter by tag if tag slugs are provided
-  if (tag) {
+  // filter by postmeta if postmeta slugs are provided
+  if (postmeta) {
 
-    var tagsIds = [];
+    var postmetasIds = [];
     var selector = {};
 
-    if (typeof tag === "string") { // tag is a string
-      selector = {slug: tag};
-    } else if (Array.isArray(tag)) { // tag is an array
-      selector = {slug: {$in: tag}};
+    if (typeof postmeta === "string") { // postmeta is a string
+      selector = {slug: postmeta};
+    } else if (Array.isArray(postmeta)) { // postmeta is an array
+      selector = {slug: {$in: postmeta}};
     }
 
-    // get all tags passed in terms
-    var tags = Tags.find(selector).fetch();
+    // get all postmetas passed in terms
+    var postmetas = PostMetas.find(selector).fetch();
     
-    // for each tag, add its ID and the IDs of its children to tagsId array
-    tags.forEach(function (tag) {
-      tagsIds.push(tag._id);
-      tagsIds = tagsIds.concat(_.pluck(Tags.getChildren(tag), "_id"));
+    // for each postmeta, add its ID and the IDs of its children to postmetasId array
+    postmetas.forEach(function (postmeta) {
+      postmetasIds.push(postmeta._id);
+      postmetasIds = postmetasIds.concat(_.pluck(PostMetas.getChildren(postmeta), "_id"));
     });
 
-    parameters.selector.tags = {$in: tagsIds};
+    parameters.selector.postmetas = {$in: postmetasIds};
   }
   return parameters;
 }
-Telescope.callbacks.add("postsParameters", addTagParameter);
+Telescope.callbacks.add("postsParameters", addPostMetaParameter);
