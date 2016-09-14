@@ -162,11 +162,8 @@ class UserCollectionsPopover extends Component {
     }
 
     onFolderItemClick() {
-        const user = this.context.currentUser;
-        const userName = Users.getDisplayName(user);
-
+        const userName = Users.getDisplayName(this.context.currentUser);
         const newFolder = this.state.newFolder;
-        const currentPathName = this.props.router.location.pathname;
         const path = "/users/" + userName + "/collections/" + newFolder._id + "/" + newFolder.name;
         this.props.router.push({pathname: path});
     }
