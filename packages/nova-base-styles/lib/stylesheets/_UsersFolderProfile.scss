@@ -137,11 +137,11 @@
   position: relative
 }
 
-.collection-detail--header .collection-detail--header--background-uploader--delete,.collection-detail--header .collection-detail--header--delete-button,.collection-detail--header .collection-detail--header--heading svg,.collection-detail--header .collection-detail--header--background-uploader--upload {
+.collection-detail--header .collection-detail--header--background-uploader--delete, .collection-detail--header .collection-detail--header--delete-button, .collection-detail--header .collection-detail--header--heading svg, .collection-detail--header .collection-detail--header--background-uploader--upload {
   visibility: hidden
 }
 
-.collection-detail--header:hover .collection-detail--header--background-uploader--delete,.collection-detail--header:hover .collection-detail--header--delete-button,.collection-detail--header:hover .collection-detail--header--heading svg,.collection-detail--header:hover .collection-detail--header--background-uploader--upload {
+.collection-detail--header:hover .collection-detail--header--background-uploader--delete, .collection-detail--header:hover .collection-detail--header--delete-button, .collection-detail--header:hover .collection-detail--header--heading svg, .collection-detail--header:hover .collection-detail--header--background-uploader--upload {
   visibility: visible
 }
 
@@ -190,31 +190,31 @@
 
 @media (max-width: 768px) {
   .collection-detail--header--heading h1 {
-    font-size:30px
+    font-size: 30px
   }
 }
 
 .collection-detail--header--heading h2 {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
   margin: 0
 }
 
-.collection-detail--header--heading h1 svg,.collection-detail--header--heading h2 svg {
+.collection-detail--header--heading h1 svg, .collection-detail--header--heading h2 svg {
   cursor: pointer
 }
 
-.collection-detail--header--heading h1 svg path,.collection-detail--header--heading h2 svg path {
+.collection-detail--header--heading h1 svg path, .collection-detail--header--heading h2 svg path {
   fill: #b5b5b5
 }
 
-.collection-detail--header--heading h1 svg:hover path,.collection-detail--header--heading h2 svg:hover path {
+.collection-detail--header--heading h1 svg:hover path, .collection-detail--header--heading h2 svg:hover path {
   fill: white
 }
 
-.collection-detail--header--heading h1 input,.collection-detail--header--heading h2 input {
+.collection-detail--header--heading h1 input, .collection-detail--header--heading h2 input {
   background-color: transparent;
   text-align: center;
   outline: none;
@@ -258,7 +258,7 @@
 }
 
 .collection-detail--header--heading .collection-detail--header--curator a {
-  color: rgba(255,255,255,0.5)
+  color: rgba(255, 255, 255, 0.5)
 }
 
 .collection-detail--header--heading .collection-detail--header--curator a:hover {
@@ -354,4 +354,9 @@
 
 .collection-detail--backlink svg {
   margin-right: 5px
+}
+
+// Edit button in the header section
+.editable-text--button {
+  margin-left: 6px;
 }
