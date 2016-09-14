@@ -5,6 +5,17 @@ import Users from 'meteor/nova:users';
 
 class UserFolderProfileHeader extends Component {
 
+    onDeleteFolderClick(event){
+        const folder = this.props.folder;
+        const callBack = this.props.callBack;
+
+        this.context.actions.call('folders.insertPost', folder, (error, result) => {
+            if (!error) {
+                callBack();
+            }
+        });
+    }
+
     render() {
         const user = this.props.user;
         const folder = this.props.folder;
@@ -44,7 +55,7 @@ class UserFolderProfileHeader extends Component {
                             by {userName}
                         </a>
                     </div>
-                    <a className="collection-detail--header--delete-button">
+                    <a className="collection-detail--header--delete-button" onClick={this.onDeleteFolderClick.bind(this)}>
                         <span>
                             <svg width="11px" height="15px" viewBox="0 0 11 15">
                                 <g id="Flow" stroke="none" stroke-width="1" fill="none">

@@ -9,6 +9,12 @@ import {withRouter} from 'react-router'
 import Folders from "meteor/nova:folders";
 
 class UsersFolderProfile extends Component {
+    onBackToCollectionClick() {
+        const userName = Users.getDisplayName(this.props.currentUser);
+        const path = "/users/" + userName + "/collections";
+        this.props.router.push({pathname: path});
+    }
+
     render() {
         const currentUser = this.props.currentUser;
         const folder = this.props.document;
@@ -17,11 +23,14 @@ class UsersFolderProfile extends Component {
         return (
           <div className="collection-detail">
               {/*header section*/}
-              <Telescope.components.UserFolderProfileHeader user={currentUser} folder={folder}/>
+              <Telescope.components.UserFolderProfileHeader user={currentUser}
+                                                            folder={folder}
+                                                            callBack={this.onBackToCollectionClick.bind(this)}/>
               <div className="container">
                   <div className="constraintWidth_ZyYbM">
                       {/*back button section*/}
-                      <Telescope.components.UserFolderProfileBackButtonSection user={currentUser}/>
+                      <Telescope.components.UserFolderProfileBackButtonSection user={currentUser}
+                                                                               callBack={this.onBackToCollectionClick.bind(this)}/>
                       <ListContainer
                         collection={Posts}
                         publication="posts.list"

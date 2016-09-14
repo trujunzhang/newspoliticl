@@ -6,17 +6,12 @@ import {withRouter} from 'react-router'
 
 class UserFolderProfileBackButtonSection extends Component {
 
-    onBackToCollectionClick() {
-        this.props.router.goBack();
-    }
-
     render() {
-        const user = this.props.user;
-        const userName = Users.getDisplayName(user);
+        const userName = Users.getDisplayName(this.props.user);
 
         return (
           <div className="collection-detail--action-buttons">
-              <a className="collection-detail--backlink" onClick={this.onBackToCollectionClick.bind(this)}>
+              <a className="collection-detail--backlink" onClick={this.props.callBack}>
                     <span>
                         <svg width="7" height="10" viewBox="0 0 7 10" xmlns="http://www.w3.org/2000/svg">
                             <path
