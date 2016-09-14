@@ -31,6 +31,10 @@ class UserFolderProfileHeader extends Component {
         this.setState({folderNameValue: value})
     }
 
+    onFolderNameInputKeyDown() {
+
+    }
+
     onChangedFolderDescriptionName(value) {
         this.setState({folderDescriptionValue: value})
     }
@@ -41,7 +45,8 @@ class UserFolderProfileHeader extends Component {
         if (this.state.isEditingFolderName) {
             return (
               <input type="text" maxlength="80" name="name" value={this.state.folderNameValue}
-                     onChange={this.onChangedFolderName.bind(this)}/>
+                     onChange={this.onChangedFolderName.bind(this)}
+                     onKeyDown={this.onFolderNameInputKeyDown.bind(this)}/>
             )
         }
 
