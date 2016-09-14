@@ -80,6 +80,7 @@ UserFolderProfileHeader.propTypes = {
 };
 
 UserFolderProfileHeader.contextTypes = {
+    actions: React.PropTypes.object,
     currentUser: React.PropTypes.object,
     messages: React.PropTypes.object
 };
