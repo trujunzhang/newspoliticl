@@ -53,25 +53,6 @@ class UserCollectionsPopover extends Component {
         )
     }
 
-    renderCollectionListBody(folders) {
-        return (
-          <ul className="collections-popover--collections popover--scrollable-list">
-              <li>
-                  <a className="collections-popover--collection popover--scrollable-list--element"
-                     href="https://www.producthunt.com/#">my favorite<span
-                    className="collections-popover--collection--icon v-collect"></span>
-                  </a>
-              </li>
-              <li>
-                  <a className="collections-popover--collection popover--scrollable-list--element"
-                     href="https://www.producthunt.com/#">Save for later
-                      <span className="collections-popover--collection--icon v-collect"></span>
-                  </a>
-              </li>
-          </ul>
-        )
-    }
-
     renderCollectionsPanel() {
         const user = this.context.currentUser;
         const userName = Users.getDisplayName(user);
