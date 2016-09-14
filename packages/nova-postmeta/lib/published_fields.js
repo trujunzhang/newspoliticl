@@ -8,10 +8,7 @@ PostMetas.publishedFields = {};
  * @array PostMetas.publishedFields.list
  */
 PostMetas.publishedFields.list = PublicationsUtils.arrayToFields([
-  "name",
-  "description",
-  "order",
-  "slug",
-  "image",
-  "parentId",
+  "_id",
+  "url",
+  "value"
 ]);

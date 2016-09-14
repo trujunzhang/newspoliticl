@@ -10,34 +10,17 @@ const canEdit = Users.canEdit;
 
 Posts.addField(
   {
-    fieldName: 'postmetas',
-    fieldSchema: {
-      type: [String],
-      control: "checkboxgroup",
-      optional: true,
-      insertableIf: canInsert,
-      editableIf: canEdit,
-      autoform: {
-        noselect: true,
-        type: "bootstrap-postmeta",
-        order: 50,
-        options: function () {
-          var postmetas = PostMetas.find().map(function (postmeta) {
-            return {
-              value: postmeta._id,
-              label: postmeta.name
-            };
-          });
-          return postmetas;
-        }
-      },
-      publish: true,
-      join: {
-        joinAs: "postmetasArray",
-        collection: () => PostMetas
+      fieldName: 'post_meta_id',
+      fieldSchema: {
+          type: String,
+          optional: true,
+          publish: true,
+          join: {
+              joinAs: "image_meta",
+              collection: () => PostMetas
+          }
       }
-    }
   }
 );
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["postmetas"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["post_meta_id"]);
