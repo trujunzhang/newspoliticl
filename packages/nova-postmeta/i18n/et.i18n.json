@@ -1,0 +1,10 @@
+{
+  "tags" : "Kategooriad",
+  "add_and_remove_tags" : "Lisa ja eemalda kategooriaid.",
+  "all_tags" : "Kõik",
+  "invalid_tag" : "Vabandame, see ei ole kehtiv kategooria",
+  "tagsBehavior" : "Kategooriate käitumine",
+  "tags_behavior_one_at_a_time" : "Valige üks kategooria korraga",
+  "tags_behavior_multiple" : "Kombineeri kategooriad",
+  "hideEmptyTags" : "Peida tühjad kategooriad"
+}
