@@ -165,6 +165,7 @@ class UserCollectionsPopover extends Component {
         const newFolder = this.state.newFolder;
         const currentPathName = this.props.router.location.pathname;
         const path = currentPathName + "/" + newFolder._id + "/" + newFolder.name;
+        // TODO: DJZHANG(need userName)
         this.props.router.push({pathname: path});
     }
 
