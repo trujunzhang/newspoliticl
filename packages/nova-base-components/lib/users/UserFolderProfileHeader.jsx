@@ -33,6 +33,7 @@ class UserFolderProfileHeader extends Component {
     }
 
     onKeyDownForFolderNameInput(e) {
+        const self = this;
         const key = e.which || e.keyCode;
         switch (key) {
             case keyCodes.ENTER:
@@ -40,7 +41,7 @@ class UserFolderProfileHeader extends Component {
                 const editedFolder = {_id: folder._id, newName: this.state.folderNameValue};
                 this.context.actions.call('folders.editFolderName', editedFolder, (error, result) => {
                     if (!error) {
-
+                        self.setState({isEditingFolderName: false});
                     }
                 });
                 break;
@@ -53,6 +54,7 @@ class UserFolderProfileHeader extends Component {
     }
 
     onKeyDownForFolderDescriptionInput(e) {
+        const self = this;
         const key = e.which || e.keyCode;
         switch (key) {
             case keyCodes.ENTER:
@@ -60,7 +62,7 @@ class UserFolderProfileHeader extends Component {
                 const editedFolder = {_id: folder._id, newDesctiption: this.state.folderDescriptionValue};
                 this.context.actions.call('folders.editFolderDescription', editedFolder, (error, result) => {
                     if (!error) {
-
+                        self.setState({isEditingFolderDescription: false});
                     }
                 });
                 break;
