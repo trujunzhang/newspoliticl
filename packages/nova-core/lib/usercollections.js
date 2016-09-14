@@ -26,6 +26,10 @@ class UserCollections {
         }
     }
 
+    setState(state) {
+        this.userCollectionsPopover.setState(state);
+    }
+
 }
 
 export default UserCollections;
