@@ -9,7 +9,7 @@ class UserFolderProfileHeader extends Component {
         const folder = this.props.folder;
         const callBack = this.props.callBack;
 
-        this.context.actions.call('folders.insertPost', folder, (error, result) => {
+        this.context.actions.call('folders.remove', folder._id, (error, result) => {
             if (!error) {
                 callBack();
             }

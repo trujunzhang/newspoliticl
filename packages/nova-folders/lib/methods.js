@@ -83,6 +83,32 @@ Meteor.methods({
         }
     },
 
+    /**
+     * @summary Meteor method for deleting a post
+     * @memberof Posts
+     * @isMethod true
+     * @param {String} folderId - the id of the post
+     */
+    'folders.remove': function(folderId) {
+
+        check(folderId, String);
+
+        // remove folder comments
+        // if(!this.isSimulation) {
+        //   Comments.remove({folder: folderId});
+        // }
+        // NOTE: actually, keep comments after all
+
+        var folder = Folders.findOne({_id: folderId});
+
+        // delete folder
+        Folders.remove(folderId);
+
+        Telescope.callbacks.runAsync("posts.remove.async", folder);
+
+    },
+
+
     //"folders.deleteById": function (folderId) {
     //
     //    check(folderId, String);
