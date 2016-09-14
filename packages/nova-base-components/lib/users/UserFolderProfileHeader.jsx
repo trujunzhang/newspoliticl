@@ -31,12 +31,38 @@ class UserFolderProfileHeader extends Component {
         this.setState({folderNameValue: value})
     }
 
-    onFolderNameInputKeyDown() {
+    onKeyDownForFolderNameInput(e) {
+        const key = e.which || e.keyCode;
+        switch (key) {
+            case keyCodes.ENTER:
+                const folder = this.props.folder;
+                const editedFolder = {_id: folder._id, newName: this.state.folderNameValue};
+                this.context.actions.call('folders.editFolderName', editedFolder, (error, result) => {
+                    if (!error) {
 
+                    }
+                });
+                break;
+        }
     }
 
     onChangedFolderDescriptionName(value) {
         this.setState({folderDescriptionValue: value})
+    }
+
+    onKeyDownForFolderDescriptionInput(e) {
+        const key = e.which || e.keyCode;
+        switch (key) {
+            case keyCodes.ENTER:
+                const folder = this.props.folder;
+                const editedFolder = {_id: folder._id, newDesctiption: this.state.folderDescriptionValue};
+                this.context.actions.call('folders.editFolderDescription', editedFolder, (error, result) => {
+                    if (!error) {
+
+                    }
+                });
+                break;
+        }
     }
 
     renderFolderName() {
@@ -46,7 +72,7 @@ class UserFolderProfileHeader extends Component {
             return (
               <input type="text" maxlength="80" name="name" value={this.state.folderNameValue}
                      onChange={this.onChangedFolderName.bind(this)}
-                     onKeyDown={this.onFolderNameInputKeyDown.bind(this)}/>
+                     onKeyDown={this.onKeyDownForFolderNameInput.bind(this)}/>
             )
         }
 
@@ -75,7 +101,8 @@ class UserFolderProfileHeader extends Component {
         if (this.state.isEditingFolderDescription) {
             return (
               <input type="text" maxlength="255" name="title" value={this.state.folderDescriptionValue}
-                     onChange={this.onChangedFolderDescriptionName.bind(this)}/>
+                     onChange={this.onChangedFolderDescriptionName.bind(this)}
+                     onKeyDown={this.onKeyDownForFolderDescriptionInput.bind(this)}/>
             )
         }
 
