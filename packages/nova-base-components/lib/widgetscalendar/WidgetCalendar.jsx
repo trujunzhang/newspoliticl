@@ -40,21 +40,13 @@ class WidgetCalendar extends Component {
     }
 
     select(day) {
-        this.setState({
-            month: day.date
-        });
-
-        //const terms = {
-        //    view: "top",
-        //    date: date,
-        //    after: moment(date).format("YYYY-MM-DD"),
-        //    before: moment(date).format("YYYY-MM-DD"),
-        //    listId: `posts.list.${moment(date).format("YYYY-MM-DD")}`
-        //};
+        this.setState({month: day.date});
         const dateString = moment(day.date).format("YYYY-MM-DD");
+        //const path = "?after=" + dateString + "&before=" + dateString;
+        //router.push({pathname: path});
+
         const router = this.props.router;
-        const path = "?after=" + dateString + "&before=" + dateString;
-        router.push({pathname: path});
+        router.push({pathname: "/", query: {...router.location.query, after: dateString, before: dateString}});
 
         this.context.messages.appStatus.pushNewParams({type: "calender", para: dateString});
     }

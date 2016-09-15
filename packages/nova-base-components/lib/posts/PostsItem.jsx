@@ -165,11 +165,6 @@ class PostsItem extends Component {
         )
     }
 
-    onTagClick(tag) {
-        const router = this.props.router;
-        router.push({pathname: "/", query: {tag: tag}});
-    };
-
     onAuthorClick(author) {
         const router = this.props.router;
         router.push({pathname: "/", query: {author: author}});
