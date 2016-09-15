@@ -12,7 +12,6 @@ const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loa
 
     return (
       <section className="results_37tfm">
-          {/*render left panel*/}
           <div>
               <div className="fullWidthBox_3Dggh box_c4OJj">
                   <div className="content_DcBqe">
