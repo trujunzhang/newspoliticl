@@ -1,39 +1,59 @@
 import Telescope from 'meteor/nova:lib';
 import React from 'react';
+var Waypoint = require('react-waypoint');
 
 const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore}) => {
 
-    return (
-      <section className="results_37tfm">
-          <div>
-              <div className="fullWidthBox_3Dggh box_c4OJj">
-                  <div className="content_DcBqe">
-                      <Telescope.components.PostsListTitle/>
-                      <div className="posts_275PF">
-                          <ul className="postsList_2tOc7">
-                              {results.map(post =>
-                                <li>
-                                    <Telescope.components.PostsItem post={post}
-                                                                    currentUser={currentUser}
-                                                                    key={post._id}/>
-                                </li>
-                              )}
-                          </ul>
+    if (!!results.length) {
+        return (
+          <section className="results_37tfm">
+              <div>
+                  <div className="fullWidthBox_3Dggh box_c4OJj">
+                      <div className="content_DcBqe">
+                          <Telescope.components.PostsListTitle/>
+                          <div className="posts_275PF">
+                              <ul className="postsList_2tOc7">
+                                  {results.map(post =>
+                                    <li>
+                                        <Telescope.components.PostsItem post={post}
+                                                                        currentUser={currentUser}
+                                                                        key={post._id}/>
+                                    </li>
+                                  )}
+                              </ul>
+                          </div>
+                          <div>
+                              <Waypoint
+                                onEnter={({previousPosition, currentPosition, event}) => {
+                                    // do something useful!
+                                    loadMore(event);
+                                }}
+                                threshold={0}
+                              />
+                          </div>
                       </div>
-                      {hasMore ?
-                        (ready ?
-                          <Telescope.components.PostsLoadMore loadMore={loadMore}
-                                                              count={count}
-                                                              totalCount={totalCount}/>
-                          : null)
-                        : null}
                   </div>
+                  {hasMore ? <Telescope.components.PostsLoading message={"Hunting down posts..."}/> : null}
               </div>
-              {hasMore ? <Telescope.components.PostsLoading/> : null}
-          </div>
-      </section>
-    )
-
+          </section>
+        )
+    } else if (!ready) {
+        return (
+          <section className="results_37tfm">
+              <div>
+                  <Telescope.components.PostsLoading message={"Hunting down posts..."}/>
+              </div>
+          </section>
+        )
+    } else {
+        return (
+          <section className="results_37tfm">
+              <div>
+                  <Telescope.components.PostsLoading message={"No posts to display."}/>
+              </div>
+          </section>
+        )
+    }
 };
 
 PostsList.displayName = "PostsList";
