@@ -152,6 +152,30 @@ Meteor.methods({
 
     },
 
+
+    /**
+     * @summary Meteor method for deleting a post
+     * @memberof Folders
+     * @isMethod true
+     * @param {String} editedFolder - the id of the post
+     */
+    'folders.editFolderDescription': function (editedFolder) {
+
+        modifier = {$set:{description: editedFolder.newDesctiption}};
+
+        const folderId = editedFolder._id;
+
+        Folders.simpleSchema().namedContext("folders.edit").validate(modifier, {modifier: true});
+        check(folderId, String);
+
+        const folder = Folders.findOne(folderId);
+
+        modifier = Telescope.callbacks.run("folders.edit.method", modifier, folder, Meteor.user());
+
+        return Folders.methods.edit(folderId, modifier, folder);
+
+    },
+
 });
 
 //Folders.smartMethods({
