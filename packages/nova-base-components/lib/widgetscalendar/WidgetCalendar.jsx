@@ -42,13 +42,8 @@ class WidgetCalendar extends Component {
     select(day) {
         this.setState({month: day.date});
         const dateString = moment(day.date).format("YYYY-MM-DD");
-        //const path = "?after=" + dateString + "&before=" + dateString;
-        //router.push({pathname: path});
-
         const router = this.props.router;
         router.push({pathname: "/", query: {...router.location.query, after: dateString, before: dateString}});
-
-        //this.context.messages.appStatus.pushNewParams({type: "calender", para: dateString});
     }
 
     renderHeader() {
