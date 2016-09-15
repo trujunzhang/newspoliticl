@@ -12,11 +12,14 @@ class PostsListTitle extends Component {
     generateListTitle() {
         const query = this.props.router.location.query;
         const category = query.cat;
+
+        var title = "Today";
         const selectedDay = query.before;
+        if (selectedDay) {
+            title = moment(selectedDay, "YYYY-MM-DD").format('dddd, MMMM D YYYY');
+        }
 
-        const dateResult = moment(selectedDay, "YYYY-MM-DD").format('dddd, MMMM D YYYY');
-
-        return "Today"
+        return title;
     }
 
     render() {
