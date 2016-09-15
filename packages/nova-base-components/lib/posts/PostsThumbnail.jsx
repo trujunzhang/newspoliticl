@@ -2,6 +2,8 @@ import React from 'react';
 import Posts from "meteor/nova:posts";
 
 const PostsThumbnail = ({post}) => {
+
+
     return (
 
       <div className="container__Ql6q lazyLoadContainer_3KgZD">
