@@ -51,22 +51,6 @@ class Layout extends Component {
             if (isClicked) {
                 messages.dismissPopoverMenu();
             }
-
-            //if (!$(event.target).parents().addBack().is("#save_to_folders_button")) {
-            //    if (!$(event.target).parents().addBack().is("#userCollectionPanel")) {
-            //        if (!$(event.target).parents().addBack().is("#addNewCollectionButton")) {
-            //            if (!$(event.target).parents().addBack().is("#newCollectionForm")) {
-            //                if (!$(event.target).parents().addBack().is(".additionalActionButtons_BoErh")) {
-            //                    if (!$(event.target).parents().addBack().is("#header_right_metamenu")) {
-            //                        if (!$(event.target).parents().addBack().is("#user-menu")) {
-            //                            messages.dismissPopoverMenu();
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
         });
     }
 
