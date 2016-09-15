@@ -1,14 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
 
 const PostsCategories = ({post}) => {
-  return (
-    <div className="posts-categories">
-      {post.categoriesArray.map(category => 
-        <Link className="posts-category" key={category._id} to={{pathname: "/", query: {cat: category.slug}}}>{category.name}</Link>
-      )}
-    </div>
-  )
+
+    const query = _.clone(props.router.location.query);
+    return (
+      <div className="posts-categories">
+          {post.categoriesArray.map(category =>
+            <Link className="posts-category" key={category._id}
+                  to={{pathname: "/", query: {...query, cat: category.slug}}}>{category.name}</Link>
+          )}
+      </div>
+    )
 };
 
 PostsCategories.displayName = "PostsCategories";

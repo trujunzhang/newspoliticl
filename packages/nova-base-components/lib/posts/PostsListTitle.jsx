@@ -6,7 +6,8 @@ class PostsListTitle extends Component {
 
     onViewTypeMenuClick(view) {
         const router = this.props.router;
-        router.push({pathname: "/", query: {...router.location.query, view: view}});
+        const query = _.clone(props.router.location.query);
+        router.push({pathname: "/", query: {...query, view: view}});
     }
 
     generateListTitle() {
