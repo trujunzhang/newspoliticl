@@ -136,7 +136,11 @@ Posts.helpers({isVideo: function () {return Posts.isVideo(this);}});
  * @param {Object} post
  */
 Posts.getThumbnailUrl = (post) => {
-  const thumbnailUrl = post.thumbnailUrl;
+  var thumbnailUrl = post.thumbnailUrl;
+  const meta = post.image_meta;
+  if(meta){
+    thumbnailUrl = meta.value.t1.src;
+  }
   if (!!thumbnailUrl) {
     return thumbnailUrl.indexOf('//') > -1 ? Telescope.utils.addHttp(thumbnailUrl) : Telescope.utils.getSiteUrl().slice(0,-1) + thumbnailUrl;
   }
