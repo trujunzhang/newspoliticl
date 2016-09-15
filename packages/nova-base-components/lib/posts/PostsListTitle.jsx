@@ -39,7 +39,7 @@ class PostsListTitle extends Component {
                     className="title_38djq featured_2W7jd default_tBeAo base_3CbW2">{this.generateListTitle()}</span>
               </span>
               <div className="toggle_Tx6Vy">
-                  <a className={popularMenuClass} onClick={this.onViewTypeMenuClick.bind(this, 'top')}>Popular</a>
+                  <a className={popularMenuClass} onClick={this.onViewTypeMenuClick.bind(this, 'best')}>Popular</a>
                   <a className={newestMenuClass} onClick={this.onViewTypeMenuClick.bind(this, 'new')}>Newest</a>
               </div>
           </div>
