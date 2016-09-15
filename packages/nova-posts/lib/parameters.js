@@ -186,3 +186,18 @@ function fitlerUpvoters(parameters, terms) {
     return parameters;
 }
 Telescope.callbacks.add("postsParameters", fitlerUpvoters);
+
+function addAuthorParameter(parameters, terms) {
+
+    var author = terms.author || terms["author[]"];
+
+    // filter by author if author slugs are provided
+    if (author) {
+
+        var selector = {author: author};
+
+        parameters.selector.author = author;
+    }
+    return parameters;
+}
+Telescope.callbacks.add("postsParameters", addAuthorParameter);

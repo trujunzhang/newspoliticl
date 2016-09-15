@@ -171,7 +171,8 @@ class PostsItem extends Component {
     };
 
     onAuthorClick(author) {
-        console.log(author);
+        const router = this.props.router;
+        router.push({pathname: "/", query: {author: author}});
     }
 
     onSaveButtonClick(post) {
