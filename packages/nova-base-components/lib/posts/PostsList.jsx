@@ -2,7 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React from 'react';
 const moment = require('moment');
 
-const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true}) => {
+const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore}) => {
 
     // console.log(results);
     // console.log(ready);
