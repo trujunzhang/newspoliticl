@@ -27,9 +27,13 @@ const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loa
                               )}
                           </ul>
                       </div>
-                      {hasMore ? (ready ? <Telescope.components.PostsLoadMore loadMore={loadMore} count={count}
-                                                                              totalCount={totalCount}/> :
-                        null) : null}
+                      {hasMore ?
+                        (ready ?
+                          <Telescope.components.PostsLoadMore loadMore={loadMore}
+                                                              count={count}
+                                                              totalCount={totalCount}/>
+                          : null)
+                        : null}
                   </div>
               </div>
               {hasMore ? <Telescope.components.PostsLoading/> : null}
