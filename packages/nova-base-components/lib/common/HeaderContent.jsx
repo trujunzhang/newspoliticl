@@ -7,6 +7,7 @@ import {ContextPasser} from "meteor/nova:core";
 import {LinkContainer} from 'react-router-bootstrap';
 import Users from 'meteor/nova:users';
 import Posts from "meteor/nova:posts";
+import {withRouter} from 'react-router'
 
 class HeaderContent extends Component {
 
@@ -20,18 +21,23 @@ class HeaderContent extends Component {
         this.context.messages.showPopoverMenu(top, left, width, height, type);
     }
 
+    onLogoIconClick() {
+        const router = this.props.router;
+        router.push({pathname: "/", query: {}});
+    }
+
     render() {
         const currentUser = this.props.currentUser;
         return (
           <div className="headerContent_3umLL centerItems_222KX">
               <div className="headerLeft_1Kke2 centerItems_222KX">
-                  <a className="logo_5Pf3F" href="/">
+                  <a className="logo_5Pf3F" onClick={this.onLogoIconClick.bind(this)}>
                       <span
                         className="logoIcon_1Mp0b">
                           <svg width="40" height="40" viewBox="0 0 40 40"
                                xmlns="http://www.w3.org/2000/svg">
                               <g fill="none"
-                                 >
+                              >
                                   <path
                                     d="M40 20c0 11.046-8.954 20-20 20S0 31.046 0 20 8.954 0 20 0s20 8.954 20 20"
                                     fill="#DA552F"></path>
@@ -45,7 +51,8 @@ class HeaderContent extends Component {
                   <Telescope.components.HeaderSearchForm />
               </div>
               <div className="headerRight_2DQLQ centerItems_222KX">
-                  <a onClick={this.popoverHeaderMenu.bind(this)} id="header_right_metamenu" className="metaMenu_3AKjk menuLink_1h9ZN"
+                  <a onClick={this.popoverHeaderMenu.bind(this)} id="header_right_metamenu"
+                     className="metaMenu_3AKjk menuLink_1h9ZN"
                      data-test="more" ref="moreButton">
                       <span>
                           <svg width="20" height="4"
@@ -76,5 +83,5 @@ HeaderContent.contextTypes = {
     messages: React.PropTypes.object
 };
 
-module.exports = HeaderContent;
-export default HeaderContent;
+module.exports = withRouter(HeaderContent);
+export default withRouter(HeaderContent);
