@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import {withRouter} from 'react-router'
+import moment from 'moment';
 
 class PostsListTitle extends Component {
 
@@ -8,15 +9,27 @@ class PostsListTitle extends Component {
         router.push({pathname: "/", query: {...router.location.query, view: view}});
     }
 
+    generateListTitle() {
+        const query = this.props.router.location.query;
+        const category = query.cat;
+        const selectedDay = query.before;
+
+        const dateResult = moment(selectedDay, "YYYY-MM-DD").format('dddd, MMMM D YYYY');
+
+        return "Today"
+    }
+
     render() {
         const query = this.props.router.location.query;
         const isNewsestMenu = (query.view && query.view == 'new');
         const popularMenuClass = (!isNewsestMenu) ? "secondaryText_PM80d default_tBeAo base_3CbW2" : "secondaryText_PM80d subtle_1BWOT base_3CbW2";
         const newestMenuClass = isNewsestMenu ? "secondaryText_PM80d default_tBeAo base_3CbW2" : "secondaryText_PM80d subtle_1BWOT base_3CbW2";
+
         return (
           <div className="header_3GFef">
               <span className="header_title">
-                  <span className="title_38djq featured_2W7jd default_tBeAo base_3CbW2">Today</span>
+                  <span
+                    className="title_38djq featured_2W7jd default_tBeAo base_3CbW2">{this.generateListTitle()}</span>
               </span>
               <div className="toggle_Tx6Vy">
                   <a className={popularMenuClass} onClick={this.onViewTypeMenuClick.bind(this, 'top')}>Popular</a>
