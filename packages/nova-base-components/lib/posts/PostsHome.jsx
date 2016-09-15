@@ -10,27 +10,26 @@ class PostsHome extends Component {
         super(props);
     }
 
-    componentWillMount() {
-        this.context.messages.appStatus.registerPostsHome(this);
-        this.state = this.initialState = {
-            postPostParams: {type: "home", para: null},
-        };
-    }
+    //componentWillMount() {
+        //this.context.messages.appStatus.registerPostsHome(this);
+        //this.state = this.initialState = {
+        //    postPostParams: {type: "home", para: null},
+        //};
+    //}
 
     getDefaultView() {
         return {view: 'best'}
     }
 
     fixParams(params, query) {
-        const postPostParams = this.state.postPostParams;
-        const type = postPostParams.type;
-        if (type == "calender") {
-            const selectedDay = postPostParams.para;
-            params.before = selectedDay;
-            params.after = selectedDay;
-            params.date = moment(selectedDay).format('YYYY-MM-DD');
-        }
-        this.context.messages.dismissAllPostPanels();
+        //const postPostParams = this.state.postPostParams;
+        //const type = postPostParams.type;
+        //if (type == "calender") {
+        //    const selectedDay = postPostParams.para;
+        //    params.before = selectedDay;
+        //    params.after = selectedDay;
+        //    params.date = moment(selectedDay).format('YYYY-MM-DD');
+        //}
     }
 
     render() {
@@ -51,7 +50,8 @@ class PostsHome extends Component {
             )
         } else {
             const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
-            this.fixParams(params, this.props.location.query);
+            //this.fixParams(params, this.props.location.query);
+            this.context.messages.dismissAllPostPanels();
             const {selector, options} = Posts.parameters.get(params);
 
             return (

@@ -48,7 +48,7 @@ class WidgetCalendar extends Component {
         const router = this.props.router;
         router.push({pathname: "/", query: {...router.location.query, after: dateString, before: dateString}});
 
-        this.context.messages.appStatus.pushNewParams({type: "calender", para: dateString});
+        //this.context.messages.appStatus.pushNewParams({type: "calender", para: dateString});
     }
 
     renderHeader() {

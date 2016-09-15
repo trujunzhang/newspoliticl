@@ -1,7 +1,7 @@
 class AppStatus {
-    registerPostsHome(postsHome) {
-        this.postsHome = postsHome;
-    }
+    //registerPostsHome(postsHome) {
+    //    this.postsHome = postsHome;
+    //}
 
     registerLayout(layout, rootPath) {
         this.layout = layout;
@@ -35,9 +35,9 @@ class AppStatus {
      *
      * @param params
      */
-    pushNewParams(params) {
-        this.postsHome.setState({postPostParams: params})
-    }
+    //pushNewParams(params) {
+    //    this.postsHome.setState({postPostParams: params})
+    //}
 }
 
 export default AppStatus;
