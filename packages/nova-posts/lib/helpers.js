@@ -169,8 +169,8 @@ Posts.helpers({
 Posts.getThumbnailUrl = (post) => {
     var thumbnailUrl = post.thumbnailUrl;
     const meta = post.image_meta;
-    if (meta && meta.value && meta.value.t1) {
-        thumbnailUrl = meta.value.t1.src;
+    if (meta && meta.value && meta.value.t150) {
+        thumbnailUrl = meta.value.t150.src;
     }
     if (!!thumbnailUrl) {
         return thumbnailUrl.indexOf('//') > -1 ? Telescope.utils.addHttp(thumbnailUrl) : Telescope.utils.getSiteUrl().slice(0, -1) + thumbnailUrl;
