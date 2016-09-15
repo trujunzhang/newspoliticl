@@ -137,7 +137,7 @@ Meteor.methods({
      */
     'folders.editFolderName': function (editedFolder) {
 
-        modifier = {name: editedFolder.newName};
+        modifier = {$set:{name: editedFolder.newName}};
 
         const folderId = editedFolder._id;
 
