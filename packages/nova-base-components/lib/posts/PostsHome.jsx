@@ -31,8 +31,8 @@ class PostsHome extends Component {
               />
             )
         } else {
-            const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
             this.context.messages.dismissAllPostPanels();
+            const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
             const {selector, options} = Posts.parameters.get(params);
 
             return (
