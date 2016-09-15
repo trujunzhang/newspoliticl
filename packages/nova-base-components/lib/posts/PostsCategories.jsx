@@ -1,9 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {withRouter} from 'react-router'
 
-const PostsCategories = ({post}) => {
+const PostsCategories = (props) => {
 
     const query = _.clone(props.router.location.query);
+    const post = props.post;
+
     return (
       <div className="posts-categories">
           {post.categoriesArray.map(category =>
@@ -16,4 +19,4 @@ const PostsCategories = ({post}) => {
 
 PostsCategories.displayName = "PostsCategories";
 
-module.exports = PostsCategories;
+module.exports = withRouter(PostsCategories);

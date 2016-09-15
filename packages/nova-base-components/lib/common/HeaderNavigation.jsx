@@ -16,7 +16,7 @@ class HeaderNavigation extends Component {
 
     onNavItemClick(cat) {
         const router = this.props.router;
-        const query = _.clone(props.router.location.query);
+        const query = _.clone(router.location.query);
         router.push({pathname: "/", query: {...query, cat: cat.slug}});
     }
 
