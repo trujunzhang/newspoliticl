@@ -141,7 +141,7 @@ Meteor.methods({
 
         const folderId = editedFolder._id;
 
-        Folders.simpleSchema().namedContext("posts.edit").validate(modifier, {modifier: true});
+        Folders.simpleSchema().namedContext("folders.edit").validate(modifier, {modifier: true});
         check(folderId, String);
 
         const folder = Folders.findOne(folderId);
