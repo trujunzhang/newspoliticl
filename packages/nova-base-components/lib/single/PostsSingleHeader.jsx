@@ -6,7 +6,6 @@ const PostsSingleHeader = (document, currentUser) => {
 
     const post = document.post;
     const title = post.title;
-    //const customizeUrl = post.customize;
 
     return (
       <div>
@@ -28,8 +27,8 @@ const PostsSingleHeader = (document, currentUser) => {
                                     </span>
                                 </span>
                               {/*article's upvote/downvote button*/}
-                              <Telescope.components.ArticleUpvote post={post} currentUser={this.context.currentUser}/>
-                              <Telescope.components.ArticleDownvote post={post} currentUser={this.context.currentUser}/>
+                              <Telescope.components.ArticleUpvote post={post} currentUser={currentUser}/>
+                              <Telescope.components.ArticleDownvote post={post} currentUser={currentUser}/>
                               <section className="container_1Nmia">
                                   <a
                                     className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d twitterSolidColor_G22Bs solidVariant_2wWrf shareButton_1occ0"
@@ -88,15 +87,6 @@ const PostsSingleHeader = (document, currentUser) => {
           </header>
       </div>
     )
-};
-
-PostsSingleHeader.propTypes = {
-    post: React.PropTypes.object.isRequired
-};
-
-PostsSingleHeader.contextTypes = {
-    currentUser: React.PropTypes.object,
-    messages: React.PropTypes.object
 };
 
 PostsSingleHeader.displayName = "PostsSingleHeader";
