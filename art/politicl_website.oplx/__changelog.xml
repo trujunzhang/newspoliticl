@@ -239,4 +239,13 @@
   <task-change-set user="djzhang" date="2016-09-16T06:25:01.211Z" timestamp="2016-09-16T06:25:01.211Z">
     <change idref="t9" attribute="noEarlierThanConstraintDate" type="date" from="2016-09-10T16:00:00.000Z" to="2016-09-14T16:00:00.000Z" resolved="yes"/>
   </task-change-set>
+  <task-change-set user="djzhang" date="2016-09-16T13:26:18.542Z" timestamp="2016-09-16T13:26:18.542Z">
+    <change idref="t21" attribute="title" type="string" from="Articles Vote Up &amp; Vote Down (Only by logged in users) // Please check reddit.com for design
+" to="Articles Vote Up &amp; Vote Down (Only by logged in users) // Please check reddit.com for design,(like,dislkie)
+"/>
+    <change idref="t23" attribute="title" type="string" from="Categories &amp; Topics (Tags) - with automated trending topics
+" to="Categories &amp; Topics (Tags) - with automated trending topics()
+"/>
+    <change idref="t58" attribute="title" type="string" from="Article Topics (Recommend Tags or Enter New Tags)" to="Article Topics (Recommend Tags or Enter New Tags) (Admin and some assigned users)"/>
+  </task-change-set>
 </changelog>

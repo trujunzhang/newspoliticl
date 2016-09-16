@@ -27,18 +27,9 @@ const PostsSingleHeader = (document, currentUser) => {
                                         </span>
                                     </span>
                                 </span>
-                              <a
-                                className="post-vote-button v-inlined v-category-tech postVoteButton_WsFJU button_2I1re solidVariant_2wWrf mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d whiteSolidColor_18W4g"
-                                href="#">
-                                    <span className="post-vote-button--arrow">
-                                        <svg width="9" height="8" viewBox="0 0 9 8" xmlns="http://www.w3.org/2000/svg">
-                                            <title>Rectangle 64</title>
-                                            <path d="M9 8H0l4.5-8L9 8z" fill="#000"></path>
-                                        </svg>
-                                    </span>
-                                  <span className="post-vote-button--count">290</span>
-                              </a>
-
+                              {/*article's upvote/downvote button*/}
+                              <Telescope.components.ArticleUpvote post={post} currentUser={this.context.currentUser}/>
+                              <Telescope.components.ArticleDownvote post={post} currentUser={this.context.currentUser}/>
                               <section className="container_1Nmia">
                                   <a
                                     className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d twitterSolidColor_G22Bs solidVariant_2wWrf shareButton_1occ0"
