@@ -14,6 +14,7 @@ Telescope.strings.en = {
   "posts.url": "URL",
   "posts.body": "Body",
   "posts.categories": "Categories",
+  "posts.tags": "Tags",
   "posts.thumbnailUrl": "Thumbnail URL",
   "posts.status": "Status",
   "posts.sticky": "Sticky",
