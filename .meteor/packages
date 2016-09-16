@@ -41,3 +41,5 @@ nova:debug
 nova:tags
 nova:folders
 nova:postmetas
+
+public

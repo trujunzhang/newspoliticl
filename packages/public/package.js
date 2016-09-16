@@ -1,6 +1,6 @@
 Package.describe({
-    name: "nova:base-styles",
-    summary: "Nova basic styles package",
+    name: "public",
+    summary: "Nova public resource package",
     version: "0.27.0-nova",
     git: "https://github.com/TelescopeJS/Telescope.git"
 });
@@ -17,8 +17,9 @@ Package.onUse(function (api) {
         // 'twbs:bootstrap@=4.0.0-alpha.2'
     ]);
 
-    api.addFiles([
-        'lib/stylesheets/bootstrap.css',
-        'lib/stylesheets/main.scss'
+    api.addAssets([
+        'images/loader@2x-eedc15ac0cc66f017bf00a8befd9c708.png',
+        'images/upvote-burst-white.png'
     ], ['client']);
+
 });

@@ -22,9 +22,9 @@ Package.onUse(function (api) {
 
   // both
 
-  api.addFiles([
-    'lib/getting_started.js'
-  ], ['client', 'server']);
+  //api.addFiles([
+  //  'lib/getting_started.js'
+  //], ['client', 'server']);
 
   // client
 

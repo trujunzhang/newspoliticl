@@ -21,58 +21,47 @@
     </change>
     <change idref="t16" to="t15" to-position="0" resolved="yes">
       <change idref="t16" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t16" attribute="title" type="string" to="Categories &amp; Topics (Tags) - with automated trending topics
-"/>
+      <change idref="t16" attribute="title" type="string" to="Categories &amp; Topics (Tags) - with automated trending topics "/>
     </change>
     <change idref="t20" to="t19" to-position="0" resurrection="yes" resolved="yes">
       <change idref="t20" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t20" attribute="title" type="string" to="Article List (with images and without images)
-"/>
+      <change idref="t20" attribute="title" type="string" to="Article List (with images and without images) "/>
     </change>
     <change idref="t21" to="t19" to-position="1" resurrection="yes" resolved="yes">
       <change idref="t21" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t21" attribute="title" type="string" to="Articles Vote Up &amp; Vote Down (Only by logged in users) // Please check reddit.com for design
-"/>
+      <change idref="t21" attribute="title" type="string" to="Articles Vote Up &amp; Vote Down (Only by logged in users) // Please check reddit.com for design "/>
     </change>
     <change idref="t22" to="t19" to-position="2" resurrection="yes" resolved="yes">
       <change idref="t22" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t22" attribute="title" type="string" to="Day wise article segregation (like sidebar.io)
-"/>
+      <change idref="t22" attribute="title" type="string" to="Day wise article segregation (like sidebar.io) "/>
     </change>
     <change idref="t23" to="t19" to-position="3" resurrection="yes" resolved="yes">
       <change idref="t23" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t23" attribute="title" type="string" to="Categories &amp; Topics (Tags) - with automated trending topics
-"/>
+      <change idref="t23" attribute="title" type="string" to="Categories &amp; Topics (Tags) - with automated trending topics "/>
     </change>
     <change idref="t24" to="t19" to-position="4" resurrection="yes" resolved="yes">
       <change idref="t24" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t24" attribute="title" type="string" to="Share Articles &amp; Share Comments
-"/>
+      <change idref="t24" attribute="title" type="string" to="Share Articles &amp; Share Comments "/>
     </change>
     <change idref="t25" to="t19" to-position="5" resurrection="yes" resolved="yes">
       <change idref="t25" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t25" attribute="title" type="string" to="Nested Comments (Only by logged in users) // Please check reddit.com for design
-"/>
+      <change idref="t25" attribute="title" type="string" to="Nested Comments (Only by logged in users) // Please check reddit.com for design "/>
     </change>
     <change idref="t36" to="t19" to-position="6" resolved="yes">
       <change idref="t36" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t36" attribute="title" type="string" to="Comments Vote Up &amp; Vote Down (Only by logged in users)
-"/>
+      <change idref="t36" attribute="title" type="string" to="Comments Vote Up &amp; Vote Down (Only by logged in users) "/>
     </change>
     <change idref="t37" to="t19" to-position="7" resolved="yes">
       <change idref="t37" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t37" attribute="title" type="string" to="Save articles for reading later
-"/>
+      <change idref="t37" attribute="title" type="string" to="Save articles for reading later "/>
     </change>
     <change idref="t38" to="t19" to-position="8" resolved="yes">
       <change idref="t38" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t38" attribute="title" type="string" to="Category Archives
-"/>
+      <change idref="t38" attribute="title" type="string" to="Category Archives "/>
     </change>
     <change idref="t39" to="t19" to-position="9" resolved="yes">
       <change idref="t39" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
-      <change idref="t39" attribute="title" type="string" to="Topic Archives
-"/>
+      <change idref="t39" attribute="title" type="string" to="Topic Archives "/>
     </change>
   </task-change-set>
   <task-change-set user="djzhang" date="2016-09-16T05:22:09.900Z" timestamp="2016-09-16T05:22:09.900Z">
@@ -246,5 +235,8 @@
       <change idref="t69" attribute="noEarlierThanConstraintDate" type="date" to="2016-09-16T00:00:00.000Z"/>
       <change idref="t69" attribute="title" type="string" to="Submitted Article voted up or vote down or commented on (a daily summary notification)"/>
     </change>
+  </task-change-set>
+  <task-change-set user="djzhang" date="2016-09-16T06:25:01.211Z" timestamp="2016-09-16T06:25:01.211Z">
+    <change idref="t9" attribute="noEarlierThanConstraintDate" type="date" from="2016-09-10T16:00:00.000Z" to="2016-09-14T16:00:00.000Z" resolved="yes"/>
   </task-change-set>
 </changelog>
