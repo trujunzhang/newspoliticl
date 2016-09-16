@@ -13,7 +13,11 @@ class AppStatus {
     }
 
     updateCachePost(cachePost) {
-        this.layout.setState({cachePost: cachePost});
+        this.layout.setState({cachePost: cachePost, singlePostId: ''});
+    }
+
+    updateCurrentPostPageState(postId) {
+        this.layout.setState({singlePostId: postId});
     }
 
     showLoginUI() {

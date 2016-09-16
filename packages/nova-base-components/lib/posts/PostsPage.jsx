@@ -12,7 +12,8 @@ class PostsPage extends Component {
 
         const post = this.props.document;
         const currentUser = this.props.currentUser;
-        const htmlBody = {__html: post.htmlBody};
+
+        this.context.messages.appStatus.updateCurrentPostPageState(post._id);
 
         return (
           <div className="content_3X9xi">
@@ -49,6 +50,10 @@ class PostsPage extends Component {
         )
     }
 }
+
+PostsPage.contextTypes = {
+    messages: React.PropTypes.object
+};
 
 PostsPage.displayName = "PostsPage";
 
