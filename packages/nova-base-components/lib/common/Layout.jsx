@@ -85,10 +85,13 @@ class Layout extends Component {
             document.body.className = (this.state.cachePost ? "no-scroll" : "");
         }
         if (this.state.cachePost) {
-            return (
-              <div className="overlay_1AkSl modal-spotlight">
-                  <a className="closeDesktop_XydFN" title="Close" data-test="modal-close"
-                     onClick={this.dismissCurrentPostPanel.bind(this)}>
+            const postId = this.state.cachePost.postId;
+            const renderPostId = this.context.messages.appStatus.singlePostId;
+            if (renderPostId != postId) {
+                return (
+                  <div className="overlay_1AkSl modal-spotlight">
+                      <a className="closeDesktop_XydFN" title="Close" data-test="modal-close"
+                         onClick={this.dismissCurrentPostPanel.bind(this)}>
                         <span>
                             <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -96,9 +99,9 @@ class Layout extends Component {
                                 ></path>
                             </svg>
                         </span>
-                  </a>
-                  <a className="closeMobile_15z3i" title="Close" data-test="modal-close"
-                     onClick={this.dismissCurrentPostPanel.bind(this)}>
+                      </a>
+                      <a className="closeMobile_15z3i" title="Close" data-test="modal-close"
+                         onClick={this.dismissCurrentPostPanel.bind(this)}>
                         <span>
                             <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -106,10 +109,11 @@ class Layout extends Component {
                                 ></path>
                             </svg>
                         </span>
-                  </a>
-                  {this.renderPostSingle()}
-              </div>
-            )
+                      </a>
+                      {this.renderPostSingle()}
+                  </div>
+                )
+            }
         }
         return null;
     }

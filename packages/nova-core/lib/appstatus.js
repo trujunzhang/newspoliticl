@@ -6,6 +6,7 @@ class AppStatus {
     registerLayout(layout, rootPath) {
         this.layout = layout;
         this.rootPath = rootPath;
+        this.singlePostId = '';
     }
 
     isSearching(search) {
@@ -13,11 +14,11 @@ class AppStatus {
     }
 
     updateCachePost(cachePost) {
-        this.layout.setState({cachePost: cachePost, singlePostId: ''});
+        this.layout.setState({cachePost: cachePost});
     }
 
     updateCurrentPostPageState(postId) {
-        this.layout.setState({singlePostId: postId});
+        this.singlePostId = postId;
     }
 
     showLoginUI() {
