@@ -35,15 +35,7 @@ class Downvote extends Component {
         const post = this.props.post;
         const user = this.context.currentUser;
 
-        const hasUpvoted = Users.hasUpvoted(user, post);
         const hasDownvoted = Users.hasDownvoted(user, post);
-        const actionsClass = classNames(
-          "vote",
-          {voted: hasUpvoted || hasDownvoted},
-          {upvoted: hasUpvoted},
-          {downvoted: hasDownvoted}
-        );
-
         const buttonClass = hasDownvoted ? "button_2I1re active_2heMV smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W" :
           "button_2I1re smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W";
 
