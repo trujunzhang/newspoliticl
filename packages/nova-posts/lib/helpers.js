@@ -176,6 +176,22 @@ Posts.getThumbnailUrl = (post) => {
         return thumbnailUrl.indexOf('//') > -1 ? Telescope.utils.addHttp(thumbnailUrl) : Telescope.utils.getSiteUrl().slice(0, -1) + thumbnailUrl;
     }
 };
+
+/**
+ * @summary Get the complete detailed page image url whether it is hosted on Embedly or on an external website, or locally in the app.
+ * @param {Object} post
+ */
+Posts.getDetailedPageImageUrl = (post) => {
+    var thumbnailUrl = post.thumbnailUrl;
+    const meta = post.image_meta;
+    if (meta && meta.value && meta.value.t630) {
+        thumbnailUrl = meta.value.t630.src;
+    }
+    if (!!thumbnailUrl) {
+        return thumbnailUrl.indexOf('//') > -1 ? Telescope.utils.addHttp(thumbnailUrl) : Telescope.utils.getSiteUrl().slice(0, -1) + thumbnailUrl;
+    }
+};
+
 Posts.helpers({
     getThumbnailUrl() {
         return Posts.getThumbnailUrl(this);

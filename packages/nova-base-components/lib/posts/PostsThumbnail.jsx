@@ -7,7 +7,7 @@ const PostsThumbnail = ({post}) => {
     return (
 
       <div className="container__Ql6q lazyLoadContainer_3KgZD">
-          <LazyLoad width={100} height={100}>
+          <LazyLoad >
               <img
                 width="100" height="100"
                 src={Posts.getThumbnailUrl(post)}
