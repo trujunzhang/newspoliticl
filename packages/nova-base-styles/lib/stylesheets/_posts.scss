@@ -332,8 +332,16 @@ a.moreAssociations_28e7H:hover {
 }
 
 .postUpvoteArrow_2xABl {
-  //background-image: url('https://s3.producthunt.com/static/upvote-burst-white.png');
   background-image: url('/packages/public/images/upvote-burst-white.png');
+  background-repeat: no-repeat;
+  background-size: 351px 15px;
+  height: 15px;
+  width: 15px;
+  margin-right: 4px; /* TODO: djzhang, add*/
+}
+
+.postDownvoteArrow_2xABl {
+  background-image: url('/packages/public/images/downvote-burst-white.png');
   background-repeat: no-repeat;
   background-size: 351px 15px;
   height: 15px;
