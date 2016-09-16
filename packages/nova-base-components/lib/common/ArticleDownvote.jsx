@@ -58,8 +58,7 @@ ArticleDownvote.propTypes = {
 ArticleDownvote.contextTypes = {
     currentUser: React.PropTypes.object,
     actions: React.PropTypes.object,
-    events: React.PropTypes.object,
-    messages: React.PropTypes.object
+    events: React.PropTypes.object
 };
 
 module.exports = ArticleDownvote;

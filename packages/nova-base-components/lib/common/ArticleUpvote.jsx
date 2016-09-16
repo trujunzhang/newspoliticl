@@ -50,14 +50,12 @@ class ArticleUpvote extends Component {
 
 ArticleUpvote.propTypes = {
     post: React.PropTypes.object.isRequired, // the current post
-    // currentUser: React.PropTypes.object, // the current user
 };
 
 ArticleUpvote.contextTypes = {
     currentUser: React.PropTypes.object,
     actions: React.PropTypes.object,
-    events: React.PropTypes.object,
-    messages: React.PropTypes.object
+    events: React.PropTypes.object
 };
 
 module.exports = ArticleUpvote;
