@@ -90,6 +90,15 @@ const PostsSingleHeader = (document, currentUser) => {
     )
 };
 
+PostsSingleHeader.propTypes = {
+    post: React.PropTypes.object.isRequired
+};
+
+PostsSingleHeader.contextTypes = {
+    currentUser: React.PropTypes.object,
+    messages: React.PropTypes.object
+};
+
 PostsSingleHeader.displayName = "PostsSingleHeader";
 
 module.exports = PostsSingleHeader;
