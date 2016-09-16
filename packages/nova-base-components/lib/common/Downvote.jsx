@@ -18,14 +18,12 @@ class Downvote extends Component {
 
         if (!user) {
             this.context.messages.flash("Please log in first");
-        } else if (user.hasUpvoted(post)) {
-            this.context.actions.call('posts.cancelUpvote', post._id, () => {
-                this.context.actions.call('posts.downvote', post._id, () => {
-                    this.context.events.track("post downvoted", {'_id': post._id});
-                });
+        } else if (user.hasDownvoted(post)) {
+            this.context.actions.call('posts.cancelDownvote', post._id, () => {
+                this.context.events.track("post downvote cancelled", {'_id': post._id});
             });
         } else {
-            this.context.actions.call('posts.downvote', post._id, () => {
+            this.context.actions.call('posts.downpvote', post._id, () => {
                 this.context.events.track("post downvoted", {'_id': post._id});
             });
         }

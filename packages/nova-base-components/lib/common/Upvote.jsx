@@ -18,11 +18,9 @@ class Upvote extends Component {
 
         if (!user) {
             this.context.messages.flash("Please log in first");
-        } else if (user.hasDownvoted(post)) {
-            this.context.actions.call('posts.cancelDownvote', post._id, () => {
-                this.context.actions.call('posts.upvote', post._id, () => {
-                    this.context.events.track("post upvoted", {'_id': post._id});
-                });
+        } else if (user.hasUpvoted(post)) {
+            this.context.actions.call('posts.cancelUpvote', post._id, () => {
+                this.context.events.track("post upvote cancelled", {'_id': post._id});
             });
         } else {
             this.context.actions.call('posts.upvote', post._id, () => {
