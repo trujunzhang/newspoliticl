@@ -130,9 +130,6 @@ class PostsItem extends Component {
 
         const post = this.props.post;
 
-        // console.log(post)
-        // console.log(post.user)
-
         const mytextvar = post.excerpt;
         const maxlimit = 150;
 
