@@ -60,10 +60,6 @@ class Layout extends Component {
         this.props.router.goBack();
     }
 
-    showCurrentPostPanel(postId) {
-        this.context.messages.pushAndPostShow(postId);
-    }
-
     renderPostSingle() {
         const cachePost = this.state.cachePost;
 
