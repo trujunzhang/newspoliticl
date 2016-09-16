@@ -60,7 +60,8 @@ class PostsItem extends Component {
         return (
           <div className="meta_2lIV-" ref="saveButton">
               <div className="actionButtons_2mJsw">
-                  <Telescope.components.Vote post={post} currentUser={this.context.currentUser}/>
+                  <Telescope.components.Upvote post={post} currentUser={this.context.currentUser}/>
+                  <Telescope.components.Downvote post={post} currentUser={this.context.currentUser}/>
                   {this.renderCommenters()}
                   <div className="additionalActionButtons_BoErh">
                       <a

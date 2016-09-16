@@ -19,7 +19,8 @@ Package.onUse(function (api) {
 
     api.addAssets([
         'images/loader@2x-eedc15ac0cc66f017bf00a8befd9c708.png',
-        'images/upvote-burst-white.png'
+        'images/upvote-burst-white.png',
+        'images/downvote-burst-white.png'
     ], ['client']);
 
 });

@@ -44,16 +44,16 @@ class Downvote extends Component {
           {downvoted: hasDownvoted}
         );
 
-        const buttonClass = hasUpvoted ? "button_2I1re active_2heMV smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W" :
+        const buttonClass = hasDownvoted ? "button_2I1re active_2heMV smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W" :
           "button_2I1re smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W";
 
-        const postVoteClass = "postDownvoteArrow_2xABl" + (hasUpvoted ? " upvoted_172lX animate_asuDN" : "");
+        const postVoteClass = "postDownvoteArrow_2xABl" + (hasDownvoted ? " upvoted_172lX animate_asuDN" : "");
 
         return (
           <button className={buttonClass} rel="vote-button" onClick={this.upvote.bind(this)}>
               <div className="buttonContainer_wTYxi">
                   <div className={postVoteClass}></div>
-                  {post.baseScore || 0}
+                  {post.downvotes || 0}
               </div>
           </button>
         )

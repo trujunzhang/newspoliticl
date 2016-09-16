@@ -53,7 +53,7 @@ class Upvote extends Component {
           <button className={buttonClass} rel="vote-button" onClick={this.upvote.bind(this)}>
               <div className="buttonContainer_wTYxi">
                   <div className={postVoteClass}></div>
-                  {post.baseScore || 0}
+                  {post.upvotes || 0}
               </div>
           </button>
         )
