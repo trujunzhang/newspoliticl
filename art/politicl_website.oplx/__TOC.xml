@@ -12,10 +12,10 @@
         <column name="Notes" width="20"/>
         <column name="Title" width="191"/>
         <column name="Effort" width="70"/>
-        <expanded-items idrefs="t6 t2 t8"/>
-        <selected-items-at-filter-time idrefs="t5 t4 t3 t6 t9 t2"/>
+        <expanded-items idrefs="t75"/>
+        <selected-items-at-filter-time idrefs="t73 t80 t59 t66 t17 t67 t18 t81 t74 t75 t68 t69 t76 t77 t2 t78 t36 t50 t3 t79 t51 t37 t45 t10 t38 t52 t6 t39 t11 t60 t46 t53 t9 t54 t12 t61 t47 t55 t13 t62 t48 t63 t70 t14 t49 t56 t64 t15 t57 t71 t58 t16 t72"/>
       </outline>
-      <gantt-view x="-54" y="0" w="832" h="835">
+      <gantt-view x="198" y="0" w="832" h="835">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -62,13 +62,13 @@
     </task-view>
     <resource-view>
       <split-view-divider-position>306</split-view-divider-position>
-      <outline x="0" y="0" w="306" h="608">
+      <outline x="0" y="0" w="306" h="835">
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
         <column name="Resource" width="135"/>
         <column name="#" width="75"/>
       </outline>
-      <timeline x="-20" y="0" w="573" h="608">
+      <timeline x="-20" y="0" w="804" h="835">
         <offtime-display>none</offtime-display>
         <show-project-end/>
         <task-bar-label task-type="group" position="left">
@@ -98,22 +98,21 @@
         <task-bar-label task-type="task" position="right">
           <key/>
         </task-bar-label>
-        <scale scale-name="Automatic" full-day-width="100">
+        <scale scale-name="Automatic" full-day-width="300">
           <selected/>
         </scale>
-        <scale scale-name="Day" full-day-width="405"/>
-        <scale scale-name="Hour" full-day-width="21960"/>
-        <scale scale-name="Minute" full-day-width="21600"/>
-        <scale scale-name="Month" full-day-width="11.5"/>
-        <scale scale-name="Quarter" full-day-width="3.2"/>
-        <scale scale-name="Week" full-day-width="54"/>
-        <scale scale-name="Year" full-day-width="0.7875"/>
-        <scale scale-name="legacy-day-widths" full-day-width="1"/>
+        <scale scale-name="Day" full-day-width="1215"/>
+        <scale scale-name="Hour" full-day-width="65880"/>
+        <scale scale-name="Minute" full-day-width="64800"/>
+        <scale scale-name="Month" full-day-width="34.5"/>
+        <scale scale-name="Quarter" full-day-width="9.6"/>
+        <scale scale-name="Week" full-day-width="162"/>
+        <scale scale-name="Year" full-day-width="2.3625"/>
       </timeline>
     </resource-view>
     <calendar>
       <split-view-divider-position>290</split-view-divider-position>
-      <outline x="0" y="0" w="290" h="573">
+      <outline x="0" y="0" w="290" h="811">
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
         <column name="Resource" width="139"/>
@@ -123,22 +122,28 @@
     </calendar>
     <network-view>
       <network-view>
-        <task-table-style/>
-        <milestone-table-style/>
-        <group-table-style/>
+        <task-table-style>Title
+Start:
+End:
+Effort:</task-table-style>
+        <milestone-table-style>Title
+End</milestone-table-style>
+        <group-table-style>Title
+Start:
+End:</group-table-style>
       </network-view>
     </network-view>
   </window>
   <project>
-    <next-task-id>10</next-task-id>
+    <next-task-id>82</next-task-id>
     <next-resource-id>2</next-resource-id>
     <scenario id="kC85b4a25D0" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>
     <numbering-style>wbs</numbering-style>
     <critical-path-slack>0</critical-path-slack>
     <currency-format>$1,234.56</currency-format>
-    <duration-format hours-per-day="8" hours-per-week="40" hours-per-month="160" hours-per-year="1920" hours="true" days="true" weeks="true"/>
-    <effort-format hours-per-day="8" hours-per-week="40" hours-per-month="160" hours-per-year="1920" hours="true" days="true" weeks="true"/>
+    <duration-format hours-per-day="8" hours-per-week="56" hours-per-month="160" hours-per-year="1920" hours="true" days="true" weeks="true"/>
+    <effort-format hours-per-day="8" hours-per-week="56" hours-per-month="160" hours-per-year="1920" hours="true" days="true" weeks="true"/>
     <base-style>
       <style/>
     </base-style>

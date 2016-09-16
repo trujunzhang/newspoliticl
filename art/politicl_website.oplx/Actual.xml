@@ -57,45 +57,358 @@
   <top-task idref="t-1"/>
   <task id="t-1">
     <type>group</type>
-    <child-task idref="t2"/>
-    <child-task idref="t8"/>
+    <child-task idref="t19"/>
+    <child-task idref="t46"/>
+    <child-task idref="t51"/>
+    <child-task idref="t54"/>
+    <child-task idref="t59"/>
+    <child-task idref="t63"/>
+    <child-task idref="t67"/>
+    <child-task idref="t70"/>
+    <child-task idref="t72"/>
+    <child-task idref="t75"/>
     <child-task idref="t6"/>
-  </task>
-  <task id="t1">
-    <title>Login via facebook</title>
-    <effort>28800</effort>
-    <effort-done>28800</effort-done>
-  </task>
-  <task id="t2">
-    <title>3/9/2016</title>
-    <type>group</type>
-    <child-task idref="t1"/>
-    <child-task idref="t3"/>
-  </task>
-  <task id="t3">
-    <title>Widgets to add google advertisements
-</title>
-    <effort>28800</effort>
+    <child-task idref="t15"/>
   </task>
   <task id="t6">
     <title>ISSUE</title>
     <type>group</type>
     <child-task idref="t9"/>
   </task>
-  <task id="t7">
-    <title>Folder</title>
-    <effort>28800</effort>
-  </task>
-  <task id="t8">
-    <title>Logged User</title>
-    <type>group</type>
-    <child-task idref="t7"/>
-  </task>
   <task id="t9">
     <title>no date contains in the url when toggling category from selected calender.(http://localhost:3000/?after=2016-08-01&amp;before=2016-08-01,http://localhost:3000/?cat=politics)</title>
     <effort>28800</effort>
     <start-constraint-date>2016-09-10T16:00:00.000Z</start-constraint-date>
     <start-no-earlier-than>2016-09-10T16:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t15">
+    <title>Asks</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t16"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t16">
+    <title>Categories &amp; Topics (Tags) - with automated trending topics
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t19">
+    <title>Content</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t20"/>
+    <child-task idref="t21"/>
+    <child-task idref="t22"/>
+    <child-task idref="t23"/>
+    <child-task idref="t24"/>
+    <child-task idref="t25"/>
+    <child-task idref="t36"/>
+    <child-task idref="t37"/>
+    <child-task idref="t38"/>
+    <child-task idref="t39"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t20">
+    <title>Article List (with images and without images)
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t21">
+    <title>Articles Vote Up &amp; Vote Down (Only by logged in users) // Please check reddit.com for design
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t22">
+    <title>Day wise article segregation (like sidebar.io)
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t23">
+    <title>Categories &amp; Topics (Tags) - with automated trending topics
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t24">
+    <title>Share Articles &amp; Share Comments
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t25">
+    <title>Nested Comments (Only by logged in users) // Please check reddit.com for design
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t36">
+    <title>Comments Vote Up &amp; Vote Down (Only by logged in users)
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t37">
+    <title>Save articles for reading later
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t38">
+    <title>Category Archives
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t39">
+    <title>Topic Archives
+</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t46">
+    <title>Sidebar</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t48"/>
+    <child-task idref="t49"/>
+    <child-task idref="t50"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t48">
+    <title>Widgets to add advertisements</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t49">
+    <title>Trending articles &amp; popular articles</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t50">
+    <title>Facebook &amp; Twitter Feed (from @getpoliticl)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t51">
+    <title>Newsletter</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t52"/>
+    <child-task idref="t53"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t52">
+    <title>Subscribe to newsletter in between content (like producthunt.com)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t53">
+    <title>Submit Article Page</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t54">
+    <title>Fields</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t55"/>
+    <child-task idref="t56"/>
+    <child-task idref="t57"/>
+    <child-task idref="t58"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t55">
+    <title>Article Headline</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t56">
+    <title>Article Short Description (150 Words Limit)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t57">
+    <title>Article Category (Select from category list)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t58">
+    <title>Article Topics (Recommend Tags or Enter New Tags)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t59">
+    <title>User Profile</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t60"/>
+    <child-task idref="t61"/>
+    <child-task idref="t62"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t60">
+    <title>Login via Twitter, Facebook Or Google</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t61">
+    <title>Newsletter Subscription Option during signup (confirm user correct email address)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t62">
+    <title>Notification Settings in Profile</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t63">
+    <title>Read Later</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t64"/>
+    <child-task idref="t66"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t64">
+    <title>User should be able to see the article he/she saved for reading (like producthunt.com)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t66">
+    <title>User should be able to remove articles after reading</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t67">
+    <title>User Notifications</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t68"/>
+    <child-task idref="t69"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t68">
+    <title>Your submitted article got published</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t69">
+    <title>Submitted Article voted up or vote down or commented on (a daily summary notification)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t70">
+    <title>Analytics(google Analytics)</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t71"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t71">
+    <title>We need a robust analytics system where we can track various events happening on the website and track user activity. Please give us a list of tools that can be used, we can discuss and add them to the website</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t72">
+    <title>Sponsored Content</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t73"/>
+    <child-task idref="t74"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t73">
+    <title>Advertisement widgets in sidebar on all pages</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t74">
+    <title>Exit page (loads for 3–5 seconds) before user exits website to read article</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t75">
+    <title>Extra Pages</title>
+    <type>group</type>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t76"/>
+    <child-task idref="t77"/>
+    <child-task idref="t78"/>
+    <child-task idref="t79"/>
+    <child-task idref="t80"/>
+    <child-task idref="t81"/>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t76">
+    <title>About</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t77">
+    <title>Team</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t78">
+    <title>Contact</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t79">
+    <title>Privacy Policy</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t80">
+    <title>Terms of Use</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t81">
+    <title>Cookie Policy</title>
+    <effort>28800</effort>
+    <start-constraint-date>2016-09-16T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2016-09-16T00:00:00.000Z</start-no-earlier-than>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
     <color r="1" g="0.5" b="0.5"/>
