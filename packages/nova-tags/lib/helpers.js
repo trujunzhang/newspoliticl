@@ -32,7 +32,7 @@ Tags.getChildren = function (tag) {
   var tagsArray = [];
 
   var getChildren = function recurse (tags) {
-    var children = Tags.find({parentId: {$in: _.pluck(tags, "_id")}}).fetch()
+    var children = Tags.find({parentId: {$in: _.pluck(tags, "_id")}}).fetch();
     if (children.length > 0) {
       tagsArray = tagsArray.concat(children);
       recurse(children);
@@ -70,5 +70,5 @@ Tags.helpers({getUrl: function () {return Tags.getUrl(this);}});
  */
  Tags.getCounterName = function (tag) {
   return tag._id + "-postsCount";
- }
+ };
  Tags.helpers({getCounterName: function () {return Tags.getCounterName(this);}});

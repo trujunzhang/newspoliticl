@@ -32,7 +32,7 @@ Categories.getChildren = function (category) {
   var categoriesArray = [];
 
   var getChildren = function recurse (categories) {
-    var children = Categories.find({parentId: {$in: _.pluck(categories, "_id")}}).fetch()
+    var children = Categories.find({parentId: {$in: _.pluck(categories, "_id")}}).fetch();
     if (children.length > 0) {
       categoriesArray = categoriesArray.concat(children);
       recurse(children);
@@ -70,5 +70,5 @@ Categories.helpers({getUrl: function () {return Categories.getUrl(this);}});
  */
  Categories.getCounterName = function (category) {
   return category._id + "-postsCount";
- }
+ };
  Categories.helpers({getCounterName: function () {return Categories.getCounterName(this);}});
