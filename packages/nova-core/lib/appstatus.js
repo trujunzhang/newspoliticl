@@ -14,6 +14,7 @@ class AppStatus {
     }
 
     updateCachePost(cachePost) {
+        this.singlePostId = '';
         this.layout.setState({cachePost: cachePost});
     }
 
