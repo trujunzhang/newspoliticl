@@ -23,7 +23,7 @@ class Downvote extends Component {
                 this.context.events.track("post downvote cancelled", {'_id': post._id});
             });
         } else {
-            this.context.actions.call('posts.downpvote', post._id, () => {
+            this.context.actions.call('posts.downvote', post._id, () => {
                 this.context.events.track("post downvoted", {'_id': post._id});
             });
         }
