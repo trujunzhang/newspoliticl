@@ -10,7 +10,7 @@ class Upvote extends Component {
         super(props);
     }
 
-    upvote(e) {
+    onUpvoteClick(e) {
         e.preventDefault();
 
         const post = this.props.post;
@@ -50,7 +50,7 @@ class Upvote extends Component {
         const postVoteClass = "postUpvoteArrow_2xABl" + (hasUpvoted ? " upvoted_172lX animate_asuDN" : "");
 
         return (
-          <button className={buttonClass} rel="vote-button" onClick={this.upvote.bind(this)}>
+          <button className={buttonClass} rel="vote-button" onClick={this.onUpvoteClick.bind(this)}>
               <div className="buttonContainer_wTYxi">
                   <div className={postVoteClass}></div>
                   {post.upvotes || 0}

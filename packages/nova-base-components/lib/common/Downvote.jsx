@@ -10,7 +10,7 @@ class Downvote extends Component {
         super(props);
     }
 
-    upvote(e) {
+    onDownvoteClick(e) {
         e.preventDefault();
 
         const post = this.props.post;
@@ -42,7 +42,7 @@ class Downvote extends Component {
         const postVoteClass = "postDownvoteArrow_2xABl" + (hasDownvoted ? " upvoted_172lX animate_asuDN" : "");
 
         return (
-          <button className={buttonClass} rel="vote-button" onClick={this.upvote.bind(this)}>
+          <button className={buttonClass} rel="vote-button" onClick={this.onDownvoteClick.bind(this)}>
               <div className="buttonContainer_wTYxi">
                   <div className={postVoteClass}></div>
                   {post.downvotes || 0}
