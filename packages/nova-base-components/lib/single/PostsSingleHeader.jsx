@@ -1,6 +1,6 @@
 import React from 'react';
-import {ListContainer} from "meteor/utilities:react-list-container";
-import Categories from "meteor/nova:categories";
+import {FormattedMessage, FormattedRelative} from 'react-intl';
+import Posts from "meteor/nova:posts";
 
 const PostsSingleHeader = (document, currentUser) => {
 
@@ -35,7 +35,6 @@ const PostsSingleHeader = (document, currentUser) => {
                                     href="#" rel="share-on-twitter">
                                       <div className="buttonContainer_wTYxi">
                                             <span>
-
                                                 <svg width="16px" height="13px" viewBox="0 0 16 13" version="1.1"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -81,7 +80,10 @@ const PostsSingleHeader = (document, currentUser) => {
               </div>
               <div className="timestamp_3yr9h">
                     <span className="secondaryText_PM80d inverse_1CN6F base_3CbW2">{post.author}
-                        <time datetime="2016-07-06T02:22:22.000-07:00" title="2016-07-06T02:22:22.000-07:00">2 months ago</time>
+                        <time className="post_header_right_time" datetime={post.postedAt } title={post.postedAt }>
+                            {/*2 months ago*/}
+                            {post.postedAt ? <FormattedRelative value={post.postedAt}/> : ""}
+                        </time>
                     </span>
               </div>
           </header>
