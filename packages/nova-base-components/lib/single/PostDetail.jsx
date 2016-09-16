@@ -6,7 +6,11 @@ import LazyLoad from 'react-lazy-load';
 const PostDetail = (document, currentUser) => {
     const post = document.post;
     const imageUrl = Posts.getDetailedPageImageUrl(post);
-    const htmlBody = {__html: post.htmlBody};
+    var html = post.htmlBody;
+    if (html) {
+        html = '<p>' + html.replace('\n' + '\n', '</p><p>') + '...</p>';
+    }
+    const htmlBody = {__html: html};
 
     return (
       <section className="container_3tEOd post_detail_container">
@@ -23,7 +27,7 @@ const PostDetail = (document, currentUser) => {
               </div>
           </div>
           {/*post's content*/}
-          <div dangerouslySetInnerHTML={htmlBody}/>
+          <div className="post_page_body" dangerouslySetInnerHTML={htmlBody}/>
       </section>
     )
 };
