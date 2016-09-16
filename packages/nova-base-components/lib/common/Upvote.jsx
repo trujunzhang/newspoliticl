@@ -4,7 +4,7 @@ import React, {PropTypes, Component} from 'react';
 import classNames from 'classnames';
 import Users from 'meteor/nova:users';
 
-class Vote extends Component {
+class Upvote extends Component {
 
     constructor(props) {
         super(props);
@@ -47,7 +47,7 @@ class Vote extends Component {
         const buttonClass = hasUpvoted ? "button_2I1re active_2heMV smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W" :
           "button_2I1re smallSize_1da-r secondaryText_PM80d simpleVariant_1Nl54 button_2n20W";
 
-        const postVoteClass = "postVoteArrow_2xABl" + (hasUpvoted ? " upvoted_172lX animate_asuDN" : "");
+        const postVoteClass = "postUpvoteArrow_2xABl" + (hasUpvoted ? " upvoted_172lX animate_asuDN" : "");
 
         return (
           <button className={buttonClass} rel="vote-button" onClick={this.upvote.bind(this)}>
@@ -60,17 +60,17 @@ class Vote extends Component {
     }
 }
 
-Vote.propTypes = {
+Upvote.propTypes = {
     post: React.PropTypes.object.isRequired, // the current post
     // currentUser: React.PropTypes.object, // the current user
 };
 
-Vote.contextTypes = {
+Upvote.contextTypes = {
     currentUser: React.PropTypes.object,
     actions: React.PropTypes.object,
     events: React.PropTypes.object,
     messages: React.PropTypes.object
 };
 
-module.exports = Vote;
-export default Vote;
+module.exports = Upvote;
+export default Upvote;
