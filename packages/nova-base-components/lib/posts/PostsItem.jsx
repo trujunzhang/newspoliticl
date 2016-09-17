@@ -130,11 +130,11 @@ class PostsItem extends Component {
                       <span onClick={this.popupDetail.bind(this)}
                             className="title_2p9fd featured_2W7jd default_tBeAo base_3CbW2 post-title">{post.title}</span>
                       {this.renderAdminActions()}
-                      <p style={{"margin-bottom": 10}} className="post_description"
-                         onClick={this.popupDetail.bind(this)}>
+                      <p className="post_description post_description_p" onClick={this.popupDetail.bind(this)}>
                           {((mytextvar).length > maxlimit)
                             ? (((mytextvar).substring(0, maxlimit - 3)) + '...')
-                            : mytextvar}</p>
+                            : mytextvar}
+                      </p>
                       {this.renderTags()}
                   </div>
 
