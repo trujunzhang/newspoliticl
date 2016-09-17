@@ -97,12 +97,12 @@ class PostsItem extends Component {
                       </a>
                   </div>
               </div>
-              <div className="annotations_X03xJ annotations_2Ditj">
-                  <div className="secondaryText_PM80d subtle_1BWOT base_3CbW2">
-                      <span >🏆</span>
-                      #1 in Tech
-                  </div>
-              </div>
+              {/*<div className="annotations_X03xJ annotations_2Ditj">*/}
+                  {/*<div className="secondaryText_PM80d subtle_1BWOT base_3CbW2">*/}
+                      {/*<span >🏆</span>*/}
+                      {/*#1 in Tech*/}
+                  {/*</div>*/}
+              {/*</div>*/}
               <div className="associations_2dmvY">
                   <div>
                       <a

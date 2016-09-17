@@ -11,7 +11,7 @@ class PostsHome extends Component {
     }
 
     getDefaultView() {
-        return {view: 'best'}
+        return {view: 'new'}
     }
 
     render() {
