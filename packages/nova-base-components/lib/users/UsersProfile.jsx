@@ -64,6 +64,7 @@ class UsersProfile extends Component {
                       const className = "text_3Wjo0 default_tBeAo base_3CbW2" + (currentPathName == menu.path ? " active_1bUET" : "");
                       return (
                         <li>
+                            key={key}
                             <a className={className} onClick={this.onMenuItemClick.bind(this, menu)}>
                                 <em className="user_left_menu_number">{menu.value}</em>
                                 <span>{menu.title}</span>

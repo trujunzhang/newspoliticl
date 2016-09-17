@@ -51,6 +51,7 @@ class UsersPopoverMenu extends Component {
                   {loggedUserMenu.map((menu, key) => {
                       return (
                         <li
+                          key={key}
                           className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
                             <a
                               onClick={this.onMenuItemClick.bind(this, menu)}>{menu.title}</a>

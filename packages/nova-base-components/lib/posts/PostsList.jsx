@@ -14,10 +14,9 @@ const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loa
                           <div className="posts_275PF">
                               <ul className="postsList_2tOc7">
                                   {results.map(post =>
-                                    <li>
+                                    <li key={post._id}>
                                         <Telescope.components.PostsItem post={post}
-                                                                        currentUser={currentUser}
-                                                                        key={post._id}/>
+                                                                        currentUser={currentUser}/>
                                     </li>
                                   )}
                               </ul>
