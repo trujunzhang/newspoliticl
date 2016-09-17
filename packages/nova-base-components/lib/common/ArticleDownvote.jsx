@@ -11,8 +11,6 @@ class ArticleDownvote extends Component {
     }
 
     onDownvoteClick(e) {
-        e.preventDefault();
-
         const post = this.props.post;
         const user = this.context.currentUser;
 

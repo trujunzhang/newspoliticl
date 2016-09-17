@@ -11,8 +11,6 @@ class ArticleUpvote extends Component {
     }
 
     onUpvoteClick(e) {
-        e.preventDefault();
-
         const post = this.props.post;
         const user = this.context.currentUser;
 

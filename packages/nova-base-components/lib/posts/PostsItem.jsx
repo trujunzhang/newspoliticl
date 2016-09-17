@@ -116,17 +116,6 @@ class PostsItem extends Component {
         )
     }
 
-    popupDetail() {
-        const post = this.props.post;
-        const path = "/?postid=" + post._id + "&title=" + post.slug;
-        this.context.messages.pushAndPostShow(post._id);
-
-        const router = this.props.router;
-        delay(() => {
-            router.push({pathname: path});
-        }, 10);
-    }
-
     render() {
 
         const post = this.props.post;
@@ -161,6 +150,15 @@ class PostsItem extends Component {
               {this.renderActionButtons(post)}
           </div>
         )
+    }
+
+    popupDetail() {
+        const post = this.props.post;
+        const path = "/?postid=" + post._id + "&title=" + post.slug;
+        this.context.messages.pushAndPostShow(post._id);
+
+        const router = this.props.router;
+        router.push({pathname: path});
     }
 
     onAuthorClick(author) {

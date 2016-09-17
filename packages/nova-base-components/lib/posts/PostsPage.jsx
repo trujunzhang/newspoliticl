@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import Posts from "meteor/nova:posts";
+import {DocumentContainer} from "meteor/utilities:react-list-container";
 
 class PostsPage extends Component {
 
