@@ -7,6 +7,13 @@ const PostsSingleHeader = (document, currentUser) => {
     const post = document.post;
     const title = post.title;
 
+    var html = post.htmlBody;
+    if (html) {
+        html = '<p>' + html.replace('\n' + '\n', '</p><p>') + '...</p>';
+    }
+    const message = post.title;
+    const link = Posts.getDetailedPageImageUrl(post);
+
     return (
       <div>
           <header className="backgroundImage_1hK9M header_1OPY8 post_detail_header">
