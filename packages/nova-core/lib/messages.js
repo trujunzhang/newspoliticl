@@ -19,6 +19,17 @@ const Messages = {
     postDetailSet: new PostDetailSet(),
 
     layout: Component,
+    newsListContainer: null,
+
+    registerNewsListContainer(comp){
+        this.newsListContainer = comp;
+    },
+
+    resetNewsListContainer(increment){
+        if (this.newsListContainer) {
+            this.newsListContainer.setState({limit: increment});
+        }
+    },
 
     registerCompont(layout, rootPath){
         this.layout = layout;

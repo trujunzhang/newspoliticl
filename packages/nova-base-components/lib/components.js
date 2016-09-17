@@ -136,3 +136,7 @@ Telescope.registerComponent("FoldersItem",              require('./collections/F
 Telescope.registerComponent("FolderPostsList",          require('./collections/FolderPostsList.jsx'));
 
 
+// extensions
+Telescope.registerComponent("NewsListContainer",        require('./extensions/NewsListContainer.jsx'));
+
+

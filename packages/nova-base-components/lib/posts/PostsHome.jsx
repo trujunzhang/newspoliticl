@@ -36,9 +36,10 @@ class PostsHome extends Component {
             const {selector, options} = Posts.parameters.get(params);
 
             const limit = Telescope.settings.get("postsPerPage", 10);
+            this.context.messages.resetNewsListContainer(limit)
             return (
               <div className="content_1jnXo">
-                  <ListContainer
+                  <Telescope.components.NewsListContainer
                     collection={Posts}
                     publication="posts.list"
                     selector={selector}
