@@ -60,7 +60,7 @@ const PostsSingleHeader = (document, currentUser) => {
                                   </a>
                                   <a
                                     className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 shareButton_1occ0 collectButton_Ne4nn"
-                                    href="#" rel="save-button" data-test="collect-button">
+                                    href="#" rel="save-button">
                                       <div className="buttonContainer_wTYxi">
                                             <span>
                                                 <svg width="13" height="10" viewBox="0 0 13 10"
