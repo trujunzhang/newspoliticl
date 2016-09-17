@@ -27,10 +27,7 @@ class UsersPopoverMenu extends Component {
             case "logout":
                 Meteor.logout(Accounts.ui._options.onSignedOutHook());
                 break;
-            case "profile":
-                router.push({pathname: menu.path});
-                break;
-            case "collections":
+            default:
                 router.push({pathname: menu.path});
                 break;
         }
