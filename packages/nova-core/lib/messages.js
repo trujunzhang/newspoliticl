@@ -63,7 +63,11 @@ const Messages = {
 
     showPopoverMenu(top, left, width, height, type){
         var popoverMenus = new PopoverMenus(top, left, width, height, type);
-        this.layout.setState({popoverMenu: popoverMenus});
+        if (this.layout.state.popoverMenu) {
+            this.dismissPopoverMenu();
+        } else {
+            this.layout.setState({popoverMenu: popoverMenus});
+        }
     },
 
     dismissPopoverMenu(){

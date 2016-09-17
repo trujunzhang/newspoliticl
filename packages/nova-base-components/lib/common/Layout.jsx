@@ -49,7 +49,7 @@ class Layout extends Component {
               }
             );
             if (isClicked) {
-                //messages.dismissPopoverMenu();
+                messages.dismissPopoverMenu();
             }
         });
     }
