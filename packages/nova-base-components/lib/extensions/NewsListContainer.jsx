@@ -14,6 +14,12 @@ class NewsListContainer extends ListContainer {
         this.context.messages.registerNewsListContainer(this);
     }
 
+    loadMore(event) {
+        this.setState({
+            limit: this.state.limit + this.props.increment
+        });
+    }
+
 }
 
 NewsListContainer.contextTypes = {
