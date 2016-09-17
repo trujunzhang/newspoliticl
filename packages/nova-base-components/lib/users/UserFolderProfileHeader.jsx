@@ -76,6 +76,10 @@ class UserFolderProfileHeader extends Component {
         }
     }
 
+    onUserNameClick() {
+
+    }
+
     renderFolderName() {
         const folder = this.props.folder;
 
@@ -151,7 +155,7 @@ class UserFolderProfileHeader extends Component {
                       {this.renderFolderDescription()}
                   </h2>
                   <div className="collection-detail--header--curator">
-                      <a href="https://www.producthunt.com/@trujunzhang">
+                      <a onClick={this.onUserNameClick.bind(this)}>
                           {/*Logged user avatar*/}
                           <Telescope.components.UserFolderProfileHeaderUserAvatar user={user}/>
                           by {userName}
