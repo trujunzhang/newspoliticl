@@ -3,6 +3,7 @@ import React, {PropTypes, Component} from 'react';
 import {ListContainer, DocumentContainer} from "meteor/utilities:react-list-container";
 import Posts from "meteor/nova:posts";
 import moment from 'moment';
+import {withRouter} from 'react-router'
 
 class PostsHome extends Component {
 
@@ -71,4 +72,7 @@ PostsHome.contextTypes = {
     messages: React.PropTypes.object
 };
 
-module.exports = PostsHome;
+PostsHome.displayName = "Layout";
+
+module.exports = withRouter(PostsHome);
+export default withRouter(PostsHome);
