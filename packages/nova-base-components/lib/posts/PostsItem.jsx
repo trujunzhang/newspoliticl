@@ -7,7 +7,6 @@ import {Link} from 'react-router';
 import Posts from "meteor/nova:posts";
 import Users from 'meteor/nova:users';
 import {withRouter} from 'react-router'
-//import HtmlToReact from 'html-to-react';
 
 const delay = (function () {
     var timer = 0;

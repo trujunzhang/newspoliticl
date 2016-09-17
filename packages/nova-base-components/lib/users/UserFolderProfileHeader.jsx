@@ -2,6 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
 import {DocumentContainer} from "meteor/utilities:react-list-container";
 import Users from 'meteor/nova:users';
+import {withRouter} from 'react-router'
 
 const keyCodes = {
     ENTER: 13,
@@ -77,7 +78,8 @@ class UserFolderProfileHeader extends Component {
     }
 
     onUserNameClick() {
-
+        const user = this.props.user;
+        this.props.router.push({pathname: "/users/" + user.telescope.slug});
     }
 
     renderFolderName() {
@@ -197,4 +199,6 @@ UserFolderProfileHeader.contextTypes = {
 
 UserFolderProfileHeader.displayName = "UserFolderProfileHeader";
 
-module.exports = UserFolderProfileHeader;
+module.exports = withRouter(UserFolderProfileHeader);
+export default withRouter(UserFolderProfileHeader);
+
