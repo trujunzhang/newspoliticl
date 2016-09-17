@@ -35,6 +35,7 @@ class PostsHome extends Component {
             const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
             const {selector, options} = Posts.parameters.get(params);
 
+            const limit = Telescope.settings.get("postsPerPage", 10);
             return (
               <div className="content_1jnXo">
                   <ListContainer
@@ -47,7 +48,7 @@ class PostsHome extends Component {
                     component={Telescope.components.PostsList}
                     cacheSubscription={false}
                     listId={params.listId}
-                    limit={Telescope.settings.get("postsPerPage", 10)}
+                    limit={limit}
                   />
                   <div className="sidebar_Y2LGQ">
 
