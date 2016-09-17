@@ -1,8 +1,4 @@
 class AppStatus {
-    //registerPostsHome(postsHome) {
-    //    this.postsHome = postsHome;
-    //}
-
     registerLayout(layout, rootPath) {
         this.layout = layout;
         this.rootPath = rootPath;

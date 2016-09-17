@@ -61,6 +61,21 @@ Users.helpers({getDisplayName: function () {return Users.getDisplayName(this);}}
 Users.getDisplayNameById = function (userId) {return Users.getDisplayName(Meteor.users.findOne(userId));};
 
 
+/**
+ * @summary Get a user's display name (not unique, can take special characters and spaces)
+ * @param {Object} user
+ */
+Users.getBio= function (user) {
+  if (typeof user === "undefined") {
+    return "";
+  } else {
+    return (user.telescope && user.telescope.bio) ? user.telescope.bio : "Describe the biography briefly";
+  }
+};
+Users.helpers({getBio: function () {return Users.getBio(this);}});
+Users.getBioById = function (userId) {return Users.getBio(Meteor.users.findOne(userId));};
+
+
 
 
 /**
@@ -119,6 +134,8 @@ Users.getTwitterName = function (user) {
       return user.profile.twitter;
     } else if(Telescope.utils.checkNested(user, 'services', 'twitter', 'screenName')) {
       return user.services.twitter.screenName;
+    }else {
+      return (user.telescope && user.telescope.twitterUsername) ? user.telescope.twitterUsername : null;
     }
   }
   return null;

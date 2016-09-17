@@ -16,6 +16,9 @@ class UserProfileHeader extends Component {
         const avatarUrl = Users.avatar.getUrl(user);
         const avatar = avatarUrl ? <img height="140" width="140" src={avatarUrl}/> : "";
 
+        const bio = Users.getBio(user);
+        const twitterName = Users.getTwitterName(user);
+
         return (
           <div>
               <div className="constraintWidth_ZyYbM constraintWidth_2VQxE">
@@ -31,9 +34,8 @@ class UserProfileHeader extends Component {
                           <div className="primary_38IeC">
                               <h1 className="headline_azIav inverse_1CN6F base_3CbW2">{Users.getDisplayName(user)}</h1>
                           </div>
-                          {/*<h2 className="username_3tQri featured_2W7jd inverse_1CN6F base_3CbW2">@trujunzhang</h2>*/}
-                          <p className="secondary_Yuxa5 text_3Wjo0 inverse_1CN6F base_3CbW2">I'm a freelancer,
-                              http://www.scruby.site
+                          <h2 className="username_3tQri featured_2W7jd inverse_1CN6F base_3CbW2">{twitterName}</h2>
+                          <p className="secondary_Yuxa5 text_3Wjo0 inverse_1CN6F base_3CbW2">{bio}
                               <a className="twitter_3_mOY" href="https://twitter.com/TrujunZhang" rel="user-twitter"
                                  target="_blank">
                                     <span>
