@@ -2,16 +2,19 @@ import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
 import {DocumentContainer} from "meteor/utilities:react-list-container";
 import Users from 'meteor/nova:users';
+import {withRouter} from 'react-router'
 
 class UserProfileHeader extends Component {
+
+    onEditButtonClick(menu) {
+        const user = this.props.user;
+        this.props.router.push({pathname: "/users/" + user.telescope.slug + "/edit"});
+    }
 
     render() {
         const user = this.props.user;
         const avatarUrl = Users.avatar.getUrl(user);
         const avatar = avatarUrl ? <img height="140" width="140" src={avatarUrl}/> : "";
-
-        const upvotedPosts = user.telescope.upvotedPosts;
-        const collections = 0;
 
         return (
           <div>
@@ -47,7 +50,7 @@ class UserProfileHeader extends Component {
                       <div className="social_1SKRS">
                           <a
                             className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54"
-                            href="https://www.producthunt.com/my/settings/edit">
+                            onClick={this.onEditButtonClick.bind(this)}>
                               <div className="buttonContainer_wTYxi">edit</div>
                           </a>
                       </div>
@@ -70,4 +73,6 @@ UserProfileHeader.contextTypes = {
 
 UserProfileHeader.displayName = "UserProfileHeader";
 
-module.exports = UserProfileHeader;
+module.exports = withRouter(UserProfileHeader);
+export default withRouter(UserProfileHeader);
+
