@@ -22,7 +22,7 @@ class HeaderPopoverMenu extends Component {
         ];
     }
 
-    onMenuItemClick(item) {
+    onMenuItemClick(menu) {
 
     }
 
@@ -39,7 +39,7 @@ class HeaderPopoverMenu extends Component {
                       return (
                         <li
                           className="option_2XMGo secondaryBoldText_1PBCf secondaryText_PM80d subtle_1BWOT base_3CbW2">
-                            <a href="https://www.producthunt.com/@trujunzhang">{menu.title}</a>
+                            <a onClick={this.onMenuItemClick.bind(this, menu)}>{menu.title}</a>
                         </li>
                       )
                   })}
