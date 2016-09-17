@@ -84,7 +84,7 @@ class PostsItem extends Component {
                       </a>
                       <a
                         className="button_2I1re smallSize_1da-r secondaryText_PM80d subtleVariant_tlhj3 simpleVariant_1Nl54 button_2n20W"
-                        target="_blank" href="/r/a7b2435b0265fd/74101">
+                        target="_blank" href={post.url}>
                           <div className="buttonContainer_wTYxi">
                                 <span>
                                     <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
