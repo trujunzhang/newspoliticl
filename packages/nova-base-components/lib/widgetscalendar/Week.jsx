@@ -40,7 +40,7 @@ class Week extends Component {
               <td role="gridcell" title="2016-5-29" className={_className}
                   key={day.date.toString()}>
                   <div className="rc-calendar-date"
-                       onClick={day.disable ? null : this.props.select.bind(null, day)}> {day.number}</div>
+                       onClick={day.disable ? null : this.props.select.bind(this, day)}> {day.number}</div>
               </td>
             );
             date = date.clone();
