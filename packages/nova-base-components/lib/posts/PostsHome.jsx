@@ -43,7 +43,6 @@ class PostsHome extends Component {
                     selector={selector}
                     options={options}
                     terms={params}
-                    increment={0}
                     joins={Posts.getJoins()}
                     component={Telescope.components.PostsList}
                     cacheSubscription={false}
