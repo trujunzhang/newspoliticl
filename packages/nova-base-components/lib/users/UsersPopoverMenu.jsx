@@ -45,7 +45,7 @@ class UsersPopoverMenu extends Component {
         const loggedUserMenu = [
             {type: "profile", path: "/users/" + user.telescope.slug, title: "MY PROFILE"},
             {type: "collections", path: "/users/" + user.telescope.slug + "/collections", title: "MY COLLECTIONS"},
-            {type: "settings", title: "SETTINGS"},
+            {type: "settings", path: "/users/" + user.telescope.slug + "/edit", title: "SETTINGS"},
             {type: "logout", title: "LOGOUT"}
         ];
         return (
