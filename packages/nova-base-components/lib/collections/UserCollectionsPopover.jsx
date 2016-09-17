@@ -28,6 +28,10 @@ class UserCollectionsPopover extends Component {
         this.setState({value: input});
     }
 
+    onHelpIconClick() {
+
+    }
+
     renderLoading() {
         return (
           <div className="popover--loader"></div>
@@ -38,7 +42,7 @@ class UserCollectionsPopover extends Component {
         return (
           <div className="popover--header">
               <h3 className="popover--header--title">Add to Collection</h3>
-              <a className="popover--header--icon" href="https://www.producthunt.com/#">
+              <a className="popover--header--icon" onClick={this.onHelpIconClick.bind(this)}>
                     <span>
                         <svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1">
                             <g id="Page-1" stroke="none" stroke-width="1" fill="none">
@@ -120,8 +124,9 @@ class UserCollectionsPopover extends Component {
 
     rendAddNewButton() {
         return (
-          <a id="addNewCollectionButton" onClick={this.onAddNewClick} className="collections-popover--form-trigger"
-             href="https://www.producthunt.com/#">Add New</a>
+          <a id="addNewCollectionButton" onClick={this.onAddNewClick} className="collections-popover--form-trigger">
+              Add New
+          </a>
         )
     }
 
