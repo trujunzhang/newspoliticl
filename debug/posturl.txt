@@ -29,3 +29,21 @@ http://localhost:3000/?cat=politics
 http://localhost:3000/users/pusher
 
 https://www.producthunt.com/@trujunzhang/collections/imessage-articles-collections-folder-djzhang-wanghao-trujunzhang-ios
+
+
+https://www.facebook.com/dialog/feed?app_id=1570274779948831
+&redirect_uri=http://facebook.com
+&link=http://www.newindianexpress.com/opinion/Society-must-start-looking-at-paralympians-as-winners-too/2016/09/18/article3623513.ece
+&picture=https://s3.amazonaws.com/newspoliticl/66d678ab23af43454a7b381a27c7a3a7-630x420.jpg
+&caption=Society must start looking at paralympians as winners | BY POLITICL.COM
+&description=Icannot express enough happiness at winning another Paralympic gold, that too with a world record. The biggest satisfaction is that I’ve made a billion people back home happy, with this achievement.
+
+
+
+https://twitter.com/share?size=l
+&url=https://s3.amazonaws.com/newspoliticl/66d678ab23af43454a7b381a27c7a3a7-630x420.jpg
+&via=Getpoliticl
+&related=djzhang
+&text=Society must start looking at paralympians as winners
+
+
